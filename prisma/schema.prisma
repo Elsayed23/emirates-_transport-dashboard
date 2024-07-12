@@ -1,0 +1,49 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model TrafficLine {
+  id                  String   @id @default(uuid())
+  name                String
+  schoolId            Int
+  schoolName          String
+  stationId           Int
+  stationName         String
+  educationalLevel    String
+  countOfStudents     Int
+  transferredCategory String
+  risks               Risk[]
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt()
+}
+
+model Risk {
+  id                  String           @id @default(uuid())
+  trafficLineId       String?
+  questionId          Int?
+  causeOfRisk         String?
+  activity            String?
+  typeOfActivity      String?
+  hazardSource        String?
+  risk                String?          @db.LongText
+  peopleExposedToRisk String?
+  riskAssessment      String?
+  residualRisks       String?
+  expectedInjury      String?
+  controlMeasures     ControlMeasure[]
+  trafficLine         TrafficLine?     @relation(fields: [trafficLineId], references: [id])
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+}
+
+model ControlMeasure {
+  id      String @id @default(uuid())
+  riskId  String
+  measure String @db.LongText
+  risk    Risk   @relation(fields: [riskId], references: [id])
+}
