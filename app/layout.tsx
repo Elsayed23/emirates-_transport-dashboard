@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 import { IsOpenProvider } from '@/app/context/index'
 import { LanguageProvider } from '@/app/context/LanguageContext'
+import { AuthProvider } from '@/app/context/AuthContext'
 
 export default function RootLayout({
   children,
@@ -22,14 +23,16 @@ export default function RootLayout({
     <html>
       <body className={inter.className}>
         <LanguageProvider>
-          <IsOpenProvider>
-            <Toaster
-              dir="auto"
-              richColors={true}
-              position="top-center"
-            />
-            {children}
-          </IsOpenProvider>
+          <AuthProvider>
+            <IsOpenProvider>
+              <Toaster
+                dir="auto"
+                richColors={true}
+                position="top-center"
+              />
+              {children}
+            </IsOpenProvider>
+          </AuthProvider>
         </LanguageProvider>
       </body>
     </html>

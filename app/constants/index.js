@@ -2,6 +2,7 @@ export const stationsData = [
     {
         id: 1,
         name: 'بني ياس',
+        filterName: 'bani_yas',
         translationName: 'Bani Yas',
         schools: [
             {
@@ -441,6 +442,7 @@ export const stationsData = [
     {
         id: 2,
         name: 'الساد',
+        filterName: 'alsaad',
         translationName: 'Alsaad',
         schools: [
             {
@@ -736,6 +738,7 @@ export const stationsData = [
     {
         id: 3,
         name: 'مصفح2',
+        filterName: 'musaffah2',
         translationName: 'Musaffah2',
         schools: [
             {
@@ -1031,6 +1034,7 @@ export const stationsData = [
     {
         id: 4,
         name: 'العاصمة',
+        filterName: 'aleasima',
         translationName: 'Aleasima',
         schools: [
             {
@@ -1362,6 +1366,7 @@ export const stationsData = [
     {
         id: 5,
         name: 'العدله',
+        filterName: 'aleadlah',
         translationName: 'Aleadlah',
         schools: [
             {
@@ -1432,6 +1437,7 @@ export const stationsData = [
     {
         id: 6,
         name: 'الظفرة',
+        filterName: 'alzafra',
         translationName: 'Alzafra',
         schools: [
             {
@@ -1791,6 +1797,7 @@ export const stationsData = [
     {
         id: 7,
         name: 'الشهامة',
+        filterName: 'alshahama',
         translationName: 'Alshahama',
         schools: [
             {
@@ -2005,6 +2012,7 @@ export const stationsData = [
     {
         id: 8,
         name: 'مزيد',
+        filterName: 'mazid',
         translationName: 'Mazid',
         schools: [
             {
@@ -2417,6 +2425,7 @@ export const stationsData = [
     {
         id: 9,
         name: 'الفوعة',
+        filterName: 'al_fouah',
         translationName: 'Al-Fouah',
         schools: [
             {
