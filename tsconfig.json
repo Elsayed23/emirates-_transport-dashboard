@@ -35,7 +35,8 @@
     "app/(dashboard)/(routes)/page.jsx",
     "app/context/index.jsx",
     "app/context/index.jsx",
-    "app/(dashboard)/layout.jsx"
+    "app/(dashboard)/layout.jsx",
+    "app/(dashboard)/(routes)/reports/[id]/page.jsx"
   ],
   "exclude": [
     "node_modules"

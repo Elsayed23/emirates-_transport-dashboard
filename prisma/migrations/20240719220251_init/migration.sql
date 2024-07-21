@@ -2,11 +2,45 @@
 CREATE TABLE `User` (
     `id` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
-    `stationId` VARCHAR(191) NOT NULL,
+    `stationId` INTEGER NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `password` VARCHAR(191) NOT NULL,
 
     UNIQUE INDEX `User_email_key`(`email`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `reports` (
+    `id` VARCHAR(191) NOT NULL,
+    `name` VARCHAR(191) NOT NULL,
+    `stationId` INTEGER NOT NULL,
+    `nameOfStation` VARCHAR(191) NOT NULL,
+    `InspectionSite` VARCHAR(191) NOT NULL,
+    `city` VARCHAR(191) NOT NULL,
+    `jobTitleOfTheEmployee` VARCHAR(191) NOT NULL,
+    `employeeName` VARCHAR(191) NOT NULL,
+    `schoolId` INTEGER NULL,
+    `nameOfSchool` VARCHAR(191) NULL,
+    `enNameOfschool` VARCHAR(191) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `inspections` (
+    `id` VARCHAR(191) NOT NULL,
+    `reportId` VARCHAR(191) NOT NULL,
+    `name` VARCHAR(191) NOT NULL,
+    `image` LONGTEXT NOT NULL,
+    `idOfBus` INTEGER NOT NULL,
+    `noteClassification` VARCHAR(191) NOT NULL,
+    `description` VARCHAR(191) NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -56,6 +90,9 @@ CREATE TABLE `ControlMeasure` (
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- AddForeignKey
+ALTER TABLE `inspections` ADD CONSTRAINT `inspections_reportId_fkey` FOREIGN KEY (`reportId`) REFERENCES `reports`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `TrafficLine` ADD CONSTRAINT `TrafficLine_user_id_fkey` FOREIGN KEY (`user_id`) REFERENCES `User`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

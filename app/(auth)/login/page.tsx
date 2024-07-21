@@ -39,7 +39,6 @@ const page = () => {
             const { data } = await axios.post('/api/auth/login', values);
 
             const { status, token, message } = data;
-
             if (status === 200) {
                 loginUser(token);
                 toast.success('Successfully login')
@@ -56,9 +55,9 @@ const page = () => {
     };
 
     return (
-        <div className="w-full lg:grid min-h-screen lg:grid-cols-2">
-            <div className="flex items-center w-full mx-auto justify-center py-12">
-                <div className="flex flex-col items-center gap-5 p-5 border rounded-md">
+        <div className="w-full place-content-center lg:place-content-stretch lg:grid min-h-screen lg:grid-cols-2">
+            <div className="flex items-center w-full px-4 mx-auto justify-center py-12">
+                <div className="flex flex-col w-full sm:w-fit items-center gap-5 p-5 border rounded-md">
                     <h1 className="text-3xl font-bold">Login</h1>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-full sm:w-[370px] gap-7 mx-auto">
@@ -95,11 +94,11 @@ const page = () => {
             </div>
             <div className="hidden bg-muted lg:block">
                 <Image
-                    src={registrationImage}
+                    src={require('@/app/assets/images/logo.svg')}
                     alt="Image"
                     width="1920"
                     height="1080"
-                    className="h-full w-full object-fill"
+                    className="h-full w-full object-none"
                 />
             </div>
         </div>

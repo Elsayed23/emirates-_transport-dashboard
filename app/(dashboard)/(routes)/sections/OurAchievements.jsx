@@ -62,19 +62,17 @@ const OurAchievements = () => {
         )
     })
 
+    if (loading) return <Loading />
+
 
     return (
-        !loading
-            ?
-            <div className='py-16'>
-                <div className="container mx-auto">
-                    <div className="grid grid-cols-3 gap-6">
-                        {cards}
-                    </div>
+        <div className='py-16'>
+            <div className="container mx-auto">
+                <div className="grid grid-cols-3 gap-6">
+                    {cards}
                 </div>
             </div>
-            :
-            <Loading />
+        </div>
     )
 }
 

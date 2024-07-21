@@ -3,7 +3,7 @@ import SideItems from './SideItems'
 import { IoMdHome } from "react-icons/io";
 import { FaMapMarkedAlt, FaSchool } from "react-icons/fa";
 import useTranslation from '@/app/hooks/useTranslation';
-import { MdModelTraining } from 'react-icons/md';
+import { MdImageSearch, MdModelTraining } from 'react-icons/md';
 
 const SidebarRoutes = () => {
 
@@ -22,9 +22,15 @@ const SidebarRoutes = () => {
         },
         {
             icon: MdModelTraining,
-            label: t('schools'),
-            href: '/schools'
+            label: t('trainings'),
+            href: '/tranings'
         },
+        {
+            icon: MdImageSearch,
+            label: t('schools'),
+            href: '/reports'
+        },
+
 
     ]
 

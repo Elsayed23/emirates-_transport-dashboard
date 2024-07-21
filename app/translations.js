@@ -23,7 +23,7 @@ const translations = {
         "home": "Home",
         "stations": "Stations",
         "station": "station",
-        "schools": "Awareness",
+        "schools": "Reports",
         "Emirates Education Foundation contract": "Emirates Education Foundation contract",
         "Count of itineraries": "Count of itineraries",
         "Count of transfers": "Count of transfers",
@@ -71,6 +71,9 @@ const translations = {
         "the answer": "the answer",
         "You must answer all questions": "You must answer all questions",
         "The notification has been saved successfully": "The notification has been saved successfully",
+        "trainings": 'Trainings',
+        "logout": "Logout",
+        "Download Risks": "Download risks"
     },
     ar: {
         hero: {
@@ -96,7 +99,7 @@ const translations = {
         "home": "الرئيسية",
         "stations": "المحطات",
         "station": "محطة",
-        "schools": "التوعيات",
+        "schools": "التقارير",
         "Emirates Education Foundation contract": "عقد مؤسسة الامارات للتعليم",
         "Count of itineraries": "عدد خطوط السير",
         "Count of transfers": "عدد المنقولين",
@@ -144,6 +147,9 @@ const translations = {
         "the answer": "الإجابة",
         "You must answer all questions": "عليك الجواب علي جميع الأسئلة",
         "The notification has been saved successfully": "تم حفظ الاخطار بنجاح",
+        "trainings": 'التدريبات',
+        "logout": "تسجيل خروج",
+        "Download Risks": "تحميل المخاطر"
     }
 };
 

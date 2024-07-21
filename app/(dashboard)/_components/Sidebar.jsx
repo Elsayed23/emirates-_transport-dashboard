@@ -7,11 +7,14 @@ import { useOpen } from '@/app/context'
 import LanguageContext from '@/app/context/LanguageContext'
 import { VscSignOut } from "react-icons/vsc";
 import { useAuth } from '@/app/context/AuthContext';
+import useTranslation from '@/app/hooks/useTranslation';
 
 const Sidebar = () => {
 
     const { isOpen, setIsOpen } = useOpen()
     const { language } = useContext(LanguageContext);
+
+    const { t } = useTranslation()
 
     const { logout } = useAuth()
 
@@ -42,9 +45,13 @@ const Sidebar = () => {
                 }
                 </div>
             </div>
-            <div onClick={logout} className='p-6 text-red-700 bg-red-200/20 hover:bg-red-500 hover:text-white m-2 rounded-sm duration-200 cursor-pointer flex items-center gap-2'>
-                <VscSignOut size={25} />
-                تسجيل خروج
+            <div onClick={logout} className={`${isOpen ? 'p-6' : 'p-2'} text-ellipsis text-nowrap break-words text-red-700 bg-red-200/20 hover:bg-red-500 hover:text-white m-2 rounded-sm duration-200 cursor-pointer flex justify-center items-center gap-2`}>
+                <VscSignOut size={isOpen ? 25 : 30} />
+                {
+                    isOpen
+                    &&
+                    t('logout')
+                }
             </div>
         </div>
     )

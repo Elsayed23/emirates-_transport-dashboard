@@ -16,6 +16,40 @@ model User {
   TrafficLine TrafficLine[]
 }
 
+model Report {
+  id                    String       @id @default(uuid())
+  name                  String
+  stationId             Int
+  nameOfStation         String
+  InspectionSite        String
+  city                  String
+  jobTitleOfTheEmployee String
+  employeeName          String
+  schoolId              Int?
+  nameOfSchool          String?
+  enNameOfschool        String?
+  inspections           Inspection[]
+  createdAt             DateTime     @default(now())
+  updatedAt             DateTime     @updatedAt()
+
+  @@map("reports")
+}
+
+model Inspection {
+  id                 String   @id @default(uuid())
+  reportId           String
+  name               String
+  image              String   @db.LongText
+  idOfBus            Int
+  noteClassification String
+  description        String
+  report             Report   @relation(fields: [reportId], references: [id])
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt()
+
+  @@map("inspections")
+}
+
 model TrafficLine {
   id                  String   @id @default(uuid())
   name                String

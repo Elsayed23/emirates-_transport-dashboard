@@ -1,8 +1,7 @@
 'use client'
 import Sidebar from './_components/Sidebar';
-import React, { Suspense, useContext } from 'react'
+import React, { useContext } from 'react'
 import Navbar from './_components/Navbar'
-import Loading from './_components/Loading';
 import { useOpen } from '@/app/context';
 import LanguageContext from '../context/LanguageContext';
 
@@ -20,9 +19,7 @@ const Layout = ({
                 <Sidebar />
             </div>
             <main className={`${isOpen ? `${language === 'ar' ? 'md:pr-56' : 'md:pl-56'}` : `${language === 'ar' ? 'md:pr-[75px]' : 'md:pl-[75px]'}`} pt-20 relative duration-300 z-20`}>
-                <Suspense fallback={<Loading />}>
-                    {children}
-                </Suspense>
+                {children}
             </main>
         </div>
     )

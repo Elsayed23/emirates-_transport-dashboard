@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import logo from '@/app/assets/images/singleLogo.jpg'
+import logo from '@/app/assets/images/singleLogo.png'
 import Image from 'next/image'
 import { useOpen } from '@/app/context'
 import LanguageContext from '@/app/context/LanguageContext'

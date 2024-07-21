@@ -17,7 +17,7 @@ import Loading from '@/app/(dashboard)/_components/Loading'
 import axios from 'axios'
 import useTranslation from '@/app/hooks/useTranslation'
 import LanguageContext from '@/app/context/LanguageContext'
-import { exportToExcel } from '@/utils/exportToexcel'
+import { exportRisksToExcel } from '@/utils/exportRisksToExcel'
 
 const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
@@ -82,7 +82,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const isHaveRisks = risks.length
 
     const handleDownload = () => {
-        exportToExcel(risks, 'risk_data');
+        exportRisksToExcel(risks, `${trafficLineName} Risks`);
     };
 
     return (
@@ -93,7 +93,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                     <DynamicBreadcrumb routes={breadcrumbData} />
                     <div className="flex items-center gap-3">
                         <Button className='w-fit justify-start' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${trafficLineId}/add`)}>{isHaveRisks ? t('Update risks') : t('Add risks')}</Button>
-                        <Button variant='outline' onClick={handleDownload}>تحميل المخاطر</Button>
+                        <Button variant='outline' onClick={handleDownload}>{t('Download Risks')}</Button>
                     </div>
                     <Table dir='rtl'>
                         <TableHeader>

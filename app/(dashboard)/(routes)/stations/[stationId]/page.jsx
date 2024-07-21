@@ -11,7 +11,7 @@ import LanguageContext from '@/app/context/LanguageContext'
 const page = ({ params: { stationId } }) => {
 
 
-    const { name, translationName, schools, id } = getStationSchools(stationId)
+    const { translationName, schools, id } = getStationSchools(stationId)
 
     const [loading, setLoading] = useState(true)
 

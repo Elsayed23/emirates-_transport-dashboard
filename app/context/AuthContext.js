@@ -11,15 +11,14 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const router = useRouter();
 
+    const pathname = usePathname()
+
     function parseJwt(token) {
         if (!token) { return; }
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace('-', '+').replace('_', '/');
         return JSON.parse(window.atob(base64));
     }
-
-
-    const pathname = usePathname()
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -28,14 +27,8 @@ export const AuthProvider = ({ children }) => {
                 setToken(storedToken);
                 setUser(parseJwt(storedToken));
                 setIsAuthenticated(true);
-                if (pathname === '/login' || pathname === '/register') {
-                    router.push('/')
-                } else {
-                    router.push(pathname)
-                }
             } else {
                 setIsAuthenticated(false);
-                router.push('/login');
             }
         }
     }, []);
@@ -45,15 +38,12 @@ export const AuthProvider = ({ children }) => {
             if (token) {
                 localStorage.setItem('token', token);
                 setIsAuthenticated(true);
-                if (pathname === '/login' || pathname === '/register') {
+                if (pathname === '/login') {
                     router.push('/')
-                } else {
-                    router.push(pathname)
                 }
             } else {
                 localStorage.removeItem('token');
                 setIsAuthenticated(false);
-                router.push('/login');
             }
         }
     }, [token]);
@@ -74,7 +64,8 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
         setToken(null);
         setUser(null);
-        Cookies.remove('__session'); // Remove the token from the cookie
+        Cookies.remove('__session');
+        router.push('/login')
     };
 
     return (
