@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 const ReportPage = ({ params: { id } }) => {
     const [reportData, setReportData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isRootCauseAdded, setIsRootCauseAdded] = React.useState(false)
 
     const getNumberOfNotesRecorded = (note_classification) => {
         if (!reportData?.inspections) {
@@ -29,8 +30,6 @@ const ReportPage = ({ params: { id } }) => {
         }
     };
 
-    const getArabicNameForStation = stationsData.find(({ id }) => id === reportData?.stationId)?.name;
-
     const { t } = useTranslation();
 
     // const handleDownload = async () => {
@@ -39,16 +38,17 @@ const ReportPage = ({ params: { id } }) => {
 
     useEffect(() => {
         getReport();
-    }, []);
+    }, [isRootCauseAdded]);
 
     if (loading) return <Loading />;
 
     const numberOfMain = getNumberOfNotesRecorded('رئيسية');
     const numberOfSecondary = getNumberOfNotesRecorded('ثانوية');
 
+    console.log(reportData);
     return (
         <div className="p-6">
-            <h1 className="text-center font-medium text-2xl mb-12">التفتيش على إجراءات السلامة في حافلات النقل المدرسي</h1>
+            <h1 className="text-center font-medium text-2xl mb-12">{t(reportData.inspectionType.name)}</h1>
             {/* <Button variant='outline' onClick={handleDownload}>تحميل التقرير</Button> */}
             <div className="overflow-x-auto flex flex-col gap-8">
                 <table className="min-w-full bg-white border border-gray-300">
@@ -77,24 +77,22 @@ const ReportPage = ({ params: { id } }) => {
                             <th className="py-3 px-6 text-center border border-gray-300">الوظيفة</th>
                             <th className="py-3 px-6 text-center border border-gray-300">عدد الملاحظات المسجلة</th>
                             <th className="py-3 px-6 text-center border border-gray-300">المدينة</th>
-                            <th className="py-3 px-6 text-center border border-gray-300">موقع التفتيش</th>
                         </tr>
                     </thead>
                     <tbody className="text-gray-600 text-sm font-light">
                         <tr className="border-b border-gray-200 hover:bg-gray-100">
-                            <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">{reportData.employeeName}</td>
-                            <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">{reportData.jobTitleOfTheEmployee}</td>
+                            <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">{reportData.user.name}</td>
+                            <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">ضابط سلامة والصحة المهنية والبيئة</td>
                             <td className="py-3 px-6 text-center border border-gray-300 space-y-2">
                                 <div>الرئيسية: {numberOfMain}</div>
                                 <div>الثانوية: {numberOfSecondary}</div>
                             </td>
                             <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">{reportData.city}</td>
-                            <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">{reportData.InspectionSite}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <DataTableReport report={reportData} />
+            <DataTableReport report={reportData} setIsRootCauseAdded={setIsRootCauseAdded} />
         </div>
     );
 };

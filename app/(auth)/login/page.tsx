@@ -46,9 +46,6 @@ const page = () => {
                 toast.info(message);
             }
 
-            console.log(values);
-
-
         } catch (error) {
             console.error(error);
         }

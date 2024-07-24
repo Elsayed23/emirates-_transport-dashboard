@@ -2,6 +2,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 
 const AuthContext = createContext();
 
@@ -15,10 +16,12 @@ export const AuthProvider = ({ children }) => {
 
     function parseJwt(token) {
         if (!token) { return; }
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace('-', '+').replace('_', '/');
-        return JSON.parse(window.atob(base64));
+        const decoded = jwtDecode(token);
+
+        return decoded;
     }
+
+    console.log(user);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {

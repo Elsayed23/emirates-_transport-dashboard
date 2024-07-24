@@ -156,7 +156,7 @@ export async function POST(req: Request) {
     const flatRisks = risks.flat(Infinity); // This will flatten any level of nested arrays
 
     // Check for required inputs
-    if (!trafficLineId || !flatRisks.length) {
+    if (!trafficLineId) {
         return NextResponse.json({ message: 'Missing required fields or no risks provided.' });
     }
     const allRisks = [
@@ -231,27 +231,16 @@ export async function GET(req: NextRequest) {
 export async function PATCH(req: NextRequest) {
     const { trafficLineId, risks } = await req.json();
 
-    const flatRisks = risks.flat(Infinity); // This will flatten any level of nested arrays
+    const flatRisks = risks.flat(Infinity);
 
-    // Check for required inputs
     if (!trafficLineId) {
 
         return NextResponse.json({ message: 'Missing required fields or no risks provided.' });
     }
 
-    // let allRisks;
-
-    // const allRisks = [
-    //     ...flatRisks.map((hazard: any) => ({
-    //         ...hazard,
-    //         controlMeasures: hazard.controlMeasures.map((measure: any) => ({ measure }))
-    //     })),
-
-    // ];
 
     let allRisks;
     if (flatRisks.length === 0) {
-        // Use BASIC_HAZARDS if no risks are provided
         allRisks = [
             ...BASIC_HAZARDS.map(hazard => ({
                 ...hazard,
@@ -259,7 +248,6 @@ export async function PATCH(req: NextRequest) {
             }))
         ]
     } else {
-        // Use provided risks otherwise
         allRisks = [
             ...flatRisks.map((hazard: any) => ({
                 ...hazard,
@@ -273,9 +261,7 @@ export async function PATCH(req: NextRequest) {
     }
 
     try {
-        // Begin a transaction
 
-        // First, delete dependent records (e.g., Control Measures)
         await db.controlMeasure.deleteMany({
             where: {
                 risk: {
@@ -283,9 +269,7 @@ export async function PATCH(req: NextRequest) {
                 }
             }
         });
-        console.log('testasdasdasd');
 
-        // Now, delete the risks
         await db.risk.deleteMany({
             where: {
                 trafficLineId: trafficLineId

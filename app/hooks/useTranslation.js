@@ -5,7 +5,7 @@ import LanguageContext from '@/app/context/LanguageContext';
 import translations from '../translations';
 
 const getNestedTranslation = (obj, path) => {
-    return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+    return path?.split('.').reduce((acc, part) => acc && acc[part], obj);
 };
 
 const useTranslation = () => {

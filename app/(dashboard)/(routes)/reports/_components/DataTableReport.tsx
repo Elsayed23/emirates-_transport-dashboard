@@ -34,10 +34,13 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import AddRootCause from "./AddRootCauseModal";
 
 export type Inspection = {
-    id: number;
+    id: string;
     image: string;
+    rootCause: string;
+    correctiveAction: string;
     idOfBus: number;
     noteClassification: string;
     description: string;
@@ -50,73 +53,90 @@ export type Report = {
     inspections: Inspection[];
 };
 
-export const columns: ColumnDef<Inspection>[] = [
-    {
-        accessorKey: "id",
-        header: () => <div className="text-right">م</div>,
-        cell: ({ row }) => <div>{row.index + 1}</div>,
-    },
-    {
-        accessorKey: "image",
-        header: () => <div className="text-right">صورة</div>,
-        cell: ({ row }) => (
-            <div>
-                <img src={row.getValue("image")} alt='inspection image' width="100" />
-            </div>
-        ),
-    },
-    {
-        accessorKey: "idOfBus",
-        header: () => <div className="text-right">الدليل</div>,
-        cell: ({ row }) => <div>{row.getValue("idOfBus")}</div>,
-    },
-    {
-        accessorKey: "description",
-        header: () => <div className="text-right">وصف الملاحظة</div>,
-        cell: ({ row }) => <div >{row.getValue("description")}</div>,
-    },
-    {
-        accessorKey: "noteClassification",
-        header: () => <div className="text-right">تصنيف الملاحظة</div>,
-        cell: ({ row }) => (
-            <div className="capitalize">{row.getValue("noteClassification")}</div>
-        ),
-    },
-    {
-        id: "actions",
-        enableHiding: false,
-        cell: ({ row }) => {
-            const inspection = row.original;
-
-            return (
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0">
-                            <span className="sr-only">Open menu</span>
-                            <MoreHorizontal className="h-4 w-4" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(inspection.id.toString())}
-                        >
-                            Copy inspection ID
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>View details</DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            );
-        },
-    },
-];
-
-export function DataTableReport({ report }: any) {
+export function DataTableReport({ report, setIsRootCauseAdded }: any) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
     const [rowSelection, setRowSelection] = React.useState({});
+
+    const [isOpen, setIsOpen] = React.useState(false)
+
+    const [rootCause, setRootCause] = React.useState('')
+    const [inspectionId, setInspectionId] = React.useState('')
+
+
+    const handleAddRootCause = async (rootCause: any, inspectionId: string) => {
+        setIsOpen(true)
+        setRootCause(rootCause)
+        setInspectionId(inspectionId)
+    }
+
+    const columns: ColumnDef<Inspection>[] = [
+        {
+            accessorKey: "id",
+            header: () => <div className="text-right">م</div>,
+            cell: ({ row }) => <div>{row.index + 1}</div>,
+        },
+        {
+            accessorKey: "image",
+            header: () => <div className="text-right">صورة</div>,
+            cell: ({ row }) => (
+                <div>
+                    <img src={row.getValue("image")} alt='inspection image' width="100" />
+                </div>
+            ),
+        },
+        {
+            accessorKey: "idOfBus",
+            header: () => <div className="text-right">الدليل</div>,
+            cell: ({ row }) => <div>{row.getValue("idOfBus")}</div>,
+        },
+        {
+            accessorKey: "description",
+            header: () => <div className="text-right">وصف الملاحظة</div>,
+            cell: ({ row }) => <div >{row.getValue("description")}</div>,
+        },
+        {
+            accessorKey: "noteClassification",
+            header: () => <div className="text-right">تصنيف الملاحظة</div>,
+            cell: ({ row }) => (
+                <div className="capitalize">{row.getValue("noteClassification")}</div>
+            ),
+        },
+        {
+            accessorKey: "rootCause",
+            header: () => <div className="text-right">السبب الجذري</div>,
+            cell: ({ row }) => <div >{row.getValue("rootCause")}</div>,
+        },
+        {
+            accessorKey: "correctiveAction",
+            header: () => <div className="text-right">الإجراء التصحيحي</div>,
+            cell: ({ row }) => <div >{row.getValue("correctiveAction")}</div>,
+        },
+        {
+            id: "actions",
+            enableHiding: false,
+            cell: ({ row }) => {
+                const inspection = row.original;
+
+                return (
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="h-8 w-8 p-0">
+                                <span className="sr-only">Open menu</span>
+                                <MoreHorizontal className="h-4 w-4" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuItem onClick={() => { handleAddRootCause(inspection.rootCause, inspection.id) }}>{inspection.rootCause ? 'تعديل السبب الجذري' : 'إضافة سبب جذري'}</DropdownMenuItem>
+                            <DropdownMenuItem>إضافة إجراء تصحيحي</DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                );
+            },
+        },
+    ];
+
 
     const table = useReactTable({
         data: report.inspections,
@@ -249,6 +269,7 @@ export function DataTableReport({ report }: any) {
                     </Button>
                 </div>
             </div>
+            <AddRootCause isOpen={isOpen} onClose={() => { setIsOpen(false) }} rootCause={rootCause} inspectionId={inspectionId} setIsRootCauseAdded={setIsRootCauseAdded} />
         </div>
     );
 }

@@ -36,7 +36,7 @@ const page = () => {
                     {/* <h2 className='text-xl font-semibold'>{t('results')}: {station.length}</h2> */}
                     <div className="grid grid-cols-3 gap-6">
                         {
-                            user?.stationId === 10
+                            user?.role?.name !== 'STATION'
                                 ?
                                 stationsData.map((station, idx) => <Card key={idx} {...station} count={station.schools.length} />)
                                 :

@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SideItems from './SideItems'
 import { IoMdHome } from "react-icons/io";
 import { FaMapMarkedAlt, FaSchool } from "react-icons/fa";
 import useTranslation from '@/app/hooks/useTranslation';
 import { MdImageSearch, MdModelTraining } from 'react-icons/md';
+import { FaUsers } from 'react-icons/fa6';
+import { useAuth } from '@/app/context/AuthContext';
 
 const SidebarRoutes = () => {
 
     const { t } = useTranslation()
+
+    const { user } = useAuth()
 
     const routes = [
         {
@@ -27,14 +31,22 @@ const SidebarRoutes = () => {
         },
         {
             icon: MdImageSearch,
-            label: t('schools'),
-            href: '/reports'
+            label: t('reports'),
+            href: user?.role?.name === 'ADMIN' ? '/reports/users' : '/reports'
         },
 
 
     ]
 
-
+    if (user?.role?.name === 'ADMIN') {
+        routes.push(
+            {
+                icon: FaUsers,
+                label: t('Users'),
+                href: '/users'
+            }
+        )
+    }
 
     return (
         <div className='flex flex-col w-full'>

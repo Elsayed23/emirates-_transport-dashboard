@@ -1,21 +1,18 @@
 import { NextResponse } from 'next/server';
+import { jwtDecode } from 'jwt-decode';
 
 // Function to parse JWT
 function parseJwt(token) {
-    if (!token) {
-        return null;
-    }
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    return JSON.parse(Buffer.from(base64, 'base64').toString('utf-8'));
+    if (!token) { return; }
+    const decoded = jwtDecode(token);
+
+    return decoded;
 }
+
 
 export async function middleware(req) {
     const url = req.nextUrl;
     const { pathname, origin } = url;
-
-    console.log('Request URL:', url);
-
 
     // Skip middleware for static files and API routes
     if (pathname.startsWith('/_next/') || pathname.startsWith('/static/') || pathname.startsWith('/api/')) {
@@ -35,7 +32,6 @@ export async function middleware(req) {
 
     try {
         const decoded = parseJwt(token);
-        console.log('Decoded token:', decoded);
 
         if (!decoded) {
             console.log('Invalid token');
@@ -46,20 +42,28 @@ export async function middleware(req) {
             }
         }
 
+        if (pathname.startsWith('/users')) {
+            if (decoded.role.name === 'ADMIN') {
+                return NextResponse.next(); // Allow access to all stations
+            } else {
+                return NextResponse.redirect(`${origin}/`);
+            }
+
+        }
+
         if (pathname.startsWith('/stations/')) {
+            // If stationId is null and the role is ADMIN or SAFETY_OFFICER, allow access to all stations
+            if (!decoded.stationId && (decoded.role.name === 'ADMIN' || decoded.role.name === 'SAFETY_OFFICER')) {
+                return NextResponse.next(); // Allow access to all stations
+            }
+
+            // Ensure stationId exists in the token
             if (!decoded.stationId) {
                 console.log('Token does not contain stationId');
                 return NextResponse.redirect(`${origin}/stations`); // Redirect to /stations if token does not contain stationId
             }
 
             const { stationId } = decoded;
-            console.log('Station ID from token:', stationId);
-
-            // Special case: If stationId is 10, allow access to view all stations
-            if (stationId === 10) {
-                console.log('Station ID is 10, allowing access to all stations');
-                return NextResponse.next();
-            }
 
             // Check for specific station path and enforce usual checks
             const match = pathname.match(/\/stations\/(\d+)/);
@@ -73,10 +77,9 @@ export async function middleware(req) {
                 }
 
                 console.log('Station ID match');
-                return NextResponse.next();
             }
 
-            console.log('No stationId in URL');
+            return NextResponse.next();
         }
 
         return NextResponse.next();

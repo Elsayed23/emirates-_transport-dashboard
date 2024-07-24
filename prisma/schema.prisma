@@ -8,29 +8,41 @@ generator client {
 }
 
 model User {
-  id          String        @id @default(uuid())
-  name        String
-  stationId   Int
-  email       String        @unique
-  password    String
-  TrafficLine TrafficLine[]
+  id        String   @id @default(uuid())
+  name      String
+  stationId Int?
+  roleId    String?
+  role      Role?    @relation(fields: [roleId], references: [id], name: "RoleUsers")
+  email     String   @unique
+  password  String
+  reports   Report[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Role {
+  id        String   @id @default(uuid())
+  name      String
+  users     User[]   @relation("RoleUsers")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Report {
-  id                    String       @id @default(uuid())
-  name                  String
-  stationId             Int
-  nameOfStation         String
-  InspectionSite        String
-  city                  String
-  jobTitleOfTheEmployee String
-  employeeName          String
-  schoolId              Int?
-  nameOfSchool          String?
-  enNameOfschool        String?
-  inspections           Inspection[]
-  createdAt             DateTime     @default(now())
-  updatedAt             DateTime     @updatedAt()
+  id               String          @id @default(uuid())
+  stationId        Int
+  user_id          String
+  user             User            @relation(fields: [user_id], references: [id])
+  nameOfStation    String
+  city             String
+  inspectionTypeId String?
+  inspectionType   InspectionType? @relation(fields: [inspectionTypeId], references: [id], name: "inspectionType")
+  schoolId         Int?
+  nameOfSchool     String?
+  enNameOfschool   String?
+  inspections      Inspection[]
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt()
 
   @@map("reports")
 }
@@ -41,6 +53,10 @@ model Inspection {
   name               String
   image              String   @db.LongText
   idOfBus            Int
+  rootCause          String?
+  correctiveAction   String?
+  attachment         String?
+  isClosed           Boolean  @default(false)
   noteClassification String
   description        String
   report             Report   @relation(fields: [reportId], references: [id])
@@ -50,12 +66,18 @@ model Inspection {
   @@map("inspections")
 }
 
+model InspectionType {
+  id          String   @id @default(uuid())
+  name        String
+  inspections Report[] @relation("inspectionType")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt()
+}
+
 model TrafficLine {
   id                  String   @id @default(uuid())
   name                String
   schoolId            Int
-  user_id             String?
-  user                User?    @relation(fields: [user_id], references: [id])
   schoolName          String
   stationId           Int
   stationName         String

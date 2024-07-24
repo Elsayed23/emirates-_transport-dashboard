@@ -82,7 +82,6 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                     trafficLineId,
                     risks: answers,
                 }
-
                 if (isFirstTime) {
                     await axios.post('/api/risks', dataSending)
                 } else {
@@ -95,7 +94,8 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
             console.log(error)
         }
     }, [allTheAnswersFromQuestions, answers, isFirstTime, router, stationId, schoolId, trafficLineId])
-    console.log(answers);
+
+
     const questionCard = useMemo(() => (
         questions.map(({ questionId, question, translatedQuestion, answer }, idx) => (
             <div key={questionId} className='flex flex-col items-start gap-3 py-2 border-b'>

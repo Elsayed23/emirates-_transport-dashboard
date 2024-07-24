@@ -15,7 +15,14 @@ export async function GET(
                 id
             },
             include: {
-                inspections: true
+                inspections: true,
+                user: {
+                    select: {
+                        id: true,
+                        name: true
+                    }
+                },
+                inspectionType: true
             }
         })
 
