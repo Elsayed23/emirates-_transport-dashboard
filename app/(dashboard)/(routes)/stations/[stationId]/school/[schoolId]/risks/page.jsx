@@ -29,19 +29,12 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
     const { arSchoolName, enSchoolName } = getSpecificSchoolName(stationId, schoolId)
 
-    const [trafficLineName, setTrafficLineName] = useState('')
-
-    const getTrafficLine = async () => {
-        const name = await getSpecificTrafficLineName(trafficLineId)
-        setTrafficLineName(name)
-    }
-
     const getRisks = async () => {
         try {
-            const { data } = await axios.get(`/api/risks?traffic_line_id=${trafficLineId}`)
+            const { data } = await axios.get(`/api/school_risks?station_id=${stationId}&school_id=${schoolId}`)
             console.log(data);
             if (!data?.length) {
-                router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${trafficLineId}/add`)
+                router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)
             }
             setRisks(data)
         } catch (error) {
@@ -52,7 +45,6 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     }
 
     useEffect(() => {
-        getTrafficLine()
         getRisks()
     }, [])
 
@@ -74,7 +66,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
             title: language === 'ar' ? arSchoolName : enSchoolName
         },
         {
-            title: trafficLineName
+            title: 'المخاطر'
         }
     ]
 
@@ -82,16 +74,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const isHaveRisks = risks.length
 
     const handleDownload = () => {
-        exportRisksToExcel(risks, `${trafficLineName} Risks`);
-    };
-
-    const splitAndRender = (text) => {
-        const parts = text?.split('|');
-        return (
-            <>
-                {parts[0]}<br />{parts[1]}
-            </>
-        );
+        exportRisksToExcel(risks, `${enSchoolName} Risks`);
     };
 
     return (
@@ -101,7 +84,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                 <div className="flex flex-col gap-9" >
                     <DynamicBreadcrumb routes={breadcrumbData} />
                     <div className="flex items-center gap-3">
-                        <Button className='w-fit justify-start' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${trafficLineId}/add`)}>{isHaveRisks ? t('Update risks') : t('Add risks')}</Button>
+                        <Button className='w-fit justify-start' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)}>{isHaveRisks ? t('Update risks') : t('Add risks')}</Button>
                         <Button variant='outline' onClick={handleDownload}>{t('Download Risks')}</Button>
                     </div>
                     <Table dir='rtl'>
@@ -109,7 +92,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                             <TableRow>
                                 <TableHead className="w-[50px] text-center bg-blue-950 text-xs px-0 text-white border border-black">م <br /> NO</TableHead>
                                 <TableHead className="w-[100px] text-center bg-blue-950 text-xs px-0 text-white border border-black">سبب الخطر < br /> Cause of risk</TableHead>
-                                <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[200px]'>النشاط <br /> Activity</TableHead>
+                                <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[150px]'>النشاط <br /> Activity</TableHead>
                                 <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[80px]'>نوع النشاط <br /> Type of Activity</TableHead>
                                 <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[200px]'>مصدر الخطر <br /> Hazard</TableHead>
                                 <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[250px]'>الخطر <br /> Risk</TableHead>
@@ -136,23 +119,23 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
                             }, idx) => (
                                 <TableRow key={idx} className={`${idx % 2 === 0 ? 'bg-blue-400 bg-opacity-50 hover:bg-blue-100' : ''} `}>
-                                    <TableCell className="font-medium border border-black text-center p-2 text-xs">{idx + 1}</TableCell>
-                                    <TableCell className="font-medium border border-black text-center p-2 max-w-[100px] text-xs">{splitAndRender(causeOfRisk)}</TableCell>
-                                    <TableCell className="text-center p-2 text-xs border border-black max-w-[200px]">{splitAndRender(activity)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[80px]'>{splitAndRender(typeOfActivity)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[200px]'>{splitAndRender(hazardSource)}</TableCell>
-                                    <TableCell className='w-44 text-center p-2 text-xs border border-black'>{splitAndRender(risk)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[130px]'>{splitAndRender(peopleExposedToRisk)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[100px]'>{splitAndRender(expectedInjury)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[100px]'>{riskAssessment}</TableCell>
+                                    <TableCell className="font-medium border border-black text-center text-xs">{idx + 1}</TableCell>
+                                    <TableCell className="font-medium border border-black text-center text-xs">{`${causeOfRisk?.split('|')[0]}\n${causeOfRisk?.split('|')[1]}`}</TableCell>
+                                    <TableCell className="text-center text-xs border border-black max-w-[150px]">{`${activity?.split('|')[0]}\n${activity?.split('|')[1]}`}</TableCell>
+                                    <TableCell className='text-center text-xs border border-black max-w-[80px]'>{`${typeOfActivity?.split('|')[0]}\n${typeOfActivity?.split('|')[1]}`}</TableCell>
+                                    <TableCell className='text-center text-xs border border-black max-w-[200px]'>{`${hazardSource?.split('|')[0]}\n${hazardSource?.split('|')[1]}`}</TableCell>
+                                    <TableCell className='max-w-[250px] text-center text-xs border border-black'>{`${risk?.split('|')[0]}\n${risk?.split('|')[1]}`}</TableCell>
+                                    <TableCell className='text-center text-xs border border-black max-w-[130px]'>{`${peopleExposedToRisk?.split('|')[0]}\n${peopleExposedToRisk?.split('|')[1]}`}</TableCell>
+                                    <TableCell className='text-center text-xs border border-black max-w-[100px]'>{`${expectedInjury?.split('|')[0]}\n${expectedInjury?.split('|')[1]}`}</TableCell>
+                                    <TableCell className='text-center text-xs border border-black max-w-[100px]'>{riskAssessment}</TableCell>
                                     <TableCell className='border text-xs border-black min-w-[380px]'>
                                         <tbody>
                                             {controlMeasures.map(({ measureAr, measureEn }, idx) => (
                                                 <tr key={idx}>
-                                                    <td className='border-l border-black p-2 w-1/2  text-center'>
+                                                    <td className='border-l border-black p-3 w-1/2  text-center'>
                                                         <h3>{measureAr}</h3>
                                                     </td>
-                                                    <td className='p-2 w-1/2 text-center'>
+                                                    <td className='p-3 w-1/2 text-center'>
                                                         <h3>{measureEn}</h3>
                                                     </td>
                                                 </tr>

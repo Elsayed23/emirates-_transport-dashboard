@@ -12,6 +12,7 @@ const ReportPage = ({ params: { id } }) => {
     const [reportData, setReportData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isRootCauseAdded, setIsRootCauseAdded] = React.useState(false)
+    const [isCorrectiveActionAdded, setIsCorrectiveActionAdded] = React.useState(false)
 
     const getNumberOfNotesRecorded = (note_classification) => {
         if (!reportData?.inspections) {
@@ -38,7 +39,7 @@ const ReportPage = ({ params: { id } }) => {
 
     useEffect(() => {
         getReport();
-    }, [isRootCauseAdded]);
+    }, [isRootCauseAdded, isCorrectiveActionAdded]);
 
     if (loading) return <Loading />;
 
@@ -92,7 +93,7 @@ const ReportPage = ({ params: { id } }) => {
                     </tbody>
                 </table>
             </div>
-            <DataTableReport report={reportData} setIsRootCauseAdded={setIsRootCauseAdded} />
+            <DataTableReport report={reportData} setIsRootCauseAdded={setIsRootCauseAdded} setIsCorrectiveActionAdded={setIsCorrectiveActionAdded} />
         </div>
     );
 };

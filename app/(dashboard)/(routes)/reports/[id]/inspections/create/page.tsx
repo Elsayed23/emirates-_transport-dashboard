@@ -169,7 +169,6 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
             form.setValue('description', 'اي وصف');
             setFiles([]);
             setPhotoCaptured(false);
-            toast.success('Inspection added successfully!');
         } catch (error) {
             console.error('Error saving inspection:', error);
         }
@@ -178,10 +177,9 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
     const finishInspection = async () => {
         if (form.getValues("name") || form.getValues("idOfBus") || form.getValues("noteClassification") || form.getValues("description")) {
             await addInspectionToStateAndSave(form.getValues());
+            toast.success('All inspections saved successfully!');
+            router.push(`/reports/${id}`);
         }
-
-        toast.success('All inspections saved successfully!');
-        router.push(`/reports/${id}`);
     };
 
     const cancelInspection = () => {

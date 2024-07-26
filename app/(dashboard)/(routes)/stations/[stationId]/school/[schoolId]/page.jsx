@@ -10,6 +10,7 @@ import axios from 'axios'
 import Loading from '@/app/(dashboard)/_components/Loading'
 import useTranslation from '@/app/hooks/useTranslation'
 import LanguageContext from '@/app/context/LanguageContext'
+import Link from 'next/link'
 
 const page = ({ params: { stationId, schoolId } }) => {
 
@@ -17,6 +18,7 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     const [loading, setLoading] = useState(true)
     const [trafficLines, setTrafficLines] = useState([])
+    const [countOfSchoolRIsks, setCountOfSchoolRIsks] = useState(0)
 
     const [riskAnalysis, setRiskAnalysis] = useState({})
 
@@ -58,12 +60,20 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     }
 
+    const getCountOfSchoolRisks = async () => {
+        try {
+            const { data } = await axios.get(`/api/school_risks/count?station_id=${stationId}&school_id=${schoolId}`)
+
+            setCountOfSchoolRIsks(data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     const getTrafficlines = async () => {
         try {
             const { data } = await axios.get(`/api/traffic_line?stationId=${stationId}&schoolId=${schoolId}`)
-            console.log(data);
             setTrafficLines(data)
             analyzeRisks(data)
         } catch (error) {
@@ -75,6 +85,7 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     useEffect(() => {
         getTrafficlines()
+        getCountOfSchoolRisks()
     }, [])
 
     const router = useRouter()
@@ -99,7 +110,16 @@ const page = ({ params: { stationId, schoolId } }) => {
                     <DynamicBreadcrumb routes={breadcrumbData} />
                     <div className='flex flex-col gap-5'>
                         <h2 className='text-xl font-semibold'>{t('results')}: {trafficLines.length}</h2>
-                        <Button className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_traffic_line`)}>{t('Add an itinerary')} <FaCirclePlus size={18} /></Button>
+                        <div className="flex items-center gap-4">
+                            <Button className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_traffic_line`)}>{t('Add an itinerary')} <FaCirclePlus size={18} /></Button>
+                            {
+                                countOfSchoolRIsks === 0
+                                    ?
+                                    <Button variant='outline' className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)}>{t('Add risks')} <FaCirclePlus size={18} /></Button>
+                                    :
+                                    <Link href={`/stations/${stationId}/school/${schoolId}/risks`} className='underline'>رؤية الأخطار</Link>
+                            }
+                        </div>
                         {
                             trafficLines.length
                                 ?

@@ -20,7 +20,7 @@ export const POST = async (req: Request) => {
             data: {
                 name,
                 email,
-                roleId: '3dd0fd33-a709-4c62-8d41-19f21f44498a',
+                roleId: 'f4aebce0-f269-4276-9a96-e5b33db43f98',
                 password: hashedPassword,
             },
             include: {

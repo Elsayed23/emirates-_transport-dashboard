@@ -35,12 +35,17 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import AddRootCause from "./AddRootCauseModal";
+import { useAuth } from "@/app/context/AuthContext";
+import AddCorrectiveAction from "./CorrectiveActionModal";
+import axios from "axios";
+import { toast } from "sonner";
 
 export type Inspection = {
     id: string;
     image: string;
     rootCause: string;
     correctiveAction: string;
+    isClosed: boolean;
     idOfBus: number;
     noteClassification: string;
     description: string;
@@ -53,23 +58,53 @@ export type Report = {
     inspections: Inspection[];
 };
 
-export function DataTableReport({ report, setIsRootCauseAdded }: any) {
+export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveActionAdded }: any) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
     const [rowSelection, setRowSelection] = React.useState({});
 
-    const [isOpen, setIsOpen] = React.useState(false)
-
+    const [isOpenRootCause, setIsOpenRootCause] = React.useState(false)
     const [rootCause, setRootCause] = React.useState('')
+
+    const [isOpenCorrectiveAction, setIsOpenCorrectiveAction] = React.useState(false)
+    const [correctiveAction, setCorrectiveAction] = React.useState('')
+
     const [inspectionId, setInspectionId] = React.useState('')
 
+    const handleCloseInspection = async (isClosed: boolean, inspectionId: string) => {
+        try {
+
+            const dataSend = {
+                isClosed,
+                inspectionId
+            }
+
+            await axios.patch('/api/close_inspection', dataSend)
+
+            toast.success('تم إغلاق التفتيش')
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const { user } = useAuth()
 
     const handleAddRootCause = async (rootCause: any, inspectionId: string) => {
-        setIsOpen(true)
-        setRootCause(rootCause)
+        setIsOpenRootCause(true)
+
+        setRootCause(rootCause == null ? '' : rootCause)
         setInspectionId(inspectionId)
     }
+
+    const handleAddCorrectiveAction = async (correctiveAction: any, inspectionId: string) => {
+        setIsOpenCorrectiveAction(true)
+
+        setCorrectiveAction(correctiveAction == null ? '' : correctiveAction)
+        setInspectionId(inspectionId)
+    }
+
 
     const columns: ColumnDef<Inspection>[] = [
         {
@@ -127,16 +162,23 @@ export function DataTableReport({ report, setIsRootCauseAdded }: any) {
                                 <MoreHorizontal className="h-4 w-4" />
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                            <DropdownMenuItem onClick={() => { handleAddRootCause(inspection.rootCause, inspection.id) }}>{inspection.rootCause ? 'تعديل السبب الجذري' : 'إضافة سبب جذري'}</DropdownMenuItem>
-                            <DropdownMenuItem>إضافة إجراء تصحيحي</DropdownMenuItem>
+                        <DropdownMenuContent align="start">
+                            {
+                                user?.role?.name === 'STATION'
+                                    ?
+                                    <>
+                                        <DropdownMenuItem onClick={() => { handleAddRootCause(inspection.rootCause, inspection.id) }}>{inspection.rootCause ? 'تعديل السبب الجذري' : 'إضافة سبب جذري'}</DropdownMenuItem>
+                                        <DropdownMenuItem onClick={() => { handleAddCorrectiveAction(inspection.correctiveAction, inspection.id) }}>{inspection.correctiveAction ? 'تعديل الإجراء التصحيح' : 'إضافة إجراء تصحيحي'}</DropdownMenuItem>
+                                    </>
+                                    :
+                                    <DropdownMenuItem onClick={() => { handleCloseInspection(!inspection.isClosed, inspection.id) }}>{inspection.isClosed ? 'فتح التفتيش' : 'إغلاق التفتيش'}</DropdownMenuItem>
+                            }
                         </DropdownMenuContent>
                     </DropdownMenu>
                 );
             },
         },
     ];
-
 
     const table = useReactTable({
         data: report.inspections,
@@ -269,7 +311,8 @@ export function DataTableReport({ report, setIsRootCauseAdded }: any) {
                     </Button>
                 </div>
             </div>
-            <AddRootCause isOpen={isOpen} onClose={() => { setIsOpen(false) }} rootCause={rootCause} inspectionId={inspectionId} setIsRootCauseAdded={setIsRootCauseAdded} />
+            <AddRootCause isOpen={isOpenRootCause} onClose={() => { setIsOpenRootCause(false) }} rootCause={rootCause} inspectionId={inspectionId} setIsRootCauseAdded={setIsRootCauseAdded} />
+            <AddCorrectiveAction isOpen={isOpenCorrectiveAction} onClose={() => { setIsOpenCorrectiveAction(false) }} correctiveAction={correctiveAction} inspectionId={inspectionId} setIsCorrectiveActionAdded={setIsCorrectiveActionAdded} />
         </div>
     );
 }

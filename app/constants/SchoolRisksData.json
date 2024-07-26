@@ -1,0 +1,260 @@
+[
+    {
+        "questionId": 1,
+        "question": "صعود ونزول الطلبة داخل مواقف المدرسة المخصصة للحافلات منظم ؟",
+        "translatedQuestion": "Is the boarding and disembarking of students inside the designated school bus parking area organized?",
+        "questionAnswer": {
+            "questionId": 1,
+            "causeOfRisk": "المدرسة | school",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "صعود ونزول الطلبة داخل مواقف المدرسة المخصصة للحافلات | Students boarding and disembarking inside the bus parking",
+            "risk": "تعرض الطلاب للدهس | Run over accidents",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "controlMeasures": {
+                "ar": [
+                    "اخطار السائقين ومشرفي السلامة بأماكن صعود ونزول الطلبة بعد تحديدها والالتزام بها",
+                    "وجود اشراف على صعود ونزول الطلاب من قبل إدارة المدارس",
+                    "تخطيط المواقف ومداخل المدارس ووضع علامات عبور الطلاب من قبل إدارات المدارس",
+                    "توعية الطلاب من قبل إدارة المدارس بالتعاون مع ضباط السلامة بالطرق السليمة للعبور داخل المواقف والوصول للمدرسة",
+                    "وضع مطبات لتخفيض السرعات داخل المدارس من قبل إدارات المدارس إن أمكن",
+                    "عدم تحرك الحافلات للخروج بعد إنزال الطلبة في المدرسة لحين خلو ساحة المواقف من الطلبة"
+                ],
+                "en": [
+                    "Inform the drivers and safety supervisors about the locations of boarding and disembarking after identification, and instruct them to adhere",
+                    "School management supervision on students’ boarding and disembarking",
+                    "Road marking inside the parking as well as the school entrance, and mark the students’ crossing areas by school management",
+                    "Train the students by school management in cooperation with safety offices on how to cross the roads and reach the school safely",
+                    "Install speed humps inside schools by school management if possible",
+                    "Drivers are not allowed to move after disembarking students until the parking areas are free of students"
+                ]
+            },
+            "riskAssessment": "3/4/12",
+            "residualRisks": "1/4/4"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 2,
+        "question": "هل يحتاج الطلاب للعبور بين الحافلات والمركبات للوصول الى المدرسة والعكس",
+        "translatedQuestion": "Do students need to cross between buses and vehicles to reach the school and vice versa?",
+        "questionAnswer": {
+            "questionId": 2,
+            "causeOfRisk": "المدرسة | school",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "عبور الطلاب بين الحافلات والمركبات للوصول للمدرسة | Students crossing and walking between busses and vehicles to reach the school",
+            "risk": "تعرض الطلاب للدهس | Run over accidents",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "controlMeasures": {
+                "ar": [
+                    "زيارة المدرسة من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع إدارة المدرسة",
+                    "اخطار السائقين ومشرفي السلامة بأماكن صعود ونزول الطلبة بعد تحديدها والالتزام بها",
+                    "وجود اشراف على صعود ونزول الطلاب من قبل إدارة المدارس",
+                    "تخطيط المواقف ومداخل المدارس ووضع علامات عبور الطلاب من قبل إدارات المدارس",
+                    "توعية الطلاب من قبل إدارة المدارس بالتعاون مع ضباط السلامة بالطرق السليمة للعبور داخل المواقف والوصول للمدرسة"
+                ],
+                "en": [
+                    "Operation dispatcher and safety officer visiting the school to identify the risks and where to board and disembark the students, in coordination with school management",
+                    "Inform the drivers and safety supervisors about the locations of boarding and disembarking after identification, and instruct them to adhere",
+                    "School management supervision on students’ boarding and disembarking",
+                    "Road marking inside the parking as well as the school entrance, and mark the students’ crossing areas by school management",
+                    "Train the students by school management in cooperation with safety offices on how to cross the roads and reach the school safely"
+                ]
+            },
+            "riskAssessment": "1/4/4",
+            "residualRisks": "1/4/4"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 3,
+        "question": "هل المواقف المخصصة للحافلات تسع الحافلات اثناء صعود ونزول الطلبة",
+        "translatedQuestion": "Is the parking designated for buses sufficient to accommodate buses during student boarding and disembarking?",
+        "questionAnswer": {
+            "questionId": 3,
+            "causeOfRisk": "المدرسة | school",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "عدم كفاية مواقف الحافلات في المدرسة لجميع الحافلات | Insufficient parking inside the school",
+            "risk": "وجود أزمة مرورية على مدخل المدرسة وداخل المواقف وزيادة احتمالية الحوادث المرورية | Heavy traffic in the school entrance and inside the parking which increase the possibility of accidents",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة | Various injuries",
+            "controlMeasures": {
+                "ar": [
+                    "انتظار خلو المواقف والدخول بطريقة منظمة وعدم التسبب بأزمة مرورية",
+                    "تعيين موظف من قبل إدارات المدارس لتنظيم حركة السير عند المداخل والمخارج",
+                    "تدريب السائقين على القيادة الآمنة في جميع الحالات"
+                ],
+                "en": [
+                    "Wait for parking availability and enter the parking gently without causing traffic",
+                    "Assign a dedicated person to arrange the entrance and exit",
+                    "Train drivers on safe driving in all situations"
+                ]
+            },
+            "riskAssessment": "2/4/8",
+            "residualRisks": "2/2/4"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 4,
+        "question": "هل الدخول يكون من بوابة مخصصة والخروج من بوابة مخصصة؟",
+        "translatedQuestion": "Is the entry from a designated gate and the exit from another designated gate?",
+        "questionAnswer": {
+            "questionId": 4,
+            "causeOfRisk": "المدرسة | school",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "دخول وخروج الحافلة المدرسية الى المدارس التي لها باب واحد للدخول والخروج | School bus enter to school and exit from the same door",
+            "risk": "تعرض الطلاب للدهس أثناء الدخول والخروج | Students are exposed to be hit while entering and exiting the school",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "وفيات، إصابات متفاوتة | Fatalities, Various injuries",
+            "controlMeasures": {
+                "ar": [
+                    "وجود اشراف على صعود ونزول الطلاب من قبل إدارة المدارس",
+                    "عدم تحرك الحافلات للخروج بعد إنزال الطلبة في المدرسة لحين خلو ساحة المواقف من الطلبة",
+                    "وجود سائق مكلف او مشرف نقل وسلامة مكلف للقيام بعملية التفقد النهائي للحافلات والتأكد من خلو الساحة من الطلبة ومساعدة سائقي الحافلات للرجوع للخلف في حال الحاجة لذلك"
+                ],
+                "en": [
+                    "School management supervision on students’ boarding and disembarking",
+                    "School bus not allowed to move after students disembarking until ensuring that the parking area and the yard is empty",
+                    "Assign a driver or safety supervisor to perform final check of buses and make sure that the parking areas and yards are free of students, as well as, to assist the bus’s drivers when reversing, if needed"
+                ]
+            },
+            "riskAssessment": "3/5/15",
+            "residualRisks": "2/5/10"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 5,
+        "question": "هل يوجد مواقف مخصصة للحافلات في المدرسة؟",
+        "translatedQuestion": "Is there designated parking for buses at the school?",
+        "questionAnswer": {
+            "questionId": 5,
+            "causeOfRisk": "المدرسة | school",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "صعود ونزول الطلبة من الحافلة المدرسية خارج فناء المدرسة في المدارس التي ليس بها مواقف | Students boarding and disembarking outside the school if there is no parking inside school",
+            "risk": "تعرض الطلاب للدهس أثناء الدخول والخروج | Students are exposed to be hit while boarding and disembarking",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "وفيات، إصابات متفاوتة | Fatalities, Various injuries",
+            "controlMeasures": {
+                "ar": [
+                    "زيارة المدرسة من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع إدارة المدرسة",
+                    "اخطار السائقين ومشرفي السلامة بأماكن صعود ونزول الطلبة بعد تحديدها",
+                    "وجود اشراف على صعود ونزول الطلاب من قبل إدارة المدارس",
+                    "وجود سائق مكلف او مشرف نقل وسلامة مكلف للقيام بعملية التفقد النهائي للحافلات والتأكد من خلو الساحة من الطلبة ومساعدة سائقي الحافلات للرجوع للخلف في حال الحاجة لذلك"
+                ],
+                "en": [
+                    "Operation dispatcher and safety officer visiting the school to identify the risks and where to board and disembark the students, in coordination with school management",
+                    "Inform the drivers and safety supervisors about the locations of boarding and disembarking after identification",
+                    "School management supervision on students’ boarding and disembarking",
+                    "Assign a driver or safety supervisor to perform final check of buses and make sure that the parking areas and yards are free of students, as well as, to assist the bus’s drivers when reversing, if needed"
+                ]
+            },
+            "riskAssessment": "3/5/15",
+            "residualRisks": "2/5/10"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 6,
+        "question": "هل تحتاج الحافلة للرجوع للخلف من أجل الخروج من المواقف؟",
+        "translatedQuestion": "Does the bus need to reverse to exit the parking?",
+        "questionAnswer": {
+            "questionId": 6,
+            "causeOfRisk": "المدرسة | school",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "تحتاج الحافلة للرجوع للخلف للخروج من المواقف | The bus needs to reverse to exit the parking",
+            "risk": "تعرض الطلاب للدهس أثناء الدخول والخروج | Students are exposed to be hit while boarding and disembarking",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "وفيات، إصابات متفاوتة | Fatalities, Various injuries",
+            "controlMeasures": {
+                "ar": [
+                    "زيارة المدرسة من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع إدارة المدرسة",
+                    "اخطار السائقين ومشرفي السلامة بأماكن صعود ونزول الطلبة بعد تحديدها",
+                    "وجود اشراف على صعود ونزول الطلاب من قبل إدارة المدارس",
+                    "وجود سائق مكلف او مشرف نقل وسلامة مكلف للقيام بعملية التفقد النهائي للحافلات والتأكد من خلو الساحة من الطلبة ومساعدة سائقي الحافلات للرجوع للخلف في حال الحاجة لذلك"
+                ],
+                "en": [
+                    "Operation dispatcher and safety officer visiting the school to identify the risks and where to board and disembark the students, in coordination with school management",
+                    "Inform the drivers and safety supervisors about the locations of boarding and disembarking after identification",
+                    "School management supervision on students’ boarding and disembarking",
+                    "Assign a driver or safety supervisor to perform final check of buses and make sure that the parking areas and yards are free of students, as well as, to assist the bus’s drivers when reversing, if needed"
+                ]
+            },
+            "riskAssessment": "3/5/15",
+            "residualRisks": "2/5/10"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 7,
+        "question": "هل يوجد اشراف مدرسي في الصباح والمساء اثناء عملية صعود ونزول الطلبة من الحافلات في المواقف؟",
+        "translatedQuestion": "Is there school supervision in the morning and evening during the process of boarding and disembarking students from buses in the parking?",
+        "questionAnswer": {
+            "questionId": 7,
+            "causeOfRisk": "المدرسة | school",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "عدم وجود اشراف مدرسي وتنظيم اثناء خروج ودخول الطلاب | Lack of supervision and school organization during the entry and exit of students",
+            "risk": "تعرض الطلاب للدهس أثناء الدخول والخروج | Students are exposed to be hit while boarding and disembarking",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "وفيات، إصابات متفاوتة | Fatalities, Various injuries",
+            "controlMeasures": {
+                "ar": [
+                    "زيارة المدرسة من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع إدارة المدرسة",
+                    "اخطار السائقين ومشرفي السلامة بأماكن صعود ونزول الطلبة بعد تحديدها",
+                    "وجود اشراف على صعود ونزول الطلاب من قبل إدارة المدارس",
+                    "وجود سائق مكلف او مشرف نقل وسلامة مكلف للقيام بعملية التفقد النهائي للحافلات والتأكد من خلو الساحة من الطلبة ومساعدة سائقي الحافلات للرجوع للخلف في حال الحاجة لذلك"
+                ],
+                "en": [
+                    "Operation dispatcher and safety officer visiting the school to identify the risks and where to board and disembark the students, in coordination with school management",
+                    "Inform the drivers and safety supervisors about the locations of boarding and disembarking after identification",
+                    "School management supervision on students’ boarding and disembarking",
+                    "Assign a driver or safety supervisor to perform final check of buses and make sure that the parking areas and yards are free of students, as well as, to assist the bus’s drivers when reversing, if needed"
+                ]
+            },
+            "riskAssessment": "3/5/15",
+            "residualRisks": "2/5/10"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 8,
+        "question": "هل يوجد اي اعمال انشاءات او تعديلات داخل المدرسة؟",
+        "translatedQuestion": "Is there any construction work or modifications inside the school?",
+        "questionAnswer": {
+            "questionId": 8,
+            "causeOfRisk": "المدرسة | school",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "دخول الحافلة المدرسية الى المواقف داخل المدارس التي بها أعمال انشاءات | School bus enter the parking inside schools that have construction works",
+            "risk": "تعرض الطلاب للدهس أثناء الدخول والخروج | Students are exposed to be hit while entering and exiting the school",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "وفيات، إصابات متفاوتة | Fatalities, Various injuries",
+            "controlMeasures": {
+                "ar": [
+                    "إخطار المدرسة لمواصلات الامارات عند وجود اعمال انشائية داخل المدرسة",
+                    "زيارة المدرسة من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع إدارة المدرسة",
+                    "اخطار السائقين ومشرفي السلامة بأماكن صعود ونزول الطلبة بعد تحديدها",
+                    "وجود اشراف على صعود ونزول الطلاب من قبل إدارة المدارس"
+                ],
+                "en": [
+                    "School management shall inform Emirates Transport if there is any construction work inside the school",
+                    "Operation dispatcher and safety officer visiting the school to identify the risks and where to board and disembark the students, in coordination with school management",
+                    "Inform the drivers and safety supervisors about the locations of boarding and disembarking after identification",
+                    "School management supervision on students’ boarding and disembarking"
+                ]
+            },
+            "riskAssessment": "4/4/16",
+            "residualRisks": "2/4/8"
+        },
+        "answer": "غير مجاب عليها"
+    }
+]

@@ -27,37 +27,37 @@ import useTranslation from "@/app/hooks/useTranslation";
 
 // Define the schema for the form inputs
 const formSchema = z.object({
-    rootCause: z.string().min(1, { message: "Invalid field" }),
+    correctiveAction: z.string().min(1, { message: "Invalid field" }),
 });
 
 // Define the interface for form values based on the schema
 interface FormValues {
-    rootCause: string;
+    correctiveAction: string;
 }
 
-type AddRootCauseModalProps = {
+type AddCorrectiveActionModalProps = {
     isOpen: boolean;
     onClose: () => void;
     inspectionId: string;
-    rootCause: string;
-    setIsRootCauseAdded: any;
+    correctiveAction: string;
+    setIsCorrectiveActionAdded: any;
 };
 
-const AddRootCause: React.FC<AddRootCauseModalProps> = ({ isOpen, onClose, inspectionId, rootCause, setIsRootCauseAdded }) => {
+const AddCorrectiveAction: React.FC<AddCorrectiveActionModalProps> = ({ isOpen, onClose, inspectionId, correctiveAction, setIsCorrectiveActionAdded }) => {
 
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            rootCause: '',
+            correctiveAction: '',
         },
     });
 
     const onSubmit = async (values: FormValues) => {
         try {
 
-            await axios.patch('/api/root_cause', { ...values, inspectionId })
-            setIsRootCauseAdded((prev: boolean) => !prev)
+            await axios.patch('/api/corrective_action', { ...values, inspectionId })
+            setIsCorrectiveActionAdded((prev: boolean) => !prev)
             onClose()
         } catch (error) {
             console.error(error);
@@ -66,30 +66,30 @@ const AddRootCause: React.FC<AddRootCauseModalProps> = ({ isOpen, onClose, inspe
     };
 
 
+    const { t } = useTranslation()
+
     const { formState: { isSubmitting, isValid }, setValue } = form
 
     React.useEffect(() => {
-        setValue('rootCause', rootCause)
+        setValue('correctiveAction', correctiveAction)
     }, [isOpen])
-
-    const { t } = useTranslation()
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>إضافة سبب جذري</DialogTitle>
+                    <DialogTitle>إضافة إجراء تصحيحي</DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} dir="rtl" className="space-y-8">
                         <FormField
                             control={form.control}
-                            name="rootCause"
+                            name="correctiveAction"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>السبب الجذري</FormLabel>
+                                    <FormLabel>الإجراء التصحيحي</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} placeholder="السبب الجذري..." {...field} />
+                                        <Input disabled={isSubmitting} placeholder="الإجراء التصحيحي..." {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -103,4 +103,4 @@ const AddRootCause: React.FC<AddRootCauseModalProps> = ({ isOpen, onClose, inspe
     );
 };
 
-export default AddRootCause;
+export default AddCorrectiveAction;

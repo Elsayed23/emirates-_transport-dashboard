@@ -75,7 +75,7 @@ model InspectionType {
 }
 
 model TrafficLine {
-  id                  String   @id @default(uuid())
+  id                  String            @id @default(uuid())
   name                String
   schoolId            Int
   schoolName          String
@@ -84,33 +84,61 @@ model TrafficLine {
   educationalLevel    String
   countOfStudents     Int
   transferredCategory String
-  risks               Risk[]
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt()
+  risks               TrafficLineRisk[]
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt()
 }
 
-model Risk {
-  id                  String           @id @default(uuid())
+model TrafficLineRisk {
+  id                  String                      @id @default(uuid())
   trafficLineId       String?
   questionId          Int?
-  causeOfRisk         String?
+  causeOfRisk         String?                     @db.LongText
   activity            String?
   typeOfActivity      String?
-  hazardSource        String?
-  risk                String?          @db.LongText
+  hazardSource        String?                     @db.LongText
+  risk                String?                     @db.LongText
   peopleExposedToRisk String?
   riskAssessment      String?
   residualRisks       String?
   expectedInjury      String?
-  controlMeasures     ControlMeasure[]
-  trafficLine         TrafficLine?     @relation(fields: [trafficLineId], references: [id])
-  createdAt           DateTime         @default(now())
-  updatedAt           DateTime         @updatedAt
+  controlMeasures     TraffikLineControlMeasure[]
+  trafficLine         TrafficLine?                @relation(fields: [trafficLineId], references: [id])
+  createdAt           DateTime                    @default(now())
+  updatedAt           DateTime                    @updatedAt
 }
 
-model ControlMeasure {
-  id      String @id @default(uuid())
-  riskId  String
-  measure String @db.LongText
-  risk    Risk   @relation(fields: [riskId], references: [id])
+model TraffikLineControlMeasure {
+  id        String          @id @default(uuid())
+  riskId    String
+  measureAr String          @db.LongText
+  measureEn String          @db.LongText
+  risk      TrafficLineRisk @relation(fields: [riskId], references: [id])
+}
+
+model SchoolRisks {
+  id                  String                 @id @default(uuid())
+  stationId           Int
+  schoolId            Int
+  questionId          Int?
+  causeOfRisk         String?                @db.LongText
+  activity            String?
+  typeOfActivity      String?
+  hazardSource        String?                @db.LongText
+  risk                String?                @db.LongText
+  peopleExposedToRisk String?
+  riskAssessment      String?
+  residualRisks       String?
+  expectedInjury      String?
+  controlMeasures     SchoolControlMeasure[]
+  createdAt           DateTime               @default(now())
+  updatedAt           DateTime               @updatedAt
+}
+
+model SchoolControlMeasure {
+  id        String      @id @default(uuid())
+  riskId    String
+  measureAr String      @db.LongText
+  measureEn String      @db.LongText
+  risk      SchoolRisks @relation(fields: [riskId], references: [id])
 }

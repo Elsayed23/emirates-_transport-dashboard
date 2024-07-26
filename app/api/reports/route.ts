@@ -121,6 +121,11 @@ export async function GET(req: NextRequest) {
                 include: {
                     inspectionType: true,
                     _count: true,
+                    user: {
+                        select: {
+                            name: true
+                        }
+                    }
                 }
             });
         } else if (user?.role?.name === 'SAFETY_OFFICER') {

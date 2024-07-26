@@ -16,7 +16,6 @@ export const POST = async (req: Request) => {
         if (!reportId || !name || !idOfBus || !noteClassification || !description) {
             return NextResponse.json({ status: 400, message: "All fields are required" });
         }
-        console.log(noteClassification);
 
         const imagePromises = files.filter(file => file.type.startsWith('image/')).map(async (file) => {
             const arrayBuffer = await file.arrayBuffer();
@@ -37,7 +36,7 @@ export const POST = async (req: Request) => {
                 idOfBus: Number(idOfBus),
                 noteClassification,
                 description,
-                image: savedImages[0], // Assuming you are uploading a single image
+                image: savedImages[0],
             }
         });
 

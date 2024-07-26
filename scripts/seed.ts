@@ -1,11 +1,13 @@
-import { PrismaClient } from "@prisma/client";
+const { PrismaClient } = require('@prisma/client')
+require('dotenv').config()  // Add this line to load environment variables
 
-const prisma = new PrismaClient();
+const database = new PrismaClient();
+
 
 const main = async () => {
     try {
 
-        await prisma.inspectionType.createMany({
+        await database.inspectionType.createMany({
             data: [
                 {
                     name: 'Inspection of safety procedures on school buses'
@@ -19,7 +21,7 @@ const main = async () => {
             ]
         })
 
-        await prisma.user.createMany({
+        await database.user.createMany({
             data: [
                 {
                     name: 'bani_yas',
@@ -35,7 +37,7 @@ const main = async () => {
             ]
         })
 
-        await prisma.role.createMany({
+        await database.role.createMany({
             data: [
                 {
                     name: 'SAFETY_OFFICER',

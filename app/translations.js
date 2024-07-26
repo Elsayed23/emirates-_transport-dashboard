@@ -32,7 +32,7 @@ const translations = {
         "count of existing schools": "Count of existing schools",
         "results": "Results",
         "home": "Home",
-        "stations": "Stations",
+        "stations": "Risk registers",
         "station": "station",
         "reports": "Reports",
         "Emirates Education Foundation contract": "Emirates Education Foundation contract",
@@ -102,7 +102,8 @@ const translations = {
         "Inspection of safety procedures on school buses": "Inspection of safety procedures on school buses",
         "Inspection of electronic control": "Inspection of electronic control",
         "school": "school",
-        "type": "type"
+        "type": "type",
+        "Add risks": "Add risks"
     },
     ar: {
         hero: {
@@ -137,7 +138,7 @@ const translations = {
         "count of existing schools": "عدد المدارس الموجودة",
         "results": "النتائج",
         "home": "الرئيسية",
-        "stations": "المحطات",
+        "stations": "سجلات المخاطر",
         "station": "محطة",
         "reports": "التقارير",
         "Emirates Education Foundation contract": "عقد مؤسسة الامارات للتعليم",
@@ -207,7 +208,8 @@ const translations = {
         "Inspection of safety procedures on school buses": "التفتيش علي اجراءات السلامة في حافلات النقل المدرسي",
         "Inspection of electronic control": "التفتيش علي الرقابة الالكترونية",
         "school": "مدرسة",
-        "type": "النوع"
+        "type": "النوع",
+        "Add risks": "إضافة الاخطار"
     }
 };
 
