@@ -25,7 +25,7 @@ const page = () => {
     const getOfficers = async () => {
         try {
             if (user) {
-                const { data } = await axios.get('/api/safety_officer')
+                const { data } = await axios.get('/api/safety_officer?is_electronic_censorship=true')
                 setOfficersData(data)
                 setLoading(false)
             }

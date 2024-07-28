@@ -37,7 +37,8 @@
     "app/context/index.jsx",
     "app/(dashboard)/layout.jsx",
     "app/(dashboard)/(routes)/reports/[id]/page.jsx",
-    "app/(dashboard)/(routes)/delete_requests/page.jsx"
+    "app/(dashboard)/(routes)/delete_requests/page.jsx",
+    "app/(dashboard)/(routes)/reports/create/_components/CreateReportForm.jsx"
   ],
   "exclude": [
     "node_modules"

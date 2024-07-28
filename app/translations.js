@@ -109,6 +109,7 @@ const translations = {
         "The itinerary has been successfully added": "The itinerary has been successfully added",
         "Delete itinerary": "Delete itinerary",
         "This action cannot be undone": "This action cannot be undone. This will permanently delete this traffic line",
+        "The report has been successfully deleted": "The report has been successfully deleted",
         "The itinerary has been successfully deleted": "The itinerary has been successfully deleted",
         "Are you absolutely sure": "Are you absolutely sure?",
         "The itinerary does not exist": "The itinerary does not exist",
@@ -120,7 +121,8 @@ const translations = {
         "Note": "Note",
         "You have to complete the current inspection": "You have to complete the current inspection",
         "All inspections saved successfully": "All inspections saved successfully",
-        "Capture Photo": "Capture Photo"
+        "Capture Photo": "Capture Photo",
+        "Finish": "Finish"
     },
     ar: {
         hero: {
@@ -232,6 +234,7 @@ const translations = {
         "Delete": "حذف",
         "Delete itinerary": "حذف خط السير",
         "This action cannot be undone": "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف خط المرور هذا بشكل دائمهل أنت متأكد تمامًا",
+        "The report has been successfully deleted": "تم حذف التقرير بنجاح",
         "The itinerary has been successfully deleted": "تم حذف خط السير بنجاح.",
         "Are you absolutely sure": "هل أنت متأكد تماماً؟",
         "The itinerary does not exist": "خط السير غير موجود",
@@ -243,7 +246,8 @@ const translations = {
         "Note": "الملاحظة",
         "You have to complete the current inspection": "عليك إكمال التفتيش الحالي",
         "All inspections saved successfully": "تم حفظ جميع عمليات التفتيش بنجاح",
-        "Capture Photo": "التقاط الصور"
+        "Capture Photo": "التقاط الصور",
+        "Finish": "إنشاء"
     }
 };
 

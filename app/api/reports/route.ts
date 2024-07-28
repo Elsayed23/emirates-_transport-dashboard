@@ -109,11 +109,9 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ message: 'User not found' }, { status: 404 });
         }
 
-        // Check user role and fetch reports accordingly
         let reports;
 
         if (user?.role?.name === 'STATION') {
-            // Fetch all reports for the user's stationId
             reports = await db.report.findMany({
                 where: {
                     stationId: Number(user.stationId),
@@ -134,7 +132,6 @@ export async function GET(req: NextRequest) {
                 },
             });
         } else if (user?.role?.name === 'SAFETY_OFFICER') {
-            // Fetch all reports created by the user
             reports = await db.report.findMany({
                 where: {
                     user_id: userId,
@@ -174,27 +171,6 @@ export async function GET(req: NextRequest) {
 
     } catch (error) {
         console.error('Error fetching reports:', error);
-        return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
-    }
-}
-
-
-export async function DELETE(req: NextRequest) {
-    try {
-        const inspectionId = req.nextUrl.searchParams.get('inspection_id');
-
-        if (!inspectionId) {
-            return NextResponse.json({ message: 'Inspection ID is required' }, { status: 400 });
-        }
-
-        // Delete the Inspection and cascade delete related records
-        const deletedInspection = await db.inspection.delete({
-            where: { id: inspectionId },
-        });
-
-        return NextResponse.json({ message: 'Inspection and related data deleted successfully', data: deletedInspection });
-    } catch (error) {
-        console.error('Error deleting Inspection:', error);
         return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
     }
 }

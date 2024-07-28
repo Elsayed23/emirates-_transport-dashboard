@@ -8,19 +8,16 @@ import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import Loading from '../../../_components/Loading'
 import { useAuth } from '@/app/context/AuthContext'
+import { toast } from 'sonner'
 
 const page = () => {
 
     const [reportsData, setReportsData] = useState([])
     const [loading, setLoading] = useState(true)
+    const [toggleDeleteReport, setToggleDeleteReport] = useState(false)
 
     const { user } = useAuth()
 
-    const reportsCard = reportsData?.map((card, idx) => {
-        return (
-            <Card key={idx} {...card} />
-        )
-    })
 
     const getReports = async () => {
         try {
@@ -36,9 +33,29 @@ const page = () => {
         }
     }
 
+    const handleDeleteReport = async (id) => {
+        try {
+
+            await axios.delete(`/api/reports/${id}`)
+
+            toast.success(t('The report has been successfully deleted'))
+            setToggleDeleteReport(prev => !prev)
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const reportsCard = reportsData?.map((card, idx) => {
+        return (
+            <Card key={idx} handleDeleteReport={handleDeleteReport} {...card} />
+        )
+    })
+
+
     useEffect(() => {
         getReports()
-    }, [user])
+    }, [user, toggleDeleteReport])
 
     const { t } = useTranslation()
 

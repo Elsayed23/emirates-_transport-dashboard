@@ -5,28 +5,33 @@ import Card from './_components/Card'
 import DynamicBreadcrumb from '@/app/(dashboard)/_components/DynamicBreadcrumb'
 import useTranslation from '@/app/hooks/useTranslation'
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Loading from '@/app/(dashboard)/_components/Loading'
 import { useAuth } from '@/app/context/AuthContext'
 
-const page = () => {
+const page = ({ params: { id } }) => {
 
-    const [officersData, setOfficersData] = useState(null)
+    const [reportsData, setReportsData] = useState(null)
     const [loading, setLoading] = useState(true)
+
+    const searchParams = useSearchParams()
+
+
+    const nameOfOfficer = searchParams.get('officer')
 
     const { user } = useAuth()
 
-    const officerCard = officersData?.map((card, idx) => {
+    const reportsCard = reportsData?.map((card, idx) => {
         return (
             <Card key={idx} {...card} />
         )
     })
 
-    const getOfficers = async () => {
+    const getReports = async () => {
         try {
             if (user) {
-                const { data } = await axios.get('/api/safety_officer')
-                setOfficersData(data)
+                const { data } = await axios.get(`/api/safety_officer/${id}?is_electronic_censorship=true`)
+                setReportsData(data)
                 setLoading(false)
             }
 
@@ -36,19 +41,24 @@ const page = () => {
         }
     }
 
+    console.log(reportsData);
+
     useEffect(() => {
-        getOfficers()
+        getReports()
     }, [user])
 
     const { t } = useTranslation()
 
     const router = useRouter()
 
-
     const breadcrumbData = [
         {
-            title: 'ضباط السلامة'
+            url: '/reports/users',
+            title: 'تقارير ضباط السلامة'
         },
+        {
+            title: nameOfOfficer
+        }
     ]
 
     if (loading) return <Loading />
@@ -58,13 +68,15 @@ const page = () => {
         <div className="p-6 min-h-[calc(100vh-80px)]">
             <div className="flex flex-col gap-9">
                 <DynamicBreadcrumb routes={breadcrumbData} />
-                <div className="flex flex-col gap-3">
-                    <h2 className='text-xl font-medium'>عدد ضباط السلامة: {officersData?.length}</h2>
-                    <hr />
-                </div>
-                <div className="grid grid-cols-3 gap-6">
-                    {officerCard}
-                </div>
+                {
+                    reportsData.length === 0
+                        ?
+                        <h2 className='text-2xl text-center'>لا يوجد اي تقارير لهذا الضابط</h2>
+                        :
+                        <div className="grid grid-cols-2 gap-6">
+                            {reportsCard}
+                        </div>
+                }
             </div>
         </div>
     )

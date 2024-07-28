@@ -1,5 +1,4 @@
-"use client"
-
+'use client'
 import * as React from "react";
 import {
     ColumnDef,
@@ -118,16 +117,15 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         setInspectionId(inspectionId)
     }
 
-
     const columns: ColumnDef<Inspection>[] = [
         {
             accessorKey: "id",
-            header: () => <div className="text-right">م</div>,
+            header: () => <div className="text-right">م <br />no</div>,
             cell: ({ row }) => <div>{row.index + 1}</div>,
         },
         {
             accessorKey: "image",
-            header: () => <div className="text-right">صورة</div>,
+            header: () => <div className="text-right">صورة <br /> photo</div>,
             cell: ({ row }) => (
                 <div>
                     <img src={row.getValue("image")} alt='inspection image' width="100" />
@@ -136,11 +134,11 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         },
         {
             accessorKey: "requirement",
-            header: () => <div className="text-right">المتطلب</div>,
+            header: () => <div className="text-right">المتطلب <br /> requirement</div>,
             cell: ({ row }) => {
                 const requirement = row.getValue("requirement") as string
                 return (
-                    <div>{requirement.split('|')[0]} <br /> {requirement.split('|')[1]}</div>
+                    <div className="flex flex-col gap-1 text-right">{requirement.split('|')[0]} <hr /> <span className="text-left">{requirement.split('|')[1]}</span></div>
                 )
             },
         },
@@ -151,24 +149,30 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         },
         {
             accessorKey: 'description',
-            header: () => <div className="text-right">وصف الملاحظة</div>,
-            cell: ({ row }) => <div className="max-w-[200px]">{row.getValue('description')} <br /> {row.getValue('enDescription')}</div>,
+            header: () => <div className="text-right">وصف الملاحظة <br /> Description of the note</div>,
+            cell: ({ row }) => (
+                <div className="max-w-[200px] flex flex-col gap-1 text-right">
+                    {row.getValue('description')}
+                    <hr />
+                    <span className="text-left">{row.original.enDescription}</span>
+                </div>
+            ),
         },
         {
             accessorKey: "noteClassification",
-            header: () => <div className="text-right">تصنيف الملاحظة</div>,
+            header: () => <div className="text-right">تصنيف الملاحظة <br /> Note classification</div>,
             cell: ({ row }) => (
                 <div className="capitalize">{row.getValue("noteClassification")}</div>
             ),
         },
         {
             accessorKey: "rootCause",
-            header: () => <div className="text-right">السبب الجذري</div>,
+            header: () => <div className="text-right">السبب الجذري <br /> Root cause</div>,
             cell: ({ row }) => <div >{row.getValue("rootCause")}</div>,
         },
         {
             accessorKey: "correctiveAction",
-            header: () => <div className="text-right">الإجراء التصحيحي</div>,
+            header: () => <div className="text-right">الإجراء التصحيحي <br /> Corrective action</div>,
             cell: ({ row }) => <div >{row.getValue("correctiveAction")}</div>,
         },
         {
@@ -195,7 +199,11 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
                                     </>
                                     :
                                     <>
-                                        <DropdownMenuItem onClick={() => { handleCloseInspection(!inspection.isClosed, inspection.id) }}>{inspection.isClosed ? 'فتح التفتيش' : 'إغلاق التفتيش'}</DropdownMenuItem>
+                                        {
+                                            inspection.rootCause && inspection.correctiveAction
+                                            &&
+                                            <DropdownMenuItem onClick={() => { handleCloseInspection(!inspection.isClosed, inspection.id) }}>{inspection.isClosed ? 'فتح التفتيش' : 'إغلاق التفتيش'}</DropdownMenuItem>
+                                        }
 
                                         <DropdownMenuItem onClick={() => { handleDeleteRequest(inspection.id) }}>حذف الملاحظة</DropdownMenuItem>
 

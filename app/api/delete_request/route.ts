@@ -18,9 +18,8 @@ export async function POST(req: NextRequest) {
             },
         });
 
-        // Send email to admin
         const transporter = nodemailer.createTransport({
-            service: 'gmail', // e.g., use your email service
+            service: 'gmail',
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.PASS,
@@ -43,7 +42,7 @@ export async function POST(req: NextRequest) {
     }
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
     try {
         const deleteRequests = await db.deleteRequest.findMany({
             where: {
@@ -71,7 +70,7 @@ export async function GET(req: NextRequest) {
 
 export async function PATCH(req: NextRequest) {
     try {
-        const { requestId, action, rejectionReason } = await req.json(); // action can be 'APPROVE' or 'REJECT'
+        const { requestId, action, rejectionReason } = await req.json();
 
         if (!requestId || !action) {
             return NextResponse.json({ message: 'Request ID and action are required' }, { status: 400 });
@@ -91,23 +90,21 @@ export async function PATCH(req: NextRequest) {
         const deleteRequest = await db.deleteRequest.update({
             where: { id: requestId },
             data: updateData,
-            include: { inspection: { include: { report: { include: { user: true } } } } }, // include related user
+            include: { inspection: { include: { report: { include: { user: true } } } } },
         });
 
         if (action === 'APPROVE') {
-            // First delete the DeleteRequest
             await db.deleteRequest.deleteMany({
                 where: { inspectionId: deleteRequest.inspectionId }
             });
 
-            // Delete the inspection if approved
             await db.inspection.delete({
                 where: { id: deleteRequest.inspectionId },
             });
         } else if (action === 'REJECT') {
-            // Send email to officer
+
             const transporter = nodemailer.createTransport({
-                service: 'gmail', // e.g., use your email service
+                service: 'gmail',
                 auth: {
                     user: process.env.EMAIL,
                     pass: process.env.PASS,

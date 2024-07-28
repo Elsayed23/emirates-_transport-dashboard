@@ -34,11 +34,11 @@ import {
     AlertDialogAction,
     AlertDialogCancel,
     AlertDialogContent,
-    AlertDialogDescription,
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { stationsData } from "@/app/constants";
 
 const formSchema = z.object({
     name: z.string().min(1, { message: "Name is required" }),
@@ -54,10 +54,10 @@ interface PreviewFile {
     preview: string;
 }
 
-const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) => {
+const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     const router = useRouter();
     const [files, setFiles] = useState<PreviewFile[]>([]);
-    const [inspections, setInspections] = useState<FormSchema[]>([]);
+    const [inspections, setInspections] = useState<any[]>([]);
     const [busIdSaved, setBusIdSaved] = useState(false);
     const [photoCaptured, setPhotoCaptured] = useState(false);
     const [capturing, setCapturing] = useState(false);
@@ -154,44 +154,30 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
         return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
     }, [files]);
 
-    const saveInspection = async (inspection: FormSchema) => {
+    const saveInspectionInState = (inspection: FormSchema) => {
         const selectedNote = noteData
             .flatMap((d) => d.notes)
             .find((note) => note.ar === inspection.requirement);
-        const formData = new FormData();
-        formData.append("reportId", id);
-        formData.append("name", inspection.name);
-        formData.append("idOfBus", inspection.idOfBus);
-        formData.append("description", selectedNote?.ar || "");
-        formData.append("enDescription", selectedNote?.en || "");
-        formData.append("requirement", selectedRequirement);
 
-        files.forEach(({ file }) => {
-            formData.append("files", file);
-        });
+        const inspectionData = {
+            reportId: '',
+            name: inspection.name,
+            idOfBus: inspection.idOfBus,
+            description: selectedNote?.ar || "",
+            enDescription: selectedNote?.en || "",
+            requirement: selectedRequirement,
+            files: files.map(({ file }) => file)
+        };
 
-        try {
-            const { data } = await axios.post("/api/inspections", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            });
-
-            return data;
-        } catch (error) {
-            console.error("Error saving inspection:", error);
-            toast.error("Failed to save inspection.");
-            throw error;
-        }
+        setInspections((prevInspections) => [
+            ...prevInspections,
+            inspectionData,
+        ]);
     };
 
-    const addInspectionToStateAndSave = async (values: FormSchema) => {
+    const addInspectionToState = async (values: FormSchema) => {
         try {
-            const savedInspection = await saveInspection(values);
-            setInspections((prevInspections) => [
-                ...prevInspections,
-                savedInspection.inspection,
-            ]);
+            saveInspectionInState(values);
             form.setValue("requirement", "");
             form.setValue("description", "اي وصف");
             setFiles([]);
@@ -201,20 +187,41 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
         }
     };
 
-    const finishInspection = async () => {
-        if (
-            !form.getValues("name") ||
-            !form.getValues("idOfBus") ||
-            !form.getValues("requirement") ||
-            !form.getValues("description") ||
-            !files
-        ) {
-            toast.error(t("You have to complete the current inspection"));
-        } else {
-            await addInspectionToStateAndSave(form.getValues());
-            setIsFinishSubmitting(true);
-            toast.success(t("All inspections saved successfully"));
-            router.push(`/reports/${id}`);
+    const submitAllInspections = async () => {
+        try {
+            const values = reportData;
+
+            const nameOfStation: any = stationsData.find(({ id }) => id === Number(values.stationId))?.translationName;
+
+            const { data } = await axios.post('/api/reports', { ...values, nameOfStation: nameOfStation });
+
+            for (const inspection of inspections) {
+                const formData = new FormData();
+                formData.append("reportId", data?.id);
+                formData.append("name", inspection.name);
+                formData.append("idOfBus", inspection.idOfBus);
+                formData.append("description", inspection.description);
+                formData.append("enDescription", inspection.enDescription);
+                formData.append("requirement", inspection.requirement);
+
+                inspection.files.forEach((file: any) => {
+                    formData.append("files", file);
+                });
+
+                await axios.post("/api/inspections", formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+            }
+
+            toast.success(t('All inspections saved successfully'));
+            router.push(`/reports/${data?.id}`);
+        } catch (error) {
+            console.error("Error saving all inspections:", error);
+            toast.error("Failed to save inspections.");
+        } finally {
+            setIsFinishSubmitting(false);
         }
     };
 
@@ -265,14 +272,27 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
 
     const makeDIR = language === "ar" ? "rtl" : "ltr";
 
-    const handleFinishClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleFinishClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
-        setIsDialogOpen(true);
+
+        if (
+            !form.getValues("name") ||
+            !form.getValues("idOfBus") ||
+            !form.getValues("requirement") ||
+            !form.getValues("description") ||
+            !files.length
+        ) {
+            toast.error("You have to complete the current inspection");
+        } else {
+            await addInspectionToState(form.getValues());
+            setIsDialogOpen(true);
+        }
     };
 
     const handleConfirmFinish = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
-        await finishInspection();
+        setIsFinishSubmitting(true);
+        await submitAllInspections();
         setIsDialogOpen(false);
     };
 
@@ -294,7 +314,7 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
 
                 <Form {...form}>
                     <form
-                        onSubmit={form.handleSubmit(addInspectionToStateAndSave)}
+                        onSubmit={form.handleSubmit(addInspectionToState)}
                         className="space-y-7"
                     >
                         <div className="space-y-2">

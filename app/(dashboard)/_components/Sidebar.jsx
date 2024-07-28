@@ -35,7 +35,7 @@ const Sidebar = () => {
                     <SidebarRoutes />
                 </div>
             </div>
-            <div className={`absolute top-2/4 ${language === 'ar' ? 'left-0' : 'right-0'} -translate-y-full `}>
+            <div className={`absolute top-3/4 ${language === 'ar' ? 'left-0' : 'right-0'} -translate-y-full `}>
                 <div className={`p-2 hover:bg-green-800  hover:text-white ${language === 'ar' ? 'rounded-tr-2xl rounded-br-2xl' : 'rounded-tl-2xl rounded-bl-2xl'} duration-200 cursor-pointer`} onClick={() => setIsOpen(prev => !prev)}>                    {
                     language === 'ar'
                         ?

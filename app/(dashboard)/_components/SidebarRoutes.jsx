@@ -59,7 +59,7 @@ const SidebarRoutes = () => {
         {
             id: 1,
             name: 'الرقابة الإلكترونية',
-            href: '/reports/electronic_censorship'
+            href: user?.role?.name === 'ADMIN' ? '/reports/electronic_censorship/users' : '/reports/electronic_censorship'
         },
         {
             id: 2,

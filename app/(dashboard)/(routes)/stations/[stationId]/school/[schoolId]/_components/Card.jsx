@@ -63,7 +63,7 @@ const StationCard = ({
     }
 
     return (
-        <div onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${id}`)} className='flex relative border shadow-lg hover:scale-[1.03] duration-200 relative text-[#111] flex-col gap-3 rounded-xl cursor-pointer px-4 py-5'>
+        <div onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${id}`)} className='flex border shadow-lg hover:scale-[1.03] duration-200 relative text-[#111] flex-col gap-3 rounded-xl cursor-pointer px-4 py-5'>
             <TooltipProvider delayDuration={200}>
                 <Tooltip>
                     <TooltipTrigger asChild>

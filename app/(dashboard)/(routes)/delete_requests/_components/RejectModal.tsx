@@ -14,9 +14,15 @@ const RejectModal: React.FC<RejectModalProps> = ({ isOpen, onClose, onSubmit }) 
     const [reason, setReason] = useState('');
 
     const handleSubmit = () => {
-        onSubmit(reason);
-        setReason('');
-        onClose();
+        try {
+
+            onSubmit(reason);
+            setReason('');
+            onClose();
+
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (

@@ -1,37 +1,75 @@
 import { db } from "@/lib/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
-    req: Request,
+    req: NextRequest,
     { params }: { params: { id: string } }
 ) {
     try {
 
         const { id } = params
 
+        const isElectronicCensorship = req.nextUrl.searchParams.get('is_electronic_censorship')
 
-        const reports = await db.report.findMany({
-            where: {
-                user_id: id
-            },
-            include: {
-                inspections: true,
-                user: {
-                    select: {
-                        id: true,
-                        name: true
+        if (isElectronicCensorship) {
+            const reports = await db.report.findMany({
+                where: {
+                    user_id: id,
+                    inspectionType: {
+                        is: {
+                            name: "Inspection of electronic control"
+                        }
                     }
                 },
-                inspectionType: true
-            }
-        })
+                include: {
+                    inspections: true,
+                    user: {
+                        select: {
+                            id: true,
+                            name: true
+                        }
+                    },
+                    inspectionType: true
+                }
+            })
 
-        if (!reports) {
-            return NextResponse.json({ message: 'Not found user with this id' }, { status: 404 });
+            if (!reports) {
+                return NextResponse.json({ message: 'Not found user with this id' }, { status: 404 });
+            }
+
+
+            return NextResponse.json(reports)
+        } else {
+            const reports = await db.report.findMany({
+                where: {
+                    user_id: id,
+                    inspectionType: {
+                        isNot: {
+                            name: "Inspection of electronic control"
+                        }
+                    }
+                },
+                include: {
+                    inspections: true,
+                    user: {
+                        select: {
+                            id: true,
+                            name: true
+                        }
+                    },
+                    inspectionType: true
+                }
+            })
+
+            if (!reports) {
+                return NextResponse.json({ message: 'Not found user with this id' }, { status: 404 });
+            }
+
+
+            return NextResponse.json(reports)
         }
 
 
-        return NextResponse.json(reports)
 
 
     } catch (error) {

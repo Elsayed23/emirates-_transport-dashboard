@@ -78,7 +78,7 @@ model DeleteRequest {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
-  inspection Inspection @relation(fields: [inspectionId], references: [id])
+  inspection Inspection @relation(fields: [inspectionId], references: [id], onDelete: Cascade)
 }
 
 model InspectionType {
@@ -155,5 +155,5 @@ model SchoolControlMeasure {
   riskId    String
   measureAr String      @db.LongText
   measureEn String      @db.LongText
-  risk      SchoolRisks @relation(fields: [riskId], references: [id])
+  risk      SchoolRisks @relation(fields: [riskId], references: [id], onDelete: Cascade)
 }

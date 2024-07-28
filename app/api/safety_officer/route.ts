@@ -1,7 +1,7 @@
 import { db } from '@/lib/db';
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export const POST = async (req: Request) => {
     try {
@@ -36,26 +36,69 @@ export const POST = async (req: Request) => {
     }
 }
 
-export const GET = async () => {
+export const GET = async (req: NextRequest) => {
     try {
 
+        const isElectronicCensorship = req.nextUrl.searchParams.get('is_electronic_censorship')
 
 
-        const safetyOfficers = await db.user.findMany({
-            where: {
-                role: {
-                    name: 'SAFETY_OFFICER'
-                }
-            },
-            select: {
-                _count: true,
-                id: true,
-                name: true,
-            },
-        })
+        if (isElectronicCensorship) {
+            const safetyOfficers = await db.user.findMany({
+                where: {
+                    role: {
+                        name: 'SAFETY_OFFICER'
+                    },
+                },
+                select: {
+                    _count: {
+                        select: {
+                            reports: {
+                                where: {
+                                    inspectionType: {
+                                        is: {
+                                            name: "Inspection of electronic control"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    id: true,
+                    name: true,
+                },
+            })
 
 
-        return NextResponse.json(safetyOfficers)
+            return NextResponse.json(safetyOfficers)
+        } else {
+            const safetyOfficers = await db.user.findMany({
+                where: {
+                    role: {
+                        name: 'SAFETY_OFFICER'
+                    }
+                },
+                select: {
+                    _count: {
+                        select: {
+                            reports: {
+                                where: {
+                                    inspectionType: {
+                                        isNot: {
+                                            name: "Inspection of electronic control"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    id: true,
+                    name: true,
+                },
+            })
+
+
+            return NextResponse.json(safetyOfficers)
+        }
 
     } catch (error) {
         console.log("[job_titles]", error);
