@@ -15,6 +15,7 @@ const page = ({ params: { stationId, schoolId } }) => {
     const [questions, setQuestions] = useState(SchoolRisksData)
     const [loading, setLoading] = useState(true)
     const [answers, setAnswers] = useState([])
+    const [isSubmitting, setisSubmitting] = useState(false)
     const [isFirstTime, setIsFirstTime] = useState(true)
 
     const { enStationName } = getSpecificStationName(stationId)
@@ -65,6 +66,7 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     const handleSubmit = useCallback(async () => {
         try {
+            setisSubmitting(true)
             if (allTheAnswersFromQuestions.includes('غير مجاب عليها')) {
                 toast.error(t('You must answer all questions'))
             } else {
@@ -114,7 +116,7 @@ const page = ({ params: { stationId, schoolId } }) => {
             <div className="min-h-[calc(100vh-148px)] flex flex-col justify-center items-center">
                 <div className="w-full p-4 max-w-xl max-h-[650px] border overflow-y-scroll bg-white rounded-lg shadow-md flex flex-col gap-5">
                     {questionCard}
-                    <Button onClick={handleSubmit}>{t('Save')}</Button>
+                    <Button onClick={handleSubmit} disabled={isSubmitting}>{t('Save')}</Button>
                 </div>
             </div>
         </div>

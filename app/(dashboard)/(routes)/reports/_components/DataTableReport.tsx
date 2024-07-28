@@ -39,6 +39,8 @@ import { useAuth } from "@/app/context/AuthContext";
 import AddCorrectiveAction from "./CorrectiveActionModal";
 import axios from "axios";
 import { toast } from "sonner";
+import LanguageContext from "@/app/context/LanguageContext";
+import DeleteRequest from "./DeleteRequestModal";
 
 export type Inspection = {
     id: string;
@@ -49,6 +51,8 @@ export type Inspection = {
     idOfBus: number;
     noteClassification: string;
     description: string;
+    enDescription: string;
+    requirement: string;
 };
 
 export type Report = {
@@ -58,7 +62,7 @@ export type Report = {
     inspections: Inspection[];
 };
 
-export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveActionAdded }: any) {
+export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveActionAdded, setIsInspectionClose, setIsDeleteRequestDone }: any) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
@@ -72,6 +76,8 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
 
     const [inspectionId, setInspectionId] = React.useState('')
 
+    const [isOpenDeleteRequest, setIsOpenDeleteRequest] = React.useState(false)
+
     const handleCloseInspection = async (isClosed: boolean, inspectionId: string) => {
         try {
 
@@ -81,7 +87,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
             }
 
             await axios.patch('/api/close_inspection', dataSend)
-
+            setIsInspectionClose((prev: boolean) => !prev)
             toast.success('تم إغلاق التفتيش')
 
         } catch (error) {
@@ -90,6 +96,8 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
     }
 
     const { user } = useAuth()
+
+    const { language } = React.useContext(LanguageContext);
 
     const handleAddRootCause = async (rootCause: any, inspectionId: string) => {
         setIsOpenRootCause(true)
@@ -102,6 +110,11 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         setIsOpenCorrectiveAction(true)
 
         setCorrectiveAction(correctiveAction == null ? '' : correctiveAction)
+        setInspectionId(inspectionId)
+    }
+
+    const handleDeleteRequest = async (inspectionId: string) => {
+        setIsOpenDeleteRequest(true)
         setInspectionId(inspectionId)
     }
 
@@ -122,14 +135,24 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
             ),
         },
         {
+            accessorKey: "requirement",
+            header: () => <div className="text-right">المتطلب</div>,
+            cell: ({ row }) => {
+                const requirement = row.getValue("requirement") as string
+                return (
+                    <div>{requirement.split('|')[0]} <br /> {requirement.split('|')[1]}</div>
+                )
+            },
+        },
+        {
             accessorKey: "idOfBus",
-            header: () => <div className="text-right">الدليل</div>,
+            header: () => <div className="text-right">الدليل (BOO)</div>,
             cell: ({ row }) => <div>{row.getValue("idOfBus")}</div>,
         },
         {
-            accessorKey: "description",
+            accessorKey: 'description',
             header: () => <div className="text-right">وصف الملاحظة</div>,
-            cell: ({ row }) => <div >{row.getValue("description")}</div>,
+            cell: ({ row }) => <div className="max-w-[200px]">{row.getValue('description')} <br /> {row.getValue('enDescription')}</div>,
         },
         {
             accessorKey: "noteClassification",
@@ -171,7 +194,12 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
                                         <DropdownMenuItem onClick={() => { handleAddCorrectiveAction(inspection.correctiveAction, inspection.id) }}>{inspection.correctiveAction ? 'تعديل الإجراء التصحيح' : 'إضافة إجراء تصحيحي'}</DropdownMenuItem>
                                     </>
                                     :
-                                    <DropdownMenuItem onClick={() => { handleCloseInspection(!inspection.isClosed, inspection.id) }}>{inspection.isClosed ? 'فتح التفتيش' : 'إغلاق التفتيش'}</DropdownMenuItem>
+                                    <>
+                                        <DropdownMenuItem onClick={() => { handleCloseInspection(!inspection.isClosed, inspection.id) }}>{inspection.isClosed ? 'فتح التفتيش' : 'إغلاق التفتيش'}</DropdownMenuItem>
+
+                                        <DropdownMenuItem onClick={() => { handleDeleteRequest(inspection.id) }}>حذف الملاحظة</DropdownMenuItem>
+
+                                    </>
                             }
                         </DropdownMenuContent>
                     </DropdownMenu>
@@ -262,6 +290,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
                             table.getRowModel().rows.map((row) => (
                                 <TableRow
                                     key={row.id}
+                                    className={row.original.isClosed ? 'bg-red-600 text-white hover:bg-red-700' : ''}
                                     data-state={row.getIsSelected() && "selected"}
                                 >
                                     {row.getVisibleCells().map((cell) => (
@@ -313,6 +342,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
             </div>
             <AddRootCause isOpen={isOpenRootCause} onClose={() => { setIsOpenRootCause(false) }} rootCause={rootCause} inspectionId={inspectionId} setIsRootCauseAdded={setIsRootCauseAdded} />
             <AddCorrectiveAction isOpen={isOpenCorrectiveAction} onClose={() => { setIsOpenCorrectiveAction(false) }} correctiveAction={correctiveAction} inspectionId={inspectionId} setIsCorrectiveActionAdded={setIsCorrectiveActionAdded} />
+            <DeleteRequest isOpen={isOpenDeleteRequest} inspectionId={inspectionId} onClose={() => { setIsOpenDeleteRequest(false) }} setIsDeleteRequestDone={setIsDeleteRequestDone} />
         </div>
     );
 }

@@ -11,8 +11,10 @@ import { Button } from "@/components/ui/button";
 const ReportPage = ({ params: { id } }) => {
     const [reportData, setReportData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [isRootCauseAdded, setIsRootCauseAdded] = React.useState(false)
-    const [isCorrectiveActionAdded, setIsCorrectiveActionAdded] = React.useState(false)
+    const [isRootCauseAdded, setIsRootCauseAdded] = useState(false)
+    const [isCorrectiveActionAdded, setIsCorrectiveActionAdded] = useState(false)
+    const [isInspectionClose, setIsInspectionClose] = useState(false)
+    const [isDeleteRequestDone, setIsDeleteRequestDone] = useState(false)
 
     const getNumberOfNotesRecorded = (note_classification) => {
         if (!reportData?.inspections) {
@@ -39,7 +41,7 @@ const ReportPage = ({ params: { id } }) => {
 
     useEffect(() => {
         getReport();
-    }, [isRootCauseAdded, isCorrectiveActionAdded]);
+    }, [isRootCauseAdded, isCorrectiveActionAdded, isInspectionClose, isDeleteRequestDone]);
 
     if (loading) return <Loading />;
 
@@ -93,7 +95,12 @@ const ReportPage = ({ params: { id } }) => {
                     </tbody>
                 </table>
             </div>
-            <DataTableReport report={reportData} setIsRootCauseAdded={setIsRootCauseAdded} setIsCorrectiveActionAdded={setIsCorrectiveActionAdded} />
+            <DataTableReport
+                report={reportData}
+                setIsRootCauseAdded={setIsRootCauseAdded}
+                setIsCorrectiveActionAdded={setIsCorrectiveActionAdded}
+                setIsInspectionClose={setIsInspectionClose}
+                setIsDeleteRequestDone={setIsDeleteRequestDone} />
         </div>
     );
 };

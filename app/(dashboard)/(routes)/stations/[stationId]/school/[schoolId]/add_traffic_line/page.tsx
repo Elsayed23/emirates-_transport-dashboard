@@ -61,7 +61,7 @@ const page = ({ params: { stationId, schoolId } }: paramsProps) => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             const { data } = await axios.post('/api/traffic_line', values)
-            toast.success('تم إضافة خط السير بنجاح')
+            toast.success(t('The itinerary has been successfully added'))
             router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${data?.id as string}/add`)
         } catch (error) {
             console.log(error);
@@ -199,7 +199,10 @@ const page = ({ params: { stationId, schoolId } }: paramsProps) => {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" disabled={!isValid || isSubmitting}>{t('Save')}</Button>
+                            <div className="flex justify-between items-center">
+                                <Button type="submit" disabled={!isValid || isSubmitting}>{t('Save')}</Button>
+                                <Button variant='destructive' type='button' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}`)}>{t('Cancel')}</Button>
+                            </div>
                         </form>
                     </Form>
                 </div>

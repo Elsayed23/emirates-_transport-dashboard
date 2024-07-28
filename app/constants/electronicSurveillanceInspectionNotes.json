@@ -1,0 +1,383 @@
+[
+    {
+        "requirement": "سائق_النقل_المدرسي | School_bus_drivers",
+        "notes": [
+            {
+                "ar": "عدم وجود سجل التفقد اليومي للحافلة",
+                "en": "Absence of daily bus inspection log"
+            },
+            {
+                "ar": "القيادة بسرعة عالية",
+                "en": "Driving at high speed"
+            },
+            {
+                "ar": "عدم تفقد السائق للحافلة وفقا لنموذج التفقد اليومي حيث يتم تعبئة النموذج دون التأكد من تطابق البنود مع الملاحظات بالحافلة",
+                "en": "The driver does not inspect the bus according to the daily inspection form, as the form is filled out without ensuring that the items match the notes on the bus"
+            },
+            {
+                "ar": "رمي/ القاء القمامه من النافذة أثناء القيادة",
+                "en": "Throwing garbage out the window while driving"
+            },
+            {
+                "ar": "وجود احد المنقولين بالحافلة قبل صعود السائق للحافلة",
+                "en": "The presence of students on the bus before driver boarded the bus"
+            },
+            {
+                "ar": "عدم الالتزام بالزي و المظهر العام و المحافظة على النظافة الشخصية",
+                "en": "Non-compliance with dress and general appearance and maintaining personal hygiene"
+            },
+            {
+                "ar": "السماح للطلبة باستخدام الهاتف الخاص به (الانشغال عن الطريق)",
+                "en": "Allowing students to use their phone (being busy on the road)"
+            },
+            {
+                "ar": "تخزين أغراض شخصية داخل الحافلة",
+                "en": "The presence of personal property inside the bus"
+            },
+            {
+                "ar": "تخزين أدوات النظافة داخل الحافلة",
+                "en": "Storing toiletries inside the bus"
+            },
+            {
+                "ar": "وضع الجهاز اللوحي / للوحة الحافلة خالية على محرك الحافلة",
+                "en": "PUTTED TABLET AND NO STUDENTS BOARD ON ENGINE"
+            },
+            {
+                "ar": "الانشغال عن الطريق (التحدث مع المنقولين)",
+                "en": "Being distracted from the road in talking with transferees"
+            },
+            {
+                "ar": "استعمال سجل تفقد يومي للحافلة غير محدث",
+                "en": "Using outdated daily bus inspection log"
+            },
+            {
+                "ar": "الانشغال عن الطريق باستخدام الجهاز اللوحي لتحضير المنقولين",
+                "en": "Distraction from the road due to the use of tablet for passenger checklist"
+            },
+            {
+                "ar": "عدم تسجيل صعود ونزول المنقولين",
+                "en": "Not recording the ascent and disembarkation of transported persons"
+            },
+            {
+                "ar": "الرجوع الحافلة للخلف أثناء الرحلة",
+                "en": "Failure to document passenger boarding and disembarking"
+            },
+            {
+                "ar": "نقل شخص غير مصرح له بالصعود للحافلة",
+                "en": "Unauthorized individual boarding the bus"
+            },
+            {
+                "ar": "تركيب لوحة (الحافلة خالية)بوجود منقولين",
+                "en": "Placing a 'Bus Empty' sign with passengers on board"
+            },
+            {
+                "ar": "سير الحافلة عكس اتجاه الطريق",
+                "en": "Bus traveling in the opposite direction of the road"
+            },
+            {
+                "ar": "صعود/نزول المنقولين بنقاط غير امنة",
+                "en": "Boarding/alighting passengers at unsafe points"
+            },
+            {
+                "ar": "صعود/نزول المنقولين على مسافة بعيدة عن منزله",
+                "en": "Passengers boarding/alighting far from home"
+            },
+            {
+                "ar": "عدم إلتزام السائق بوضع لوحة (الحافلة خالية)بعد انتهاء الرحلة",
+                "en": "Driver's failure to display 'Bus Empty' sign post-trip"
+            },
+            {
+                "ar": "فتح ذراع التوقف دون وجود منقولين",
+                "en": "Extending the stop arm when no passengers are present"
+            },
+            {
+                "ar": "عدم فتح زراع التوقف اثناء نزول المنقولين",
+                "en": "Failure to extend the stop arm while passengers are disembarking"
+            },
+            {
+                "ar": "تفقد الحافلة عند الوصول لنقطة السكون 'الموقف النهائي للحافلة'",
+                "en": "Inspecting the bus upon reaching the final stop"
+            },
+            {
+                "ar": "عدم تفقد الحافلة بعد نزول الطلبة من الحافلة",
+                "en": "Not inspecting the bus after students disembark"
+            },
+            {
+                "ar": "عدم الالتزام بربط حزام الامان بصورة صحيحة",
+                "en": "Failure to properly fasten seat belts"
+            },
+            {
+                "ar": "استخدام حافلة النقل المدرسي بعد ساعات العمل الرسمية",
+                "en": "Using the school bus outside official working hours"
+            },
+            {
+                "ar": "وجود ممتلكات شخصية داخل الحافلة",
+                "en": "The presence of personal property inside the bus"
+            },
+            {
+                "ar": "استخدام حافلة النقل المدرسي لأغراض شخصية",
+                "en": "Using the school bus for personal purposes"
+            },
+            {
+                "ar": "وجود أدوات نظافة داخل الحافلة",
+                "en": "There are toiletries inside the bus"
+            },
+            {
+                "ar": "الانشغال عن الطريق في الحديث مع المنقولين",
+                "en": "Being distracted from the road in talking with transferees"
+            },
+            {
+                "ar": "استخدام 'النسور' أو 'التدخين' في الحافلة",
+                "en": "Smoking or vaping inside the bus"
+            },
+            {
+                "ar": "الانشغال عن الطريق باستخدام الهاتف",
+                "en": "Driving distraction due to phone use"
+            },
+            {
+                "ar": "الانشغال عن الطريق شرب مشروبات ساخنة /باردة",
+                "en": "Driving distraction due to consuming hot/cold beverages"
+            },
+            {
+                "ar": "التجاوز الخطر أو التجاوز الغير حتمي",
+                "en": "Dangerous vehicle overtaking"
+            },
+            {
+                "ar": "عدم التأكد من خلو محيط الحافلة من الطلبة قبل الحركة",
+                "en": "Failure to ensure the area around the bus is clear of students before moving"
+            },
+            {
+                "ar": "إنزال وتحميل الطلبة في مكان خطر",
+                "en": "Student loading and unloading in a dangerous area"
+            },
+            {
+                "ar": "عدم إعطاء الطلبة الوقت الكافي للركوب أو النزول",
+                "en": "Not allowing students sufficient time to board or disembark"
+            },
+            {
+                "ar": "ترك باب الحافلة مفتوح أثناء القيادة بوجود الطلبة",
+                "en": "Leaving the bus door open while driving with students onboard"
+            },
+            {
+                "ar": "التسرع بفتح باب الحافلة قبل التوقف",
+                "en": "Rushing to open the bus door before coming to a complete stop"
+            },
+            {
+                "ar": "استخدام فتحة التفاف ممنوعة أو مسموحة دون مبرر",
+                "en": "Unauthorized or unjustified use of the emergency exit"
+            },
+            {
+                "ar": "الرجوع إلى الخلف بصورة خطرة",
+                "en": "Reckless reversing"
+            }
+        ]
+    },
+    {
+        "requirement": "مشرف_النقل_والسلامة | School_bus_supervisor",
+        "notes": [
+            {
+                "ar": "انشغال بالهاتف وقت تقديم الخدمة",
+                "en": "Using the phone while providing service"
+            },
+            {
+                "ar": "عدم بارتداء السترة العاكسة",
+                "en": "Not wearing a reflective vest"
+            },
+            {
+                "ar": "تخزين أغراض شخصية داخل الحافلة",
+                "en": "The presence of personal property inside the bus"
+            },
+            {
+                "ar": "عدم قيام بمساعدة الطلاب في عملية الصعود والنزول",
+                "en": "Not assisting students with boarding and disembarking"
+            },
+            {
+                "ar": "عدم قيام برصد السلوكيات السلبية للمنقولين",
+                "en": "Not monitoring the behavior of students"
+            },
+            {
+                "ar": "عدم التزام بتسليم الطلاب لأولياء الأمور أو من ينوب عنهم",
+                "en": "Not handing over students to parents or guardians"
+            },
+            {
+                "ar": "عدم القيام بمساعدة المنقولين بعبور الطريق لتوصيلهم من المنزل الى الحافلة وبالعكس",
+                "en": "Not assisting students with crossing the road to and from the bus"
+            },
+            {
+                "ar": "نوم أثناء تقديم الخدم",
+                "en": "Sleeping while providing service"
+            },
+            {
+                "ar": "التعامل مع المنقولين بعنف",
+                "en": "Treating students violently"
+            },
+            {
+                "ar": "القيام برمي حقيبة أحد المنقولين من الحافلة",
+                "en": "Throwing a student's bag from the bus"
+            },
+            {
+                "ar": "وجود حقائب وامتعة الطلاب بممرر الحافلة",
+                "en": "Students' bags and belongings are in the bus aisle"
+            },
+            {
+                "ar": "تفقد الحافلة بشكل عشوائي غير دقيق",
+                "en": "Random and inaccurate inspection of the bus"
+            },
+            {
+                "ar": "عدم تفقد الحافلة قبل صعود الطلبة للحافلة",
+                "en": "Not inspecting the bus before students board"
+            },
+            {
+                "ar": "عدم تفقد الحافلة بعد نزول الطلبة من الحافلة",
+                "en": "Not inspecting the bus after students disembark"
+            },
+            {
+                "ar": "وجود احد المنقولين بالحافلة بعد نزول مشرف النقل والسلامة من الحافلة",
+                "en": "A student remaining on the bus after the transportation and safety supervisor leaves the bus"
+            },
+            {
+                "ar": "القيام بوضع لوحة الحافلة خالية",
+                "en": "Installing an empty bus panel"
+            },
+            {
+                "ar": "السماح للطلاب باستخدام الجهاز اللوحي لتحضير المنقولين",
+                "en": "Allowing students to use the tablet to prepare for the students"
+            },
+            {
+                "ar": "السماح السائق باستخدام الجهاز اللوحي لتحضير المنقولين",
+                "en": "Allowing the driver to use the tablet to prepare for the students"
+            },
+            {
+                "ar": "عدم القيام بتقديم الاسعفات الأولية عن إصابة احد المنقولين",
+                "en": "Not providing first aid in case of injury to a student"
+            }
+        ]
+    },
+    {
+        "requirement": "سلوك_المنقولين | Student_behavior",
+        "notes": [
+            {
+                "ar": "عدم التزام بربط حزام الأمان وقت الرحلة",
+                "en": "Not wearing a seatbelt during the trip"
+            },
+            {
+                "ar": "تدافع الطلبة عند النزول على الدرج",
+                "en": "Pushing students when going down the stairs"
+            },
+            {
+                "ar": "فتح الطلبة نافذة الحافلة",
+                "en": "The students opened the bus window"
+            },
+            {
+                "ar": "وقوف الطلاب في أماكن تعرض حياتهم للخطر",
+                "en": "Students standing in places that put their lives in danger"
+            },
+            {
+                "ar": "تخزين أغراض شخصية داخل الحافلة",
+                "en": "The presence of personal property inside the bus"
+            },
+            {
+                "ar": "استعداد للنزول قبل وقف الحافلة",
+                "en": "Preparing to disembark before the bus has stopped"
+            },
+            {
+                "ar": "استخدام مواد تؤثر على سلامة المنقولين في الحافلة",
+                "en": "Using materials that affect the safety of students on the bus"
+            },
+            {
+                "ar": "مشاجرة الطلبة في الحافلة",
+                "en": "Fighting between students on the bus"
+            },
+            {
+                "ar": "عدم التزام بصعود الحافلة في الوقت المحدد أثناء الرحلة",
+                "en": "Not boarding the bus on time during the trip"
+            },
+            {
+                "ar": "إصابة أحد الطلبة في الحافلة",
+                "en": "A student being injured on the bus"
+            },
+            {
+                "ar": "استلقاء على المقعد أثناء الرحلة",
+                "en": "Lying down on the seat during the trip"
+            },
+            {
+                "ar": "عدم الجلوس بالشكل الصحيح على المقاعد مما يؤثر على سلامة وقت الرحلة",
+                "en": "Not sitting properly on the seats, affecting safety during the trip"
+            },
+            {
+                "ar": "تشتت انتباه السائق الحافلة أثناء القيادة وذلك لاقتراب أحد الطلبة من ازرار التحكم بالحافلة",
+                "en": "The driver's attention being distracted while driving due to a student approaching the bus controls"
+            },
+            {
+                "ar": "العبث بناقل الحركة أثناء سير الحافلة",
+                "en": "Tampering with the transmission while the bus is moving"
+            },
+            {
+                "ar": "إيقاف الحافلة ومنع السائق من تقديم الخدمة",
+                "en": "Stopping the bus and preventing the driver from providing the service"
+            },
+            {
+                "ar": "التعدي على سائق الحافلة",
+                "en": "Assaulting the bus driver"
+            },
+            {
+                "ar": "التعدي على مشرف النقل والسلامة",
+                "en": "Assaulting the transportation and safety supervisor"
+            },
+            {
+                "ar": "الوقوف اثناء سير الحافلة",
+                "en": "Standing while the bus is moving"
+            },
+            {
+                "ar": "القيام بوضع لوحة الحافلة خالية",
+                "en": "Installing an empty bus panel"
+            },
+            {
+                "ar": "جلوس في الأماكن غير المخصصة في الحافلة",
+                "en": "Sitting in unauthorized places on the bus"
+            },
+            {
+                "ar": "الاعتداء على اخرين بعنف",
+                "en": "Violently assaulting others"
+            }
+        ]
+    },
+    {
+        "requirement": "ملاحظات_على_سلوك_ولي_الامر_او_من_ينوب_عنه | Notes_to_the_guardian_or_his_representativ",
+        "notes": [
+            {
+                "ar": "عدم التزام بترك المسافة الآمنة من الحافلة",
+                "en": "Unsafe Proximity to the Bus"
+            },
+            {
+                "ar": "صعود ولي امر الطالب او من ينوب عنه للحافلة",
+                "en": "Boarding the Bus by a Guardian or Representative"
+            },
+            {
+                "ar": "صعود ولي امر الطالب او من ينوب عنه للحافلة والتعدي على المنقولين",
+                "en": "Boarding the Bus by a Guardian or Representative and assaulting the passengers"
+            }
+        ]
+    },
+    {
+        "requirement": "تشغلية_إدارية | Administrative_operations",
+        "notes": [
+            {
+                "ar": "زيادة عدد المنقولين في الحافلة عن عدد المقاعد",
+                "en": "Increased passengers on the bus beyond seating capacity"
+            },
+            {
+                "ar": "زيادة زمن الرحلة عن 60 دقيقة",
+                "en": "Exceeding the trip duration of 60 minutes"
+            },
+            {
+                "ar": "عدم وجود ما يثبة الرقابة الميدانية",
+                "en": "Lack of evidence of field supervision"
+            },
+            {
+                "ar": "تقديم خدمة النقل دون وجود مشرف النقل والسلامة بالحافلة",
+                "en": "Providing transportation service without the presence of a transportation and safety supervisor"
+            }
+        ]
+    }
+]

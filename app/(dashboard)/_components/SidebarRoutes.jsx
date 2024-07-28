@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { useOpen } from '@/app/context';
 
 const SidebarRoutes = () => {
     const { t } = useTranslation();
@@ -45,39 +46,48 @@ const SidebarRoutes = () => {
             icon: FaUsers,
             label: t('Users'),
             href: '/users'
-        });
+        },
+            {
+                icon: FaUsers,
+                label: 'طلبات الحذف',
+                href: '/delete_requests'
+            }
+        );
     }
 
     const inspectionsData = [
         {
             id: 1,
             name: 'الرقابة الإلكترونية',
-            href: '/reports/any'
+            href: '/reports/electronic_censorship'
         },
         {
             id: 2,
             name: 'التفتيشات',
-            href: '/reports'
+            href: user?.role?.name === 'ADMIN' ? '/reports/users' : '/reports'
         }
     ];
 
     const isActive = (href) => (
         pathname === href ||
-        pathname.startsWith(`${href}/`)
+        pathname.startsWith(`reports/${href.split('/')[1]}`)
     );
 
     const isReportsActive = pathname.includes('report');
+
+    const { isOpen } = useOpen()
 
     const types = inspectionsData.map(({ name, href }, idx) => (
         <li
             key={idx}
             onClick={() => router.push(href)}
             className={cn(
-                'py-4 pl-6 pr-2 cursor-pointer w-full rounded-sm text-slate-500 hover:text-slate-600 hover:bg-red-300/20 duration-200',
-                isActive(href) && 'text-red-700 bg-red-200/20 hover:bg-red-200/20'
+                `py-4 pl-6 pr-2 ${isOpen ? 'duration-200' : ' '} break-words cursor-pointer w-full rounded-sm text-slate-500 hover:text-slate-600 hover:bg-red-300/20 duration-200`,
+                isActive(href) && 'text-red-700 hover:text-red-700 bg-red-200/20 hover:bg-red-200/20'
             )}
         >
             {name}
+
         </li>
     ));
 
@@ -100,7 +110,8 @@ const SidebarRoutes = () => {
                                 'text-slate-500',
                                 isReportsActive && 'text-red-700'
                             )} />
-                            {t('reports')}
+
+                            <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>{t('reports')}</span>
                         </div>
                     </AccordionTrigger>
                     <AccordionContent className="w-full">

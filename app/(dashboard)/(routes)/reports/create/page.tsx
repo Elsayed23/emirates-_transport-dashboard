@@ -29,7 +29,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import toast from 'sonner';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 import { stationsData } from '@/app/constants';
@@ -58,6 +58,11 @@ const page = () => {
 
     const { language } = useContext(LanguageContext);
 
+    const searchParams = useSearchParams()
+
+    const inspection_id = searchParams.get('inspection_id')
+
+
     const { user } = useAuth()
 
     const [inspectionTypesData, setInspectionTypesData] = useState<InspectionTypes[] | null>(null)
@@ -68,7 +73,15 @@ const page = () => {
 
             const { data } = await axios.get('/api/inspection_types')
 
-            setInspectionTypesData(data)
+            if (!inspection_id) {
+                setInspectionTypesData(data?.filter((inspection: any) => {
+                    return inspection?.name !== 'Inspection of electronic control'
+                }))
+            } else {
+                setInspectionTypesData(data?.filter((inspection: any) => {
+                    return inspection?.name === 'Inspection of electronic control'
+                }))
+            }
 
         } catch (error) {
             console.log(error);
@@ -85,7 +98,7 @@ const page = () => {
             userId: user?.id,
             stationId: '',
             nameOfSchool: '',
-            inspectionTypeId: '',
+            inspectionTypeId: inspection_id || '',
             city: '',
         }
     });
@@ -100,6 +113,7 @@ const page = () => {
             <SelectItem key={idx} value={station?.id?.toString()}>{language === 'ar' ? station?.name : station?.translationName}</SelectItem>
         )
     })
+    console.log(inspectionTypesData);
 
     const inspectionTypes = inspectionTypesData?.map(({ id, name }: { id: string, name: string }, idx: number) => {
         return (
@@ -139,9 +153,11 @@ const page = () => {
             const { data } = await axios.post('/api/reports', { ...values, nameOfStation: nameOfStation })
 
             console.log(data);
-
-
-            router.push(`/reports/${data?.id}/inspections/create`)
+            if (inspection_id) {
+                router.push(`/reports/${data?.id}/inspections/create?inspection_type_id=${values.inspectionTypeId}`)
+            } else {
+                router.push(`/reports/${data?.id}/inspections/create`)
+            }
 
         } catch (error) {
             console.error(error);
@@ -184,7 +200,7 @@ const page = () => {
                                 name="inspectionTypeId"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <Select disabled={inspection_id ? true : false} onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl className='mb-5' dir={language === 'ar' ? 'rtl' : 'ltr'}>
                                                 <SelectTrigger>
                                                     <SelectValue placeholder={t('Select the Inspection type')} />

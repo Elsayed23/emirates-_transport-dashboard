@@ -71,7 +71,7 @@ const translations = {
         "Kindergarten": "Kindergarten",
         "Multiple episodes (two or more episodes)": "Multiple episodes (two or more episodes)",
         "Several episodes with kindergarten": "Several episodes with kindergarten",
-        "Add risks": "Add risks",
+        "Add risks": "Add school risks ",
         "Update risks": "Update risks",
         "Risk level: high": "Risk level: high",
         "Danger degree: moderate": "Danger degree: moderate",
@@ -103,7 +103,24 @@ const translations = {
         "Inspection of electronic control": "Inspection of electronic control",
         "school": "school",
         "type": "type",
-        "Add risks": "Add risks"
+        "Add risks": "Add risks",
+        "Electronic censorship": "Electronic censorship",
+        "Delete": "Delete",
+        "The itinerary has been successfully added": "The itinerary has been successfully added",
+        "Delete itinerary": "Delete itinerary",
+        "This action cannot be undone": "This action cannot be undone. This will permanently delete this traffic line",
+        "The itinerary has been successfully deleted": "The itinerary has been successfully deleted",
+        "Are you absolutely sure": "Are you absolutely sure?",
+        "The itinerary does not exist": "The itinerary does not exist",
+        "Bus ID": "Bus ID (BOO)",
+        "Select the requirement": "Select the requirement",
+        "Requirement": "Requirement",
+        "Open Camera": "Open Camera",
+        "Select the note": "Select the note",
+        "Note": "Note",
+        "You have to complete the current inspection": "You have to complete the current inspection",
+        "All inspections saved successfully": "All inspections saved successfully",
+        "Capture Photo": "Capture Photo"
     },
     ar: {
         hero: {
@@ -209,7 +226,24 @@ const translations = {
         "Inspection of electronic control": "التفتيش علي الرقابة الالكترونية",
         "school": "مدرسة",
         "type": "النوع",
-        "Add risks": "إضافة الاخطار"
+        "Add risks": "إضافة مخاطر المدرسة",
+        "Electronic censorship": "الرقابة الإلكترونية",
+        "The itinerary has been successfully added": "تم إضافة خط السير بنجاح",
+        "Delete": "حذف",
+        "Delete itinerary": "حذف خط السير",
+        "This action cannot be undone": "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف خط المرور هذا بشكل دائمهل أنت متأكد تمامًا",
+        "The itinerary has been successfully deleted": "تم حذف خط السير بنجاح.",
+        "Are you absolutely sure": "هل أنت متأكد تماماً؟",
+        "The itinerary does not exist": "خط السير غير موجود",
+        "Bus ID": "معرّف الحافلة(BOO)",
+        "Select the requirement": "إختر المتطلب",
+        "Requirement": "المتطلب",
+        "Open Camera": "افتح الكاميرا",
+        "Select the note": "إختر الملاحظة",
+        "Note": "الملاحظة",
+        "You have to complete the current inspection": "عليك إكمال التفتيش الحالي",
+        "All inspections saved successfully": "تم حفظ جميع عمليات التفتيش بنجاح",
+        "Capture Photo": "التقاط الصور"
     }
 };
 

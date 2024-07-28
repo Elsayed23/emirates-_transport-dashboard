@@ -1,0 +1,408 @@
+[
+    {
+        "requirement": "جاهزية_هيكل_الحافلة | bus_body_readiness",
+        "notes": [
+            {
+                "ar": "تلف في الهيكل الداخلي للحافلة",
+                "en": "Damage to the bus's internal structure"
+            },
+            {
+                "ar": "تلف في الهيكل الخارجي للحافلة",
+                "en": "Damage to the bus's external structure"
+            },
+            {
+                "ar": "تلف في تظليل النوافذ (المخفي)",
+                "en": "Damage in windows shade"
+            },
+            {
+                "ar": "تلف في مساحات الزجاج الامامي",
+                "en": "Damage to the windshield wipers"
+            },
+            {
+                "ar": "عدم وجود مرآة خلفية للحافلة",
+                "en": "Absence of the rearview mirror"
+            },
+            {
+                "ar": "تلف وعطل  باب الركاب",
+                "en": "Damage and malfunction of the passenger door"
+            },
+            {
+                "ar": "وجود توصيلات كهربائية غير مغطاة",
+                "en": "Exposed electrical connections"
+            },
+            {
+                "ar": "عدم إزالة الإشارات التحذيرية الضوئية القديمة",
+                "en": "Failure to remove old warning lights"
+            },
+            {
+                "ar": "عدم وجود لوحة الحافلة خالية",
+                "en": "Absence of a 'bus empty' sign"
+            },
+            {
+                "ar": "تلف في قاعدة لوحة الحافلة خالية",
+                "en": "Damage to the frame of the 'empty bus' sign"
+            },
+            {
+                "ar": "كسر  في المرآة الجانبية",
+                "en": "Broken side mirror"
+            },
+            {
+                "ar": "عدم تثبيت سلة المهملات",
+                "en": "Trash bin is not fixed"
+            },
+            {
+                "ar": "عدم وجود مقابض فتح النوافذ",
+                "en": "Absence of window opening handles"
+            },
+            {
+                "ar": "عدم وجود حاجز امام مقاعد المنقولين",
+                "en": "Absence of a barrier in front of the passengers' seats"
+            },
+            {
+                "ar": "وجود كتابة ورسومات علي الهيكل الداخلي للحافلة",
+                "en": "Presence of writing and drawings on the bus's interior"
+            },
+            {
+                "ar": "ذراع 'التوقف'  لا يعمل",
+                "en": "Inoperable 'stop' arm sign"
+            },
+            {
+                "ar": "عدم وجود أرفف لحقائب الطلاب",
+                "en": "Absence of shelves for student bags"
+            },
+            {
+                "ar": "كسر في زجاج  الحافلة",
+                "en": "Broken bus glass"
+            },
+            {
+                "ar": "وجود صدأ  وتشققات على الهيكل الخارجي للحافلة",
+                "en": "Rust and cracks on the bus exterior"
+            },
+            {
+                "ar": "وجود أثر حادث على هيكل الحافلة الخارجي",
+                "en": "Damage to the external bus structure due to accident"
+            }
+        ]
+    },
+    {
+        "requirement": "سلامة_وامن_المنقولين | Passenger_safety",
+        "notes": [
+            {
+                "ar": "حزام الأمان تالف ولا يعمل بالشكل المطلوب",
+                "en": "Seatbelts are damaged and do not function properly"
+            },
+            {
+                "ar": "تلف حزم الأمان ووجود أجزاء حادة نتيجة تحطم او كسر غطاء الحماية",
+                "en": "Damage to seatbelts and presence of sharp edges due to damage or cracking of the protective cover"
+            },
+            {
+                "ar": "وجود اجزاء حادة في الهيكل الداخلي للحافلة",
+                "en": "Presence of sharp edges in the bus internal structure"
+            },
+            {
+                "ar": "تلف في مانع الانزلاق للدرج",
+                "en": "Damage to the anti-slip tape on the bus steps"
+            },
+            {
+                "ar": "حزام الأمان ثنائي النقاط ويتعارض مع المتطلبات التشريعية",
+                "en": "Two-point seatbelts do not comply with regulatory requirements"
+            }
+        ]
+    },
+    {
+        "requirement": "ملصقات_الحافلة_الأرقام_التعريفية | Bus_sticker_identification_numbers",
+        "notes": [
+            {
+                "ar": "الرقم الداخلي للحافلة(B00) على هيكل الحافلة غير واضح",
+                "en": "Internal number (B00) not clear"
+            },
+            {
+                "ar": "عدم وجود الرقم الداخلي للحافلة(B00) على هيكل الحافلة",
+                "en": "The internal bus number (B00) on the bus body is not available"
+            },
+            {
+                "ar": "الرقم المرجعي(DOT)علي هيكل الحافلة غير واضح",
+                "en": "Reference number (DOT) on the bus structure not clear"
+            },
+            {
+                "ar": "عدم وجود الرقم المرجعي للحافلة(DOT)حسب تشريعات مركز النقل المتكامل",
+                "en": "The DOT reference number on the bus body is not available"
+            },
+            {
+                "ar": "تلف  الملصقات الخارجية للحافلة",
+                "en": "The bus external stickers are damaged"
+            },
+            {
+                "ar": "تغطية ملصقات الحافلة بأجهزة الرادار الخاصة بالشرطة",
+                "en": "The bus's stickers are covered by police radar devices."
+            },
+            {
+                "ar": "تلف الشريط الفسفوري الخارجي للحافلة",
+                "en": "Damaged external reflective bus tape"
+            },
+            {
+                "ar": "وجود ملصق (حافلة مدرسية) علي الزجاج الامامي يؤثر علي مجال رؤية السائق",
+                "en": "A 'School Bus' sticker on the windshield is obstructing the driver's field of vision."
+            },
+            {
+                "ar": "تلف الشريط الفسفوري الداخلي للحافلة",
+                "en": "Damage in the internal bus reflective tape"
+            }
+        ]
+    },
+    {
+        "requirement": "متطلبات_الحافلة_الميكانيكية | Mechanical_bus_requirements",
+        "notes": [
+            {
+                "ar": "تلف/ تعطل المكابح",
+                "en": "Brake failure or malfunction"
+            },
+            {
+                "ar": "وجود عطل ناقل الحركة",
+                "en": "Transmission failure"
+            },
+            {
+                "ar": "العتبة المتحركة لصعود الحافلة لا تعمل وفق المطلوب",
+                "en": "The bus's movable step is not working properly. Tires:"
+            },
+            {
+                "ar": "وجود تلف في الإطارات",
+                "en": "Tire damage"
+            },
+            {
+                "ar": "خروج الادخنة من عادم الحافلة  بكثافة",
+                "en": "Excessive smoke emission from the bus exhaust"
+            },
+            {
+                "ar": "وجود انسكابات زيوت'زيد ناقل الحركة/زيت محرك المركبة",
+                "en": "Oil leakage (transmission/engine)"
+            },
+            {
+                "ar": "وجود عطل بمحرك الحافلة",
+                "en": "Bus engine failure"
+            }
+        ]
+    },
+    {
+        "requirement": "أنظمة_التنبية_والأنظمة_الالكترونية | Alert_systems_and_electronic_systems",
+        "notes": [
+            {
+                "ar": "شاشة الكاميرا ت لا تعمل",
+                "en": "Camera screen is not working"
+            },
+            {
+                "ar": "تعطل حساس باب الركاب",
+                "en": "Passenger door sensor is malfunctioning"
+            },
+            {
+                "ar": "تعطل مستشعر الحركة وجهاز الإنذار",
+                "en": "Motion sensor and alarm are malfunctioning"
+            },
+            {
+                "ar": "العبث مستشعر الحركة وجهاز الإنذار",
+                "en": "Motion sensor and alarm have been tampered with"
+            },
+            {
+                "ar": "عدم وجود مستشعر الحركة وجهاز الإنذار'حلقة أولى +رياض أطفال'",
+                "en": "There is no motion sensor and alarm for the 'First Ring + Kindergarten'"
+            },
+            {
+                "ar": "العبث بالإنذار الصوتي",
+                "en": "The audible alarm has been tampered with"
+            },
+            {
+                "ar": "تعطل اللوحة الالكترونية الأمامية للحافلة",
+                "en": "The front electronic display of the bus is malfunctioning"
+            },
+            {
+                "ar": "تعطل انذار الرجوع للخلف",
+                "en": "The reversing alarm is malfunctioning"
+            },
+            {
+                "ar": "كاميرا (الرجوع للخلف) لا تعمل",
+                "en": "The reversing camera is not working"
+            },
+            {
+                "ar": "تلف فى كاميرا الحافلة خارجية",
+                "en": "External cameras not working or damaged"
+            },
+            {
+                "ar": "تلف فى كاميرا الحافلة الداخلية",
+                "en": "Internal cameras not working or damaged"
+            },
+            {
+                "ar": "لا توجد تسجيلات في MDVR",
+                "en": "No records in the MDVR"
+            },
+            {
+                "ar": "خلل في أنظمة الكاميرات",
+                "en": "Failing of camera system"
+            }
+        ]
+    },
+    {
+        "requirement": "مصابيح_وانارات_الحافلة | Bus_lights",
+        "notes": [
+            {
+                "ar": "وجود كسر في الإضائة الداخلية للحافلة",
+                "en": "There is a broken light in the bus's interior"
+            },
+            {
+                "ar": "كسر في المصابيح الخلفية للحافلة",
+                "en": "The bus's rear lights are broken"
+            },
+            {
+                "ar": "كسر في المصابيح الامامية للحافلة",
+                "en": "The bus's headlights are broken"
+            },
+            {
+                "ar": "تلف / كسر في الإشارات التحذيرية للحافلة",
+                "en": "The bus's warning signals are damaged or broken"
+            }
+        ]
+    },
+    {
+        "requirement": "نظافة_الحافلة_وجاهزيتها | Bus_cleanliness_and_readiness",
+        "notes": [
+            {
+                "ar": "عدم نظافة الحافلة من الداخل",
+                "en": "Poor houskeeping in the bus"
+            },
+            {
+                "ar": "عدم نظافة الحافلة من الخارج",
+                "en": "Bus not clean from outside"
+            },
+            {
+                "ar": "وجود( كتابة /رسومات) علي مقاعد الحافلة",
+                "en": "Drawings and writing on the bus seats"
+            },
+            {
+                "ar": "تمزق في مقاعد الحافلة",
+                "en": "Tear in the bus seats"
+            },
+            {
+                "ar": "تلف وتحطم كراسي الحافلة",
+                "en": "Damage or brake of the car seats"
+            }
+        ]
+    },
+    {
+        "requirement": "الطوارئ_والسلامة | Emergency_safety",
+        "notes": [
+            {
+                "ar": "عدم تثبيت صندوق الإسعافات الأولية",
+                "en": "First aid box not fixed"
+            },
+            {
+                "ar": "وجود نقص بمحتوى صندوق الإسعافات الالية",
+                "en": "First aid box content not full"
+            },
+            {
+                "ar": "عدم وجود صندوق الإسعافات الأولية",
+                "en": "There is no first aid box"
+            },
+            {
+                "ar": "عدم تثبيت طفايات الحريق",
+                "en": "Not fixing the fire extinguishers"
+            },
+            {
+                "ar": "عدم إزالة قاعدة طفايات الحريق القديمة",
+                "en": "Old fire extinguishers base is not removed"
+            },
+            {
+                "ar": "عدم إزالة قاعدة طفايات الحريق القديمة",
+                "en": "Fire extinguishers not available"
+            },
+            {
+                "ar": "انتهاء فحص طفاية الحريق",
+                "en": "Expired fire extinguishers"
+            },
+            {
+                "ar": "عدم صلاحية طفاية الحريق",
+                "en": "Damaged fire extinguishers"
+            },
+            {
+                "ar": "عدم وجود مطارق السلامة",
+                "en": "No safety hammer available"
+            },
+            {
+                "ar": "نقص في مطارق السلامة",
+                "en": "Missing safety hammer"
+            },
+            {
+                "ar": "عدم وجود ما يثبت فحص أبواب الطوارئ",
+                "en": "No emergency door inspection record"
+            },
+            {
+                "ar": "انتهاء صلاحية فحص باب الطوارئ",
+                "en": "Expired emergency door"
+            },
+            {
+                "ar": "التنبية الصوتي اثناء فتح باب الطوارئ لا يعمل",
+                "en": "Emergency exit door alarm not working"
+            },
+            {
+                "ar": "عدم وجود مايثبت فحص منظومة إطفاء الذاتي للحافلة",
+                "en": "Lack of verified inspection for the bus's automatic fire suppression system"
+            },
+            {
+                "ar": "تعطل منظومة اطفاء الحريق محرك الحافلة",
+                "en": "Bus engine's fire suppression system malfunction"
+            }
+        ]
+    },
+    {
+        "requirement": "جاهزية_التصاريح_والتراخيص | Readiness_of_permits_licenses",
+        "notes": [
+            {
+                "ar": "انتهاء تصريح مزاولة المهنة",
+                "en": "Expired professional license"
+            },
+            {
+                "ar": "عدم وجود ما يثبت الحصول على تصريح مزاولة المهنة",
+                "en": "No proof for obtaining professional license"
+            },
+            {
+                "ar": "انتهاء ملكلية الحافلة",
+                "en": "Expired bus vehicle license"
+            },
+            {
+                "ar": "انتهاء رخصة القيادة السائق",
+                "en": "Expired driving license for the driver"
+            },
+            {
+                "ar": "عدم وجود رخصة قيادة حافلة ثقيلة",
+                "en": "No heavy vehicle license"
+            }
+        ]
+    },
+    {
+        "requirement": "أصحاب_الهمم | Special_needs",
+        "notes": [
+            {
+                "ar": "انتهاء فحص رفعة مقاعد أصحاب الهمم",
+                "en": "Expired special needs lifting crane"
+            },
+            {
+                "ar": "عدم وجود مايثبت فحص رافعة مقاعد أصحاب الهمم",
+                "en": "No confirmed inspection for people with determination seating lift"
+            },
+            {
+                "ar": "عدم وجود مايثبت فحص أحزامة (ربط/تثبيت) مقعاعد أصحاب الهمم في الحافلة",
+                "en": "Absence of confirmed inspection for securing seat belts for seats designated for people with determination"
+            },
+            {
+                "ar": "تلف في احزمة ربط وتثبيت مقاعد أصحاب الهمم",
+                "en": "Damage to seat restraints for  people with determination"
+            },
+            {
+                "ar": "عدم وجود احزمة ربط وتثبيت مقاعد أصحاب الهمم",
+                "en": "Absence of seat belt restraints for people with determination"
+            },
+            {
+                "ar": "عدم المعرفة والالمام  باستخدام رافعة أصحاب الهمم (العمل يدوي في أوقات الطوارئ)",
+                "en": "Inadequate proficiency in operating the wheelchair lift (manual operation during emergencies"
+            }
+        ]
+    }
+]

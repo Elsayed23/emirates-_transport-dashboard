@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import * as z from 'zod';
 import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import {
@@ -23,11 +23,18 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { toast } from 'sonner';
+import { Label } from '@/components/ui/label';
+import { FaCheck } from 'react-icons/fa6';
+import { FaEdit } from 'react-icons/fa';
+import LanguageContext from '@/app/context/LanguageContext';
+import busInspectionNotes from '@/app/constants/busInspectionNotes.json';
+import ESInotes from '@/app/constants/electronicSurveillanceInspectionNotes.json';
+import useTranslation from '@/app/hooks/useTranslation';
 
 const formSchema = z.object({
     name: z.string().min(1, { message: "Name is required" }),
     idOfBus: z.string().min(1, { message: "Bus ID is required" }),
-    noteClassification: z.string().min(1, { message: "Classification is required" }),
+    requirement: z.string().optional(),
     description: z.string().optional(),
 });
 
@@ -45,6 +52,8 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
     const [busIdSaved, setBusIdSaved] = useState(false);
     const [photoCaptured, setPhotoCaptured] = useState(false);
     const [capturing, setCapturing] = useState(false);
+    const [isFinishSubmitting, setIsFinishSubmitting] = useState(false)
+    const [selectedRequirement, setSelectedRequirement] = useState<string>('');
     const videoRef = useRef<HTMLVideoElement | any>(null);
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const form = useForm<FormSchema>({
@@ -52,12 +61,20 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
         defaultValues: {
             name: 'اي اسم',
             idOfBus: '',
-            noteClassification: '',
-            description: '',
+            requirement: '',
+            description: 'اي وصف',
         }
     });
 
     const { isSubmitting, isValid } = form.formState;
+
+    const searchParams = useSearchParams();
+
+    const inspection_type_id = searchParams.get('inspection_type_id');
+
+    const noteData = inspection_type_id === '5f43feba-0e19-4925-8d26-a3bd263cfee3'
+        ? ESInotes : inspection_type_id === 'a6f1e99c-a4ab-4df3-b333-ec2d2d04f7b7'
+            ? busInspectionNotes : busInspectionNotes;
 
     useEffect(() => {
         const startCapture = async () => {
@@ -114,33 +131,15 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
         return () => files.forEach(file => URL.revokeObjectURL(file.preview));
     }, [files]);
 
-    const notesData = [
-        {
-            id: 'ثانوية',
-            name: 'عدم تثبيت صندوق الإسعافات الأولية',
-        },
-        {
-            id: 'ثانوية',
-            name: 'عدم تثبيت سلة المهملات',
-        },
-        {
-            id: 'رئيسية',
-            name: 'وجود صدأ علي الهيكل الخارجي للحافلة',
-        },
-        {
-            id: 'رئيسية',
-            name: 'تلف في حزام الأمان',
-        },
-    ];
-
     const saveInspection = async (inspection: FormSchema) => {
-        const selectedNote = notesData.find(note => note.name === inspection.noteClassification);
+        const selectedNote = noteData.flatMap(d => d.notes).find(note => note.ar === inspection.requirement);
         const formData = new FormData();
         formData.append('reportId', id);
         formData.append('name', inspection.name);
         formData.append('idOfBus', inspection.idOfBus);
-        formData.append('noteClassification', selectedNote?.id || '');
-        formData.append('description', selectedNote?.name || '');
+        formData.append('description', selectedNote?.ar || '');
+        formData.append('enDescription', selectedNote?.en || '');
+        formData.append('requirement', selectedRequirement);
 
         files.forEach(({ file }) => {
             formData.append('files', file);
@@ -165,7 +164,7 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
         try {
             const savedInspection = await saveInspection(values);
             setInspections(prevInspections => [...prevInspections, savedInspection.inspection]);
-            form.setValue('noteClassification', '');
+            form.setValue('requirement', '');
             form.setValue('description', 'اي وصف');
             setFiles([]);
             setPhotoCaptured(false);
@@ -175,9 +174,12 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
     };
 
     const finishInspection = async () => {
-        if (form.getValues("name") || form.getValues("idOfBus") || form.getValues("noteClassification") || form.getValues("description")) {
+        if (!form.getValues("name") || !form.getValues("idOfBus") || !form.getValues("requirement") || !form.getValues("description") || !files) {
+            toast.error(t('You have to complete the current inspection'));
+        } else {
             await addInspectionToStateAndSave(form.getValues());
-            toast.success('All inspections saved successfully!');
+            setIsFinishSubmitting(true)
+            toast.success(t('All inspections saved successfully'));
             router.push(`/reports/${id}`);
         }
     };
@@ -193,12 +195,21 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
         setInspections(inspections.filter((_, i) => i !== index));
     };
 
-    const notes = notesData.map((note, idx) => (
-        <SelectItem key={idx} value={note.name}>{note.name}</SelectItem>
-    ));
+    const handleRequirementChange = (value: string) => {
+        setSelectedRequirement(value)
+        form.setValue('requirement', '');  // Reset the noteClassification when requirement changes
+    };
 
-    const thumbs = files.map(({ preview }) => (
-        <div key={preview} className="inline-flex border border-gray-200 mb-2 mr-2 w-24 h-24 p-1 box-border">
+    const { t } = useTranslation()
+
+    const handleClassificationChange = (value: string) => {
+        form.setValue('requirement', value);  // Set the noteClassification based on the selected note
+    };
+
+    const availableNotes = noteData.find(data => data.requirement === selectedRequirement)?.notes || [];
+
+    const thumbs = files.map(({ preview }, idx) => (
+        <div key={idx} className="inline-flex border border-gray-200 mb-2 mr-2 w-24 h-24 p-1 box-border">
             <div className="flex min-w-0 overflow-hidden">
                 <img
                     src={preview}
@@ -209,84 +220,158 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
         </div>
     ));
 
+    const { language } = useContext(LanguageContext);
+
+    const makeDIR = language === 'ar' ? 'rtl' : 'ltr'
+
     return (
         <div className="flex justify-center items-center h-[calc(100vh-80px)]">
             <div className='mb-6 border bg-white rounded-md p-6 max-w-lg w-full mx-auto shadow-lg'>
-                <h1 className='text-center text-xl font-medium mb-4'>إضافة تفتيش</h1>
+                <h1 className='text-center text-xl font-medium mb-4'>{t('Add inspection')}</h1>
 
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(addInspectionToStateAndSave)} className='space-y-6'>
-                        <FormField
-                            control={form.control}
-                            name="idOfBus"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Bus ID</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            id='idOfBus'
-                                            disabled={isSubmitting || busIdSaved}
-                                            placeholder="Bus ID..."
-                                            {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                    <form onSubmit={form.handleSubmit(addInspectionToStateAndSave)} className='space-y-7'>
+                        <div className='space-y-2'>
+                            <Label htmlFor='idOfBus'>{t('Bus ID')}</Label>
+                            <div className='flex items-center gap-4'>
+                                <FormField
+                                    control={form.control}
+                                    name="idOfBus"
+                                    render={({ field }) => (
+                                        <FormItem className='w-full'>
+                                            <FormControl>
+                                                <Input
+                                                    id='idOfBus'
+                                                    disabled={isSubmitting || busIdSaved}
+                                                    placeholder="BOO..."
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
 
-                        <div className='flex justify-between items-center gap-2'>
-                            {busIdSaved ? (
-                                <Button
-                                    variant='secondary'
-                                    type='button'
-                                    onClick={() => setBusIdSaved(false)}
-                                >
-                                    Edit
-                                </Button>
-                            ) : (
-                                <Button
-                                    type='button'
-                                    disabled={isSubmitting || !form.getValues("idOfBus")}
-                                    onClick={() => setBusIdSaved(true)}
-                                >
-                                    Save Bus ID
-                                </Button>
-                            )}
+                                {busIdSaved ? (
+                                    <Button
+                                        type='button'
+                                        size='icon'
+                                        onClick={() => setBusIdSaved(false)}
+                                    >
+                                        <FaEdit size={18} />
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        type='button'
+                                        size='icon'
+                                        disabled={isSubmitting || !form.getValues("idOfBus")}
+                                        onClick={() => setBusIdSaved(true)}
+                                    >
+                                        <FaCheck size={18} />
+                                    </Button>
+                                )}
+                            </div>
                         </div>
 
                         {busIdSaved && (
                             <>
-                                {capturing ? (
-                                    <div className="flex flex-col items-center">
-                                        <video ref={videoRef} className="w-full max-w-xs rounded-md mb-4" autoPlay playsInline></video>
-                                        <Button onClick={capturePhoto} variant='default' type='button'>Capture Photo</Button>
-                                    </div>
-                                ) : (
-                                    <div className="flex justify-center">
-                                        <Button onClick={handleStartCapture} variant='default' type='button'>Open Camera</Button>
-                                    </div>
-                                )}
+                                {
+                                    inspection_type_id === '5f43feba-0e19-4925-8d26-a3bd263cfee3'
+                                        ?
+                                        <div className="mb-4">
+                                            <Label htmlFor='imageUpload'>Upload Image</Label>
+                                            <Input
+                                                id='imageUpload'
+                                                type='file'
+                                                accept="image/*"
+                                                onChange={event => {
+                                                    if (event.target.files?.[0]) {
+                                                        const file = event.target.files[0];
+                                                        const preview = URL.createObjectURL(file);
+                                                        setFiles([{ file, preview }]);
+                                                        setPhotoCaptured(true);
+                                                    }
+                                                }}
+                                            />
+                                        </div>
+                                        :
+                                        capturing ? (
+                                            <div className="flex flex-col items-center">
+                                                <video ref={videoRef} className="w-full max-w-xs rounded-md mb-4" autoPlay playsInline></video>
+                                                <Button onClick={capturePhoto} variant='default' type='button'>{t('Capture Photo')}</Button>
+                                            </div>
+                                        ) : (
+                                            <div className="flex justify-center">
+                                                <Button onClick={handleStartCapture} variant='default' type='button'>{t('Open Camera')}</Button>
+                                            </div>
+                                        )
+                                }
 
                                 {photoCaptured && (
-                                    <FormField
-                                        control={form.control}
-                                        name="noteClassification"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                                    <FormControl className='mb-5'>
-                                                        <SelectTrigger>
-                                                            <SelectValue placeholder="إخطر المحطة" />
-                                                        </SelectTrigger>
-                                                    </FormControl>
-                                                    <SelectContent>
-                                                        {notes}
-                                                    </SelectContent>
-                                                </Select>
-                                            </FormItem>
+                                    <>
+                                        <FormField
+                                            control={form.control}
+                                            name="requirement"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>{t('Requirement')}</FormLabel>
+                                                    <Select
+                                                        dir={makeDIR}
+                                                        onValueChange={handleRequirementChange}
+                                                        defaultValue={selectedRequirement}
+                                                    >
+                                                        <FormControl className='mb-5'>
+                                                            <SelectTrigger>
+                                                                <SelectValue placeholder={t('Select the requirement')} />
+                                                            </SelectTrigger>
+                                                        </FormControl>
+                                                        <SelectContent>
+                                                            {noteData.map((data, idx) => (
+                                                                <SelectItem key={data.requirement + idx} value={data.requirement}>
+                                                                    {
+                                                                        language === 'ar'
+                                                                            ?
+                                                                            data.requirement.split('|')[0]
+                                                                            :
+                                                                            data.requirement.split('|')[1]
+                                                                    }
+                                                                </SelectItem>
+                                                            ))}
+                                                        </SelectContent>
+                                                    </Select>
+                                                </FormItem>
+                                            )}
+                                        />
+                                        {selectedRequirement && (
+                                            <FormField
+                                                control={form.control}
+                                                name="requirement"
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                        <FormLabel>{t('Note')}</FormLabel>
+                                                        <Select
+                                                            dir={makeDIR}
+                                                            onValueChange={handleClassificationChange}
+                                                            defaultValue={field.value}
+                                                        >
+                                                            <FormControl className='mb-5'>
+                                                                <SelectTrigger>
+                                                                    <SelectValue placeholder={t('Select the note')} />
+                                                                </SelectTrigger>
+                                                            </FormControl>
+                                                            <SelectContent>
+                                                                {availableNotes.map((note, index) => (
+                                                                    <SelectItem key={note.ar + index} value={note.ar}>
+                                                                        {language === 'ar' ? note.ar : note.en}
+                                                                    </SelectItem>
+                                                                ))}
+                                                            </SelectContent>
+                                                        </Select>
+                                                    </FormItem>
+                                                )}
+                                            />
                                         )}
-                                    />
+                                    </>
                                 )}
                             </>
                         )}
@@ -309,9 +394,6 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
                     </form>
                 </Form>
 
-                <div className="flex justify-between items-center gap-2 mt-4">
-                    <Button onClick={finishInspection} variant='destructive'>Finish</Button>
-                </div>
 
                 {inspections.length > 0 && (
                     <div className="mt-6">
@@ -319,13 +401,17 @@ const CreateInspectionPage = ({ params: { id } }: { params: { id: string } }) =>
                         <ul className="space-y-2">
                             {inspections.map((inspection, index) => (
                                 <li key={index} className="flex justify-between items-center bg-gray-100 p-3 rounded-md shadow-sm">
-                                    <span>{inspection?.name} - {inspection?.idOfBus} - {inspection?.noteClassification} - {inspection?.description}</span>
+                                    <span>{inspection?.name} - {inspection?.idOfBus} - {inspection?.requirement} - {inspection?.description}</span>
                                     <Button onClick={() => deleteInspection(index)} variant='destructive' size='sm'>Delete</Button>
                                 </li>
                             ))}
                         </ul>
                     </div>
                 )}
+                <div className="flex justify-end items-center gap-2 mt-4">
+                    <Button onClick={finishInspection} disabled={isFinishSubmitting} variant='destructive'>Finish</Button>
+                </div>
+
             </div>
             <canvas ref={canvasRef} className="hidden"></canvas>
         </div>

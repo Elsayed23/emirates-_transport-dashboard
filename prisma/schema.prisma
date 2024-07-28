@@ -48,22 +48,37 @@ model Report {
 }
 
 model Inspection {
-  id                 String   @id @default(uuid())
+  id                 String          @id @default(uuid())
   reportId           String
   name               String
-  image              String   @db.LongText
+  image              String          @db.LongText
   idOfBus            Int
   rootCause          String?
   correctiveAction   String?
   attachment         String?
-  isClosed           Boolean  @default(false)
+  requirement        String?
+  isClosed           Boolean         @default(false)
   noteClassification String
   description        String
-  report             Report   @relation(fields: [reportId], references: [id])
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt()
+  enDescription      String?
+  report             Report          @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt()
+  DeleteRequest      DeleteRequest[]
 
   @@map("inspections")
+}
+
+model DeleteRequest {
+  id              String   @id @default(uuid())
+  inspectionId    String
+  reason          String
+  status          String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  rejectionReason String? // Optional field for rejection reason
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  inspection Inspection @relation(fields: [inspectionId], references: [id])
 }
 
 model InspectionType {
@@ -103,7 +118,7 @@ model TrafficLineRisk {
   residualRisks       String?
   expectedInjury      String?
   controlMeasures     TraffikLineControlMeasure[]
-  trafficLine         TrafficLine?                @relation(fields: [trafficLineId], references: [id])
+  trafficLine         TrafficLine?                @relation(fields: [trafficLineId], references: [id], onDelete: Cascade)
   createdAt           DateTime                    @default(now())
   updatedAt           DateTime                    @updatedAt
 }
@@ -113,7 +128,7 @@ model TraffikLineControlMeasure {
   riskId    String
   measureAr String          @db.LongText
   measureEn String          @db.LongText
-  risk      TrafficLineRisk @relation(fields: [riskId], references: [id])
+  risk      TrafficLineRisk @relation(fields: [riskId], references: [id], onDelete: Cascade)
 }
 
 model SchoolRisks {

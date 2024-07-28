@@ -21,8 +21,6 @@ export const AuthProvider = ({ children }) => {
         return decoded;
     }
 
-    console.log(user);
-
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const storedToken = localStorage.getItem('token');

@@ -18,6 +18,17 @@ import axios from 'axios'
 import useTranslation from '@/app/hooks/useTranslation'
 import LanguageContext from '@/app/context/LanguageContext'
 import { exportRisksToExcel } from '@/utils/exportRisksToExcel'
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
@@ -26,6 +37,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const [loading, setLoading] = useState(true)
     const { enStationName } = getSpecificStationName(stationId)
     const router = useRouter()
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     const { arSchoolName, enSchoolName } = getSpecificSchoolName(stationId, schoolId)
 
@@ -85,6 +97,29 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
         exportRisksToExcel(risks, `${trafficLineName} Risks`);
     };
 
+    const handleDeleteTrafficLine = async () => {
+        try {
+
+            axios.delete(`/api/traffic_line?trafficLine_id=${trafficLineId}`)
+            setToggleDeleteTrafficLine(prev => !prev)
+            toast.success(t('The itinerary has been successfully deleted'))
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleDeleteClick = () => {
+        setIsDialogOpen(true);
+    }
+
+
+    const confirmDelete = () => {
+        handleDeleteTrafficLine(trafficLineId);
+        setIsDialogOpen(false);
+        router.push(`/stations/${stationId}/school/${schoolId}`)
+    }
+
     const splitAndRender = (text) => {
         const parts = text?.split('|');
         return (
@@ -100,9 +135,27 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
             <div className="p-6 min-h-[calc(100vh-80px)]">
                 <div className="flex flex-col gap-9" >
                     <DynamicBreadcrumb routes={breadcrumbData} />
-                    <div className="flex items-center gap-3">
-                        <Button className='w-fit justify-start' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${trafficLineId}/add`)}>{isHaveRisks ? t('Update risks') : t('Add risks')}</Button>
-                        <Button variant='outline' onClick={handleDownload}>{t('Download Risks')}</Button>
+                    <div className="flex flex-col gap-4">
+                        <div className="flex items-center gap-3">
+                            <Button className='w-fit justify-start' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${trafficLineId}/add`)}>{isHaveRisks ? t('Update risks') : t('Add risks')}</Button>
+                            <Button variant='outline' onClick={handleDownload}>{t('Download Risks')}</Button>
+                        </div>
+                        <hr />
+                        <Button variant='destructive' className='self-start' onClick={handleDeleteClick}>{t('Delete itinerary')}</Button>
+                        <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                            <AlertDialogContent>
+                                <AlertDialogHeader className='sm:text-center'>
+                                    <AlertDialogTitle>{t('Are you absolutely sure')}</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        {t('This action cannot be undone')}
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter className='sm:justify-between'>
+                                    <AlertDialogCancel onClick={() => setIsDialogOpen(false)}>{t('Cancel')}</AlertDialogCancel>
+                                    <AlertDialogAction onClick={confirmDelete}>{t('Delete')}</AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
                     </div>
                     <Table dir='rtl'>
                         <TableHeader>

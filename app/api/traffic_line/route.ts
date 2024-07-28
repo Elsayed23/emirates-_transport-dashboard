@@ -44,18 +44,6 @@ export async function POST(req: Request) {
     }
 }
 
-async function getTrafficLinesBySchoolAndStation(stationId: number, schoolId: number) {
-    return await db.trafficLine.findMany({
-        where: {
-            stationId,
-            schoolId
-
-        },
-        include: {
-            risks: true,
-        },
-    });
-}
 
 export async function GET(req: NextRequest) {
     try {
@@ -64,7 +52,19 @@ export async function GET(req: NextRequest) {
         const schoolId = await req.nextUrl.searchParams.get('schoolId')
 
 
-        const trafficLines = await getTrafficLinesBySchoolAndStation(Number(stationId), Number(schoolId));
+        const trafficLines = await db.trafficLine.findMany({
+            orderBy: {
+                createdAt: 'asc'
+            },
+            where: {
+                stationId: Number(stationId),
+                schoolId: Number(schoolId)
+
+            },
+            include: {
+                risks: true,
+            },
+        });
 
         return NextResponse.json(trafficLines);
     } catch (error) {
@@ -72,4 +72,32 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ message: 'Internal server error' });
     }
 
+}
+
+export async function DELETE(req: NextRequest) {
+    try {
+        const trafficLineId = req.nextUrl.searchParams.get('trafficLine_id');
+
+        if (!trafficLineId) {
+            return NextResponse.json({ message: 'Traffic Line ID is required' }, { status: 400 });
+        }
+
+        // Delete the Traffic Line and cascade delete related records
+        await db.trafficLine.delete({
+            where: { id: trafficLineId },
+            include: {
+                risks: {
+                    include: {
+                        controlMeasures: true,
+                    },
+                },
+            },
+        });
+
+
+        return NextResponse.json({ message: 'Traffic Line and related data deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting Traffic Line:', error);
+        return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
+    }
 }

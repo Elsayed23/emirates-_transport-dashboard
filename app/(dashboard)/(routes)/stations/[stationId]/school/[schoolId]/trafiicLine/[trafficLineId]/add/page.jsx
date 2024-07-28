@@ -15,6 +15,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const [questions, setQuestions] = useState(questionsData)
     const [loading, setLoading] = useState(true)
     const [answers, setAnswers] = useState([])
+    const [isSubmitting, setisSubmitting] = useState(false)
     const [trafficLineName, setTrafficLineName] = useState(null)
     const [isFirstTime, setIsFirstTime] = useState(true)
 
@@ -24,9 +25,19 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const { arSchoolName, enSchoolName } = getSpecificSchoolName(stationId, schoolId)
 
     const getTrafficLine = useCallback(async () => {
-        const name = await getSpecificTrafficLineName(trafficLineId)
-        setTrafficLineName(name)
-        setLoading(false)
+        try {
+            const name = await getSpecificTrafficLineName(trafficLineId)
+            if (!name) {
+                router.push(`/stations/${stationId}/school/${schoolId}`)
+                toast.error(t('The itinerary does not exist'))
+            } else {
+                setTrafficLineName(name)
+            }
+
+            setLoading(false)
+        } catch (error) {
+            console.log(error);
+        }
     }, [trafficLineId])
 
     useEffect(() => {
@@ -75,6 +86,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
     const handleSubmit = useCallback(async () => {
         try {
+            setisSubmitting(true)
             if (allTheAnswersFromQuestions.includes('غير مجاب عليها')) {
                 toast.error(t('You must answer all questions'))
             } else {
@@ -117,7 +129,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                 <div className="min-h-[calc(100vh-148px)] flex flex-col justify-center items-center">
                     <div className="w-full p-4 max-w-xl max-h-[650px] border overflow-y-scroll bg-white rounded-lg shadow-md flex flex-col gap-5">
                         {questionCard}
-                        <Button onClick={handleSubmit}>{t('Save')}</Button>
+                        <Button onClick={handleSubmit} disabled={isSubmitting}>{t('Save')}</Button>
                     </div>
                 </div>
             </div> :

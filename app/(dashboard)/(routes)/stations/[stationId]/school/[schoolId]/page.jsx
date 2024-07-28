@@ -11,6 +11,7 @@ import Loading from '@/app/(dashboard)/_components/Loading'
 import useTranslation from '@/app/hooks/useTranslation'
 import LanguageContext from '@/app/context/LanguageContext'
 import Link from 'next/link'
+import { toast } from 'sonner'
 
 const page = ({ params: { stationId, schoolId } }) => {
 
@@ -19,6 +20,7 @@ const page = ({ params: { stationId, schoolId } }) => {
     const [loading, setLoading] = useState(true)
     const [trafficLines, setTrafficLines] = useState([])
     const [countOfSchoolRIsks, setCountOfSchoolRIsks] = useState(0)
+    const [toggleDeleteTrafficLine, setToggleDeleteTrafficLine] = useState(false)
 
     const [riskAnalysis, setRiskAnalysis] = useState({})
 
@@ -71,6 +73,19 @@ const page = ({ params: { stationId, schoolId } }) => {
     }
 
 
+    const handleDeleteTrafficLine = async (trafficLineId) => {
+        try {
+
+            axios.delete(`/api/traffic_line?trafficLine_id=${trafficLineId}`)
+            setToggleDeleteTrafficLine(prev => !prev)
+            toast.success(t('The itinerary has been successfully deleted'))
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     const getTrafficlines = async () => {
         try {
             const { data } = await axios.get(`/api/traffic_line?stationId=${stationId}&schoolId=${schoolId}`)
@@ -85,6 +100,9 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     useEffect(() => {
         getTrafficlines()
+    }, [toggleDeleteTrafficLine])
+
+    useEffect(() => {
         getCountOfSchoolRisks()
     }, [])
 
@@ -97,6 +115,7 @@ const page = ({ params: { stationId, schoolId } }) => {
             {...trafficLine}
             stationId={stationId}
             schoolId={schoolId}
+            handleDeleteTrafficLine={handleDeleteTrafficLine}
             color={riskAnalysis ? riskAnalysis[trafficLine?.id] : 0}
         />
     ))
@@ -109,16 +128,18 @@ const page = ({ params: { stationId, schoolId } }) => {
                 <div className="flex flex-col gap-9">
                     <DynamicBreadcrumb routes={breadcrumbData} />
                     <div className='flex flex-col gap-5'>
+                        {
+                            countOfSchoolRIsks === 0
+                                ?
+                                <Button variant='outline' className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)}>{t('Add risks')} <FaCirclePlus size={18} /></Button>
+                                :
+                                <Button variant='outline' className='self-start'>
+                                    <Link href={`/stations/${stationId}/school/${schoolId}/risks`} className='underline'>مخاطر المدرسة</Link>
+                                </Button>
+                        }
                         <h2 className='text-xl font-semibold'>{t('results')}: {trafficLines.length}</h2>
                         <div className="flex items-center gap-4">
                             <Button className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_traffic_line`)}>{t('Add an itinerary')} <FaCirclePlus size={18} /></Button>
-                            {
-                                countOfSchoolRIsks === 0
-                                    ?
-                                    <Button variant='outline' className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)}>{t('Add risks')} <FaCirclePlus size={18} /></Button>
-                                    :
-                                    <Link href={`/stations/${stationId}/school/${schoolId}/risks`} className='underline'>رؤية الأخطار</Link>
-                            }
                         </div>
                         {
                             trafficLines.length
