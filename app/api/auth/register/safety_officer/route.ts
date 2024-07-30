@@ -10,7 +10,7 @@ const generateToken = (userId: string, email: string) => {
 export const POST = async (req: Request) => {
     try {
 
-        const { name, stationId, email, password } = await req.json();
+        const { name, email, password } = await req.json();
 
 
         const userExists = await db.user.findUnique({ where: { email } });
@@ -23,15 +23,19 @@ export const POST = async (req: Request) => {
         const newUser = await db.user.create({
             data: {
                 name,
-                stationId,
                 email,
+                role: {
+                    connect: {
+                        name: "SAFETY_OFFICER"
+                    }
+                },
                 password: hashedPassword,
             },
         });
 
         const token = generateToken(newUser.id, newUser.email);
 
-        return NextResponse.json({ status: 200, message: 'Registered successfully!', token, user: newUser });
+        return NextResponse.json({ status: 200, message: 'Registered successfully!', token });
 
     } catch (err) {
         console.error(err);

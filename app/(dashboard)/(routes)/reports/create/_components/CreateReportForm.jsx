@@ -42,7 +42,7 @@ const CreateReportForm = ({ setReportData, }) => {
     const router = useRouter();
     const { language } = useContext(LanguageContext);
     const { t } = useTranslation();
-    const [inspectionTypesData, setInspectionTypesData] = useState([]);
+    const [inspectionTypesData, setInspectionTypesData] = useState(null);
 
     const { user } = useAuth();
     const searchParams = useSearchParams();
@@ -94,7 +94,11 @@ const CreateReportForm = ({ setReportData, }) => {
     }, [user]);
 
     const onSubmit = async (values) => {
-        setReportData(values);
+        const inspectionTypeName = inspectionTypesData?.find((inspection) => {
+            return inspection?.id === values.inspectionTypeId
+        })?.name
+
+        setReportData({ ...values, inspectionTypeName });
     };
 
     if (!inspectionTypesData) return <Loading />;

@@ -24,6 +24,7 @@ import axios from "axios";
 import { useAuth } from "@/app/context/AuthContext";
 import { toast } from "sonner";
 import useTranslation from "@/app/hooks/useTranslation";
+import LanguageContext from "@/app/context/LanguageContext";
 
 // Define the schema for the form inputs
 const formSchema = z.object({
@@ -67,29 +68,33 @@ const DeleteRequest: React.FC<DeleteRequestModalProps> = ({ isOpen, onClose, ins
 
 
     const { t } = useTranslation()
+    const { language } = React.useContext(LanguageContext)
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>إضافة سبب الحذف</DialogTitle>
+                    <DialogTitle>{t('Add reason for deletion')}</DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} dir="rtl" className="space-y-8">
+                    <form onSubmit={form.handleSubmit(onSubmit)} dir={language === 'ar' ? 'rtl' : 'ltr'} className="space-y-8">
                         <FormField
                             control={form.control}
                             name="deleteRequsestReason"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>سبب الحذف</FormLabel>
+                                    <FormLabel>{t('Reason for deletion')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} placeholder="السبب..." {...field} />
+                                        <Input disabled={isSubmitting} placeholder={`${t('Reason for deletion')}...`} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit" disabled={isSubmitting || !isValid}>{t('Save')}</Button>
+                        <div className="flex justify-between items-center">
+                            <Button type="submit" disabled={isSubmitting || !isValid}>{t('Save')}</Button>
+                            <Button type="button" disabled={isSubmitting} variant='destructive'>{t('Cancel')}</Button>
+                        </div>
                     </form>
                 </Form>
             </DialogContent>

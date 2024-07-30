@@ -38,71 +38,91 @@ export async function PATCH(req: Request) {
             throw new Error('Report not found');
         }
 
-        const { user } = report;
+        const { user, stationId, nameOfStation, nameOfSchool, inspections } = report;
+
+        // Retrieve all necessary users
+        const admin = await db.user.findFirst({
+            where: {
+                role: {
+                    name: 'ADMIN',
+                },
+            },
+            select: {
+                email: true,
+                name: true,
+            },
+        });
+
+        const safetyDirectors = await db.user.findMany({
+            where: {
+                role: {
+                    name: 'SAFETY_DIRECTOR',
+                },
+            },
+            select: {
+                email: true,
+                name: true,
+            },
+        });
+
+        const operationsManagers = await db.user.findMany({
+            where: {
+                role: {
+                    name: 'OPERATIONS_MANAGER',
+                },
+                stationId: Number(stationId),
+            },
+            select: {
+                email: true,
+                name: true,
+            },
+        });
 
         if (approved) {
-            // Retrieve the manager's email based on role (assuming 'Manager' role exists)
-            const manager = await db.user.findFirst({
-                where: {
-                    role: {
-                        name: 'ADMIN',
-                    },
-                    name: "Huseib"
-                },
-            });
-            const stationManagers = await db.user.findFirst({
-                where: {
-                    role: {
-                        name: 'STATION',
-                    },
-                    stationId: Number(report.stationId),
-                },
-                select: {
-                    email: true,
-                },
-            });
-
-            if (!manager) {
-                throw new Error('Manager not found');
-            }
-
-
             // Send email to the officer
             await transporter.sendMail({
                 from: process.env.EMAIL,
                 to: user.email,
                 subject: 'Your report has been approved',
-                text: `Hello ${user.name},\n\nYour report has been approved.\n\ station (${report.nameOfStation}) - school (${report.nameOfSchool}) type of report ${report.inspections[0].name}`,
+                text: `Hello ${user.name},\n\nYour report has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}`,
             });
 
-            // Send email to the manager
-            await transporter.sendMail({
-                from: process.env.EMAIL,
-                to: manager.email,
-                subject: 'A new report has been approved',
-                text: `Hello ${manager.name},\n\nA new report from ${user.name} has been approved.\n\ station (${report.nameOfStation}) - school (${report.nameOfSchool}) type of report ${report.inspections[0].name}.\n\ <a href="http://localhost:3000/reports/${report.id}">see report</a>`,
-            });
-            // Send email to the mido
-            await transporter.sendMail({
-                from: process.env.EMAIL,
-                to: 'Abdulhamid.Said@et.ae',
-                subject: 'A new report has been approved',
-                text: `Hello ${manager.name},\n\nA new report from ${user.name} has been approved.\n\ station (${report.nameOfStation}) - school (${report.nameOfSchool}) type of report ${report.inspections[0].name}.\n\ <a href="http://localhost:3000/reports/${report.id}">see report</a>`,
-            });
-            // Send email to the station managet
-            await transporter.sendMail({
-                from: process.env.EMAIL,
-                to: stationManagers?.email,
-                subject: 'A new report has been approved',
-                text: `Hello ${manager.name},\n\nA new report from ${user.name} has been approved.\n\ station (${report.nameOfStation}) - school (${report.nameOfSchool}) type of report ${report.inspections[0].name}.\n\ <a href="http://localhost:3000/reports/${report.id}">see report</a>`,
-            });
+            // Send email to the admin
+            if (admin) {
+                await transporter.sendMail({
+                    from: process.env.EMAIL,
+                    to: admin.email,
+                    subject: 'A new report has been approved',
+                    text: `Hello ${admin.name},\n\nA new report from ${user.name} has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
+                });
+            }
+
+            // Send emails to safety directors
+            for (const safetyDirector of safetyDirectors) {
+                await transporter.sendMail({
+                    from: process.env.EMAIL,
+                    to: safetyDirector.email,
+                    subject: 'A new report has been approved',
+                    text: `Hello ${safetyDirector.name},\n\nA new report from ${user.name} has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
+                });
+            }
+
+            // Send emails to operations managers
+            for (const operationsManager of operationsManagers) {
+                await transporter.sendMail({
+                    from: process.env.EMAIL,
+                    to: operationsManager.email,
+                    subject: 'A new report has been approved',
+                    text: `Hello ${operationsManager.name},\n\nA new report from ${user.name} has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
+                });
+            }
         } else {
             // Send email to the officer with the rejection reason
             await transporter.sendMail({
                 from: process.env.EMAIL,
                 to: user.email,
                 subject: 'Your report has been rejected',
-                text: `Hello ${user.name},\n\nYour report has been rejected for the following reason:\n\n${rejectionReason}\n\.station (${report.nameOfStation}) - school (${report.nameOfSchool}) type of report ${report.inspections[0].name}.\n\ <a href="http://localhost:3000/reports/${report.id}">see report</a>`,
+                text: `Hello ${user.name},\n\nYour report has been rejected for the following reason:\n\n${rejectionReason}\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
             });
         }
 
@@ -113,15 +133,6 @@ export async function PATCH(req: Request) {
         return NextResponse.json({ message });
     } catch (error) {
         console.error('Error updating report:', error);
-        return NextResponse.json({ error: 'Internal Server Error' });
-    }
-}
-
-export const GET = async () => {
-    try {
-
-    } catch (error) {
-        console.error('Error getting report:', error);
         return NextResponse.json({ error: 'Internal Server Error' });
     }
 }

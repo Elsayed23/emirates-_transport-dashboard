@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { useAuth } from "@/app/context/AuthContext";
 import { toast } from "sonner";
+import useTranslation from "@/app/hooks/useTranslation";
 
 // Define the schema for the form inputs
 const formSchema = z.object({
@@ -66,7 +67,9 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
         }
     };
 
-    const { isSubmitting } = form.formState;
+    const { t } = useTranslation()
+
+    const { isSubmitting, isValid } = form.formState;
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
@@ -81,9 +84,9 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>البريد الجديد</FormLabel>
+                                    <FormLabel>{t('Email')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} type="email" placeholder="البريد..." {...field} />
+                                        <Input disabled={isSubmitting} type="email" placeholder={`${t('Email')}...`} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -94,17 +97,18 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
                             name="password"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>كلمة المرور الجديدة</FormLabel>
+                                    <FormLabel>{t('New Password')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} type="password" placeholder="كلمة المرور..." {...field} />
+                                        <Input disabled={isSubmitting} type="password" placeholder={`${t('New Password')}...`} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
-                        <DialogClose asChild>
-                            <Button type="submit" disabled={isSubmitting}>Save</Button>
-                        </DialogClose>
+                        <div className="flex justify-between items-center">
+                            <Button type="submit" disabled={isSubmitting || !isValid}>{t('Save')}</Button>
+                            <Button type="button" disabled={isSubmitting} variant='destructive'>{t('Cancel')}</Button>
+                        </div>
                     </form>
                 </Form>
             </DialogContent>

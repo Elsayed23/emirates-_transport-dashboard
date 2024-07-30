@@ -26,17 +26,17 @@ export async function GET(req: NextRequest) {
         // Check user role and fetch reports accordingly
         let reports;
 
-        if (user?.role?.name === 'STATION') {
+        if (user?.role?.name === 'OPERATIONS_MANAGER') {
             // Fetch all reports for the user's stationId
             reports = await db.report.findMany({
                 where: {
+                    approved: true,
                     stationId: Number(user.stationId),
                     inspectionType: {
                         is: {
                             name: 'Inspection of electronic control'
                         }
                     },
-                    approved: true
                 },
                 include: {
                     inspectionType: true,
@@ -65,24 +65,46 @@ export async function GET(req: NextRequest) {
                 }
             });
         } else {
-            reports = await db.report.findMany({
-                where: {
-                    inspectionType: {
-                        is: {
-                            name: 'Inspection of electronic control'
+            if (user.role?.name === 'SAFETY_DIRECTOR') {
+                reports = await db.report.findMany({
+                    where: {
+                        approved: true,
+                        inspectionType: {
+                            isNot: {
+                                name: 'Inspection of electronic control'
+                            }
+                        }
+                    },
+                    include: {
+                        inspectionType: true,
+                        _count: true,
+                        user: {
+                            select: {
+                                name: true
+                            }
                         }
                     }
-                },
-                include: {
-                    inspectionType: true,
-                    _count: true,
-                    user: {
-                        select: {
-                            name: true
+                });
+            } else {
+                reports = await db.report.findMany({
+                    where: {
+                        inspectionType: {
+                            isNot: {
+                                name: 'Inspection of electronic control'
+                            }
+                        }
+                    },
+                    include: {
+                        inspectionType: true,
+                        _count: true,
+                        user: {
+                            select: {
+                                name: true
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
         }
 
         return NextResponse.json(reports);

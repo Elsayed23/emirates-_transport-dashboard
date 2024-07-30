@@ -2,6 +2,13 @@ import { db } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 const nodemailer = require('nodemailer');
 
+const transporter = nodemailer.createTransport({
+    service: 'gmail', // or any other service you use
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASS,
+    },
+});
 
 export async function POST(req: NextRequest) {
     try {
@@ -11,31 +18,36 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ message: 'Inspection ID and reason are required' }, { status: 400 });
         }
 
-        await db.deleteRequest.create({
+        const request = await db.deleteRequest.create({
             data: {
                 inspectionId,
                 reason,
             },
+            include: { inspection: { include: { report: { include: { user: { select: { name: true } } } } } } },
         });
 
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL,
-                pass: process.env.PASS,
+        const safetyManagers = await db.user.findMany({
+            where: {
+                role: {
+                    name: 'SAFETY_MANAGER',
+                },
+            },
+            select: {
+                email: true,
+                name: true,
             },
         });
 
-        const mailOptions = {
-            from: process.env.EMAIL,
-            to: process.env.ADMIN_EMAIL,
-            subject: 'New Delete Request',
-            text: `A new delete request has been made for inspection ID: ${inspectionId}. Reason: ${reason}`,
-        };
+        for (const safetyManager of safetyManagers) {
+            await transporter.sendMail({
+                from: process.env.EMAIL,
+                to: safetyManager.email,
+                subject: 'New Delete Request',
+                text: `Hello ${safetyManager.name},\n\nA new delete request has been made by ($${request.inspection.report.user.name}).\n\ Reason: ${reason}`,
+            });
+        }
 
-        await transporter.sendMail(mailOptions);
-
-        return NextResponse.json({ message: 'Delete request created successfully and email sent to admin' });
+        return NextResponse.json({ message: 'Delete request created successfully and email sent to safety managers' });
     } catch (error) {
         console.error('Error creating delete request:', error);
         return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
@@ -90,7 +102,7 @@ export async function PATCH(req: NextRequest) {
         const deleteRequest = await db.deleteRequest.update({
             where: { id: requestId },
             data: updateData,
-            include: { inspection: { include: { report: { include: { user: true } } } } },
+            include: { inspection: { include: { report: { include: { user: { select: { name: true, email: true } } } } } } },
         });
 
         if (action === 'APPROVE') {
@@ -102,23 +114,12 @@ export async function PATCH(req: NextRequest) {
                 where: { id: deleteRequest.inspectionId },
             });
         } else if (action === 'REJECT') {
-
-            const transporter = nodemailer.createTransport({
-                service: 'gmail',
-                auth: {
-                    user: process.env.EMAIL,
-                    pass: process.env.PASS,
-                },
-            });
-
-            const mailOptions = {
+            await transporter.sendMail({
                 from: process.env.EMAIL,
                 to: deleteRequest.inspection.report.user.email,
                 subject: 'Delete Request Rejected',
-                text: `Your delete request for inspection ID: ${deleteRequest.inspectionId} has been rejected. Reason: ${rejectionReason}`,
-            };
-
-            await transporter.sendMail(mailOptions);
+                text: `Hello ${deleteRequest.inspection.report.user.name},\n\nYour delete request for inspection ID: ${deleteRequest.inspectionId} has been rejected. Reason: ${rejectionReason}`,
+            });
         }
 
         return NextResponse.json({ message: `Request ${action === 'APPROVE' ? 'approved' : 'rejected'} successfully`, data: deleteRequest });

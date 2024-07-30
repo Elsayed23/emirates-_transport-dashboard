@@ -35,7 +35,7 @@ const page = ({ params: { stationId, schoolId } }) => {
             )
         )
     }, [])
-    console.log(isFirstTime);
+
     const breadcrumbData = useMemo(() => [
         { url: '/stations', title: t('stations') },
         { url: `/stations/${stationId}`, title: t(`stationsData.${enStationName}`) },

@@ -31,9 +31,9 @@ export const GET = async () => {
 
 export const PATCH = async (req: Request) => {
     try {
-        const { user_id, email, password } = await req.json();
+        const { user_id, name, email, password } = await req.json();
 
-        if (!user_id || !email || !password) {
+        if (!name || !user_id || !email || !password) {
             return NextResponse.json({ message: 'Invalid input' });
         }
 
@@ -44,7 +44,8 @@ export const PATCH = async (req: Request) => {
         await db.user.update({
             where: { id: user_id },
             data: {
-                email: email,
+                name,
+                email,
                 password: hashedPassword,
             }
         });

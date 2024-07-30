@@ -86,8 +86,6 @@ const UsersDataTable = () => {
         setData(data)
     }
 
-    console.log(data);
-
 
     const { t } = useTranslation()
 
@@ -159,7 +157,7 @@ const UsersDataTable = () => {
                                     <DropdownMenuItem
                                         onClick={() => handleModifyUser(user.id)}
                                     >
-                                        {t('Edit station information')}
+                                        {t('Edit information')}
                                     </DropdownMenuItem>
                             }
 

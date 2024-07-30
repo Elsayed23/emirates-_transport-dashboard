@@ -10,9 +10,9 @@ generator client {
 enum RoleEnum {
   ADMIN
   SAFETY_MANAGER
-  SAFETY_OFFICER
   SAFETY_DIRECTOR
   OPERATIONS_MANAGER
+  SAFETY_OFFICER
 }
 
 model User {

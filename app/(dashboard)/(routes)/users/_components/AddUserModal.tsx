@@ -32,6 +32,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import useTranslation from "@/app/hooks/useTranslation";
 
 // Define the schema for the form inputs
 const formSchema = z.object({
@@ -69,7 +70,7 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
     const onSubmit = async (values: FormValues) => {
         try {
 
-            const { data } = await axios.post('/api/safety_officer', values)
+            const { data } = await axios.post('/api/auth/safety_officer', values)
 
             setData((prevUsers: any) => {
                 return [
@@ -77,9 +78,8 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                     data
                 ]
             })
-
-
-            toast.success('تم إضافة الضابط')
+            onClose()
+            toast.success(t('Officer added'))
             reset({ ...form.getValues(), name: '', email: '', password: '' });
         } catch (error) {
             console.log(error);
@@ -88,12 +88,14 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
 
     };
 
+    const { t } = useTranslation()
+
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>إضافة ضابط سلامة</DialogTitle>
+                    <DialogTitle>{t('Adding a safety officer')}</DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
                     <form dir="rtl" onSubmit={handleSubmit(onSubmit)} className="space-y-8">
@@ -102,9 +104,9 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>الإسم</FormLabel>
+                                    <FormLabel>{t('Name')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} type="text" placeholder="الإسم..." {...field} />
+                                        <Input disabled={isSubmitting} type="text" placeholder={`${t('Name')}...`} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -115,9 +117,9 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>البريد</FormLabel>
+                                    <FormLabel>{t('Email')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} type="email" placeholder="البريد..." {...field} />
+                                        <Input disabled={isSubmitting} type="email" placeholder={`${t('Email')}...`} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -128,17 +130,18 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                             name="password"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>كلمة المرور</FormLabel>
+                                    <FormLabel>{t('Password')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} type="password" placeholder="كلمة المرور..." {...field} />
+                                        <Input disabled={isSubmitting} type="password" placeholder={`${t('Password')}...`}  {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
-                        <DialogClose asChild>
-                            <Button type="submit">حفظ</Button>
-                        </DialogClose>
+                        <div className="flex justify-between items-center">
+                            <Button type="submit" disabled={isSubmitting || !isValid}>{t('Save')}</Button>
+                            <Button type="button" disabled={isSubmitting} variant='destructive'>{t('Cancel')}</Button>
+                        </div>
                     </form>
                 </Form>
             </DialogContent>

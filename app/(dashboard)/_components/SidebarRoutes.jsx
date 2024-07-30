@@ -42,7 +42,12 @@ const SidebarRoutes = () => {
         },
     ];
 
-    if (user?.role?.name === 'ADMIN' && user?.name === 'Abdulhamid') {
+    const ifAdministrator =
+        user?.role?.name === 'ADMIN'
+        ||
+        user?.role?.name === 'SAFETY_MANAGER'
+
+    if (ifAdministrator) {
         routes.push({
             icon: FaUsers,
             label: t('Users'),
@@ -55,16 +60,16 @@ const SidebarRoutes = () => {
         {
             icon: MdDocumentScanner,
             label: t('Electronic censorship'),
-            href: user?.role?.name === 'ADMIN' ? '/reports/electronic_censorship/users' : '/reports/electronic_censorship'
+            href: ifAdministrator || user?.role?.name === 'SAFETY_DIRECTOR' ? '/reports/electronic_censorship/users' : '/reports/electronic_censorship'
         },
         {
             icon: IoMdDocument,
             label: t('Inspections'),
-            href: user?.role?.name === 'ADMIN' ? '/reports/users' : '/reports'
+            href: ifAdministrator || user?.role?.name === 'SAFETY_DIRECTOR' ? '/reports/users' : '/reports'
         }
     ];
 
-    if (user?.role?.name === 'ADMIN') {
+    if (ifAdministrator) {
         inspectionsData.push(
             {
                 icon: FaUsers,

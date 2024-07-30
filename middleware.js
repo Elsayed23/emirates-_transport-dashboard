@@ -53,13 +53,12 @@ export async function middleware(req) {
 
         if (pathname.startsWith('/stations/')) {
             // If stationId is null and the role is ADMIN or SAFETY_OFFICER, allow access to all stations
-            if (!decoded.stationId && (decoded.role.name === 'ADMIN' || decoded.role.name === 'SAFETY_OFFICER')) {
+            if (!decoded.stationId && (decoded.role.name === 'ADMIN' || decoded.role.name === 'SAFETY_OFFICER') || decoded.role.name === 'SAFETY_MANAGER' || decoded.role.name === 'SAFETY_DIRECTOR') {
                 return NextResponse.next(); // Allow access to all stations
             }
 
             // Ensure stationId exists in the token
             if (!decoded.stationId) {
-                console.log('Token does not contain stationId');
                 return NextResponse.redirect(`${origin}/stations`); // Redirect to /stations if token does not contain stationId
             }
 
@@ -69,14 +68,10 @@ export async function middleware(req) {
             const match = pathname.match(/\/stations\/(\d+)/);
             if (match) {
                 const stationIdFromUrl = parseInt(match[1], 10);
-                console.log('Extracted stationId from URL:', stationIdFromUrl);
 
                 if (stationId !== stationIdFromUrl) {
-                    console.log(`Station ID mismatch: token station ID (${stationId}) does not match URL station ID (${stationIdFromUrl})`);
                     return NextResponse.redirect(`${origin}/stations`);
                 }
-
-                console.log('Station ID match');
             }
 
             return NextResponse.next();
@@ -84,7 +79,6 @@ export async function middleware(req) {
 
         return NextResponse.next();
     } catch (error) {
-        console.error('Token parsing failed:', error);
         if (pathname !== '/login') {
             return NextResponse.redirect(`${origin}/login`); // Redirect to login page if token parsing fails
         } else {

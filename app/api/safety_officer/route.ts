@@ -1,40 +1,5 @@
 import { db } from '@/lib/db';
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 import { NextRequest, NextResponse } from 'next/server';
-
-export const POST = async (req: Request) => {
-    try {
-
-        const { name, email, password } = await req.json();
-
-
-        const userExists = await db.user.findUnique({ where: { email } });
-        if (userExists) return NextResponse.json({ status: 400, message: "User already exists" });
-
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create new user
-        const newUser = await db.user.create({
-            data: {
-                name,
-                email,
-                roleId: 'f4aebce0-f269-4276-9a96-e5b33db43f98',
-                password: hashedPassword,
-            },
-            include: {
-                role: true
-            }
-        });
-
-        return NextResponse.json(newUser);
-
-    } catch (err) {
-        console.error(err);
-        return NextResponse.json({ status: 'fail', error: err });
-    }
-}
 
 export const GET = async (req: NextRequest) => {
     try {

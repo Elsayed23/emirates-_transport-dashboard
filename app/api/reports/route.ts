@@ -29,18 +29,18 @@ export async function POST(req: Request) {
 
 
 
-        // Find users with 'ADMIN' role
-        const admin = await db.user.findFirst({
+        const safetyManagers = await db.user.findMany({
             where: {
                 role: {
-                    name: 'ADMIN'
+                    name: 'SAFETY_MANAGER',
                 },
-                name: 'Humaid'
             },
             select: {
                 email: true,
-            }
+                name: true,
+            },
         });
+
 
         // Combine the two lists of users
         const transporter = nodemailer.createTransport({
@@ -55,14 +55,15 @@ export async function POST(req: Request) {
 
 
         // Send notifications
-        await transporter.sendMail({
-            from: 'mido-dashboard@gmail.com',
-            to: admin?.email,
-            subject: 'New Report Created',
-            text: `A new report has been created for the station: ${nameOfStation}. from ${newReport.user.name}`,
-            html: `<p>A new report has been created for the station: <strong>${nameOfStation}</strong>. School => ${nameOfSchool}. <a href="http://localhost:3000/reports/${newReport.id}">see it</a></p>`,
-        });
-
+        for (const safetyManager of safetyManagers) {
+            await transporter.sendMail({
+                from: 'mido-dashboard@gmail.com',
+                to: safetyManager?.email,
+                subject: 'New Report Created',
+                text: `A new report has been created for the station: ${nameOfStation}. from ${newReport.user.name}`,
+                html: `Hello ${safetyManager.name},\n\n <p>A new report has been created for the station: <strong>${nameOfStation}</strong>. School => ${nameOfSchool}. <a href="http://localhost:3000/reports/${newReport.id}">see it</a></p>`,
+            });
+        }
 
         return NextResponse.json({ id: newReport.id });
     } catch (error) {
@@ -87,6 +88,7 @@ export async function GET(req: NextRequest) {
                 // Optionally include stationId if necessary
             }
         });
+        console.log(user);
 
         if (!user) {
             return NextResponse.json({ message: 'User not found' }, { status: 404 });
@@ -94,9 +96,10 @@ export async function GET(req: NextRequest) {
 
         let reports;
 
-        if (user?.role?.name === 'STATION') {
+        if (user?.role?.name === 'OPERATIONS_MANAGER') {
             reports = await db.report.findMany({
                 where: {
+                    approved: true,
                     stationId: Number(user.stationId),
                     inspectionType: {
                         isNot: {
@@ -130,24 +133,46 @@ export async function GET(req: NextRequest) {
                 }
             });
         } else {
-            reports = await db.report.findMany({
-                where: {
-                    inspectionType: {
-                        isNot: {
-                            name: 'Inspection of electronic control'
+            if (user.role?.name === 'SAFETY_DIRECTOR') {
+                reports = await db.report.findMany({
+                    where: {
+                        approved: true,
+                        inspectionType: {
+                            isNot: {
+                                name: 'Inspection of electronic control'
+                            }
+                        }
+                    },
+                    include: {
+                        inspectionType: true,
+                        _count: true,
+                        user: {
+                            select: {
+                                name: true
+                            }
                         }
                     }
-                },
-                include: {
-                    inspectionType: true,
-                    _count: true,
-                    user: {
-                        select: {
-                            name: true
+                });
+            } else {
+                reports = await db.report.findMany({
+                    where: {
+                        inspectionType: {
+                            isNot: {
+                                name: 'Inspection of electronic control'
+                            }
+                        }
+                    },
+                    include: {
+                        inspectionType: true,
+                        _count: true,
+                        user: {
+                            select: {
+                                name: true
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
         }
 
         return NextResponse.json(reports);

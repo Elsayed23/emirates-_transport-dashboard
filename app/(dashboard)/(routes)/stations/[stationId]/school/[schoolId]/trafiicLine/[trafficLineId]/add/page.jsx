@@ -127,7 +127,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
             <div className='p-6'>
                 <DynamicBreadcrumb routes={breadcrumbData} />
                 <div className="min-h-[calc(100vh-148px)] flex flex-col justify-center items-center">
-                    <div className="w-full p-4 max-w-xl max-h-[650px] border overflow-y-scroll bg-white rounded-lg shadow-md flex flex-col gap-5">
+                    <div className="w-full p-4 max-w-xl my-12 max-h-[650px] border overflow-y-scroll bg-white rounded-lg shadow-md flex flex-col gap-5">
                         {questionCard}
                         <Button onClick={handleSubmit} disabled={isSubmitting}>{t('Save')}</Button>
                     </div>

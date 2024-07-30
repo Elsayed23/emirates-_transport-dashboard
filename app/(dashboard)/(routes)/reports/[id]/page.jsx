@@ -132,15 +132,13 @@ const ReportPage = ({ params: { id } }) => {
                 setIsDeleteRequestDone={setIsDeleteRequestDone}
             />
             {
-                user?.role?.name === 'ADMIN'
-                &&
-                user?.name === 'Humaid'
+                user?.role?.name === 'SAFETY_MANAGER'
                 &&
                 !reportData.approved && (
-                    <div className="flex flex-col gap-4 mt-4">
+                    <div className="flex flex-col items-center gap-4 mt-4">
                         <div className="flex gap-4">
-                            <Button variant="outline" onClick={handleApprove}>Approve</Button>
-                            <Button variant="outline" onClick={handleReject}>{showRejectionInput ? "Submit" : "Reject"}</Button>
+                            <Button onClick={handleApprove}>Approve</Button>
+                            <Button variant="destructive" onClick={handleReject}>{showRejectionInput ? "Submit" : "Reject"}</Button>
                         </div>
                         {showRejectionInput && (
                             <div>

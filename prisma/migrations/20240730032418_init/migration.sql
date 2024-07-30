@@ -16,10 +16,11 @@ CREATE TABLE `User` (
 -- CreateTable
 CREATE TABLE `Role` (
     `id` VARCHAR(191) NOT NULL,
-    `name` VARCHAR(191) NOT NULL,
+    `name` ENUM('ADMIN', 'SAFETY_MANAGER', 'SAFETY_OFFICER', 'SAFETY_DIRECTOR', 'OPERATIONS_MANAGER') NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
+    UNIQUE INDEX `Role_name_key`(`name`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -34,6 +35,8 @@ CREATE TABLE `reports` (
     `schoolId` INTEGER NULL,
     `nameOfSchool` VARCHAR(191) NULL,
     `enNameOfschool` VARCHAR(191) NULL,
+    `approved` BOOLEAN NOT NULL DEFAULT false,
+    `rejectionReason` VARCHAR(191) NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
@@ -50,9 +53,24 @@ CREATE TABLE `inspections` (
     `rootCause` VARCHAR(191) NULL,
     `correctiveAction` VARCHAR(191) NULL,
     `attachment` VARCHAR(191) NULL,
+    `requirement` VARCHAR(191) NULL,
     `isClosed` BOOLEAN NOT NULL DEFAULT false,
     `noteClassification` VARCHAR(191) NOT NULL,
     `description` VARCHAR(191) NOT NULL,
+    `enDescription` VARCHAR(191) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `DeleteRequest` (
+    `id` VARCHAR(191) NOT NULL,
+    `inspectionId` VARCHAR(191) NOT NULL,
+    `reason` VARCHAR(191) NOT NULL,
+    `status` VARCHAR(191) NOT NULL DEFAULT 'PENDING',
+    `rejectionReason` VARCHAR(191) NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
@@ -91,10 +109,10 @@ CREATE TABLE `TrafficLineRisk` (
     `id` VARCHAR(191) NOT NULL,
     `trafficLineId` VARCHAR(191) NULL,
     `questionId` INTEGER NULL,
-    `causeOfRisk` VARCHAR(191) NULL,
+    `causeOfRisk` LONGTEXT NULL,
     `activity` VARCHAR(191) NULL,
     `typeOfActivity` VARCHAR(191) NULL,
-    `hazardSource` VARCHAR(191) NULL,
+    `hazardSource` LONGTEXT NULL,
     `risk` LONGTEXT NULL,
     `peopleExposedToRisk` VARCHAR(191) NULL,
     `riskAssessment` VARCHAR(191) NULL,
@@ -122,10 +140,10 @@ CREATE TABLE `SchoolRisks` (
     `stationId` INTEGER NOT NULL,
     `schoolId` INTEGER NOT NULL,
     `questionId` INTEGER NULL,
-    `causeOfRisk` VARCHAR(191) NULL,
+    `causeOfRisk` LONGTEXT NULL,
     `activity` VARCHAR(191) NULL,
     `typeOfActivity` VARCHAR(191) NULL,
-    `hazardSource` VARCHAR(191) NULL,
+    `hazardSource` LONGTEXT NULL,
     `risk` LONGTEXT NULL,
     `peopleExposedToRisk` VARCHAR(191) NULL,
     `riskAssessment` VARCHAR(191) NULL,
@@ -157,13 +175,16 @@ ALTER TABLE `reports` ADD CONSTRAINT `reports_user_id_fkey` FOREIGN KEY (`user_i
 ALTER TABLE `reports` ADD CONSTRAINT `reports_inspectionTypeId_fkey` FOREIGN KEY (`inspectionTypeId`) REFERENCES `InspectionType`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `inspections` ADD CONSTRAINT `inspections_reportId_fkey` FOREIGN KEY (`reportId`) REFERENCES `reports`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `inspections` ADD CONSTRAINT `inspections_reportId_fkey` FOREIGN KEY (`reportId`) REFERENCES `reports`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `TrafficLineRisk` ADD CONSTRAINT `TrafficLineRisk_trafficLineId_fkey` FOREIGN KEY (`trafficLineId`) REFERENCES `TrafficLine`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `DeleteRequest` ADD CONSTRAINT `DeleteRequest_inspectionId_fkey` FOREIGN KEY (`inspectionId`) REFERENCES `inspections`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `TraffikLineControlMeasure` ADD CONSTRAINT `TraffikLineControlMeasure_riskId_fkey` FOREIGN KEY (`riskId`) REFERENCES `TrafficLineRisk`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `TrafficLineRisk` ADD CONSTRAINT `TrafficLineRisk_trafficLineId_fkey` FOREIGN KEY (`trafficLineId`) REFERENCES `TrafficLine`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `SchoolControlMeasure` ADD CONSTRAINT `SchoolControlMeasure_riskId_fkey` FOREIGN KEY (`riskId`) REFERENCES `SchoolRisks`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `TraffikLineControlMeasure` ADD CONSTRAINT `TraffikLineControlMeasure_riskId_fkey` FOREIGN KEY (`riskId`) REFERENCES `TrafficLineRisk`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `SchoolControlMeasure` ADD CONSTRAINT `SchoolControlMeasure_riskId_fkey` FOREIGN KEY (`riskId`) REFERENCES `SchoolRisks`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

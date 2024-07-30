@@ -26,7 +26,7 @@ export const POST = async (req: Request) => {
                 email,
                 role: {
                     connect: {
-                        name: "ADMIN"
+                        name: "SAFETY_MANAGER"
                     }
                 },
                 password: hashedPassword,

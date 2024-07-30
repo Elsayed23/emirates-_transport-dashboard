@@ -66,7 +66,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
             title: language === 'ar' ? arSchoolName : enSchoolName
         },
         {
-            title: 'المخاطر'
+            title: t('Risks')
         }
     ]
 

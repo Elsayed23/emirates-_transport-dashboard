@@ -61,7 +61,7 @@ const Card = ({
             {
                 main?.user?.role?.name !== 'STATION'
                 &&
-                <span className='text-lg font-bold'>{approved ? '(معتمد)' : '(غير معتمد)'}</span>
+                <span className='text-lg font-bold'>{approved ? `(${t('Approved')})` : `(${t('Not approved')})`}</span>
             }
             {user && <h1 className='font-medium text-2xl'>{user.name}</h1>}
             <h2>{t('station')}- {t(`stationsData.${nameOfStation}`)}</h2>
