@@ -1,31 +1,18 @@
-'use client'
-import DynamicBreadcrumb from '@/app/(dashboard)/_components/DynamicBreadcrumb'
-import { getSpecificSchoolName, getSpecificStationName } from '@/app/simple_func/getSpecificData'
-import React, { useContext } from 'react'
-import axios from 'axios'
-
-import { zodResolver } from "@hookform/resolvers/zod";
+'use client';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { getSpecificSchoolName, getSpecificStationName } from '@/app/simple_func/getSpecificData'
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useRouter } from 'next/navigation'
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectValue } from '@/components/ui/select'
-import { SelectTrigger } from '@/components/ui/select'
-import { toast } from 'sonner'
-import useTranslation from '@/app/hooks/useTranslation'
-import LanguageContext from '@/app/context/LanguageContext'
-
-
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectValue } from '@/components/ui/select';
+import { SelectTrigger } from '@/components/ui/select';
+import useTranslation from '@/app/hooks/useTranslation';
+import LanguageContext from '@/app/context/LanguageContext';
+import { useRouter } from 'next/navigation';
+import DynamicBreadcrumb from '@/app/(dashboard)/_components/DynamicBreadcrumb';
 
 const formSchema = z.object({
     name: z.string().min(2, { message: "يجب أن يتكون الاسم من حرفين على الأقل" }),
@@ -39,35 +26,13 @@ const formSchema = z.object({
 });
 
 
-interface paramsProps {
-    params: {
-        stationId: string;
-        schoolId: string
-    }
-}
-
-const page = ({ params: { stationId, schoolId } }: paramsProps) => {
-
-    const { t } = useTranslation()
+const CreateTrafficLineForm = ({ setTrafficLineData, params: { stationId, schoolId } }: any) => {
+    const { t } = useTranslation();
+    const { language } = useContext(LanguageContext);
 
     const { arStationName, enStationName }: { arStationName: string; enStationName: string } = getSpecificStationName(stationId)
 
-    const router = useRouter()
-
     const { arSchoolName, enSchoolName }: { arSchoolName: string; enSchoolName: string } = getSpecificSchoolName(stationId, schoolId)
-
-    const { language } = useContext(LanguageContext);
-
-    const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        try {
-            const { data } = await axios.post('/api/traffic_line', values)
-            toast.success(t('The itinerary has been successfully added'))
-            router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${data?.id as string}/add`)
-        } catch (error) {
-            console.log(error);
-        }
-
-    }
 
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -82,23 +47,14 @@ const page = ({ params: { stationId, schoolId } }: paramsProps) => {
             transferredCategory: "",
         },
     });
+    const onSubmit = (values: z.infer<typeof formSchema>) => {
+        setTrafficLineData(values);
+    };
 
-    const educationalLevelData = ['First episode', 'Second episode', 'Third episode', 'Kindergarten', 'Multiple episodes (two or more episodes)', 'Several episodes with kindergarten']
+    const educationalLevelData = ['First episode', 'Second episode', 'Third episode', 'Kindergarten', 'Multiple episodes (two or more episodes)', 'Several episodes with kindergarten'];
+    const transferredCategoryData = ['Males', 'Females', 'Mixed'];
 
-
-    const transferredCategoryData = ['Males', 'Females', 'Mixed']
-
-    const educationalLevelSelect = educationalLevelData.map((level: string, idx: number) => {
-        return (
-            <SelectItem key={idx} value={level}>{t(level)}</SelectItem>
-        )
-    })
-
-    const transferredCategorySelect = transferredCategoryData.map((category: string, idx: number) => {
-        return (
-            <SelectItem key={idx} value={category}>{t(category)}</SelectItem>
-        )
-    })
+    const router = useRouter()
 
     const breadcrumbData = [
         {
@@ -141,7 +97,6 @@ const page = ({ params: { stationId, schoolId } }: paramsProps) => {
                                     </FormItem>
                                 )}
                             />
-
                             <FormField
                                 control={form.control}
                                 name="educationalLevel"
@@ -156,7 +111,9 @@ const page = ({ params: { stationId, schoolId } }: paramsProps) => {
                                             <SelectContent>
                                                 <SelectGroup dir={language === 'ar' ? 'rtl' : 'ltr'}>
                                                     <SelectLabel>{t('educationalLevel')}</SelectLabel>
-                                                    {educationalLevelSelect}
+                                                    {educationalLevelData.map((level, idx) => (
+                                                        <SelectItem key={idx} value={level}>{t(level)}</SelectItem>
+                                                    ))}
                                                 </SelectGroup>
                                             </SelectContent>
                                         </Select>
@@ -191,7 +148,9 @@ const page = ({ params: { stationId, schoolId } }: paramsProps) => {
                                             <SelectContent>
                                                 <SelectGroup dir={language === 'ar' ? 'rtl' : 'ltr'}>
                                                     <SelectLabel>{t('Category')}</SelectLabel>
-                                                    {transferredCategorySelect}
+                                                    {transferredCategoryData.map((category, idx) => (
+                                                        <SelectItem key={idx} value={category}>{t(category)}</SelectItem>
+                                                    ))}
                                                 </SelectGroup>
                                             </SelectContent>
                                         </Select>
@@ -207,8 +166,9 @@ const page = ({ params: { stationId, schoolId } }: paramsProps) => {
                     </Form>
                 </div>
             </div>
-        </div>
-    )
-}
 
-export default page
+        </div>
+    );
+};
+
+export default CreateTrafficLineForm;

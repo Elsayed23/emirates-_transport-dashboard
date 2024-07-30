@@ -35,7 +35,8 @@ export async function GET(req: NextRequest) {
                         is: {
                             name: 'Inspection of electronic control'
                         }
-                    }
+                    },
+                    approved: true
                 },
                 include: {
                     inspectionType: true,

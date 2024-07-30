@@ -2,42 +2,40 @@ import { db } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 
 
-async function addTrafficLine(data: {
-    name: string;
-    schoolId: number;
-    schoolName: string;
-    stationId: number;
-    stationName: string;
-    educationalLevel: string;
-    countOfStudents: number;
-    transferredCategory: string;
-}) {
-    return await db.trafficLine.create({
-        data,
-    });
-}
+
 
 export async function POST(req: Request) {
 
-    const { name, schoolId, schoolName, stationId, stationName, educationalLevel, countOfStudents, transferredCategory } = await req.json();
+    const {
+        name,
+        schoolId,
+        schoolName,
+        stationId,
+        stationName,
+        educationalLevel,
+        countOfStudents,
+        transferredCategory
+    } = await req.json();
 
     if (!name || !schoolId || !schoolName || !stationId || !stationName || !educationalLevel || !countOfStudents || !transferredCategory) {
         return NextResponse.json({ message: 'Invalid input' });
     }
 
     try {
-        const trafficLine = await addTrafficLine({
-            name,
-            schoolId,
-            schoolName,
-            stationId,
-            stationName,
-            educationalLevel,
-            countOfStudents,
-            transferredCategory,
+        const trafficLine = await db.trafficLine.create({
+            data: {
+                name,
+                schoolId,
+                schoolName,
+                stationId,
+                stationName,
+                educationalLevel,
+                countOfStudents,
+                transferredCategory,
+            }
         });
 
-        return NextResponse.json(trafficLine);
+        return NextResponse.json({ id: trafficLine.id });
     } catch (error) {
         console.error(error);
         return NextResponse.json({ message: 'Internal server error' });

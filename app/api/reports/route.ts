@@ -28,57 +28,40 @@ export async function POST(req: Request) {
         });
 
 
-        const stationManagers = await db.user.findMany({
-            where: {
-                role: {
-                    name: 'STATION'
-                },
-                stationId: Number(stationId)
-            },
-            select: {
-                email: true,
-            }
-        });
 
         // Find users with 'ADMIN' role
-        const admins = await db.user.findMany({
+        const admin = await db.user.findFirst({
             where: {
                 role: {
                     name: 'ADMIN'
-                }
+                },
+                name: 'Humaid'
             },
             select: {
                 email: true,
             }
         });
 
-        // // Combine the two lists of users
-        // const recipients = [...stationManagers, ...admins];
+        // Combine the two lists of users
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.PASS,
+            },
+        });
 
-        // const transporter = nodemailer.createTransport({
-        //     service: "gmail",
-        //     auth: {
-        //         user: 'elsayedkewan123@gmail.com',
-        //         pass: 'oyzd lxxx ajcf kgzb',
-        //     },
-        // });
+        // Placeholder for sending notifications
 
-        // // Placeholder for sending notifications
-        // recipients.forEach(user => {
-        //     console.log(`Send notification to: ${user.email}`);
-        //     // Add your notification logic here
-        // });
 
-        // // Send notifications
-        // for (const user of recipients) {
-        //     await transporter.sendMail({
-        //         from: 'mido-dashboard@gmail.com',
-        //         to: user.email,
-        //         subject: 'New Report Created',
-        //         text: `A new report has been created for the station: ${nameOfStation}. from ${newReport.user.name}`,
-        //         html: `<p>A new report has been created for the station: <strong>${nameOfStation}</strong>. School => ${nameOfSchool}. <a href="http://localhost:3000/reports/${newReport.id}">see it</a></p>`,
-        //     });
-        // }
+        // Send notifications
+        await transporter.sendMail({
+            from: 'mido-dashboard@gmail.com',
+            to: admin?.email,
+            subject: 'New Report Created',
+            text: `A new report has been created for the station: ${nameOfStation}. from ${newReport.user.name}`,
+            html: `<p>A new report has been created for the station: <strong>${nameOfStation}</strong>. School => ${nameOfSchool}. <a href="http://localhost:3000/reports/${newReport.id}">see it</a></p>`,
+        });
 
 
         return NextResponse.json({ id: newReport.id });

@@ -27,7 +27,6 @@ const page = ({ params: { stationId, schoolId } }) => {
     const { language } = useContext(LanguageContext);
 
 
-
     const { t } = useTranslation()
 
     const breadcrumbData = [
@@ -43,6 +42,7 @@ const page = ({ params: { stationId, schoolId } }) => {
             title: language === 'ar' ? name : translationName
         }
     ]
+
 
     const analyzeRisks = (trafficLines) => {
         const targetQuestionIds = [1, 2, 5, 6]
@@ -134,7 +134,7 @@ const page = ({ params: { stationId, schoolId } }) => {
                                 <Button variant='outline' className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)}>{t('Add risks')} <FaCirclePlus size={18} /></Button>
                                 :
                                 <Button variant='outline' className='self-start'>
-                                    <Link href={`/stations/${stationId}/school/${schoolId}/risks`} className='underline'>مخاطر المدرسة</Link>
+                                    <Link href={`/stations/${stationId}/school/${schoolId}/risks`} className='underline'>{t('School hazards')}</Link>
                                 </Button>
                         }
                         <h2 className='text-xl font-semibold'>{t('results')}: {trafficLines.length}</h2>

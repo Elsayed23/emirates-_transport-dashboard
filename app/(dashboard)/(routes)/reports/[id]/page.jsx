@@ -7,21 +7,24 @@ import { DataTableReport } from "../_components/DataTableReport";
 import { exportReportsToExcel } from '@/utils/exportReportsToExcel';
 import { stationsData } from "@/app/constants";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/app/context/AuthContext";
 
 const ReportPage = ({ params: { id } }) => {
     const [reportData, setReportData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [isRootCauseAdded, setIsRootCauseAdded] = useState(false)
-    const [isCorrectiveActionAdded, setIsCorrectiveActionAdded] = useState(false)
-    const [isInspectionClose, setIsInspectionClose] = useState(false)
-    const [isDeleteRequestDone, setIsDeleteRequestDone] = useState(false)
+    const [isRootCauseAdded, setIsRootCauseAdded] = useState(false);
+    const [isCorrectiveActionAdded, setIsCorrectiveActionAdded] = useState(false);
+    const [isInspectionClose, setIsInspectionClose] = useState(false);
+    const [isDeleteRequestDone, setIsDeleteRequestDone] = useState(false);
+    const [rejectionReason, setRejectionReason] = useState('');
+    const [showRejectionInput, setShowRejectionInput] = useState(false);
 
     const getNumberOfNotesRecorded = (note_classification) => {
         if (!reportData?.inspections) {
             return 0;
         }
         return reportData.inspections.filter(inspection => inspection.noteClassification === note_classification).length;
-    }
+    };
 
     const getReport = async () => {
         try {
@@ -33,11 +36,37 @@ const ReportPage = ({ params: { id } }) => {
         }
     };
 
-    const { t } = useTranslation();
+    const handleApprove = async () => {
+        try {
+            await axios.patch(`/api/approve_report`, { reportId: id, approved: true });
+            getReport(); // Refresh the report data
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-    // const handleDownload = async () => {
-    //     await exportReportsToExcel(reportData, `نموذج تفتيش على اجراءات السلانة للنقل المدرسي محطة (${getArabicNameForStation})${reportData?.nameOfSchool}`);
-    // }
+    const { user } = useAuth()
+
+    const handleReject = async () => {
+        if (!showRejectionInput) {
+            setShowRejectionInput(true);
+            return;
+        }
+
+        if (!rejectionReason) {
+            alert("Please provide a reason for rejection.");
+            return;
+        }
+
+        try {
+            await axios.patch(`/api/approve_report`, { reportId: id, approved: false, rejectionReason });
+            getReport(); // Refresh the report data
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         getReport();
@@ -48,18 +77,16 @@ const ReportPage = ({ params: { id } }) => {
     const numberOfMain = getNumberOfNotesRecorded('رئيسية');
     const numberOfSecondary = getNumberOfNotesRecorded('ثانوية');
 
-    console.log(reportData);
     return (
         <div className="p-6">
             <h1 className="text-center font-medium text-2xl mb-12">{t(reportData.inspectionType.name)}</h1>
-            {/* <Button variant='outline' onClick={handleDownload}>تحميل التقرير</Button> */}
             <div className="overflow-x-auto flex flex-col gap-8">
                 <table className="min-w-full bg-white border border-gray-300">
                     <thead>
                         <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
-                            <th className="py-3 px-6 text-center border border-gray-300">المحطة</th>
-                            <th className="py-3 px-6 text-center border border-gray-300">المدرسة</th>
-                            <th className="py-3 px-6 text-center border border-gray-300">تاريخ التقرير</th>
+                            <th className="py-3 px-6 text-center border border-gray-300">المحطة <br /> station</th>
+                            <th className="py-3 px-6 text-center border border-gray-300">المدرسة <br /> school</th>
+                            <th className="py-3 px-6 text-center border border-gray-300">تاريخ التقرير <br /> Date of report</th>
                         </tr>
                     </thead>
                     <tbody className="text-gray-600 text-sm font-light">
@@ -76,16 +103,16 @@ const ReportPage = ({ params: { id } }) => {
                 <table className="min-w-full bg-white border border-gray-300">
                     <thead>
                         <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
-                            <th className="py-3 px-6 text-center border border-gray-300">الاسم</th>
-                            <th className="py-3 px-6 text-center border border-gray-300">الوظيفة</th>
-                            <th className="py-3 px-6 text-center border border-gray-300">عدد الملاحظات المسجلة</th>
-                            <th className="py-3 px-6 text-center border border-gray-300">المدينة</th>
+                            <th className="py-3 px-6 text-center border border-gray-300">الاسم <br /> Name</th>
+                            <th className="py-3 px-6 text-center border border-gray-300">الوظيفة <br /> The job</th>
+                            <th className="py-3 px-6 text-center border border-gray-300">عدد الملاحظات المسجلة <br /> Number of notes recorded</th>
+                            <th className="py-3 px-6 text-center border border-gray-300">المدينة <br /> City</th>
                         </tr>
                     </thead>
                     <tbody className="text-gray-600 text-sm font-light">
                         <tr className="border-b border-gray-200 hover:bg-gray-100">
                             <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">{reportData.user.name}</td>
-                            <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">ضابط سلامة والصحة المهنية والبيئة</td>
+                            <td className="py-3 px-6 text-center border border-gray-300" rowSpan="2">ضابط سلامة والصحة المهنية والبيئة <br /> Occupational Health and Safety Officer</td>
                             <td className="py-3 px-6 text-center border border-gray-300 space-y-2">
                                 <div>الرئيسية: {numberOfMain}</div>
                                 <div>الثانوية: {numberOfSecondary}</div>
@@ -95,12 +122,37 @@ const ReportPage = ({ params: { id } }) => {
                     </tbody>
                 </table>
             </div>
+
             <DataTableReport
                 report={reportData}
                 setIsRootCauseAdded={setIsRootCauseAdded}
                 setIsCorrectiveActionAdded={setIsCorrectiveActionAdded}
                 setIsInspectionClose={setIsInspectionClose}
-                setIsDeleteRequestDone={setIsDeleteRequestDone} />
+                setIsDeleteRequestDone={setIsDeleteRequestDone}
+            />
+            {
+                user?.role?.name === 'ADMIN'
+                &&
+                !reportData.approved && (
+                    <div className="flex flex-col gap-4 mt-4">
+                        <div className="flex gap-4">
+                            <Button variant="outline" onClick={handleApprove}>Approve</Button>
+                            <Button variant="outline" onClick={handleReject}>{showRejectionInput ? "Submit" : "Reject"}</Button>
+                        </div>
+                        {showRejectionInput && (
+                            <div>
+                                <input
+                                    type="text"
+                                    placeholder="Rejection reason"
+                                    value={rejectionReason}
+                                    onChange={(e) => setRejectionReason(e.target.value)}
+                                    className="border rounded px-2 py-1 mt-2"
+                                />
+                            </div>
+                        )}
+                    </div>
+                )
+            }
         </div>
     );
 };

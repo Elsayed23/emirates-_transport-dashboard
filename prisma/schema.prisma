@@ -41,6 +41,8 @@ model Report {
   nameOfSchool     String?
   enNameOfschool   String?
   inspections      Inspection[]
+  approved         Boolean         @default(false)
+  rejectionReason  String?
   createdAt        DateTime        @default(now())
   updatedAt        DateTime        @updatedAt()
 
@@ -74,7 +76,7 @@ model DeleteRequest {
   inspectionId    String
   reason          String
   status          String   @default("PENDING") // PENDING, APPROVED, REJECTED
-  rejectionReason String? // Optional field for rejection reason
+  rejectionReason String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 

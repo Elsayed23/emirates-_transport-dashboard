@@ -47,7 +47,7 @@ const page = () => {
 
     const breadcrumbData = [
         {
-            title: 'ضباط السلامة'
+            title: t('Safety officers')
         },
     ]
 
@@ -59,7 +59,7 @@ const page = () => {
             <div className="flex flex-col gap-9">
                 <DynamicBreadcrumb routes={breadcrumbData} />
                 <div className="flex flex-col gap-3">
-                    <h2 className='text-xl font-medium'>عدد ضباط السلامة: {officersData?.length}</h2>
+                    <h2 className='text-xl font-medium'>{t('Number of safety officers')}: {officersData?.length}</h2>
                     <hr />
                 </div>
                 <div className="grid grid-cols-3 gap-6">

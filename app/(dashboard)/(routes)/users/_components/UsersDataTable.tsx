@@ -94,12 +94,12 @@ const UsersDataTable = () => {
     const columns: ColumnDef<User>[] = [
         {
             accessorKey: "id",
-            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>م</div>,
+            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>م <br /> no</div>,
             cell: ({ row }) => <div>{row.index + 1}</div>,
         },
         {
             accessorKey: "name",
-            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>ألإسم</div>,
+            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>{t('Name')}</div>,
             cell: ({ row }) => {
                 const role = row.getValue('role') as { name: string }
                 return <div>{role?.name === 'STATION' ? t(`filteredStationsData.${row.getValue('name')}`) : row.getValue('name')}</div>
@@ -108,7 +108,7 @@ const UsersDataTable = () => {
         },
         {
             accessorKey: "role",
-            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>الدور</div>,
+            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>{t('Role')}</div>,
             cell: ({ row }) => {
                 const role = row.getValue('role') as { name: string }
                 return <div>{t(role?.name)}</div>
@@ -116,7 +116,7 @@ const UsersDataTable = () => {
         },
         {
             accessorKey: "email",
-            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>البريد</div>,
+            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>{t('Mail')}</div>,
             cell: ({ row }) => {
                 return <div>{row.getValue('email')}</div>
             },
@@ -139,7 +139,7 @@ const UsersDataTable = () => {
                             <DropdownMenuItem
                                 onClick={() => navigator.clipboard.writeText(user.email)}
                             >
-                                نسخ البريد
+                                {t('Copy mail')}
                             </DropdownMenuItem>
                             <DropdownMenuSeparator />
                             {/* <DropdownMenuItem
@@ -153,13 +153,13 @@ const UsersDataTable = () => {
                                     <DropdownMenuItem
                                         onClick={() => handleDeleteUser(user.id)}
                                     >
-                                        حذف الضابط
+                                        {t('Deleting the officer')}
                                     </DropdownMenuItem>
                                     :
                                     <DropdownMenuItem
                                         onClick={() => handleModifyUser(user.id)}
                                     >
-                                        تعديل معلومات المحطة
+                                        {t('Edit station information')}
                                     </DropdownMenuItem>
                             }
 
@@ -216,15 +216,15 @@ const UsersDataTable = () => {
         <div className="w-full">
             <div className="flex justify-between items-center py-4">
                 <Input
-                    placeholder="إبحث عن مستخدم بالإسم..."
+                    placeholder={t('Search for a user by name')}
                     value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
                         table.getColumn("name")?.setFilterValue(event.target.value)
                     }
-                    dir="rtl"
+                    dir={language === 'ar' ? 'rtl' : 'ltr'}
                     className="max-w-sm"
                 />
-                <Button onClick={() => { setIsOpenAddUser(true) }}>إضافة ضابط سلامة</Button>
+                <Button onClick={() => { setIsOpenAddUser(true) }}>{t('Adding a safety officer')}</Button>
             </div>
             <div className="rounded-md border">
                 <Table>

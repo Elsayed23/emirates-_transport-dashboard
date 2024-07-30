@@ -184,7 +184,7 @@ const CreateReportForm = ({ setReportData, }) => {
                                 )}
                             />
                             <div className='flex justify-between items-center gap-2 mt-4'>
-                                <Button onClick={() => { router.push('/instruments') }} variant='destructive'>{t('Cancel')}</Button>
+                                <Button onClick={() => { router.push('/reports') }} variant='destructive'>{t('Cancel')}</Button>
                                 <Button
                                     type='submit'
                                     disabled={isSubmitting || !isValid}

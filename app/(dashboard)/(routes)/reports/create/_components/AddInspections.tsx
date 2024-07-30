@@ -79,15 +79,15 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     const { isSubmitting, isValid } = form.formState;
 
     const searchParams = useSearchParams();
-
-    const inspection_type_id = searchParams.get("inspection_type_id");
+    console.log(reportData);
 
     const noteData =
-        inspection_type_id === "5f43feba-0e19-4925-8d26-a3bd263cfee3"
+        reportData.inspectionTypeId === "5f43feba-0e19-4925-8d26-a3bd263cfee3"
             ? ESInotes
-            : inspection_type_id === "a6f1e99c-a4ab-4df3-b333-ec2d2d04f7b7"
+            : reportData.inspectionTypeId === "a6f1e99c-a4ab-4df3-b333-ec2d2d04f7b7"
                 ? busInspectionNotes
                 : busInspectionNotes;
+
 
     useEffect(() => {
         const startCapture = async () => {
@@ -361,7 +361,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
 
                         {busIdSaved && (
                             <>
-                                {inspection_type_id === "5f43feba-0e19-4925-8d26-a3bd263cfee3" ? (
+                                {reportData.inspectionTypeId === "5f43feba-0e19-4925-8d26-a3bd263cfee3" ? (
                                     <div className="mb-4">
                                         <Label htmlFor="imageUpload">{t("Upload Image")}</Label>
                                         <Input

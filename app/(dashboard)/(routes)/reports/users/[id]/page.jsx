@@ -41,8 +41,6 @@ const page = ({ params: { id } }) => {
         }
     }
 
-    console.log(reportsData);
-
     useEffect(() => {
         getReports()
     }, [user])
@@ -54,7 +52,7 @@ const page = ({ params: { id } }) => {
     const breadcrumbData = [
         {
             url: '/reports/users',
-            title: 'تقارير ضباط السلامة'
+            title: t('Safety Officer Reports')
         },
         {
             title: nameOfOfficer
@@ -71,7 +69,7 @@ const page = ({ params: { id } }) => {
                 {
                     reportsData.length === 0
                         ?
-                        <h2 className='text-2xl text-center'>لا يوجد اي تقارير لهذا الضابط</h2>
+                        <h2 className='text-2xl text-center'>{t('There are no reports for this officer')}</h2>
                         :
                         <div className="grid grid-cols-2 gap-6">
                             {reportsCard}
