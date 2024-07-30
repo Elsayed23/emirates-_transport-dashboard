@@ -69,7 +69,7 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
     const { isSubmitting } = form.formState;
 
     return (
-        <Dialog open={isOpen} onOpenChange={onClose()}>
+        <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
                     <DialogTitle>Modify User Information</DialogTitle>

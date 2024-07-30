@@ -61,7 +61,7 @@ const AddRisksForm = ({ trafficLineData, params: { stationId, schoolId } }) => {
                 await axios.post('/api/risks', dataSending);
 
                 toast.success(t('The notification has been saved successfully'));
-                router.push(`/stations/${stationId}/school/${schoolId}/risks`)
+                router.push(`/stations/${stationId}/school/${schoolId}/trafiicLine/${data?.id}`)
             }
         } catch (error) {
             console.log(error);

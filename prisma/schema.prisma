@@ -7,6 +7,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum RoleEnum {
+  ADMIN
+  SAFETY_MANAGER
+  SAFETY_OFFICER
+  SAFETY_DIRECTOR
+  OPERATIONS_MANAGER
+}
+
 model User {
   id        String   @id @default(uuid())
   name      String
@@ -22,7 +30,7 @@ model User {
 
 model Role {
   id        String   @id @default(uuid())
-  name      String
+  name      RoleEnum @unique
   users     User[]   @relation("RoleUsers")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

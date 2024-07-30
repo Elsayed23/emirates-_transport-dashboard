@@ -116,3 +116,12 @@ export async function PATCH(req: Request) {
         return NextResponse.json({ error: 'Internal Server Error' });
     }
 }
+
+export const GET = async () => {
+    try {
+
+    } catch (error) {
+        console.error('Error getting report:', error);
+        return NextResponse.json({ error: 'Internal Server Error' });
+    }
+}

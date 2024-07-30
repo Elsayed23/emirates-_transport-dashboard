@@ -42,7 +42,7 @@ const SidebarRoutes = () => {
         },
     ];
 
-    if (user?.role?.name === 'ADMIN') {
+    if (user?.role?.name === 'ADMIN' && user?.name === 'Abdulhamid') {
         routes.push({
             icon: FaUsers,
             label: t('Users'),

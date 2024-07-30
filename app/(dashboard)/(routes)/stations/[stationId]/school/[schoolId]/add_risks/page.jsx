@@ -48,15 +48,19 @@ const page = ({ params: { stationId, schoolId } }) => {
     const allTheAnswersFromQuestions = useMemo(() => questions.map(({ answer }) => answer), [questions])
 
     const getRisks = useCallback(async () => {
-        const { data } = await axios.get(`/api/school_risks?station_id=${stationId}&school_id=${schoolId}`)
-        console.log(data);
-        setIsFirstTime(data?.length ? false : true)
-        const questionsIds = data?.map(({ questionId }) => questionId)
-        setQuestions(prevQuestions =>
-            prevQuestions.map(q =>
-                questionsIds?.includes(q.questionId) ? { ...q, answer: 'نعم' } : q
+        try {
+            const { data } = await axios.get(`/api/school_risks?station_id=${stationId}&school_id=${schoolId}`)
+            setLoading(true)
+            setIsFirstTime(data?.length ? false : true)
+            const questionsIds = data?.map(({ questionId }) => questionId)
+            setQuestions(prevQuestions =>
+                prevQuestions.map(q =>
+                    questionsIds?.includes(q.questionId) ? { ...q, answer: 'نعم' } : q
+                )
             )
-        )
+        } catch (error) {
+            console.log(error);
+        }
     }, [schoolId])
 
     useEffect(() => {
@@ -109,8 +113,9 @@ const page = ({ params: { stationId, schoolId } }) => {
         ))
     ), [questions, handleAnswerChange, language])
 
+    if (loading) return <Loading />
+
     return (
-        // !loading ?
         <div className='p-6'>
             <DynamicBreadcrumb routes={breadcrumbData} />
             <div className="min-h-[calc(100vh-148px)] flex flex-col justify-center items-center">
@@ -120,8 +125,6 @@ const page = ({ params: { stationId, schoolId } }) => {
                 </div>
             </div>
         </div>
-        // :
-        // <Loading />
     )
 }
 

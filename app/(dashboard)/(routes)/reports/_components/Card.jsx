@@ -58,7 +58,11 @@ const Card = ({
 
     return (
         <div onClick={() => router.push(`/reports/${id}`)} className={`border relative shadow-lg hover:scale-[1.03] duration-200 text-[#111] flex flex-col items-center gap-3 rounded-sm cursor-pointer p-4`}>
-            <span className='text-lg font-bold'>{approved ? '(غير معتمد)' : '(معتمد)'}</span>
+            {
+                main?.user?.role?.name !== 'STATION'
+                &&
+                <span className='text-lg font-bold'>{approved ? '(معتمد)' : '(غير معتمد)'}</span>
+            }
             {user && <h1 className='font-medium text-2xl'>{user.name}</h1>}
             <h2>{t('station')}- {t(`stationsData.${nameOfStation}`)}</h2>
             <h2>{t('school')}- {nameOfSchool}</h2>

@@ -18,6 +18,7 @@ const ReportPage = ({ params: { id } }) => {
     const [isDeleteRequestDone, setIsDeleteRequestDone] = useState(false);
     const [rejectionReason, setRejectionReason] = useState('');
     const [showRejectionInput, setShowRejectionInput] = useState(false);
+    const [approveToggle, setApproveToggle] = useState(false)
 
     const getNumberOfNotesRecorded = (note_classification) => {
         if (!reportData?.inspections) {
@@ -39,7 +40,7 @@ const ReportPage = ({ params: { id } }) => {
     const handleApprove = async () => {
         try {
             await axios.patch(`/api/approve_report`, { reportId: id, approved: true });
-            getReport(); // Refresh the report data
+            setApproveToggle(prev => !prev)
         } catch (error) {
             console.log(error);
         }
@@ -60,7 +61,7 @@ const ReportPage = ({ params: { id } }) => {
 
         try {
             await axios.patch(`/api/approve_report`, { reportId: id, approved: false, rejectionReason });
-            getReport(); // Refresh the report data
+            setApproveToggle(prev => !prev)
         } catch (error) {
             console.log(error);
         }
@@ -70,7 +71,7 @@ const ReportPage = ({ params: { id } }) => {
 
     useEffect(() => {
         getReport();
-    }, [isRootCauseAdded, isCorrectiveActionAdded, isInspectionClose, isDeleteRequestDone]);
+    }, [isRootCauseAdded, isCorrectiveActionAdded, isInspectionClose, isDeleteRequestDone, approveToggle]);
 
     if (loading) return <Loading />;
 
@@ -132,6 +133,8 @@ const ReportPage = ({ params: { id } }) => {
             />
             {
                 user?.role?.name === 'ADMIN'
+                &&
+                user?.name === 'Humaid'
                 &&
                 !reportData.approved && (
                     <div className="flex flex-col gap-4 mt-4">
