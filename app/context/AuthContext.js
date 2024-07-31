@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
     const login = (token) => {
         setToken(token);
         setUser(parseJwt(token));
-        Cookies.set('__session', token, { expires: 365 }); // Set the token in a cookie
+        Cookies.set('__session', token, { expires: 15 }); // Set the token in a cookie
         router.push('/');
     };
 
@@ -63,10 +63,10 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
+        router.push('/login')
         setToken(null);
         setUser(null);
         Cookies.remove('__session');
-        router.push('/login')
     };
 
     return (

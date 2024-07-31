@@ -41,8 +41,6 @@ const page = ({ params: { id } }) => {
         }
     }
 
-    console.log(reportsData);
-
     useEffect(() => {
         getReports()
     }, [user])
@@ -54,7 +52,7 @@ const page = ({ params: { id } }) => {
     const breadcrumbData = [
         {
             url: '/reports/users',
-            title: 'تقارير ضباط السلامة'
+            title: t('Safety Officer Reports')
         },
         {
             title: nameOfOfficer

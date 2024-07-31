@@ -15,10 +15,8 @@ export async function PATCH(req: Request) {
         const { reportId, approved, rejectionReason } = await req.json();
 
         // Build the data object based on approval or rejection
-        const updateData: any = { approved };
-        if (!approved) {
-            updateData.rejectionReason = rejectionReason;
-        }
+        const updateData: any = { approved, rejectionReason: approved ? null : rejectionReason };
+
 
         // Update the report in the database
         await db.report.update({
@@ -88,14 +86,12 @@ export async function PATCH(req: Request) {
             });
 
             // Send email to the admin
-            if (admin) {
-                await transporter.sendMail({
-                    from: process.env.EMAIL,
-                    to: admin.email,
-                    subject: 'A new report has been approved',
-                    text: `Hello ${admin.name},\n\nA new report from ${user.name} has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
-                });
-            }
+            await transporter.sendMail({
+                from: process.env.EMAIL,
+                to: admin?.email,
+                subject: 'A new report has been approved',
+                text: `Hello ${admin?.name},\n\nA new report from ${user.name} has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
+            });
 
             // Send emails to safety directors
             for (const safetyDirector of safetyDirectors) {
@@ -136,3 +132,27 @@ export async function PATCH(req: Request) {
         return NextResponse.json({ error: 'Internal Server Error' });
     }
 }
+
+
+export const GET = async () => {
+    try {
+        const reports = await db.report.findMany({
+            where: {
+                approved: false,
+                rejectionReason: null
+            },
+            include: {
+                user: {
+                    select: {
+                        name: true
+                    }
+                }
+            }
+        });
+
+        return NextResponse.json(reports);
+    } catch (error) {
+        console.error('Error fetching reports:', error);
+        return NextResponse.json({ error: 'Internal Server Error' });
+    }
+};

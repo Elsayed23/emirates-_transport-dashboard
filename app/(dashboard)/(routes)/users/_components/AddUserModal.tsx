@@ -1,11 +1,11 @@
-'use client'
-import * as React from "react";
+'use client';
+
+import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { boolean, z } from 'zod';
+import { z } from 'zod';
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogHeader,
     DialogTitle,
@@ -22,31 +22,30 @@ import {
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-} from "@/components/ui/command";
-
-import { cn } from "@/lib/utils";
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { toast } from "sonner";
 import useTranslation from "@/app/hooks/useTranslation";
+import LanguageContext from '@/app/context/LanguageContext';
 
-// Define the schema for the form inputs
 const formSchema = z.object({
     name: z.string().min(1),
     email: z.string().email(),
-    password: z.string().min(4)
+    password: z.string().min(4),
+    roleId: z.string().min(1, { message: "Please select a role" }),
 });
 
-// Define the interface for form values based on the schema
 interface FormValues {
     name: string;
     email: string;
-    password: string
+    password: string;
+    roleId: string;
 }
+
 type AddUserModalProps = {
     isOpen: boolean;
     onClose: () => void;
@@ -54,51 +53,66 @@ type AddUserModalProps = {
 };
 
 const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData }) => {
-
+    const [roles, setRoles] = React.useState<{ id: string; name: string }[]>([]);
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: '',
             email: '',
-            password: ''
+            password: '',
+            roleId: '',
         },
     });
 
     const { handleSubmit, reset, formState: { isSubmitting, isValid } } = form;
 
+    React.useEffect(() => {
+        const fetchRoles = async () => {
+            try {
+                const response = await axios.get('/api/roles');
+                setRoles(response.data);
+            } catch (error) {
+                console.error('Error fetching roles:', error);
+                toast.error('Failed to fetch roles');
+            }
+        };
+
+        fetchRoles();
+    }, []);
 
     const onSubmit = async (values: FormValues) => {
         try {
-
-            const { data } = await axios.post('/api/auth/safety_officer', values)
+            const { data } = await axios.post('/api/users', values)
 
             setData((prevUsers: any) => {
                 return [
                     ...prevUsers,
-                    data
+                    data?.data
                 ]
             })
-            onClose()
-            toast.success(t('Officer added'))
-            reset({ ...form.getValues(), name: '', email: '', password: '' });
+            console.log(values);
+
+            onClose();
+            toast.success(data?.message)
+            reset({ ...form.getValues(), name: '', email: '', password: '', roleId: '' });
         } catch (error) {
             console.log(error);
-
         }
-
     };
 
-    const { t } = useTranslation()
+    const { t } = useTranslation();
+    const { language } = React.useContext(LanguageContext)
 
+    const makeDIR = language === 'ar' ? 'rtl' : 'ltr'
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>{t('Adding a safety officer')}</DialogTitle>
+                    <DialogTitle>{t('Adding user')}</DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
-                    <form dir="rtl" onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                    <form dir={makeDIR} onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                         <FormField
                             control={form.control}
                             name="name"
@@ -117,9 +131,9 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('Email')}</FormLabel>
+                                    <FormLabel>{t('Mail')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} type="email" placeholder={`${t('Email')}...`} {...field} />
+                                        <Input disabled={isSubmitting} type="email" placeholder={`${t('Mail')}...`} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -138,9 +152,37 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                                 </FormItem>
                             )}
                         />
-                        <div className="flex justify-between items-center">
+                        <FormField
+                            control={form.control}
+                            name="roleId"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>{t('Role')}</FormLabel>
+                                    <FormControl>
+                                        <Select
+                                            dir={makeDIR}
+                                            onValueChange={(value) => field.onChange(value)}
+                                            value={field.value}
+                                        >
+                                            <SelectTrigger>
+                                                <SelectValue placeholder={t('Select a role')} />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                {roles.map((role) => (
+                                                    <SelectItem key={role.id} value={role.id}>
+                                                        {t(`roles.${role.name}`)}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <div className="flex justify-between items-center" dir="ltr">
+                            <Button type="button" onClick={onClose} disabled={isSubmitting} variant='destructive'>{t('Cancel')}</Button>
                             <Button type="submit" disabled={isSubmitting || !isValid}>{t('Save')}</Button>
-                            <Button type="button" disabled={isSubmitting} variant='destructive'>{t('Cancel')}</Button>
                         </div>
                     </form>
                 </Form>

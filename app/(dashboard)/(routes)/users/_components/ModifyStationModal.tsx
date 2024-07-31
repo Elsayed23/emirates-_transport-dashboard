@@ -21,7 +21,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
-import { useAuth } from "@/app/context/AuthContext";
 import { toast } from "sonner";
 import useTranslation from "@/app/hooks/useTranslation";
 
@@ -75,7 +74,7 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
         <Dialog open={isOpen} onOpenChange={onClose}>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Modify User Information</DialogTitle>
+                    <DialogTitle>{t('Edit information')}</DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -84,9 +83,9 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('Email')}</FormLabel>
+                                    <FormLabel>{t('Mail')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} type="email" placeholder={`${t('Email')}...`} {...field} />
+                                        <Input disabled={isSubmitting} type="email" placeholder={`${t('Mail')}...`} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

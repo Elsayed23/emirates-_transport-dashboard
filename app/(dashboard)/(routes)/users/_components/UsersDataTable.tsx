@@ -77,7 +77,7 @@ const UsersDataTable = () => {
 
 
     const handleDeleteUser = async (id: string) => {
-        const { data } = await axios.delete('/api/safety_officer', {
+        const { data } = await axios.delete('/api/users', {
             data: {
                 id
             }
@@ -109,7 +109,7 @@ const UsersDataTable = () => {
             header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>{t('Role')}</div>,
             cell: ({ row }) => {
                 const role = row.getValue('role') as { name: string }
-                return <div>{t(role?.name)}</div>
+                return <div>{t(`roles.${role?.name}`)}</div>
             },
         },
         {
@@ -146,12 +146,12 @@ const UsersDataTable = () => {
                                 User profile
                             </DropdownMenuItem> */}
                             {
-                                user.role.name === 'SAFETY_OFFICER'
+                                user.role.name !== 'OPERATIONS_MANAGER'
                                     ?
                                     <DropdownMenuItem
                                         onClick={() => handleDeleteUser(user.id)}
                                     >
-                                        {t('Deleting the officer')}
+                                        {t('User deletion')}
                                     </DropdownMenuItem>
                                     :
                                     <DropdownMenuItem
@@ -222,7 +222,7 @@ const UsersDataTable = () => {
                     dir={language === 'ar' ? 'rtl' : 'ltr'}
                     className="max-w-sm"
                 />
-                <Button onClick={() => { setIsOpenAddUser(true) }}>{t('Adding a safety officer')}</Button>
+                <Button onClick={() => { setIsOpenAddUser(true) }}>{t('Adding user')}</Button>
             </div>
             <div className="rounded-md border">
                 <Table>

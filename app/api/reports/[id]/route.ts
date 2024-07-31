@@ -15,7 +15,11 @@ export async function GET(
                 id
             },
             include: {
-                inspections: true,
+                inspections: {
+                    include: {
+                        attachment: true
+                    }
+                },
                 user: {
                     select: {
                         id: true,

@@ -37,7 +37,7 @@ const Navbar = () => {
                         </SelectGroup>
                     </SelectContent>
                 </Select>
-                <h3>أهلا {user?.name}</h3>
+                <h3>{t('Hello')} {user?.name}</h3>
                 <Image src={logo} width={250} height={80} alt='logo' className={`h-16 object-contain`} />
 
 

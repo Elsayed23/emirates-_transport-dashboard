@@ -1,0 +1,152 @@
+[
+    {
+        "requirement": "متطلب 1 | Requirement 1",
+        "notes": [
+            {
+                "ar": "لا توجد محددات سرعة في ساحة المحطة",
+                "en": "There are no speed limits in the station yard",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "لا يوجد علامات ارشادية للمباني وأماكن الخدمات في المحطة اثناء الدخول من البوابة الرئيسية او داخل المبنى الرئيسي",
+                "en": "There are no guidance signs for buildings and service locations in the station while entering from the main gate or inside the main building",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "لا توجد مواقف داخلية خاصة للزوار والمراجعين",
+                "en": "There are no internal parking spaces for visitors and reviewers",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "ساحة مواقف الحافلات غير مرصوفة وتغطيها الاتربة والحصى",
+                "en": "The bus parking area is unpaved and covered with dirt and gravel",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "تخزين طفايات الحريق منتهية الصلاحية وبعض أدوات السلامة في الحافلة (قواعد احزمة) خارج الأماكن المخصص لتخزينها",
+                "en": "Storing expired fire extinguishers and some safety tools in the bus (belt rules) outside the designated storage areas",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "وجود اسلاك كهربائية غير مغطاة بالشكل المناسب",
+                "en": "The presence of electrical wires not properly covered",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "عدم وضوح مخارج الطوارئ",
+                "en": "Emergency exits are not clear",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "السلالم ليست بحالة جيدة",
+                "en": "The stairs are not in good condition",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "درابزين الدرج ليس بحالة جيدة",
+                "en": "The stair railing is not in good condition",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "يتم تخزين مواد في منطقة السلالم",
+                "en": "Materials are being stored in the stairwell area",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "وجود عوائق في مخارج الطوارئ",
+                "en": "There are obstacles in the emergency exits",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "عدم تناسب الأبواب والبوبات مع المبني",
+                "en": "Doors and gates do not fit the building",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "عدم وضوح الأبواب والحواجز الشفافة",
+                "en": "The doors and transparent barriers are not clear",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "عدم استخدام علامات التحذير لضمان سلامة الزوار والموظفين أثناء عمليات التنظيف",
+                "en": "Not using warning signs to ensure the safety of visitors and employees during cleaning operations",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "عدم كفاية الإضائة في المكاتب والممرات",
+                "en": "Insufficient lighting in offices and corridors",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "عدم وجود مساحة كافية لحركة الموظفين داخل المكاتب",
+                "en": "There is not enough space for employee movement inside the offices",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "عدم صيانة المكاتب وتنظيفها بشكل دوري",
+                "en": "Offices are not maintained and cleaned regularly",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "عدم توفير ملصقات الصحة والسلامة المهنية في المبني",
+                "en": "Lack of occupational health and safety stickers in the building",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "خلل في تكييف الهواء",
+                "en": "Malfunction in air conditioning",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "عدم توفر صناديق إعادة التدوير",
+                "en": "Recycling bins are not available",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "وجود حواف حادة وتلف علي اثاث المكاتب",
+                "en": "There are sharp edges and damage to office furniture",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "وجود كسر او تلف في المقابس الكهربائية",
+                "en": "There is a breakage or damage in the electrical sockets",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "عدم تامين التمديدات الكهربائية",
+                "en": "Failure to secure electrical installations",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "وجود تسريب للمياة",
+                "en": "There is water leakage",
+                "noteClassification": "ثانوية"
+            },
+            {
+                "ar": "نظام إضاءة الطوارئ لا يعمل",
+                "en": "The emergency lighting system is not working",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "عدم توزيع او لصق ارقام التواصل في حالة الطوارئ",
+                "en": "Emergency contact numbers are not distributed or posted",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "عدم معرفة الموظفين لكيفية الوصول لصندوق الإسعافات الأولية عند الحاجة اليها",
+                "en": "Employees do not know how to access the first aid kit when needed",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "عدم توفر أدوات الإسعافات الأولية",
+                "en": "Lack of first aid tools",
+                "noteClassification": "رئيسية"
+            },
+            {
+                "ar": "وجود كسور او تشرخات في زجاج المكاتب",
+                "en": "There are cracks or fractures in the office glass",
+                "noteClassification": "رئيسية"
+            }
+        ]
+    }
+]

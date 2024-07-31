@@ -59,7 +59,7 @@ const Card = ({
     return (
         <div onClick={() => router.push(`/reports/${id}`)} className={`border relative shadow-lg hover:scale-[1.03] duration-200 text-[#111] flex flex-col items-center gap-3 rounded-sm cursor-pointer p-4`}>
             {
-                main?.user?.role?.name !== 'STATION'
+                main?.user?.role?.name !== 'OPERATIONS_MANAGER'
                 &&
                 <span className='text-lg font-bold'>{approved ? `(${t('Approved')})` : `(${t('Not approved')})`}</span>
             }
@@ -69,7 +69,7 @@ const Card = ({
             <h2>{t('type')}- {t(inspectionType.name)}</h2>
             <h2>{t('Date created')} {new Date(createdAt).toLocaleDateString()}</h2>
             {
-                main?.user?.role?.name !== "STATION"
+                main?.user?.role?.name !== "OPERATIONS_MANAGER"
                 &&
                 <div className="absolute top-2 right-2">
                     <Button variant='destructive' size='icon' className='self-start rounded-full w-8 h-8' onClick={handleDeleteClick}>

@@ -27,6 +27,7 @@ import { Label } from "@/components/ui/label";
 import { FaCheck, FaEdit } from "react-icons/fa";
 import LanguageContext from "@/app/context/LanguageContext";
 import busInspectionNotes from "@/app/constants/busInspectionNotes.json";
+import buildingInspectionNotes from "@/app/constants/buildingInspectionNotes.json";
 import ESInotes from "@/app/constants/electronicSurveillanceInspectionNotes.json";
 import useTranslation from "@/app/hooks/useTranslation";
 import {
@@ -85,7 +86,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
             ? ESInotes
             : reportData.inspectionTypeName === "Inspection of safety procedures on school buses"
                 ? busInspectionNotes
-                : busInspectionNotes;
+                : buildingInspectionNotes;
 
 
     useEffect(() => {

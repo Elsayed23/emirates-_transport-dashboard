@@ -58,25 +58,33 @@ model Report {
 }
 
 model Inspection {
-  id                 String          @id @default(uuid())
+  id                 String                 @id @default(uuid())
   reportId           String
   name               String
-  image              String          @db.LongText
+  image              String                 @db.LongText
   idOfBus            Int
-  rootCause          String?
-  correctiveAction   String?
-  attachment         String?
+  rootCause          String?                @db.LongText
+  correctiveAction   String?                @db.LongText
+  attachment         InspectionAttachment[] @relation("InspectionAttachment")
   requirement        String?
-  isClosed           Boolean         @default(false)
+  isClosed           Boolean                @default(false)
   noteClassification String
   description        String
   enDescription      String?
-  report             Report          @relation(fields: [reportId], references: [id], onDelete: Cascade)
-  createdAt          DateTime        @default(now())
-  updatedAt          DateTime        @updatedAt()
+  report             Report                 @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  createdAt          DateTime               @default(now())
+  updatedAt          DateTime               @updatedAt()
   DeleteRequest      DeleteRequest[]
 
   @@map("inspections")
+}
+
+model InspectionAttachment {
+  id           String     @id @default(uuid())
+  name         String
+  path         String
+  inspectionId String
+  inspection   Inspection @relation(fields: [inspectionId], references: [id], name: "InspectionAttachment", onDelete: Cascade)
 }
 
 model DeleteRequest {

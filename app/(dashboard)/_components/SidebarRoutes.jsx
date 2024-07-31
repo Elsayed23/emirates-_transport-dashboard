@@ -5,7 +5,7 @@ import { IoMdDocument, IoMdHome } from "react-icons/io";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import useTranslation from '@/app/hooks/useTranslation';
 import { MdDocumentScanner, MdImageSearch, MdModelTraining } from 'react-icons/md';
-import { FaUsers } from 'react-icons/fa6';
+import { FaCodePullRequest, FaUsers } from 'react-icons/fa6';
 import { useAuth } from '@/app/context/AuthContext';
 import {
     Accordion,
@@ -42,12 +42,13 @@ const SidebarRoutes = () => {
         },
     ];
 
-    const ifAdministrator =
-        user?.role?.name === 'ADMIN'
-        ||
-        user?.role?.name === 'SAFETY_MANAGER'
+    const isAdmin = user?.role?.name === 'ADMIN';
 
-    if (ifAdministrator) {
+    const isSafetyManaget = user?.role?.name === 'SAFETY_MANAGER';
+
+    const isSafetyDirector = user?.role?.name === 'SAFETY_DIRECTOR';
+
+    if (isAdmin) {
         routes.push({
             icon: FaUsers,
             label: t('Users'),
@@ -60,42 +61,43 @@ const SidebarRoutes = () => {
         {
             icon: MdDocumentScanner,
             label: t('Electronic censorship'),
-            href: ifAdministrator || user?.role?.name === 'SAFETY_DIRECTOR' ? '/reports/electronic_censorship/users' : '/reports/electronic_censorship'
+            href: isAdmin || isSafetyManaget || isSafetyDirector ? '/reports/electronic_censorship/users' : '/reports/electronic_censorship'
         },
         {
             icon: IoMdDocument,
             label: t('Inspections'),
-            href: ifAdministrator || user?.role?.name === 'SAFETY_DIRECTOR' ? '/reports/users' : '/reports'
+            href: isAdmin || isSafetyManaget || isSafetyDirector ? '/reports/users' : '/reports'
         }
     ];
 
-    if (ifAdministrator) {
+    if (isAdmin || isSafetyManaget) {
         inspectionsData.push(
             {
-                icon: FaUsers,
+                icon: FaCodePullRequest,
                 label: t('Deletion requests'),
-                href: '/delete_requests'
+                href: '/requests'
             }
         )
     }
 
     const isActive = (href) => (
-        pathname === href ||
+        pathname === href
+        ||
         pathname.startsWith(`reports/${href.split('/')[1]}`)
     );
 
-    const isReportsActive = pathname.includes('report');
+    const isReportsActive = pathname.includes('report') || pathname.includes('requests');
 
     const { language } = useContext(LanguageContext);
 
     const { isOpen } = useOpen()
 
     const types = inspectionsData.map(({ label, href, icon: Icon }, idx) => (
-        <li
+        <button
             key={idx}
             onClick={() => router.push(href)}
             className={cn(
-                `pl-6 pr-2 break-words cursor-pointer w-full rounded-sm text-slate-500 hover:text-slate-600 hover:bg-red-300/20 duration-200`,
+                `pl-6 pr-2 break-words overflow-x-hidden w-full rounded-sm text-slate-500 hover:text-slate-600 hover:bg-red-300/20 duration-200`,
                 isActive(href) && 'text-red-700 hover:text-red-700 bg-red-200/20 hover:bg-red-200/20'
             )}
         >
@@ -106,7 +108,7 @@ const SidebarRoutes = () => {
                 <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>{label}</span>
             </div>
 
-        </li>
+        </button>
     ));
 
     return (
@@ -133,9 +135,9 @@ const SidebarRoutes = () => {
                         </div>
                     </AccordionTrigger>
                     <AccordionContent className="w-full">
-                        <ul className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2">
                             {types}
-                        </ul>
+                        </div>
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>

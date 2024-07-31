@@ -8,6 +8,7 @@ import { exportReportsToExcel } from '@/utils/exportReportsToExcel';
 import { stationsData } from "@/app/constants";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/app/context/AuthContext";
+import RejectModal from "../_components/RejectModal"; // Import the RejectModal component
 
 const ReportPage = ({ params: { id } }) => {
     const [reportData, setReportData] = useState(null);
@@ -16,9 +17,10 @@ const ReportPage = ({ params: { id } }) => {
     const [isCorrectiveActionAdded, setIsCorrectiveActionAdded] = useState(false);
     const [isInspectionClose, setIsInspectionClose] = useState(false);
     const [isDeleteRequestDone, setIsDeleteRequestDone] = useState(false);
-    const [rejectionReason, setRejectionReason] = useState('');
-    const [showRejectionInput, setShowRejectionInput] = useState(false);
-    const [approveToggle, setApproveToggle] = useState(false)
+    const [approveToggle, setApproveToggle] = useState(false);
+
+    // State for handling the reject modal
+    const [isRejectModalOpen, setIsRejectModalOpen] = useState(false);
 
     const getNumberOfNotesRecorded = (note_classification) => {
         if (!reportData?.inspections) {
@@ -40,33 +42,27 @@ const ReportPage = ({ params: { id } }) => {
     const handleApprove = async () => {
         try {
             await axios.patch(`/api/approve_report`, { reportId: id, approved: true });
-            setApproveToggle(prev => !prev)
+            setApproveToggle(prev => !prev);
         } catch (error) {
             console.log(error);
         }
     };
 
-    const { user } = useAuth()
+    const handleReject = () => {
+        setIsRejectModalOpen(true); // Open the reject modal
+    };
 
-    const handleReject = async () => {
-        if (!showRejectionInput) {
-            setShowRejectionInput(true);
-            return;
-        }
-
-        if (!rejectionReason) {
-            alert("Please provide a reason for rejection.");
-            return;
-        }
-
+    const handleRejectSubmit = async (reason) => {
         try {
-            await axios.patch(`/api/approve_report`, { reportId: id, approved: false, rejectionReason });
-            setApproveToggle(prev => !prev)
+            await axios.patch(`/api/approve_report`, { reportId: id, approved: false, rejectionReason: reason });
+            setApproveToggle(prev => !prev);
+            setIsRejectModalOpen(false); // Close the reject modal
         } catch (error) {
             console.log(error);
         }
     };
 
+    const { user } = useAuth();
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -105,7 +101,7 @@ const ReportPage = ({ params: { id } }) => {
                     <thead>
                         <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
                             <th className="py-3 px-6 text-center border border-gray-300">الاسم <br /> Name</th>
-                            <th className="py-3 px-6 text-center border border-gray-300">الوظيفة <br /> The job</th>
+                            <th className="py-3 px-6 text-center border border-gray-300">الوظيفة <br /> The job position</th>
                             <th className="py-3 px-6 text-center border border-gray-300">عدد الملاحظات المسجلة <br /> Number of notes recorded</th>
                             <th className="py-3 px-6 text-center border border-gray-300">المدينة <br /> City</th>
                         </tr>
@@ -138,22 +134,16 @@ const ReportPage = ({ params: { id } }) => {
                     <div className="flex flex-col items-center gap-4 mt-4">
                         <div className="flex gap-4">
                             <Button onClick={handleApprove}>Approve</Button>
-                            <Button variant="destructive" onClick={handleReject}>{showRejectionInput ? "Submit" : "Reject"}</Button>
+                            <Button variant="destructive" onClick={handleReject}>Reject</Button>
                         </div>
-                        {showRejectionInput && (
-                            <div>
-                                <input
-                                    type="text"
-                                    placeholder="Rejection reason"
-                                    value={rejectionReason}
-                                    onChange={(e) => setRejectionReason(e.target.value)}
-                                    className="border rounded px-2 py-1 mt-2"
-                                />
-                            </div>
-                        )}
                     </div>
                 )
             }
+            <RejectModal
+                isOpen={isRejectModalOpen}
+                onClose={() => setIsRejectModalOpen(false)}
+                onSubmit={handleRejectSubmit}
+            />
         </div>
     );
 };

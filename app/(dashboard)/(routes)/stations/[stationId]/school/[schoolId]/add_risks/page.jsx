@@ -50,7 +50,7 @@ const page = ({ params: { stationId, schoolId } }) => {
     const getRisks = useCallback(async () => {
         try {
             const { data } = await axios.get(`/api/school_risks?station_id=${stationId}&school_id=${schoolId}`)
-            setLoading(true)
+            setLoading(false)
             setIsFirstTime(data?.length ? false : true)
             const questionsIds = data?.map(({ questionId }) => questionId)
             setQuestions(prevQuestions =>

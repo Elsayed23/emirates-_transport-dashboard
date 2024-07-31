@@ -119,7 +119,7 @@ const DeleteRequestDataTable: React.FC = () => {
         {
             accessorKey: 'createdAt',
             header: () => <div className="text-right">تاريخ الطلب</div>,
-            cell: info => new Date(info.getValue<string>()).toLocaleString('ar'),
+            cell: info => new Date(info.getValue<string>()).toLocaleString('ar-EG', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', }),
         },
     ];
 

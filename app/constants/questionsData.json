@@ -1022,268 +1022,290 @@
     },
     {
         "questionId": 29,
-        "question": "هل نقطة صعود الطالب في طريق غير معبد؟",
-        "translatedQuestion": "Is the student’s boarding point on an unpaved road?",
-        "questionAnswer": [
-            {
-                "questionId": 29,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
-                "risk": "التعرض لحوادث اصطدام بمركبات أخرى نتيجة عدم وضوح معالم الطريق ومسارب السير | Crash into other vehicles due to unclear road markings and lanes",
-                "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-                "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-                "controlMeasures": {
-                    "ar": [
-                        "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                        "الصيانة الدورية لمركبات الخدمة المستخدمة",
-                        "تدريب السائقين على قواعد القيادة الآمنة في مختلف حالات الطريق",
-                        "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث",
-                        "تنبيه السائقين بضرورة القيادة بسرعة منخفضة على الطرق الوعرة أو غير المعبدة"
-                    ],
-                    "en": [
-                        "Service Vehicle Maintenance: Studying routes and changing them if possible in cooperation with schools.",
-                        "Regular maintenance of service vehicles used.",
-                        "Training drivers on safe driving rules in various road conditions.",
-                        "Training and educating drivers and supervisors on emergency procedures during accidents.",
-                        "Alerting drivers to drive at low speed on rough or unpaved roads."
-                    ]
-                },
-                "riskAssessment": "3/5/15",
-                "residualRisks": "2/5/10"
+        "question": "هل نقطة صعود الطالب في طريق غير معبد",
+        "translatedQuestion": "Is the student's boarding point on an unpaved road?",
+        "questionAnswer": {
+            "questionId": 29,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
+            "risk": "التعرض لحوادث اصطدام بمركبات أخرى نتيجة عدم وضوح معالم الطريق ومسارب السير | Crash into other vehicles due to unclear road markings and lanes",
+            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "controlMeasures": {
+                "ar": [
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "الصيانة الدورية لمركبات الخدمة المستخدمة",
+                    "تدريب السائقين على قواعد القيادة الآمنة في مختلف حالات الطريق",
+                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث",
+                    "تنبيه السائقين بضرورة القيادة بسرعة منخفضة على الطرق الوعرة أو غير المعبدة"
+                ],
+                "en": [
+                    "Studying routes and changing them if possible in cooperation with schools",
+                    "Regular maintenance of service vehicles used",
+                    "Training drivers on safe driving rules in various road conditions",
+                    "Training and educating drivers and supervisors on emergency procedures during accidents",
+                    "Alerting drivers to drive at low speed on rough or unpaved roads"
+                ]
             },
-            {
-                "questionId": 29,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "تعرض الحافلة لحفر عميقة في الطريق اثناء سيرها على الطرق غير المعبدة | Bus running over deep excavations in unpaved roads",
-                "risk": "تعرض الركاب لهزة قوية واصطدامهم بأجزاء داخلية من الحافلة | Sudden shock, Passengers might hit the bus parts",
-                "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-                "expectedInjury": "إصابات متفاوتة | Various injuries",
-                "controlMeasures": {
-                    "ar": [
-                        "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                        "تزويد جميع المقاعد بطبقة اسفنجية ماصة للصدمات",
-                        "الصيانة الدورية للحافلات المدرسية",
-                        "تدريب السائقين على قواعد القيادة الآمنة في مختلف حالات الطريق",
-                        "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث",
-                        "تنبيه السائقين بضرورة القيادة بسرعة منخفضة على الطرق الوعرة أو الغير معبدة"
-                    ],
-                    "en": [
-                        "Shock Absorbing Seats: Studying routes and changing them if possible in cooperation with schools.",
-                        "Equipping all seats with shock-absorbing foam layers.",
-                        "Regular maintenance of school buses.",
-                        "Training drivers on safe driving rules in various road conditions.",
-                        "Training and educating drivers and supervisors on emergency procedures during accidents.",
-                        "Alerting drivers to drive at low speed on rough or unpaved roads."
-                    ]
-                },
-                "riskAssessment": "3/5/15",
-                "residualRisks": "2/5/10"
-            },
-            {
-                "questionId": 29,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
-                "risk": "تعرض الطلاب لخطر السقوط داخل الحافلة المدرسية خصوصاً في حال عدم التزامهم الجلوس بالمقاعد | Risk of falling inside the school bus especially when not seated",
-                "peopleExposedToRisk": "الطلاب | Students",
-                "expectedInjury": "إصابات متفاوتة، كسور | Various injuries, fractures",
-                "controlMeasures": {
-                    "ar": [
-                        "تواجد مشرفي السلامة داخل الحافلات المدرسية لضبط سلوكيات الطلاب",
-                        "توعية وتدريب الطلبة على الإجراءات الآمنة داخل الحافلة",
-                        "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
-                        "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
-                        "تنبيه السائقين بضرورة القيادة بسرعة منخفضة على الطرق الوعرة أو غير المعبدة",
-                        "توفير صناديق الإسعافات الأولية لاستخدامها عند الحاجة"
-                    ],
-                    "en": [
-                        "Student Behavior in Buses: Having safety supervisors inside school buses to control student behavior.",
-                        "Educating and training students on safe procedures inside the bus.",
-                        "Reporting any negative student behaviors inside the bus.",
-                        "Applying disciplinary measures for student behavior inside the buses.",
-                        "Alerting drivers to drive at low speed on rough or unpaved roads.",
-                        "Providing first aid kits for use when needed."
-                    ]
-                },
-                "riskAssessment": "4/3/12",
-                "residualRisks": "2/3/6"
-            },
-            {
-                "questionId": 29,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
-                "risk": "تعرض الركاب للأغبرة الناتجة من حركة المركبات على الطرق غير المعبدة | Passengers are exposed to dust due to movement of vehicles on unpaved roads",
-                "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-                "expectedInjury": "اختناق، مشاكل في التنفس | Suffocations, breathing problems",
-                "controlMeasures": {
-                    "ar": [
-                        "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                        "الصيانة الدورية للحافلات المدرسية شاملة عزل النوافذ للأغبرة خارج الحافلة المدرسية"
-                    ],
-                    "en": [
-                        "Dust Management: Studying routes and changing them if possible in cooperation with schools.",
-                        "Regular maintenance of school buses including window insulation to keep out dust."
-                    ]
-                },
-                "riskAssessment": "4/3/12",
-                "residualRisks": "2/3/6"
-            }
-        ],
+            "riskAssessment": "3/5/15",
+            "residualRisks": "2/5/10"
+        },
         "answer": "غير مجاب عليها"
     },
     {
         "questionId": 30,
-        "question": "هل المسارات ضيقة وتوجد صعوبة في حركة الحافلة؟",
-        "translatedQuestion": "Are the paths narrow and making it difficult for the bus to move?",
-        "questionAnswer": [
-            {
-                "questionId": 30,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "دخول الحافلة لشوارع مغلقة | Driving the bus into a dead-end road",
-                "risk": "تعرض الطلاب والمشاة لخطر حوادث الدهس أثناء محاولة السائق الالتفاف للخروج من الطريق المغلق | Students and pedestrians are exposed to run over accidents while driver attempts to exit the dead-end road",
-                "peopleExposedToRisk": "الطلاب، مستخدمي الطريق | Students, road users",
-                "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-                "controlMeasures": {
-                    "ar": [
-                        "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
-                        "تدريب السائقين على القيادة الآمنة في حالات الطرق المغلقة",
-                        "التأكيد على السائقين بضرورة التأكد من وصول الطلاب لمكان آمن قبل سير الحافلة",
-                        "وجود مشرفي السلامة في الحافلات المدرسية لمساعدة الطلاب على النزول منها بطريقة آمنة"
-                    ],
-                    "en": [
-                        "Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
-                        "Training drivers on safe driving in closed roads.",
-                        "Emphasizing to drivers the necessity of ensuring students reach a safe place before the bus moves.",
-                        "Having safety supervisors on school buses to help students get off safely."
-                    ]
-                },
-                "riskAssessment": "4/4/16",
-                "residualRisks": "2/4/8"
+        "question": "هل يوجد حفر عميقة في الطرق غير المعبدة يمكن ان تمر عليها الحافلة ؟؟",
+        "translatedQuestion": "Are there deep excavations on unpaved roads that the bus may pass over?",
+        "questionAnswer": {
+            "questionId": 30,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "تعرض الحافلة لحفر عميقة في الطريق اثناء سيرها على الطرق غير المعبدة | Bus running over deep excavations in unpaved roads",
+            "risk": "تعرض الركاب لهزة قوية واصطدامهم بأجزاء داخلية من الحافلة | Sudden shock, Passengers might hit the bus parts",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة | Various injuries",
+            "controlMeasures": {
+                "ar": [
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "تزويد جميع المقاعد بطبقة اسفنجية ماصة للصدمات",
+                    "الصيانة الدورية للحافلات المدرسية",
+                    "تدريب السائقين على قواعد القيادة الآمنة في مختلف حالات الطريق",
+                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث",
+                    "تنبيه السائقين بضرورة القيادة بسرعة منخفضة على الطرق الوعرة أو الغير معبدة"
+                ],
+                "en": [
+                    "Studying routes and changing them if possible in cooperation with schools",
+                    "Equipping all seats with shock-absorbing foam layers",
+                    "Regular maintenance of school buses",
+                    "Training drivers on safe driving rules in various road conditions",
+                    "Training and educating drivers and supervisors on emergency procedures during accidents",
+                    "Alerting drivers to drive at low speed on rough or unpaved roads"
+                ]
             },
-            {
-                "questionId": 30,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "دخول الحافلة لشوارع مغلقة | Driving the bus into a dead-end road",
-                "risk": "اصطدام المركبة بأجسام أو مركبات أخرى على الطريق | Striking objects or other vehicles on the road",
-                "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-                "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-                "controlMeasures": {
-                    "ar": [
-                        "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
-                        "تدريب السائقين على القيادة الآمنة في حالات الطرق المغلقة"
-                    ],
-                    "en": [
-                        "Monitoring and Closed Roads: Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
-                        "Training drivers on safe driving in closed roads."
-                    ]
-                },
-                "riskAssessment": "4/4/16",
-                "residualRisks": "2/4/8"
-            },
-            {
-                "questionId": 30,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "قيادة الحافلة في الطرق الضيقة | Driving the bus on narrow roads",
-                "risk": "عدم وضوح الرؤيا وخطر الاصطدام بمركبات أخرى قادمة بالاتجاه المعاكس | Limited vision of the whole road, and risk of striking other vehicles coming from the opposite lane",
-                "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-                "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-                "controlMeasures": {
-                    "ar": [
-                        "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                        "تدريب السائقين على القيادة الآمنة في مختلف حالات الطريق"
-                    ],
-                    "en": [
-                        "Route Adjustment: Studying routes and changing them if possible in cooperation with schools.",
-                        "Training drivers on safe driving rules in various road conditions."
-                    ]
-                },
-                "riskAssessment": "4/4/16",
-                "residualRisks": "2/4/8"
-            }
-        ],
+            "riskAssessment": "3/5/15",
+            "residualRisks": "2/5/10"
+        },
         "answer": "غير مجاب عليها"
     },
     {
         "questionId": 31,
-        "question": "هل يوجد في خط السير اعمال انشاء وتعديل في الطرق او المدن؟",
-        "translatedQuestion": "Is there any construction or modification work on roads or cities in the itinerary?",
-        "questionAnswer": [
-            {
-                "questionId": 31,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "وجود أعمال إنشائية في الأحياء السكنية التي يتم صعود ونزول الطلبة منها | Presence of construction work in residential neighborhoods where students board and alight",
-                "risk": "تعرض الطلاب للدهس أثناء الدخول والخروج | Risk of students being run over during boarding and alighting",
-                "peopleExposedToRisk": "الطلاب | Students",
-                "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-                "controlMeasures": {
-                    "ar": [
-                        "زيارة الأحياء السكنية من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع أولياء الأمور وإدارة المدرسة",
-                        "اخطار السائقين ومشرفي السلامة بأماكن صعود ونزول الطلبة بعد تحديدها",
-                        "تواجد أولياء الأمور أو من ينوب عنهم اثناء عملية صعود الحافلة والنزول منها",
-                        "التأكيد على السائقين بعدم التحرك بالحافلة الا بعد تسليم الطلبة الى أولياء الأمور او دخولهم الى المنازل"
-                    ],
-                    "en": [
-                        "Residential Area Coordination: Visiting residential areas by the operations coordinator and safety officer to identify risks on-site and determine student drop-off and pick-up points in coordination with parents and school administration.",
-                        "Informing drivers and safety supervisors about student drop-off and pick-up points after identifying them.",
-                        "Parents or their representatives being present during the boarding and alighting process.",
-                        "Ensuring drivers do not move the bus until students are handed over to parents or have entered their homes."
-                    ]
-                },
-                "riskAssessment": "3/5/15",
-                "residualRisks": "1/5/5"
+        "question": "هل الطريق غير المعبد به الكثير من العوائق مما ينتج عنها اهتزازات ؟؟",
+        "translatedQuestion": "Is the unpaved road filled with obstacles that cause vibrations?",
+        "questionAnswer": {
+            "questionId": 31,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
+            "risk": "تعرض الطلاب لخطر السقوط داخل الحافلة المدرسية خصوصاً في حال عدم التزامهم الجلوس بالمقاعد | Risk of falling inside the school bus especially when not seated",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "إصابات متفاوتة، كسور | Various injuries, fractures",
+            "controlMeasures": {
+                "ar": [
+                    "تواجد مشرفي السلامة داخل الحافلات المدرسية لضبط سلوكيات الطلاب",
+                    "توعية وتدريب الطلبة على الإجراءات الآمنة داخل الحافلة",
+                    "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                    "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                    "تنبيه السائقين بضرورة القيادة بسرعة منخفضة على الطرق الوعرة أو غير المعبدة",
+                    "توفير صناديق الإسعافات الأولية لاستخدامها عند الحاجة"
+                ],
+                "en": [
+                    "Having safety supervisors inside school buses to control student behavior",
+                    "Educating and training students on safe procedures inside the bus",
+                    "Reporting any negative student behaviors inside the bus",
+                    "Disciplinary procedures implemented for student behaviors in school buses",
+                    "Alerting drivers to drive at low speed on rough or unpaved roads",
+                    "Providing first aid kits for use when needed"
+                ]
             },
-            {
-                "questionId": 31,
-                "causeOfRisk": "الطريق | The road",
-                "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-                "typeOfActivity": "روتيني | Routine",
-                "hazardSource": "تواجد عمال الإنشاءات على الطرق | Presence of construction workers on the roads",
-                "risk": "مخاطر دهس العمال من قبل الحافلة المدرسية | Risk of workers being run over by the school bus",
-                "peopleExposedToRisk": "مستخدمي الطرق | Road users",
-                "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-                "controlMeasures": {
-                    "ar": [
-                        "التخطيط المسبق لمسارات الرحلات: مراجعة وتحديث مسارات الحافلات بانتظام لتجنب الطرق التي تشهد أعمال إنشاءات كثيفة.",
-                        "وضع خطط بديلة للمسارات لاستخدامها في حالة وجود أعمال إنشاءات غير متوقعة.",
-                        "التنسيق مع الجهات المحلية: التنسيق مع الجهات المحلية والسلطات المعنية للحصول على معلومات محدثة حول مواقع وأوقات أعمال الإنشاءات.",
-                        "متابعة تحديثات الجهات المعنية بشكل مستمر لضمان سلامة المسارات المستخدمة.",
-                        "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في المناطق التي تشهد أعمال إنشاءات.",
-                        "تدريب السائقين على قراءة الإشارات المؤقتة والتعامل مع العوائق الناتجة عن أعمال الإنشاءات.",
-                        "تقليل السرعة في المناطق الإنشائية: تحديد سرعة منخفضة إلزامية للحافلات عند المرور في المناطق التي تشهد أعمال إنشاءات.",
-                        "التأكد من التزام السائقين بالسرعة المحددة وتطبيق إجراءات صارمة للمخالفين.",
-                        "ضرورة توعية المشرفين بالمخاطر الخاصة بخطوط سيرهم عن طريق التعرف عليها من سجلات تقييمات المخاطر."
-                    ],
-                    "en": [
-                        "Construction Areas: Pre-planning routes: Reviewing and updating bus routes regularly to avoid areas with heavy construction.",
-                        "Creating alternative route plans for use in case of unexpected construction work.",
-                        "Coordinating with Local Authorities: Coordinating with local authorities and relevant parties for updated information on construction locations and times.",
-                        "Continuously monitoring updates from relevant authorities to ensure safe routes are used.",
-                        "Training drivers and supervisors: Organizing training sessions for drivers on how to drive safely in construction areas.",
-                        "Training drivers on reading temporary signs and dealing with obstacles resulting from construction.",
-                        "Reducing speed in construction areas: Setting a mandatory low speed for buses when passing through construction areas.",
-                        "Ensuring drivers adhere to the set speed limit and applying strict measures for violations.",
-                        "Supervisors' awareness: Raising awareness among supervisors about the specific risks on their routes through risk assessment records."
-                    ]
-                },
-                "riskAssessment": "4/5/20",
-                "residualRisks": "2/5/10"
-            }
-        ],
+            "riskAssessment": "4/3/12",
+            "residualRisks": "2/3/6"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 32,
+        "question": "هل تمر الحافلة بطرق رملية نتيجة عدم وجود طريق غير معبد ؟؟",
+        "translatedQuestion": "Does the bus pass through sandy roads due to the absence of paved roads?",
+        "questionAnswer": {
+            "questionId": 32,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
+            "risk": "تعرض الركاب للأغبرة الناتجة من حركة المركبات على الطرق غير المعبدة | Passengers are exposed to dust due to movement of vehicles on unpaved roads",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "اختناق، مشاكل في التنفس | Suffocations, breathing problems",
+            "controlMeasures": {
+                "ar": [
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "الصيانة الدورية للحافلات المدرسية شاملة عزل النوافذ للأغبرة خارج الحافلة المدرسية"
+                ],
+                "en": [
+                    "Studying routes and changing them if possible in cooperation with schools",
+                    "Regular maintenance of school buses including window insulation to keep out dust"
+                ]
+            },
+            "riskAssessment": "4/3/12",
+            "residualRisks": "2/3/6"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 33,
+        "question": "هل يوجد نهايات وشوارع مغلقة ؟",
+        "translatedQuestion": "Are there dead-end streets?",
+        "questionAnswer": {
+            "questionId": 33,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "دخول الحافلة لشوارع مغلقة | Driving the bus into a dead-end road",
+            "risk": "تعرض الطلاب والمشاة لخطر حوادث الدهس أثناء محاولة السائق الالتفاف للخروج من الطريق المغلق | Students and pedestrians are exposed to run over accidents while driver attempts to exit the dead-end road",
+            "peopleExposedToRisk": "الطلاب، مستخدمي الطريق | Students, road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "controlMeasures": {
+                "ar": [
+                    "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
+                    "تدريب السائقين على القيادة الآمنة في حالات الطرق المغلقة",
+                    "التأكيد على السائقين بضرورة التأكد من وصول الطلاب لمكان آمن قبل سير الحافلة",
+                    "وجود مشرفي السلامة في الحافلات المدرسية لمساعدة الطلاب على النزول منها بطريقة آمنة"
+                ],
+                "en": [
+                    "Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
+                    "Training drivers on safe driving in closed roads.",
+                    "Emphasizing to drivers the necessity of ensuring students reach a safe place before the bus moves.",
+                    "Having safety supervisors on school buses to help students get off safely."
+                ]
+            },
+            "riskAssessment": "4/4/16",
+            "residualRisks": "2/4/8"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 34,
+        "question": "هل توجد صعوبة في حركة الحافلة",
+        "translatedQuestion": "Are there difficulties in bus movement?",
+        "questionAnswer": {
+            "questionId": 34,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "دخول الحافلة لشوارع مغلقة | Driving the bus into a dead-end road",
+            "risk": "اصطدام المركبة بأجسام أو مركبات أخرى على الطريق | Striking objects or other vehicles on the road",
+            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "controlMeasures": {
+                "ar": [
+                    "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
+                    "تدريب السائقين على القيادة الآمنة في حالات الطرق المغلقة"
+                ],
+                "en": [
+                    "Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
+                    "Training drivers on safe driving in closed roads."
+                ]
+            },
+            "riskAssessment": "4/4/16",
+            "residualRisks": "2/4/8"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 35,
+        "question": "هل الطريق والمسارات ضيقة ؟؟",
+        "translatedQuestion": "Are the roads and lanes narrow?",
+        "questionAnswer": {
+            "questionId": 35,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "قيادة الحافلة في الطرق الضيقة | Driving the bus on narrow roads",
+            "risk": "عدم وضوح الرؤيا وخطر الاصطدام بمركبات أخرى قادمة بالاتجاه المعاكس | Limited vision of the whole road, and risk of striking other vehicles coming from the opposite lane",
+            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "controlMeasures": {
+                "ar": [
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "تدريب السائقين على القيادة الآمنة في مختلف حالات الطريق"
+                ],
+                "en": [
+                    "Studying routes and changing them if possible in cooperation with schools.",
+                    "Training drivers on safe driving rules in various road conditions."
+                ]
+            },
+            "riskAssessment": "4/4/16",
+            "residualRisks": "2/4/8"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 36,
+        "question": "هل يوجد اعمال انشاء وتعديل بالقرب من نقاط الصعود والنزول",
+        "translatedQuestion": "Are there construction works near the boarding and alighting points?",
+        "questionAnswer": {
+            "questionId": 36,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "وجود أعمال إنشائية في الأحياء السكنية التي يتم صعود ونزول الطلبة منها | Presence of construction work in residential neighborhoods where students board and alight",
+            "risk": "تعرض الطلاب للدهس أثناء الدخول والخروج | Risk of students being run over during boarding and alighting",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "controlMeasures": {
+                "ar": [
+                    "زيارة الأحياء السكنية من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع أولياء الأمور وإدارة المدرسة",
+                    "اخطار السائقين ومشرفي السلامة بأماكن صعود ونزول الطلبة بعد تحديدها",
+                    "تواجد أولياء الأمور أو من ينوب عنهم اثناء عملية صعود الحافلة والنزول منها",
+                    "التأكيد على السائقين بعدم التحرك بالحافلة الا بعد تسليم الطلبة الى أولياء الأمور او دخولهم الى المنازل"
+                ],
+                "en": [
+                    "Visiting residential areas by the operations coordinator and safety officer to identify risks on-site and determine student drop-off and pick-up points in coordination with parents and school administration.",
+                    "Informing drivers and safety supervisors about student drop-off and pick-up points after identifying them.",
+                    "Parents or their representatives being present during the boarding and alighting process.",
+                    "Ensuring drivers do not move the bus until students are handed over to parents or have entered their homes."
+                ]
+            },
+            "riskAssessment": "3/5/15",
+            "residualRisks": "1/5/5"
+        },
+        "answer": "غير مجاب عليها"
+    },
+    {
+        "questionId": 37,
+        "question": "هل يوجد في خط السير اعمال انشاء وتعديل فى الطرق او المدن",
+        "translatedQuestion": "Are there construction works on the route?",
+        "questionAnswer": {
+            "questionId": 37,
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "تواجد عمال الإنشاءات على الطرق | Presence of construction workers on the roads",
+            "risk": "مخاطر دهس العمال من قبل الحافلة المدرسية | Risk of workers being run over by the school bus",
+            "peopleExposedToRisk": "مستخدمي الطرق | Road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "controlMeasures": {
+                "ar": [
+                    "التخطيط المسبق لمسارات الرحلات: مراجعة وتحديث مسارات الحافلات بانتظام لتجنب الطرق التي تشهد أعمال إنشاءات كثيفة. وضع خطط بديلة للمسارات لاستخدامها في حالة وجود أعمال إنشاءات غير متوقعة.",
+                    "التنسيق مع الجهات المحلية: التنسيق مع الجهات المحلية والسلطات المعنية للحصول على معلومات محدثة حول مواقع وأوقات أعمال الإنشاءات. متابعة تحديثات الجهات المعنية بشكل مستمر لضمان سلامة المسارات المستخدمة.",
+                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في المناطق التي تشهد أعمال إنشاءات. تدريب السائقين على قراءة الإشارات المؤقتة والتعامل مع العوائق الناتجة عن أعمال الإنشاءات.",
+                    "تقليل السرعة في المناطق الإنشائية: تحديد سرعة منخفضة إلزامية للحافلات عند المرور في المناطق التي تشهد أعمال إنشاءات. التأكد من التزام السائقين بالسرعة المحددة وتطبيق إجراءات صارمة للمخالفين.",
+                    "ضرورة توعية المشرفين بالمخاطر الخاصة بخطوط سيرهم عن طريق التعرف عليها من سجلات تقييمات المخاطر"
+                ],
+                "en": [
+                    "Pre-planning routes: Reviewing and updating bus routes regularly to avoid areas with heavy construction. Creating alternative route plans for use in case of unexpected construction work.",
+                    "Coordinating with Local Authorities: Coordinating with local authorities and relevant parties for updated information on construction locations and times. Continuously monitoring updates from relevant authorities to ensure safe routes are used.",
+                    "Training drivers and supervisors: Organizing training sessions for drivers on how to drive safely in construction areas. Training drivers on reading temporary signs and dealing with obstacles resulting from construction.",
+                    "Reducing speed in construction areas: Setting a mandatory low speed for buses when passing through construction areas. Ensuring drivers adhere to the set speed limit and applying strict measures for violations.",
+                    "Supervisors' awareness: Raising awareness among supervisors about the specific risks on their routes through risk assessment records."
+                ]
+            },
+            "riskAssessment": "5/4/20",
+            "residualRisks": "2/5/10"
+        },
         "answer": "غير مجاب عليها"
     }
 ]
