@@ -24,16 +24,13 @@ export const getSpecificStationName = (stationId) => {
     }
 }
 
-export const getSpecificTrafficLineName = async (id) => {
+export const getSpecificTrafficLineData = async (id) => {
 
 
     const { data } = await axios.get(`/api/traffic_line/${id}`)
 
 
-    const trafficLineName = data?.name
-
-
-    return trafficLineName
+    return data
 }
 
 

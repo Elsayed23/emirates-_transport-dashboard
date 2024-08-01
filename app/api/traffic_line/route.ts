@@ -1,12 +1,83 @@
 import { db } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
 
+interface QuestionAnswer {
+    questionId: number;
+    answer: string;
+}
+interface Risk {
+    questionAnswers: QuestionAnswer[];
+}
+
+interface TrafficLine {
+    id: string;
+    risks: Risk[];
+}
+
+const targetQuestionIds = [1, 2, 5, 6];
+function analyzeRisks(trafficLines: TrafficLine[], targetQuestionIds: number[]): Record<string, number> {
+    return trafficLines.reduce((analysis: Record<string, number>, line: TrafficLine) => {
+        const yesCount = line.risks.reduce((count, risk) => {
+            return count + risk.questionAnswers.filter(qa => targetQuestionIds.includes(qa.questionId) && qa.answer === 'نعم').length;
+        }, 0);
+
+        analysis[line.id] = yesCount;
+        return analysis;
+    }, {});
+}
+
+export async function GET(req: NextRequest) {
+    try {
+
+        const stationId = await req.nextUrl.searchParams.get('stationId')
+        const schoolId = await req.nextUrl.searchParams.get('schoolId')
+
+
+        const trafficLines: TrafficLine[] = await db.trafficLine.findMany({
+            orderBy: {
+                createdAt: 'asc'
+            },
+            where: {
+                stationId: Number(stationId),
+                schoolId: Number(schoolId)
+            },
+            include: {
+                risks: {
+                    select: {
+                        questionAnswers: {
+                            select: {
+                                questionId: true,
+                                answer: true
+                            }
+                        }
+                    }
+                },
+                user: {
+                    select: {
+                        id: true,
+                        name: true
+                    }
+                }
+            }
+        });
+
+
+        const riskAnalysis = analyzeRisks(trafficLines, targetQuestionIds);
+
+        return NextResponse.json({ trafficLines, riskAnalysis });
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json({ message: 'Internal server error' });
+    }
+
+}
 
 
 
 export async function POST(req: Request) {
 
     const {
+        userId,
         name,
         schoolId,
         schoolName,
@@ -14,16 +85,19 @@ export async function POST(req: Request) {
         stationName,
         educationalLevel,
         countOfStudents,
-        transferredCategory
+        transferredCategory,
+        latitude,
+        longitude
     } = await req.json();
 
-    if (!name || !schoolId || !schoolName || !stationId || !stationName || !educationalLevel || !countOfStudents || !transferredCategory) {
+    if (!userId || !name || !schoolId || !schoolName || !stationId || !stationName || !educationalLevel || !countOfStudents || !transferredCategory) {
         return NextResponse.json({ message: 'Invalid input' });
     }
 
     try {
         const trafficLine = await db.trafficLine.create({
             data: {
+                userId,
                 name,
                 schoolId,
                 schoolName,
@@ -32,6 +106,8 @@ export async function POST(req: Request) {
                 educationalLevel,
                 countOfStudents,
                 transferredCategory,
+                latitude,
+                longitude
             }
         });
 
@@ -43,34 +119,6 @@ export async function POST(req: Request) {
 }
 
 
-export async function GET(req: NextRequest) {
-    try {
-
-        const stationId = await req.nextUrl.searchParams.get('stationId')
-        const schoolId = await req.nextUrl.searchParams.get('schoolId')
-
-
-        const trafficLines = await db.trafficLine.findMany({
-            orderBy: {
-                createdAt: 'asc'
-            },
-            where: {
-                stationId: Number(stationId),
-                schoolId: Number(schoolId)
-
-            },
-            include: {
-                risks: true,
-            },
-        });
-
-        return NextResponse.json(trafficLines);
-    } catch (error) {
-        console.error(error);
-        return NextResponse.json({ message: 'Internal server error' });
-    }
-
-}
 
 export async function DELETE(req: NextRequest) {
     try {
@@ -86,7 +134,11 @@ export async function DELETE(req: NextRequest) {
             include: {
                 risks: {
                     include: {
-                        controlMeasures: true,
+                        questionAnswers: {
+                            include: {
+                                controlMeasures: true
+                            }
+                        }
                     },
                 },
             },

@@ -32,7 +32,7 @@ const translations = {
         "count of existing schools": "Number of existing schools",
         "results": "Results",
         "home": "Home",
-        "stations": "Risk registers",
+        "stations": "Risk records",
         "station": "station",
         "reports": "Reports",
         "Emirates Education Foundation contract": "Emirates Education Foundation contract",
@@ -77,7 +77,7 @@ const translations = {
         "Degree of danger: normal": "Degree of danger: normal",
         "نعم": "Yes",
         "لا": "No",
-        "لا ينطبق": "do not apply",
+        "لا ينطبق": "N/A",
         "the answer": "the answer",
         "You must answer all questions": "You must answer all questions",
         "The notification has been saved successfully": "The notification has been saved successfully",
@@ -162,8 +162,11 @@ const translations = {
             "SAFETY_OFFICER": "SAFETY OFFICER",
             "OPERATIONS_MANAGER": "OPERATIONS MANAGER"
         },
-        "Hello": "Hello"
-    },
+        "Hello": "Hello",
+        "Close": "Close",
+        "View question answers": "View question answers"
+    }
+    ,
     ar: {
         hero: {
             "title": "إدارة البيئة والسلامة و الصحة المهنية"
@@ -276,7 +279,7 @@ const translations = {
         "The itinerary has been successfully deleted": "تم حذف خط السير بنجاح.",
         "Are you absolutely sure": "هل أنت متأكد تماماً؟",
         "The itinerary does not exist": "خط السير غير موجود",
-        "Bus ID": "الدليل (مثال:قاعة التدريب/غرفة العمليات)",
+        "Bus ID": "الدليل (BOO)",
         "Select the requirement": "إختر المتطلب",
         "Requirement": "المتطلب",
         "Open Camera": "افتح الكاميرا",
@@ -327,7 +330,9 @@ const translations = {
             "SAFETY_OFFICER": "ضابط السلامة",
             "OPERATIONS_MANAGER": "مدير العمليات"
         },
-        "Hello": "أهلا"
+        "Hello": "مرحبا",
+        "Close": "إغلاق",
+        "View question answers": "عرض اجوبة الاسئلة"
     }
 };
 

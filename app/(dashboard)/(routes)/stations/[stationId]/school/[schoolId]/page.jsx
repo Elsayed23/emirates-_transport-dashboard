@@ -28,7 +28,6 @@ const page = ({ params: { stationId, schoolId } }) => {
 
 
     const { t } = useTranslation()
-
     const breadcrumbData = [
         {
             url: '/stations',
@@ -43,25 +42,6 @@ const page = ({ params: { stationId, schoolId } }) => {
         }
     ]
 
-
-    const analyzeRisks = (trafficLines) => {
-        const targetQuestionIds = [1, 2, 5, 6]
-        const analysis = {}
-
-        trafficLines.forEach(line => {
-            const uniqueQuestionIds = new Set()
-            line.risks.forEach(risk => {
-                if (targetQuestionIds.includes(risk.questionId)) {
-                    uniqueQuestionIds.add(risk.questionId)
-                }
-            })
-            analysis[line.id] = uniqueQuestionIds.size
-        })
-
-        setRiskAnalysis(analysis)
-
-    }
-
     const getCountOfSchoolRisks = async () => {
         try {
             const { data } = await axios.get(`/api/school_risks/count?station_id=${stationId}&school_id=${schoolId}`)
@@ -72,7 +52,7 @@ const page = ({ params: { stationId, schoolId } }) => {
         }
     }
 
-
+    console.log(trafficLines);
     const handleDeleteTrafficLine = async (trafficLineId) => {
         try {
 
@@ -89,8 +69,8 @@ const page = ({ params: { stationId, schoolId } }) => {
     const getTrafficlines = async () => {
         try {
             const { data } = await axios.get(`/api/traffic_line?stationId=${stationId}&schoolId=${schoolId}`)
-            setTrafficLines(data)
-            analyzeRisks(data)
+            setTrafficLines(data.trafficLines)
+            setRiskAnalysis(data.riskAnalysis)
         } catch (error) {
             console.log(error)
         } finally {

@@ -19,7 +19,7 @@ import useTranslation from '@/app/hooks/useTranslation'
 import LanguageContext from '@/app/context/LanguageContext'
 import { exportRisksToExcel } from '@/utils/exportRisksToExcel'
 
-const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
+const page = ({ params: { stationId, schoolId } }) => {
 
 
     const [risks, setRisks] = useState([])

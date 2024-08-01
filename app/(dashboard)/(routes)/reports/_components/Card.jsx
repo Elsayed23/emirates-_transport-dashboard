@@ -39,6 +39,8 @@ const Card = ({
         setIsDialogOpen(true);
     }
 
+    const { language } = useContext(LanguageContext)
+
     const main = useAuth()
 
     const confirmDelete = (e) => {
@@ -67,7 +69,7 @@ const Card = ({
             <h2>{t('station')}- {t(`stationsData.${nameOfStation}`)}</h2>
             <h2>{t('school')}- {nameOfSchool}</h2>
             <h2>{t('type')}- {t(inspectionType.name)}</h2>
-            <h2>{t('Date created')} {new Date(createdAt).toLocaleDateString()}</h2>
+            <h2>{t('Date created')} {new Date(createdAt).toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', })}</h2>
             {
                 main?.user?.role?.name !== "OPERATIONS_MANAGER"
                 &&

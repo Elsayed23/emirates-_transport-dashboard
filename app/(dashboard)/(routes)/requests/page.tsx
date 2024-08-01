@@ -16,7 +16,7 @@ const page = () => {
       </div>
       <hr />
       <div className="flex flex-col">
-        <h3 className='text-xl font-medium'>طلبات الموافقة علي التقارير</h3>
+        <h3 className='text-xl font-medium'>طلبات اعتماد التقارير</h3>
         <ApproveDataTable setToggleRejectedReport={setToggleRejectedReport} />
       </div>
       <hr />

@@ -13,6 +13,17 @@ export async function GET(
         const trafficLine = await db.trafficLine.findFirst({
             where: {
                 id
+            },
+            select: {
+                name: true,
+                latitude: true,
+                longitude: true,
+                user: {
+                    select: {
+                        id: true,
+                        name: true
+                    }
+                }
             }
         })
 

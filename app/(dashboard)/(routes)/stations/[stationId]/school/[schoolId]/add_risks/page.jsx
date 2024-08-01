@@ -70,11 +70,10 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     const handleSubmit = useCallback(async () => {
         try {
-            setisSubmitting(true)
             if (allTheAnswersFromQuestions.includes('غير مجاب عليها')) {
                 toast.error(t('You must answer all questions'))
             } else {
-
+                setisSubmitting(true)
                 if (isFirstTime) {
                     console.log('first');
                     await axios.post('/api/school_risks', {
@@ -118,7 +117,7 @@ const page = ({ params: { stationId, schoolId } }) => {
     return (
         <div className='p-6'>
             <DynamicBreadcrumb routes={breadcrumbData} />
-            <div className="min-h-[calc(100vh-148px)] flex flex-col justify-center items-center">
+            <div className="min-h-[calc(100vh-148px)] my-12 flex flex-col justify-center items-center">
                 <div className="w-full p-4 max-w-xl max-h-[650px] border overflow-y-scroll bg-white rounded-lg shadow-md flex flex-col gap-5">
                     {questionCard}
                     <Button onClick={handleSubmit} disabled={isSubmitting}>{t('Save')}</Button>

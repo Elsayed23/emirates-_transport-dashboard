@@ -43,6 +43,7 @@ import DeleteRequest from "./DeleteRequestModal";
 import UpdateInspectionModal from "./UpdateInspectionModal";
 import UploadAttachmentModal from './UploadAttachmentModal'; // Import the new modal
 import useTranslation from "@/app/hooks/useTranslation";
+import FullScreenImageModal from './FullScreenImageModal'; // Import the new modal
 
 export type InspectionAttachment = {
     id: string;
@@ -93,6 +94,9 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
     const [isOpenUpdateModal, setIsOpenUpdateModal] = React.useState(false);
     const [isOpenUploadAttachment, setIsOpenUploadAttachment] = React.useState(false); // Add state for attachment modal
 
+    const [isImageModalOpen, setIsImageModalOpen] = React.useState(false);
+    const [selectedImageUrl, setSelectedImageUrl] = React.useState<string | null>(null);
+
     const handleUpdateInspection = async (inspectionId: string, updates: any) => {
         try {
             await axios.patch('/api/update_inspection_details', { inspectionId, ...updates });
@@ -111,10 +115,22 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         }
 
         const { path, name } = attachment[0];
-        const fileExtension: any = name.split('.').pop()?.toLowerCase();
+        const fileExtension: any = path.split('.').pop()?.toLowerCase();
+        console.log(fileExtension);
 
         if (['jpg', 'jpeg', 'png', 'gif'].includes(fileExtension)) {
-            return <img src={path} alt={name} width="100" />;
+            return (
+                <img
+                    src={path}
+                    alt={name}
+                    width="100"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => {
+                        setSelectedImageUrl(path);
+                        setIsImageModalOpen(true);
+                    }}
+                />
+            );
         } else {
             return (
                 <a href={path} target="_blank" rel="noopener noreferrer">
@@ -182,7 +198,16 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
             header: () => <div className="text-center">صورة <br /> photo</div>,
             cell: ({ row }) => (
                 <div>
-                    <img src={row.getValue("image")} alt='inspection image' width="100" />
+                    <img
+                        src={row.getValue("image")}
+                        alt='inspection image'
+                        width="100"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                            setSelectedImageUrl(row.getValue("image"));
+                            setIsImageModalOpen(true);
+                        }}
+                    />
                 </div>
             ),
         },
@@ -441,6 +466,11 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
                     setAttachmentAdded={setIsRootCauseAdded}
                 />
             )}
+            <FullScreenImageModal
+                isOpen={isImageModalOpen}
+                onClose={() => setIsImageModalOpen(false)}
+                imageUrl={selectedImageUrl || ''}
+            />
         </div>
     );
 }

@@ -3,7 +3,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const BASIC_HAZARDS = [
     {
-        questionId: 32,
+        questionId: 38,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -37,7 +40,10 @@ const BASIC_HAZARDS = [
         residualRisks: "1/4/4"
     },
     {
-        questionId: 33,
+        questionId: 39,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -71,7 +77,10 @@ const BASIC_HAZARDS = [
         residualRisks: "2/3/6"
     },
     {
-        questionId: 34,
+        questionId: 40,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -107,7 +116,10 @@ const BASIC_HAZARDS = [
         residualRisks: "1/5/5"
     },
     {
-        questionId: 35,
+        questionId: 41,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -139,7 +151,10 @@ const BASIC_HAZARDS = [
         residualRisks: "1/5/5"
     },
     {
-        questionId: 36,
+        questionId: 42,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -163,7 +178,10 @@ const BASIC_HAZARDS = [
         residualRisks: "1/5/5"
     },
     {
-        questionId: 37,
+        questionId: 43,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -191,7 +209,10 @@ const BASIC_HAZARDS = [
         residualRisks: "1/5/5"
     },
     {
-        questionId: 38,
+        questionId: 44,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -213,7 +234,10 @@ const BASIC_HAZARDS = [
         residualRisks: "1/4/4"
     },
     {
-        questionId: 39,
+        questionId: 45,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -239,7 +263,10 @@ const BASIC_HAZARDS = [
         residualRisks: "1/5/5"
     },
     {
-        questionId: 40,
+        questionId: 46,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -267,7 +294,10 @@ const BASIC_HAZARDS = [
         residualRisks: "2/3/6"
     },
     {
-        questionId: 41,
+        questionId: 47,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -301,7 +331,10 @@ const BASIC_HAZARDS = [
         residualRisks: "1/4/4"
     },
     {
-        questionId: 42,
+        questionId: 48,
+        question: 'اساسي',
+        translatedQuestion: 'BASIC',
+        answer: 'basic',
         causeOfRisk: "الطريق | The road",
         activity: "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
         typeOfActivity: "روتيني | Routine",
@@ -333,170 +366,171 @@ const BASIC_HAZARDS = [
 
 
 export async function POST(req: Request) {
-    const { trafficLineId, risks } = await req.json();
+    const { trafficLineId, questionAnswers } = await req.json();
 
-    // Flatten the nested arrays of risks to a single array of risk objects
-    const flatRisks = risks.flat(Infinity); // This will flatten any level of nested arrays
-
-    // Check for required inputs
-    if (!trafficLineId) {
-        return NextResponse.json({ message: 'Missing required fields or no risks provided.' });
+    if (!trafficLineId || !questionAnswers) {
+        return NextResponse.json({ message: 'Missing required fields or no question answers provided.' });
     }
-    const allRisks = [
-        ...flatRisks.map((hazard: any) => ({
-            ...hazard,
-            controlMeasures: {
-                ar: hazard.controlMeasures.ar,
-                en: hazard.controlMeasures.en
-            }
-        })),
-        ...BASIC_HAZARDS.map((hazard: any) => ({
-            ...hazard,
-            controlMeasures: {
-                ar: hazard.controlMeasures.ar,
-                en: hazard.controlMeasures.en
-            }
-        }))
-    ];
+
+    const allQuestionAnswers = [...questionAnswers, ...BASIC_HAZARDS];
 
     try {
-        // Prepare risks and control measures for database insertion
-        const riskCreations = allRisks.map(risk => db.trafficLineRisk.create({
+        // Prepare risks and question answers for database insertion
+        const riskCreations = allQuestionAnswers.map((qa: any) => db.trafficLineRisk.create({
             data: {
                 trafficLine: { connect: { id: trafficLineId } },
-                questionId: risk.questionId,
-                causeOfRisk: risk.causeOfRisk,
-                activity: risk.activity,
-                typeOfActivity: risk.typeOfActivity,
-                hazardSource: risk.hazardSource,
-                risk: risk.risk,
-                peopleExposedToRisk: risk.peopleExposedToRisk,
-                expectedInjury: risk.expectedInjury,
-                riskAssessment: risk.riskAssessment,
-                residualRisks: risk.residualRisks,
-                controlMeasures: {
-                    create: risk.controlMeasures.ar.map((measureAr: string, index: number) => ({
-                        measureAr,
-                        measureEn: risk.controlMeasures.en[index]
-                    }))
+                questionAnswers: {
+                    create: {
+                        questionId: qa.questionId,
+                        question: qa.question,
+                        translatedQuestion: qa.translatedQuestion,
+                        answer: qa.answer,
+                        causeOfRisk: qa.causeOfRisk,
+                        activity: qa.activity,
+                        typeOfActivity: qa.typeOfActivity,
+                        hazardSource: qa.hazardSource,
+                        risk: qa.risk,
+                        peopleExposedToRisk: qa.peopleExposedToRisk,
+                        riskAssessment: qa.riskAssessment,
+                        residualRisks: qa.residualRisks,
+                        expectedInjury: qa.expectedInjury,
+                        controlMeasures: {
+                            create: qa.controlMeasures.ar.map((measureAr: string, index: number) => ({
+                                measureAr,
+                                measureEn: qa.controlMeasures.en[index]
+                            }))
+                        }
+                    }
                 }
             }
         }));
-
 
         // Execute all database operations as a transaction
         const results = await db.$transaction(riskCreations);
         return NextResponse.json(results);
 
-
     } catch (error) {
-        console.error('Error creating risks:', error);
+        console.error('Error creating question answers:', error);
         return NextResponse.json({ message: 'Internal server error' });
     }
 }
 
 export async function GET(req: NextRequest) {
     try {
-        const trafficLineId = await req.nextUrl.searchParams.get('traffic_line_id')
-        console.log(trafficLineId);
+        const trafficLineId = req.nextUrl.searchParams.get('traffic_line_id');
+
+        if (!trafficLineId) {
+            return NextResponse.json({ message: 'Missing required traffic_line_id parameter.' });
+        }
 
         const risks = await db.trafficLineRisk.findMany({
-            orderBy: {
-                questionId: 'asc'
-            },
             where: {
-                trafficLineId
+                trafficLineId,
+                questionAnswers: {
+                    some: {
+                        answer: {
+                            in: ['نعم', 'basic']
+                        }
+                    }
+                }
             },
             include: {
-                controlMeasures: true
+                questionAnswers: {
+                    include: {
+                        controlMeasures: true
+                    }
+                }
             }
-        })
+        });
 
-        return NextResponse.json(risks)
+        const allQuestionAnswers = await getAllQuestionAnswers(trafficLineId);
 
+        return NextResponse.json({ risks, allQuestionAnswers });
 
     } catch (error) {
         console.error('Error getting risks:', error);
         return NextResponse.json({ message: 'Internal server error' });
     }
 }
+async function getAllQuestionAnswers(trafficLineId: string) {
+    const allQuestions = await db.questionAnswer.findMany({
+        orderBy: {
+            questionId: 'asc'
+        },
+        where: {
+            trafficLineRisk: {
+                trafficLineId,
+            },
+            NOT: {
+                answer: 'basic'
+            }
+        },
+        select: {
+            question: true,
+            questionId: true,
+            translatedQuestion: true,
+            answer: true
+        }
+    });
+    return allQuestions;
+}
 
 export async function PATCH(req: NextRequest) {
-    const { trafficLineId, risks } = await req.json();
+    const { trafficLineId, questionAnswers } = await req.json();
 
-    const flatRisks = risks.flat(Infinity);
-
-    if (!trafficLineId) {
-
-        return NextResponse.json({ message: 'Missing required fields or no risks provided.' });
+    if (!trafficLineId || !questionAnswers) {
+        return NextResponse.json({ message: 'Missing required fields or no question answers provided.' });
     }
 
-
-    let allRisks;
-    if (flatRisks.length === 0) {
-        allRisks = [
-            ...BASIC_HAZARDS.map((hazard: any) => ({
-                ...hazard,
-                controlMeasures: {
-                    ar: hazard.controlMeasures.ar,
-                    en: hazard.controlMeasures.en
-                }
-            }))
-        ];
-    } else {
-        allRisks = [
-            ...flatRisks.map((hazard: any) => ({
-                ...hazard,
-                controlMeasures: {
-                    ar: hazard.controlMeasures.ar,
-                    en: hazard.controlMeasures.en
-                }
-            })),
-            ...BASIC_HAZARDS.map((hazard: any) => ({
-                ...hazard,
-                controlMeasures: {
-                    ar: hazard.controlMeasures.ar,
-                    en: hazard.controlMeasures.en
-                }
-            }))
-        ];
-    }
-
+    const allQuestionAnswers = [...questionAnswers, ...BASIC_HAZARDS];
 
     try {
-
-        await db.traffikLineControlMeasure.deleteMany({
-            where: {
-                risk: {
-                    trafficLineId: trafficLineId
-                }
-            }
+        // Delete existing control measures and question answers
+        const existingRisks = await db.trafficLineRisk.findMany({
+            where: { trafficLineId },
+            include: { questionAnswers: true }
         });
+
+        for (const risk of existingRisks) {
+            await db.traffikLineControlMeasure.deleteMany({
+                where: { questionAnswerId: { in: risk.questionAnswers.map(qa => qa.id) } }
+            });
+
+            await db.questionAnswer.deleteMany({
+                where: { trafficLineRiskId: risk.id }
+            });
+        }
 
         await db.trafficLineRisk.deleteMany({
-            where: {
-                trafficLineId: trafficLineId
-            }
+            where: { trafficLineId }
         });
 
-        const riskCreations = allRisks.map(risk => db.trafficLineRisk.create({
+        // Create new risks and question answers
+        const riskCreations = allQuestionAnswers.map((qa: any) => db.trafficLineRisk.create({
             data: {
                 trafficLine: { connect: { id: trafficLineId } },
-                questionId: risk.questionId,
-                causeOfRisk: risk.causeOfRisk,
-                activity: risk.activity,
-                typeOfActivity: risk.typeOfActivity,
-                hazardSource: risk.hazardSource,
-                risk: risk.risk,
-                peopleExposedToRisk: risk.peopleExposedToRisk,
-                expectedInjury: risk.expectedInjury,
-                riskAssessment: risk.riskAssessment,
-                residualRisks: risk.residualRisks,
-                controlMeasures: {
-                    create: risk.controlMeasures.ar.map((measureAr: string, index: number) => ({
-                        measureAr,
-                        measureEn: risk.controlMeasures.en[index] // Assuming that 'ar' and 'en' arrays are of the same length
-                    }))
+                questionAnswers: {
+                    create: {
+                        questionId: qa.questionId,
+                        question: qa.question,
+                        translatedQuestion: qa.translatedQuestion,
+                        answer: qa.answer,
+                        causeOfRisk: qa.causeOfRisk,
+                        activity: qa.activity,
+                        typeOfActivity: qa.typeOfActivity,
+                        hazardSource: qa.hazardSource,
+                        risk: qa.risk,
+                        peopleExposedToRisk: qa.peopleExposedToRisk,
+                        riskAssessment: qa.riskAssessment,
+                        residualRisks: qa.residualRisks,
+                        expectedInjury: qa.expectedInjury,
+                        controlMeasures: {
+                            create: qa.controlMeasures.ar.map((measureAr: string, index: number) => ({
+                                measureAr,
+                                measureEn: qa.controlMeasures.en[index]
+                            }))
+                        }
+                    }
                 }
             }
         }));
@@ -504,8 +538,9 @@ export async function PATCH(req: NextRequest) {
         // Execute all database operations as a transaction
         const results = await db.$transaction(riskCreations);
         return NextResponse.json(results);
+
     } catch (error) {
-        console.error('Error replacing risks:', error);
+        console.error('Error replacing question answers:', error);
         return NextResponse.json({ message: 'Internal server error', error: error });
     }
 }
