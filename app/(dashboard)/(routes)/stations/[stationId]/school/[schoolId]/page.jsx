@@ -15,10 +15,8 @@ import { toast } from 'sonner'
 
 const page = ({ params: { stationId, schoolId } }) => {
 
-    const { name, translationName, translationStationName } = getTrafficLinesOfSchool(stationId, schoolId)
-
     const [loading, setLoading] = useState(true)
-    const [trafficLines, setTrafficLines] = useState([])
+    const [schoolData, setSchoolData] = useState([])
     const [countOfSchoolRIsks, setCountOfSchoolRIsks] = useState(0)
     const [toggleDeleteTrafficLine, setToggleDeleteTrafficLine] = useState(false)
 
@@ -35,10 +33,10 @@ const page = ({ params: { stationId, schoolId } }) => {
         },
         {
             url: `/stations/${stationId}`,
-            title: t(`stationsData.${translationStationName}`)
+            title: t(`stationsData.${schoolData?.station?.translationName}`)
         },
         {
-            title: language === 'ar' ? name : translationName
+            title: language === 'ar' ? schoolData?.name : schoolData?.translationName
         }
     ]
 
@@ -52,7 +50,7 @@ const page = ({ params: { stationId, schoolId } }) => {
         }
     }
 
-    console.log(trafficLines);
+
     const handleDeleteTrafficLine = async (trafficLineId) => {
         try {
 
@@ -68,8 +66,9 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     const getTrafficlines = async () => {
         try {
-            const { data } = await axios.get(`/api/traffic_line?stationId=${stationId}&schoolId=${schoolId}`)
-            setTrafficLines(data.trafficLines)
+            const { data } = await axios.get(`/api/school/${schoolId}`)
+            setSchoolData(data.school)
+            console.log(data);
             setRiskAnalysis(data.riskAnalysis)
         } catch (error) {
             console.log(error)
@@ -88,7 +87,7 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     const router = useRouter()
 
-    const trafficLinesCard = trafficLines.map((trafficLine, idx) => (
+    const trafficLinesCard = schoolData?.trafficLine?.map((trafficLine, idx) => (
         <Card
             key={idx}
             count={idx + 1}
@@ -117,12 +116,12 @@ const page = ({ params: { stationId, schoolId } }) => {
                                     <Link href={`/stations/${stationId}/school/${schoolId}/risks`} className='underline'>{t('School hazards')}</Link>
                                 </Button>
                         }
-                        <h2 className='text-xl font-semibold'>{t('results')}: {trafficLines.length}</h2>
+                        <h2 className='text-xl font-semibold'>{t('results')}: {schoolData?.trafficLine?.length}</h2>
                         <div className="flex items-center gap-4">
                             <Button className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_traffic_line`)}>{t('Add an itinerary')} <FaCirclePlus size={18} /></Button>
                         </div>
                         {
-                            trafficLines.length
+                            schoolData.trafficLine.length
                                 ?
                                 <div className="grid xl:grid-cols-2 2xl:grid-cols-3 gap-6">
                                     {trafficLinesCard}

@@ -11,7 +11,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { getSpecificStationName, getSpecificSchoolName, getSpecificTrafficLineData } from '@/app/simple_func/getSpecificData';
+import { getSpecificTrafficLineData } from '@/app/simple_func/getSpecificData';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
 import Loading from '@/app/(dashboard)/_components/Loading';
@@ -49,17 +49,13 @@ const Popup = dynamic(() => import('react-leaflet').then(module => module.Popup)
 const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const [risks, setRisks] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { enStationName } = getSpecificStationName(stationId);
     const router = useRouter();
     const [isShowQuestionsDialogOpen, setIsShowQuestionsDialogOpen] = useState(false);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [isMapDialogOpen, setIsMapDialogOpen] = useState(false);
-    const [user, setUser] = useState(null)
-    const { arSchoolName, enSchoolName } = getSpecificSchoolName(stationId, schoolId);
 
-    const [trafficLineName, setTrafficLineName] = useState('');
+    const [trafficLineData, setTrafficLineData] = useState('');
     const [allQuestionAnswers, setAllQuestionAnswers] = useState([]);
-    const [location, setLocation] = useState({ latitude: undefined, longitude: undefined });
 
     useEffect(() => {
         // Apply Leaflet configuration only on the client side
@@ -76,10 +72,8 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
     const getTrafficLine = async () => {
         try {
-            const { name, latitude, longitude, user } = await getSpecificTrafficLineData(trafficLineId);
-            setTrafficLineName(name);
-            setUser(user)
-            setLocation({ latitude, longitude });
+            const data = await getSpecificTrafficLineData(trafficLineId);
+            setTrafficLineData(data);
         } catch (error) {
             console.log(error);
         }
@@ -119,21 +113,21 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
         },
         {
             url: `/stations/${stationId}`,
-            title: t(`stationsData.${enStationName}`)
+            title: t(`stationsData.${trafficLineData?.station?.translationName}`)
         },
         {
             url: `/stations/${stationId}/school/${schoolId}`,
-            title: language === 'ar' ? arSchoolName : enSchoolName
+            title: language === 'ar' ? trafficLineData?.school?.name : trafficLineData?.school?.translationName
         },
         {
-            title: trafficLineName
+            title: trafficLineData?.name
         }
     ];
 
     const isHaveRisks = risks.length;
 
     const handleDownload = () => {
-        exportRisksToExcel(risks, `${trafficLineName} Risks`);
+        exportRisksToExcel(risks, `${trafficLineData?.name} Risks`);
     };
 
     const handleDeleteTrafficLine = async () => {
@@ -173,7 +167,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
     const makeDIR = language === 'ar' ? 'rtl' : 'ltr';
 
-    const access = main?.user?.id === user?.id || main?.user?.role?.name === 'ADMIN'
+    const access = main?.user?.id === trafficLineData?.user?.id || main?.user?.role?.name === 'ADMIN'
 
     if (loading) return <Loading />
 
@@ -223,16 +217,16 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                                 <DialogHeader className='sm:text-center'>
                                     <DialogTitle>{t('Traffic Line Location')}</DialogTitle>
                                 </DialogHeader>
-                                {location.latitude !== undefined && location.longitude !== undefined && (
-                                    <MapContainer center={[location.latitude, location.longitude]} zoom={13} style={{ direction: language === 'ar' ? 'rtl' : 'ltr', height: '400px', width: '100%' }}>
+                                {trafficLineData?.latitude !== undefined && trafficLineData?.longitude !== undefined && (
+                                    <MapContainer center={[trafficLineData?.latitude, trafficLineData?.longitude]} zoom={13} style={{ direction: language === 'ar' ? 'rtl' : 'ltr', height: '400px', width: '100%' }}>
                                         <TileLayer
                                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                         />
-                                        <Marker position={[location.latitude, location.longitude]}>
+                                        <Marker position={[trafficLineData?.latitude, trafficLineData?.longitude]}>
                                             <Popup closeOnClick={false} autoClose={false}>
-                                                <span>إسم الضابط: {user?.name}</span> <br />
-                                                Latitude: {location.latitude}, Longitude: {location.longitude}
+                                                <span>إسم الضابط: {trafficLineData?.user?.name}</span> <br />
+                                                Latitude: {trafficLineData?.latitude}, Longitude: {trafficLineData?.longitude}
                                             </Popup>
                                         </Marker>
                                     </MapContainer>

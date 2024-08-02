@@ -23,6 +23,17 @@ export async function GET(
                         id: true,
                         name: true
                     }
+                },
+                station: {
+                    select: {
+                        translationName: true
+                    }
+                },
+                school: {
+                    select: {
+                        name: true,
+                        translationName: true
+                    }
                 }
             }
         })

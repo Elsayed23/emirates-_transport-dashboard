@@ -9,11 +9,13 @@ export async function GET(req: NextRequest) {
         const stationId = await req.nextUrl.searchParams.get('stationId')
         const isForSchoolCount: any = await req.nextUrl.searchParams.get('is_school_count')
 
-
+        if (!stationId) {
+            return NextResponse.json({ message: 'Invalid station id' })
+        }
 
         const countOfTrafficLineAndStudents = await db.trafficLine.findMany({
             where: {
-                stationId: Number(stationId),
+                stationId,
                 // schoolId: Number(schoolId)
             },
             select: {

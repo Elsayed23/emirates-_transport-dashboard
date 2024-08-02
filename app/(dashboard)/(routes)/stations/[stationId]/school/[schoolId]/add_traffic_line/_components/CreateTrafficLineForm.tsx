@@ -1,8 +1,8 @@
 'use client';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getSpecificSchoolName, getSpecificStationName } from '@/app/simple_func/getSpecificData';
+import { getSpecificSchoolName } from '@/app/simple_func/getSpecificData';
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -14,13 +14,13 @@ import LanguageContext from '@/app/context/LanguageContext';
 import { useRouter } from 'next/navigation';
 import DynamicBreadcrumb from '@/app/(dashboard)/_components/DynamicBreadcrumb';
 import AddRisksForm from './AddRisks';
+import axios from 'axios';
+import Loading from '@/app/(dashboard)/_components/Loading';
 
 const formSchema = z.object({
     name: z.string().min(2, { message: "يجب أن يتكون الاسم من حرفين على الأقل" }),
-    schoolId: z.number().int(),
-    schoolName: z.string(),
-    stationId: z.number().int(),
-    stationName: z.string(),
+    schoolId: z.string(),
+    stationId: z.string(),
     educationalLevel: z.string().min(1, { message: 'الرجاء إختيار الحلقة' }),
     countOfStudents: z.number().int().min(1, { message: 'أقل عدد طلاب هو 1' }),
     transferredCategory: z.string().min(1, { message: 'الرجاء إختيار اللفئة المنقولة' }),
@@ -40,26 +40,36 @@ interface TrafficLineManagementProps {
     params: Params;
 }
 
-const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params }) => {
+const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: { schoolId, stationId } }) => {
     const { t } = useTranslation();
     const { language } = useContext(LanguageContext);
     const router = useRouter();
+
+    const [schoolData, setSchoolData] = useState<any>(null)
+    const [loading, setLoading] = useState(true)
 
     const [trafficLineData, setTrafficLineData] = useState<FormSchemaType | null>(null);
     const [location, setLocation] = useState<{ latitude: number | undefined; longitude: number | undefined }>({ latitude: undefined, longitude: undefined });
     const [isFetchingLocation, setIsFetchingLocation] = useState(false);
 
-    const { arStationName, enStationName } = getSpecificStationName(params.stationId);
-    const { arSchoolName, enSchoolName } = getSpecificSchoolName(params.stationId, params.schoolId);
+
+    const getSchoolData = async () => {
+        try {
+            const { data } = await axios.get(`/api/school/${schoolId}`)
+            setSchoolData(data)
+            setLoading(false)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const form = useForm<FormSchemaType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
-            schoolId: Number(params.schoolId),
-            schoolName: arSchoolName,
-            stationId: Number(params.stationId),
-            stationName: arStationName,
+            schoolId: schoolId,
+            stationId: stationId,
             educationalLevel: "",
             countOfStudents: 0,
             transferredCategory: "",
@@ -68,6 +78,10 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params })
             image: undefined,
         },
     });
+
+    useEffect(() => {
+        getSchoolData()
+    }, [])
 
     const handleButtonClick = () => {
         if (navigator.geolocation) {
@@ -114,13 +128,15 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params })
 
     const breadcrumbData = [
         { url: '/stations', title: t('stations') },
-        { url: `/stations/${params.stationId}`, title: t(`stationsData.${enStationName}`) },
-        { url: `/stations/${params.stationId}/school/${params.schoolId}`, title: language === 'ar' ? arSchoolName : enSchoolName },
+        { url: `/stations/${stationId}`, title: t(`stationsData.${schoolData?.school?.station?.translationName}`) },
+        { url: `/stations/${stationId}/school/${schoolId}`, title: language === 'ar' ? schoolData?.school?.name : schoolData?.school?.translationName },
         { title: t('Add an itinerary') },
     ];
 
     const { setValue, getValues, formState: { isValid, isSubmitting } } = form;
-    console.log(isValid, isSubmitting, isFetchingLocation);
+
+
+    if (loading) return <Loading />
 
     return (
         <div className='p-6'>
@@ -225,7 +241,7 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params })
                                     <Button type="submit" disabled={!isValid || isSubmitting || !isFetchingLocation}>
                                         {t('Save')}
                                     </Button>
-                                    <Button variant='destructive' type='button' onClick={() => router.push(`/stations/${params.stationId}/school/${params.schoolId}`)}>
+                                    <Button variant='destructive' type='button' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}`)}>
                                         {t('Cancel')}
                                     </Button>
                                 </div>
@@ -234,7 +250,7 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params })
                     </div>
                 </div>
             ) : (
-                <AddRisksForm trafficLineData={trafficLineData} params={params} />
+                <AddRisksForm trafficLineData={trafficLineData} params={{ stationId, schoolId }} />
             )}
         </div>
     );

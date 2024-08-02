@@ -32,14 +32,17 @@ export async function GET(req: NextRequest) {
         const stationId = await req.nextUrl.searchParams.get('stationId')
         const schoolId = await req.nextUrl.searchParams.get('schoolId')
 
+        if (!schoolId || !stationId) {
+            return NextResponse.json({ message: 'Missing required fields.' });
+        }
 
         const trafficLines: TrafficLine[] = await db.trafficLine.findMany({
             orderBy: {
                 createdAt: 'asc'
             },
             where: {
-                stationId: Number(stationId),
-                schoolId: Number(schoolId)
+                stationId,
+                schoolId
             },
             include: {
                 risks: {
@@ -80,9 +83,7 @@ export async function POST(req: Request) {
         userId,
         name,
         schoolId,
-        schoolName,
         stationId,
-        stationName,
         educationalLevel,
         countOfStudents,
         transferredCategory,
@@ -90,7 +91,7 @@ export async function POST(req: Request) {
         longitude
     } = await req.json();
 
-    if (!userId || !name || !schoolId || !schoolName || !stationId || !stationName || !educationalLevel || !countOfStudents || !transferredCategory) {
+    if (!userId || !name || !schoolId || !stationId || !educationalLevel || !countOfStudents || !transferredCategory) {
         return NextResponse.json({ message: 'Invalid input' });
     }
 
@@ -100,14 +101,12 @@ export async function POST(req: Request) {
                 userId,
                 name,
                 schoolId,
-                schoolName,
                 stationId,
-                stationName,
                 educationalLevel,
                 countOfStudents,
                 transferredCategory,
                 latitude,
-                longitude
+                longitude,
             }
         });
 

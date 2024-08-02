@@ -13,17 +13,6 @@ export const getSpecificSchoolName = (stationId, schoolId) => {
 }
 
 
-export const getSpecificStationName = (stationId) => {
-    const { name, translationName } = stationsData.filter(({ id }) => id === Number(stationId))[0]
-
-
-
-    return {
-        arStationName: name,
-        enStationName: translationName
-    }
-}
-
 export const getSpecificTrafficLineData = async (id) => {
 
 

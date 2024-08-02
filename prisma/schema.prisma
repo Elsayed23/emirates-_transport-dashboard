@@ -18,7 +18,8 @@ enum RoleEnum {
 model User {
   id           String        @id @default(uuid())
   name         String
-  stationId    Int?
+  stationId    String?       @unique
+  station      Station?      @relation(fields: [stationId], references: [id], name: "Station")
   roleId       String?
   role         Role?         @relation(fields: [roleId], references: [id], name: "RoleUsers")
   email        String        @unique
@@ -37,75 +38,54 @@ model Role {
   updatedAt DateTime @updatedAt
 }
 
-model Report {
-  id               String          @id @default(uuid())
-  stationId        Int
-  user_id          String
-  user             User            @relation(fields: [user_id], references: [id])
-  nameOfStation    String
-  city             String
-  inspectionTypeId String?
-  inspectionType   InspectionType? @relation(fields: [inspectionTypeId], references: [id], name: "inspectionType")
-  schoolId         Int?
-  nameOfSchool     String?
-  enNameOfschool   String?
-  inspections      Inspection[]
-  approved         Boolean         @default(false)
-  rejectionReason  String?
-  createdAt        DateTime        @default(now())
-  updatedAt        DateTime        @updatedAt()
-
-  @@map("reports")
+model Station {
+  id              String        @id @default(uuid())
+  name            String
+  userId          String?       @unique
+  user            User?         @relation(name: "Station")
+  filterName      String
+  translationName String
+  schools         School[]
+  TrafficLine     TrafficLine[]
 }
 
-model Inspection {
-  id                 String                 @id @default(uuid())
-  reportId           String
-  name               String
-  image              String                 @db.LongText
-  idOfBus            Int
-  rootCause          String?                @db.LongText
-  correctiveAction   String?                @db.LongText
-  attachment         InspectionAttachment[] @relation("InspectionAttachment")
-  requirement        String?
-  isClosed           Boolean                @default(false)
-  noteClassification String
-  description        String
-  enDescription      String?
-  report             Report                 @relation(fields: [reportId], references: [id], onDelete: Cascade)
-  createdAt          DateTime               @default(now())
-  updatedAt          DateTime               @updatedAt()
-  DeleteRequest      DeleteRequest[]
-
-  @@map("inspections")
+model School {
+  id              String        @id @default(uuid())
+  name            String
+  translationName String
+  stationId       String
+  station         Station       @relation(fields: [stationId], references: [id])
+  contract        String
+  trafficLine     TrafficLine[]
+  risks           SchoolRisks[]
 }
 
-model InspectionAttachment {
-  id           String     @id @default(uuid())
-  name         String
-  path         String
-  inspectionId String
-  inspection   Inspection @relation(fields: [inspectionId], references: [id], name: "InspectionAttachment", onDelete: Cascade)
+model SchoolRisks {
+  id                  String                 @id @default(uuid())
+  stationId           Int
+  schoolId            String
+  trafficLine         School?                @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  questionId          Int?
+  causeOfRisk         String?                @db.LongText
+  activity            String?
+  typeOfActivity      String?
+  hazardSource        String?                @db.LongText
+  risk                String?                @db.LongText
+  peopleExposedToRisk String?
+  riskAssessment      String?
+  residualRisks       String?
+  expectedInjury      String?
+  controlMeasures     SchoolControlMeasure[]
+  createdAt           DateTime               @default(now())
+  updatedAt           DateTime               @updatedAt
 }
 
-model DeleteRequest {
-  id              String   @id @default(uuid())
-  inspectionId    String
-  reason          String
-  status          String   @default("PENDING") // PENDING, APPROVED, REJECTED
-  rejectionReason String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  inspection Inspection @relation(fields: [inspectionId], references: [id], onDelete: Cascade)
-}
-
-model InspectionType {
-  id          String   @id @default(uuid())
-  name        String
-  inspections Report[] @relation("inspectionType")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt()
+model SchoolControlMeasure {
+  id        String      @id @default(uuid())
+  riskId    String
+  measureAr String      @db.LongText
+  measureEn String      @db.LongText
+  risk      SchoolRisks @relation(fields: [riskId], references: [id], onDelete: Cascade)
 }
 
 model TrafficLine {
@@ -113,10 +93,10 @@ model TrafficLine {
   name                String
   userId              String?
   user                User?             @relation(fields: [userId], references: [id])
-  schoolId            Int
-  schoolName          String
-  stationId           Int
-  stationName         String
+  schoolId            String
+  school              School            @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  stationId           String
+  station             Station           @relation(fields: [stationId], references: [id], onDelete: Cascade)
   educationalLevel    String
   countOfStudents     Int
   transferredCategory String
@@ -166,29 +146,73 @@ model TraffikLineControlMeasure {
   questionAnswer   QuestionAnswer @relation(fields: [questionAnswerId], references: [id], onDelete: Cascade)
 }
 
-model SchoolRisks {
-  id                  String                 @id @default(uuid())
-  stationId           Int
-  schoolId            Int
-  questionId          Int?
-  causeOfRisk         String?                @db.LongText
-  activity            String?
-  typeOfActivity      String?
-  hazardSource        String?                @db.LongText
-  risk                String?                @db.LongText
-  peopleExposedToRisk String?
-  riskAssessment      String?
-  residualRisks       String?
-  expectedInjury      String?
-  controlMeasures     SchoolControlMeasure[]
-  createdAt           DateTime               @default(now())
-  updatedAt           DateTime               @updatedAt
+model Report {
+  id               String          @id @default(uuid())
+  stationId        Int
+  user_id          String
+  user             User            @relation(fields: [user_id], references: [id])
+  nameOfStation    String
+  city             String
+  inspectionTypeId String?
+  inspectionType   InspectionType? @relation(fields: [inspectionTypeId], references: [id], name: "inspectionType")
+  schoolId         Int?
+  nameOfSchool     String?
+  enNameOfschool   String?
+  inspections      Inspection[]
+  approved         Boolean         @default(false)
+  rejectionReason  String?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt()
+
+  @@map("reports")
 }
 
-model SchoolControlMeasure {
-  id        String      @id @default(uuid())
-  riskId    String
-  measureAr String      @db.LongText
-  measureEn String      @db.LongText
-  risk      SchoolRisks @relation(fields: [riskId], references: [id], onDelete: Cascade)
+model Inspection {
+  id                 String                 @id @default(uuid())
+  reportId           String
+  name               String
+  image              String                 @db.LongText
+  idOfBus            Int
+  rootCause          String?                @db.LongText
+  correctiveAction   String?                @db.LongText
+  attachment         InspectionAttachment[] @relation("InspectionAttachment")
+  requirement        String?
+  isClosed           Boolean                @default(false)
+  noteClassification String
+  description        String
+  enDescription      String?
+  report             Report                 @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  createdAt          DateTime               @default(now())
+  updatedAt          DateTime               @updatedAt()
+  DeleteRequest      DeleteRequest[]
+
+  @@map("inspections")
+}
+
+model InspectionType {
+  id          String   @id @default(uuid())
+  name        String
+  inspections Report[] @relation("inspectionType")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt()
+}
+
+model InspectionAttachment {
+  id           String     @id @default(uuid())
+  name         String
+  path         String
+  inspectionId String
+  inspection   Inspection @relation(fields: [inspectionId], references: [id], name: "InspectionAttachment", onDelete: Cascade)
+}
+
+model DeleteRequest {
+  id              String   @id @default(uuid())
+  inspectionId    String
+  reason          String
+  status          String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  rejectionReason String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  inspection Inspection @relation(fields: [inspectionId], references: [id], onDelete: Cascade)
 }

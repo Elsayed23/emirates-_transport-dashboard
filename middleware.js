@@ -44,12 +44,23 @@ export async function middleware(req) {
 
         if (pathname.startsWith('/users')) {
             if (decoded.role.name === 'ADMIN') {
-                return NextResponse.next(); // Allow access to all stations
+                return NextResponse.next();
             } else {
                 return NextResponse.redirect(`${origin}/`);
             }
-
         }
+
+        if (pathname.includes('/stations/add')) {
+            if (decoded.role.name !== 'ADMIN') {
+                return NextResponse.redirect(`${origin}/stations`);
+            }
+        }
+        if (pathname.includes('/school/add')) {
+            if (decoded.role.name !== 'ADMIN') {
+                return NextResponse.redirect(`${origin}/`);
+            }
+        }
+
 
         if (pathname.startsWith('/stations/')) {
             // If stationId is null and the role is ADMIN or SAFETY_OFFICER, allow access to all stations
@@ -65,9 +76,9 @@ export async function middleware(req) {
             const { stationId } = decoded;
 
             // Check for specific station path and enforce usual checks
-            const match = pathname.match(/\/stations\/(\d+)/);
+            const match = pathname.match(/\/stations\/([0-9a-fA-F-]+)/);
             if (match) {
-                const stationIdFromUrl = parseInt(match[1], 10);
+                const stationIdFromUrl = match[1];
 
                 if (stationId !== stationIdFromUrl) {
                     return NextResponse.redirect(`${origin}/stations`);

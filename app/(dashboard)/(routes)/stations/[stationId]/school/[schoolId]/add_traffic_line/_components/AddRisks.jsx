@@ -3,7 +3,6 @@ import React, { useState, useEffect, useCallback, useMemo, useContext } from 're
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import { toast } from 'sonner';
-import { getSpecificSchoolName, getSpecificStationName } from '@/app/simple_func/getSpecificData';
 import useTranslation from '@/app/hooks/useTranslation';
 import LanguageContext from '@/app/context/LanguageContext';
 import questionsData from '@/app/constants/questionsData';
@@ -20,18 +19,10 @@ const AddRisksForm = ({ trafficLineData, params: { stationId, schoolId } }) => {
 
     const { user } = useAuth()
 
-    const { enStationName } = getSpecificStationName(stationId);
     const router = useRouter();
-    const { arSchoolName, enSchoolName } = getSpecificSchoolName(stationId, schoolId);
 
     const allTheAnswersFromQuestions = useMemo(() => questions.map(({ answer }) => answer), [questions]);
 
-    const breadcrumbData = useMemo(() => [
-        { url: '/stations', title: t('stations') },
-        { url: `/stations/${stationId}`, title: t(`stationsData.${enStationName}`) },
-        { url: `/stations/${stationId}/school/${schoolId}`, title: language === 'ar' ? arSchoolName : enSchoolName },
-        { title: t('Add an itinerary') }
-    ], [stationId, schoolId, enStationName, arSchoolName, enSchoolName, t, language]);
 
     const handleAnswerChange = useCallback((id, answer) => {
         setQuestions(prevQuestions =>
