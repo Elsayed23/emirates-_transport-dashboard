@@ -2,11 +2,12 @@ import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 
-const targetQuestionIds = [1, 2, 5, 6];
-function analyzeRisks(trafficLines: any, targetQuestionIds: number[]): Record<string, number> {
-    return trafficLines.reduce((analysis: any, line: any) => {
-        const yesCount = line.risks.reduce((count: any, risk: any) => {
-            return count + risk.questionAnswers.filter((qa: any) => targetQuestionIds.includes(qa.questionId) && qa.answer === 'نعم').length;
+const targetOrderdIds = [1, 2, 5, 6];
+
+function analyzeRisks(trafficLines: any[], targetQuestionIds: number[]): Record<string, number> {
+    return trafficLines.reduce((analysis: Record<string, number>, line: any) => {
+        const yesCount = line.risks.reduce((count: number, risk: any) => {
+            return count + risk.question.userResponses.filter((qa: any) => targetQuestionIds.includes(qa.question.orderd) && qa.response === 'نعم').length;
         }, 0);
 
         analysis[line.id] = yesCount;
@@ -37,15 +38,16 @@ export async function GET(
                     include: {
                         user: {
                             select: {
-                                name: true
+                                name: true,
+                                id: true
                             }
                         },
                         risks: {
                             select: {
-                                questionAnswers: {
+                                response: true,
+                                question: {
                                     select: {
-                                        questionId: true,
-                                        answer: true
+                                        orderd: true
                                     }
                                 }
                             }
@@ -60,8 +62,16 @@ export async function GET(
             },
         })
 
-        const riskAnalysis = analyzeRisks(school?.trafficLine, targetQuestionIds);
+        const riskAnalysis = school?.trafficLine?.map((line: any) => {
+            const yesCount = line.risks.reduce((count: number, risk: any) => {
+                return count + (targetOrderdIds.includes(risk.question.orderd) && risk.response === 'نعم' ? 1 : 0);
+            }, 0);
 
+            return {
+                trafficLineId: line.id,
+                yesCount
+            };
+        });
         return NextResponse.json({ school, riskAnalysis })
 
 

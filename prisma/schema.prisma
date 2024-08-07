@@ -18,8 +18,7 @@ enum RoleEnum {
 model User {
   id           String        @id @default(uuid())
   name         String
-  stationId    String?       @unique
-  station      Station?      @relation(fields: [stationId], references: [id], name: "Station")
+  station      Station?
   roleId       String?
   role         Role?         @relation(fields: [roleId], references: [id], name: "RoleUsers")
   email        String        @unique
@@ -42,11 +41,14 @@ model Station {
   id              String        @id @default(uuid())
   name            String
   userId          String?       @unique
-  user            User?         @relation(name: "Station")
+  user            User?         @relation(fields: [userId], references: [id])
   filterName      String
   translationName String
   schools         School[]
   TrafficLine     TrafficLine[]
+  Report          Report[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
 }
 
 model School {
@@ -58,14 +60,16 @@ model School {
   contract        String
   trafficLine     TrafficLine[]
   risks           SchoolRisks[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
 }
 
 model SchoolRisks {
   id                  String                 @id @default(uuid())
-  stationId           Int
+  stationId           String
   schoolId            String
   trafficLine         School?                @relation(fields: [schoolId], references: [id], onDelete: Cascade)
-  questionId          Int?
+  questionId          Int
   causeOfRisk         String?                @db.LongText
   activity            String?
   typeOfActivity      String?
@@ -89,73 +93,95 @@ model SchoolControlMeasure {
 }
 
 model TrafficLine {
-  id                  String            @id @default(uuid())
+  id                  String             @id @default(uuid())
   name                String
   userId              String?
-  user                User?             @relation(fields: [userId], references: [id])
+  user                User?              @relation(fields: [userId], references: [id])
   schoolId            String
-  school              School            @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  school              School             @relation(fields: [schoolId], references: [id], onDelete: Cascade)
   stationId           String
-  station             Station           @relation(fields: [stationId], references: [id], onDelete: Cascade)
+  station             Station            @relation(fields: [stationId], references: [id], onDelete: Cascade)
   educationalLevel    String
   countOfStudents     Int
   transferredCategory String
-  risks               TrafficLineRisk[]
-  createdAt           DateTime          @default(now())
-  updatedAt           DateTime          @updatedAt()
+  risks               UserResponse[]
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt()
   latitude            Float
   longitude           Float
+  images              TrafficLineImage[] @relation(name: "TrafficLineImages")
 }
 
-model TrafficLineRisk {
-  id              String           @id @default(uuid())
-  trafficLineId   String?
-  questionAnswers QuestionAnswer[]
-  createdAt       DateTime         @default(now())
-  updatedAt       DateTime         @updatedAt
-  trafficLine     TrafficLine?     @relation(fields: [trafficLineId], references: [id], onDelete: Cascade)
+model TrafficLineImage {
+  id            String      @id @default(uuid())
+  trafficLineId String
+  trafficLine   TrafficLine @relation(fields: [trafficLineId], references: [id], onDelete: Cascade, name: "TrafficLineImages")
+  imageUrl      String
+  createdAt     DateTime    @default(now())
 }
 
-model QuestionAnswer {
-  id                  String                      @id @default(uuid())
-  trafficLineRiskId   String?
-  questionId          Int
-  question            String                      @db.LongText
-  translatedQuestion  String                      @db.LongText
-  answer              String                      @db.LongText
-  causeOfRisk         String?                     @db.LongText
-  activity            String?                     @db.LongText
-  typeOfActivity      String?                     @db.LongText
-  hazardSource        String?                     @db.LongText
-  risk                String?                     @db.LongText
-  peopleExposedToRisk String?                     @db.LongText
-  riskAssessment      String?                     @db.LongText
-  residualRisks       String?                     @db.LongText
-  expectedInjury      String?                     @db.LongText
-  controlMeasures     TraffikLineControlMeasure[]
-  trafficLineRisk     TrafficLineRisk?            @relation(fields: [trafficLineRiskId], references: [id], onDelete: Cascade)
-  createdAt           DateTime                    @default(now())
-  updatedAt           DateTime                    @updatedAt
+model Question {
+  id                 String         @id @default(uuid())
+  question           String         @db.LongText
+  translatedQuestion String         @db.LongText
+  orderd             Int
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+  answers            Answer[]
+  userResponses      UserResponse[]
 }
 
-model TraffikLineControlMeasure {
-  id               String         @id @default(uuid())
-  questionAnswerId String
-  measureAr        String         @db.LongText
-  measureEn        String         @db.LongText
-  questionAnswer   QuestionAnswer @relation(fields: [questionAnswerId], references: [id], onDelete: Cascade)
+model Answer {
+  id                  String           @id @default(uuid())
+  questionId          String           @unique
+  causeOfRisk         String?          @db.LongText
+  activity            String?          @db.LongText
+  typeOfActivity      String?          @db.LongText
+  hazardSource        String?          @db.LongText
+  risk                String?          @db.LongText
+  peopleExposedToRisk String?          @db.LongText
+  riskAssessment      String?          @db.LongText
+  residualRisks       String?          @db.LongText
+  expectedInjury      String?          @db.LongText
+  controlMeasures     ControlMeasure[]
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+  question            Question         @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
+
+model UserResponse {
+  id            String      @id @default(uuid())
+  questionId    String
+  trafficLineId String
+  response      String      @db.LongText
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  question      Question    @relation(fields: [questionId], references: [id])
+  trafficLine   TrafficLine @relation(fields: [trafficLineId], references: [id], onDelete: Cascade)
+}
+
+model ControlMeasure {
+  id        String   @id @default(uuid())
+  ar        String   @db.LongText
+  en        String   @db.LongText
+  answerId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  answer    Answer   @relation(fields: [answerId], references: [id], onDelete: Cascade)
 }
 
 model Report {
   id               String          @id @default(uuid())
-  stationId        Int
+  stationId        String
+  station          Station         @relation(fields: [stationId], references: [id])
   user_id          String
   user             User            @relation(fields: [user_id], references: [id])
   nameOfStation    String
   city             String
   inspectionTypeId String?
   inspectionType   InspectionType? @relation(fields: [inspectionTypeId], references: [id], name: "inspectionType")
-  schoolId         Int?
+  // schoolId         String
+  // school           School          @relation(fields: [schoolId], references: [id])
   nameOfSchool     String?
   enNameOfschool   String?
   inspections      Inspection[]

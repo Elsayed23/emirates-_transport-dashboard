@@ -191,9 +191,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
         try {
             const values = reportData;
 
-            const nameOfStation: any = stationsData.find(({ id }) => id === Number(values.stationId))?.translationName;
-
-            const { data } = await axios.post('/api/reports', { ...values, nameOfStation: nameOfStation });
+            const { data } = await axios.post('/api/reports', { ...values });
 
             for (const inspection of inspections) {
                 const formData = new FormData();

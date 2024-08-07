@@ -68,7 +68,9 @@ export async function PATCH(req: Request) {
                 role: {
                     name: 'OPERATIONS_MANAGER',
                 },
-                stationId: Number(stationId),
+                station: {
+                    id: stationId
+                },
             },
             select: {
                 email: true,

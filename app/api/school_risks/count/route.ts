@@ -6,11 +6,14 @@ export async function GET(req: NextRequest) {
         const schoolId = req.nextUrl.searchParams.get('school_id');
         const stationId = req.nextUrl.searchParams.get('station_id');
 
+        if (!stationId || !schoolId) {
+            return NextResponse.json({ message: 'Missing required fields.' });
+        }
 
         const count = await db.schoolRisks.count({
             where: {
-                schoolId: Number(schoolId),
-                stationId: Number(stationId)
+                schoolId,
+                stationId
             }
         });
 

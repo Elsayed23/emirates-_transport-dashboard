@@ -38,6 +38,7 @@ const StationCard = ({
 }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+
     const riskColor = color === 1 || color === 2 ? 'bg-yellow-600' : color === 3 || color === 4 ? 'bg-red-800' : 'bg-slate-400'
     const router = useRouter()
     const { t } = useTranslation()

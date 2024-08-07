@@ -2,8 +2,8 @@
 import React, { useState, useEffect, useContext, useMemo, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import DynamicBreadcrumb from '@/app/(dashboard)/_components/DynamicBreadcrumb';
-import { getSpecificStationName, getSpecificTrafficLineData, getSpecificSchoolName } from '@/app/simple_func/getSpecificData';
-import { useRouter } from 'next/navigation';
+import { getSpecificTrafficLineData } from '@/app/simple_func/getSpecificData';
+import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import Loading from '@/app/(dashboard)/_components/Loading';
 import { toast } from 'sonner';
@@ -17,10 +17,15 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [trafficLineName, setTrafficLineName] = useState(null);
 
-    const { enStationName } = getSpecificStationName(stationId);
     const { t } = useTranslation();
     const { language } = useContext(LanguageContext);
-    const { arSchoolName, enSchoolName } = getSpecificSchoolName(stationId, schoolId);
+
+    const searchParams = useSearchParams()
+
+    const enStationName = searchParams.get('station')
+    const arSchoolName = searchParams.get('ar_school')
+    const enSchoolName = searchParams.get('en_school')
+
     const router = useRouter();
 
     const getTrafficLine = useCallback(async () => {
@@ -73,7 +78,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
         { url: `/stations/${stationId}`, title: t(`stationsData.${enStationName}`) },
         { url: `/stations/${stationId}/school/${schoolId}`, title: language === 'ar' ? arSchoolName : enSchoolName },
         { url: `/stations/${stationId}/school/${schoolId}/trafficLine/${trafficLineId}`, title: trafficLineName },
-        { title: t('Update Answers') }
+        { title: t('Update risks') }
     ], [stationId, schoolId, trafficLineId, enStationName, arSchoolName, enSchoolName, trafficLineName, t, language]);
 
     const allTheAnswersFromQuestions = useMemo(() => questions.map(({ answer }) => answer), [questions]);

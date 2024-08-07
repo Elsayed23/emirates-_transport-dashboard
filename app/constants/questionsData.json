@@ -1,10 +1,9 @@
 [
     {
-        "questionId": 1,
+        "orderd": 1,
         "question": "هل الحافلة مجهزة ومخصصة لنقل اصحاب الهمم؟",
         "translatedQuestion": "Is the bus equipped and designated for transporting people of determination?",
-        "questionAnswer": {
-            "questionId": 1,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -30,15 +29,13 @@
             },
             "riskAssessment": "3/4/12",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 2,
+        "orderd": 2,
         "question": "هل تتوفر الأدوات اللازمة لتثبيت الكراسي المتحركة بشكل آمن وفعال؟",
         "translatedQuestion": "Are the necessary tools available to secure wheelchairs safely and effectively?",
-        "questionAnswer": {
-            "questionId": 2,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -70,15 +67,13 @@
             },
             "riskAssessment": "1/4/4",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 3,
+        "orderd": 3,
         "question": "هل المركبة مجهزة بمخارج طوارئ مناسبة لتسهيل إخلاء الطلاب بالكرسي المتحرك في حالات الطوارئ؟",
         "translatedQuestion": "Is the vehicle equipped with appropriate emergency exits to facilitate the evacuation of students in emergencies?",
-        "questionAnswer": {
-            "questionId": 3,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -110,15 +105,13 @@
             },
             "riskAssessment": "2/4/8",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 4,
+        "orderd": 4,
         "question": "هل تتوفر وسائل ملائمة للصعود والنزول مثل الرافعات أو المنحدرات داخل المركبة؟",
         "translatedQuestion": "Are suitable boarding and alighting aids, such as lifts or ramps, available inside the vehicle?",
-        "questionAnswer": {
-            "questionId": 4,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -150,15 +143,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 5,
+        "orderd": 5,
         "question": "هل تم ترتيب المقاعد والأثاث داخل المركبة بشكل يسمح بمرور الكراسي المتحركة بسهولة؟",
         "translatedQuestion": "Are the seats and furniture arranged in a way that allows easy passage for wheelchairs?",
-        "questionAnswer": {
-            "questionId": 5,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -190,15 +181,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 6,
+        "orderd": 6,
         "question": "هل تتوفر أرصفة مهيئة تسهل الوصول إلى المركبة؟",
         "translatedQuestion": "Are adapted sidewalks available to facilitate access to the vehicle?",
-        "questionAnswer": {
-            "questionId": 6,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -225,15 +214,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 7,
+        "orderd": 7,
         "question": "هل هناك إجراءات للحد من الحاجة إلى التنقل في مناطق غير آمنة في حالة عدم وجود ارصفة مهيئة؟",
         "translatedQuestion": "Are there measures to reduce the need to navigate unsafe areas?",
-        "questionAnswer": {
-            "questionId": 7,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -260,15 +247,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 8,
+        "orderd": 8,
         "question": "هل يتم أخذ ردود أفعال أصحاب الهمم في عين الاعتبار لتحسين خدمات النقل؟",
         "translatedQuestion": "Are the feedback and reactions of people of determination considered to improve transportation services?",
-        "questionAnswer": {
-            "questionId": 8,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -295,15 +280,13 @@
             },
             "riskAssessment": "4/4/16",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 9,
+        "orderd": 9,
         "question": "هل السائقون والمشرفين مدربون على التعامل مع اصحاب الهمم؟",
         "translatedQuestion": "Are drivers and supervisors trained to deal with people of determination?",
-        "questionAnswer": {
-            "questionId": 9,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -333,15 +316,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 10,
+        "orderd": 10,
         "question": "هل يوجد مشرف نقل وسلامة بخط السير؟",
         "translatedQuestion": "Is there a transport and safety supervisor on the route?",
-        "questionAnswer": {
-            "questionId": 10,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -373,15 +354,13 @@
             },
             "riskAssessment": "3/3/9",
             "residualRisks": "2/3/6"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 11,
+        "orderd": 11,
         "question": "هل يحتاج الطلبة لعبور الطريق للوصول الى الحافلة؟",
         "translatedQuestion": "Do students need to cross the road to reach the bus?",
-        "questionAnswer": {
-            "questionId": 11,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -409,15 +388,13 @@
             },
             "riskAssessment": "1/4/4",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 12,
+        "orderd": 12,
         "question": "هل يتم نقل عدد '3' أو اكثر الطلبة عند نقطة صعود أو نزول واحدة؟",
         "translatedQuestion": "Are '3' or more students transported at a single boarding or alighting point?",
-        "questionAnswer": {
-            "questionId": 12,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -439,15 +416,13 @@
             },
             "riskAssessment": "2/3/6",
             "residualRisks": "2/3/6"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 13,
+        "orderd": 13,
         "question": "هل نقطة صعود/نزول الطالبة عن نقطة يصعب إيقاف الحافلة 'طريق عام /طريق سريع'؟",
         "translatedQuestion": "Is the boarding/alighting point on a road where it is difficult to stop the bus 'main road / highway'?",
-        "questionAnswer": {
-            "questionId": 13,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -473,15 +448,13 @@
             },
             "riskAssessment": "1/4/4",
             "residualRisks": "2/5/10"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 14,
+        "orderd": 14,
         "question": "هل يحتاج مشرف النقل والسلامة للمشى مسافة اكثر من 200 متر لتوصيل الطالب لمنزلة؟",
         "translatedQuestion": "Does the transport and safety supervisor need to walk more than 200 meters to deliver the student to their home?",
-        "questionAnswer": {
-            "questionId": 14,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -509,15 +482,13 @@
             },
             "riskAssessment": "4/4/8",
             "residualRisks": "2/4/8"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 15,
+        "orderd": 15,
         "question": "هل نقطة صعود الطالب بمكان يصعب وصول الحافله لها مما يوثر على زمن الرحلة؟",
         "translatedQuestion": "Is the boarding point difficult for the bus to reach, affecting travel time?",
-        "questionAnswer": {
-            "questionId": 15,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -539,15 +510,13 @@
             },
             "riskAssessment": "4/4/16",
             "residualRisks": "2/3/6"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 16,
+        "orderd": 16,
         "question": "هل توجد مناطق معرضة للانهيارات الأرضية أو الصخور المتساقطة على الطريق؟",
         "translatedQuestion": "Are there areas prone to landslides or falling rocks on the road?",
-        "questionAnswer": {
-            "questionId": 16,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -573,15 +542,13 @@
             },
             "riskAssessment": "4/3/12",
             "residualRisks": "2/4/8"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 17,
+        "orderd": 17,
         "question": "هل توجد مركبات مصطفة على جانبي المسار؟",
         "translatedQuestion": "Are there parked vehicles on both sides of the lane?",
-        "questionAnswer": {
-            "questionId": 17,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -605,15 +572,13 @@
             },
             "riskAssessment": "3/3/9",
             "residualRisks": "2/4/8"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 18,
+        "orderd": 18,
         "question": "هل يوجد بروز بالمباني او ملحقاتها ويجب عليك المناورة والالتفاف كي لا تصطدم الحافلة؟",
         "translatedQuestion": "Are there protrusions in buildings or their extensions, requiring maneuvering to avoid collisions?",
-        "questionAnswer": {
-            "questionId": 18,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -641,15 +606,13 @@
             },
             "riskAssessment": "2/4/8",
             "residualRisks": "2/4/8"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 19,
+        "orderd": 19,
         "question": "هل توجد أشجار او اجسام صلبة تؤثر على مسار الحافلة في خط السير؟",
         "translatedQuestion": "Are there trees or solid objects affecting the bus route?",
-        "questionAnswer": {
-            "questionId": 19,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -689,15 +652,13 @@
             },
             "riskAssessment": "4/4/8",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 20,
+        "orderd": 20,
         "question": "هل يوجد في خط السير إشارات مرورية مزدحمة؟",
         "translatedQuestion": "Are there busy traffic signals on the route?",
-        "questionAnswer": {
-            "questionId": 20,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -719,15 +680,13 @@
             },
             "riskAssessment": "2/3/6",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 21,
+        "orderd": 21,
         "question": "هل يمر خط السير بطرق دولية او طرق تزيد سرعة المركبات بها عن 110 كم/الساعة؟",
         "translatedQuestion": "Does the route pass through international roads or roads where vehicle speed exceeds 110 km/h?",
-        "questionAnswer": {
-            "questionId": 21,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -757,15 +716,13 @@
             },
             "riskAssessment": "4/5/20",
             "residualRisks": "2/4/8"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 22,
+        "orderd": 22,
         "question": "هل يغطي خط السير مناطق غير سكنية مثل \"المزارع أو العزب\"؟",
         "translatedQuestion": "Does the route cover non-residential areas such as 'farms or estates'?",
-        "questionAnswer": {
-            "questionId": 22,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -791,15 +748,13 @@
             },
             "riskAssessment": "4/5/20",
             "residualRisks": "2/5/10"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 23,
+        "orderd": 23,
         "question": "هل يمر خط السير بمجرى أودية أو مياه أمطار؟",
         "translatedQuestion": "Does the route pass through valley streams or rainwater?",
-        "questionAnswer": {
-            "questionId": 23,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -839,15 +794,13 @@
             },
             "riskAssessment": "4/5/20",
             "residualRisks": "2/5/10"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 24,
+        "orderd": 24,
         "question": "هل الأمطار والمياه تؤثر في إطالة زمن الرحلة؟",
         "translatedQuestion": "Does rain and water affect travel time prolongation?",
-        "questionAnswer": {
-            "questionId": 24,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -891,15 +844,13 @@
             },
             "riskAssessment": "2/5/10",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 25,
+        "orderd": 25,
         "question": "هل توجد منحدرات حادة على الطريق؟",
         "translatedQuestion": "Are there steep slopes on the road?",
-        "questionAnswer": {
-            "questionId": 25,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -927,15 +878,13 @@
             },
             "riskAssessment": "4/5/20",
             "residualRisks": "2/5/10"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 26,
+        "orderd": 26,
         "question": "هل تمر الحافلة عبر مناطق معروفة بوجود حيوانات سائبة؟",
         "translatedQuestion": "Does the bus pass through areas known for the presence of stray animals?",
-        "questionAnswer": {
-            "questionId": 26,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -957,15 +906,13 @@
             },
             "riskAssessment": "4/5/20",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 27,
+        "orderd": 27,
         "question": "هل توجد تقاطعات بدون إشارات مرورية أو علامات؟",
         "translatedQuestion": "Are there intersections without traffic signals or signs?",
-        "questionAnswer": {
-            "questionId": 27,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -985,15 +932,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 28,
+        "orderd": 28,
         "question": "هل توجد مناطق عالية الكثافة بالمشاة أو راكبي الدراجات على الطريق؟",
         "translatedQuestion": "Are there areas with high density of pedestrians or cyclists on the road?",
-        "questionAnswer": {
-            "questionId": 28,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1017,15 +962,13 @@
             },
             "riskAssessment": "3/3/9",
             "residualRisks": "1/4/4"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 29,
+        "orderd": 29,
         "question": "هل نقطة صعود الطالب في طريق غير معبد",
         "translatedQuestion": "Is the student's boarding point on an unpaved road?",
-        "questionAnswer": {
-            "questionId": 29,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1051,15 +994,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "2/5/10"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 30,
+        "orderd": 30,
         "question": "هل يوجد حفر عميقة في الطرق غير المعبدة يمكن ان تمر عليها الحافلة ؟؟",
         "translatedQuestion": "Are there deep excavations on unpaved roads that the bus may pass over?",
-        "questionAnswer": {
-            "questionId": 30,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1087,15 +1028,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "2/5/10"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 31,
+        "orderd": 31,
         "question": "هل الطريق غير المعبد به الكثير من العوائق مما ينتج عنها اهتزازات ؟؟",
         "translatedQuestion": "Is the unpaved road filled with obstacles that cause vibrations?",
-        "questionAnswer": {
-            "questionId": 31,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1123,15 +1062,13 @@
             },
             "riskAssessment": "4/3/12",
             "residualRisks": "2/3/6"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 32,
+        "orderd": 32,
         "question": "هل تمر الحافلة بطرق رملية نتيجة عدم وجود طريق غير معبد ؟؟",
         "translatedQuestion": "Does the bus pass through sandy roads due to the absence of paved roads?",
-        "questionAnswer": {
-            "questionId": 32,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1151,15 +1088,13 @@
             },
             "riskAssessment": "4/3/12",
             "residualRisks": "2/3/6"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 33,
+        "orderd": 33,
         "question": "هل يوجد نهايات وشوارع مغلقة ؟",
         "translatedQuestion": "Are there dead-end streets?",
-        "questionAnswer": {
-            "questionId": 33,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1183,15 +1118,13 @@
             },
             "riskAssessment": "4/4/16",
             "residualRisks": "2/4/8"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 34,
+        "orderd": 34,
         "question": "هل توجد صعوبة في حركة الحافلة",
         "translatedQuestion": "Are there difficulties in bus movement?",
-        "questionAnswer": {
-            "questionId": 34,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1211,15 +1144,13 @@
             },
             "riskAssessment": "4/4/16",
             "residualRisks": "2/4/8"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 35,
+        "orderd": 35,
         "question": "هل الطريق والمسارات ضيقة ؟؟",
         "translatedQuestion": "Are the roads and lanes narrow?",
-        "questionAnswer": {
-            "questionId": 35,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1239,15 +1170,13 @@
             },
             "riskAssessment": "4/4/16",
             "residualRisks": "2/4/8"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 36,
+        "orderd": 36,
         "question": "هل يوجد اعمال انشاء وتعديل بالقرب من نقاط الصعود والنزول",
         "translatedQuestion": "Are there construction works near the boarding and alighting points?",
-        "questionAnswer": {
-            "questionId": 36,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1271,15 +1200,13 @@
             },
             "riskAssessment": "3/5/15",
             "residualRisks": "1/5/5"
-        },
-        "answer": "غير مجاب عليها"
+        }
     },
     {
-        "questionId": 37,
+        "orderd": 37,
         "question": "هل يوجد في خط السير اعمال انشاء وتعديل فى الطرق او المدن",
         "translatedQuestion": "Are there construction works on the route?",
-        "questionAnswer": {
-            "questionId": 37,
+        "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
@@ -1305,7 +1232,6 @@
             },
             "riskAssessment": "5/4/20",
             "residualRisks": "2/5/10"
-        },
-        "answer": "غير مجاب عليها"
+        }
     }
 ]

@@ -1,8 +1,7 @@
 'use client';
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getSpecificSchoolName } from '@/app/simple_func/getSpecificData';
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -11,11 +10,10 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectValu
 import { SelectTrigger } from '@/components/ui/select';
 import useTranslation from '@/app/hooks/useTranslation';
 import LanguageContext from '@/app/context/LanguageContext';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import DynamicBreadcrumb from '@/app/(dashboard)/_components/DynamicBreadcrumb';
 import AddRisksForm from './AddRisks';
 import axios from 'axios';
-import Loading from '@/app/(dashboard)/_components/Loading';
 
 const formSchema = z.object({
     name: z.string().min(2, { message: "يجب أن يتكون الاسم من حرفين على الأقل" }),
@@ -26,7 +24,6 @@ const formSchema = z.object({
     transferredCategory: z.string().min(1, { message: 'الرجاء إختيار اللفئة المنقولة' }),
     latitude: z.number().optional(),
     longitude: z.number().optional(),
-    image: z.any().optional(),
 });
 
 type FormSchemaType = z.infer<typeof formSchema>;
@@ -45,24 +42,22 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
     const { language } = useContext(LanguageContext);
     const router = useRouter();
 
-    const [schoolData, setSchoolData] = useState<any>(null)
-    const [loading, setLoading] = useState(true)
+    const searchParams = useSearchParams();
+
+    const enStationName = searchParams.get('station');
+    const arSchoolName = searchParams.get('ar_school');
+    const enSchoolName = searchParams.get('en_school');
 
     const [trafficLineData, setTrafficLineData] = useState<FormSchemaType | null>(null);
     const [location, setLocation] = useState<{ latitude: number | undefined; longitude: number | undefined }>({ latitude: undefined, longitude: undefined });
     const [isFetchingLocation, setIsFetchingLocation] = useState(false);
 
-
-    const getSchoolData = async () => {
-        try {
-            const { data } = await axios.get(`/api/school/${schoolId}`)
-            setSchoolData(data)
-            setLoading(false)
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // Camera states
+    const [files, setFiles] = useState<{ file: File, preview: string }[]>([]);
+    const [photoCaptured, setPhotoCaptured] = useState(false);
+    const [capturing, setCapturing] = useState(false);
+    const videoRef = useRef<HTMLVideoElement | any>(null);
+    const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
     const form = useForm<FormSchemaType>({
         resolver: zodResolver(formSchema),
@@ -75,13 +70,8 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
             transferredCategory: "",
             latitude: undefined,
             longitude: undefined,
-            image: undefined,
         },
     });
-
-    useEffect(() => {
-        getSchoolData()
-    }, [])
 
     const handleButtonClick = () => {
         if (navigator.geolocation) {
@@ -94,6 +84,7 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
             console.log("Geolocation is not supported by this browser.");
         }
     };
+
 
     const showError = (error: GeolocationPositionError) => {
         setIsFetchingLocation(false);
@@ -117,9 +108,7 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
         setTrafficLineData({ ...values, ...location });
     };
 
-    const onSubmit: SubmitHandler<FormSchemaType> = (values) => {
-        console.log({ ...values, ...location });
-
+    const onSubmit: SubmitHandler<FormSchemaType> = async (values: any) => {
         setTrafficLineData({ ...values, ...location });
     };
 
@@ -128,15 +117,73 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
 
     const breadcrumbData = [
         { url: '/stations', title: t('stations') },
-        { url: `/stations/${stationId}`, title: t(`stationsData.${schoolData?.school?.station?.translationName}`) },
-        { url: `/stations/${stationId}/school/${schoolId}`, title: language === 'ar' ? schoolData?.school?.name : schoolData?.school?.translationName },
+        { url: `/stations/${stationId}`, title: t(`stationsData.${enStationName}`) },
+        { url: `/stations/${stationId}/school/${schoolId}`, title: language === 'ar' ? arSchoolName : enSchoolName },
         { title: t('Add an itinerary') },
     ];
 
     const { setValue, getValues, formState: { isValid, isSubmitting } } = form;
 
+    // Camera functions
+    useEffect(() => {
+        const startCapture = async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                if (videoRef.current) {
+                    videoRef.current.srcObject = stream;
+                    videoRef.current.play();
+                    setCapturing(true);
+                }
+            } catch (err) {
+                console.error("Error accessing camera:", err);
+            }
+        };
 
-    if (loading) return <Loading />
+        if (capturing) {
+            startCapture();
+        }
+    }, [capturing]);
+
+    const handleStartCapture = () => {
+        setCapturing(true);
+    };
+
+    const capturePhoto = () => {
+        if (canvasRef.current && videoRef.current) {
+            const context = canvasRef.current.getContext("2d");
+            if (context) {
+                canvasRef.current.width = videoRef.current.videoWidth;
+                canvasRef.current.height = videoRef.current.videoHeight;
+                context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
+
+                canvasRef.current.toBlob((blob) => {
+                    if (blob) {
+                        const file = new File([blob], `photo-${Date.now()}.jpg`, { type: "image/jpeg" });
+                        const preview = URL.createObjectURL(file);
+                        setFiles([...files, { file, preview }]);
+                        setCapturing(false);
+                        setPhotoCaptured(true);
+                        if (videoRef.current.srcObject) {
+                            (videoRef.current.srcObject as MediaStream).getTracks().forEach((track) => track.stop());
+                            videoRef.current.srcObject = null;
+                        }
+                    }
+                }, "image/jpeg");
+            }
+        }
+    };
+
+    useEffect(() => {
+        return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
+    }, [files]);
+
+    const thumbs = files.map(({ preview }, idx) => (
+        <div key={idx} className="inline-flex border border-gray-200 mb-2 mr-2 w-24 h-24 p-1 box-border">
+            <div className="flex min-w-0 overflow-hidden">
+                <img src={preview} className="block w-auto h-full" onLoad={() => { URL.revokeObjectURL(preview); }} />
+            </div>
+        </div>
+    ));
 
     return (
         <div className='p-6'>
@@ -221,19 +268,21 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
                                         </FormItem>
                                     )}
                                 />
-                                {/* <FormField
-                                    control={form.control}
-                                    name="image"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>{t('Upload Image')}</FormLabel>
-                                            <FormControl>
-                                                <Input type="file" accept="image/*" onChange={(e) => setValue('image', e.target.files?.[0])} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
+                                <div className="flex justify-center">
+                                    {capturing ? (
+                                        <div className="flex flex-col items-center">
+                                            <video ref={videoRef} className="w-full max-w-xs rounded-md mb-4" autoPlay playsInline></video>
+                                            <Button onClick={capturePhoto} variant="default" type="button">
+                                                {t("Capture Photo")}
+                                            </Button>
+                                        </div>
+                                    ) : (
+                                        <Button onClick={handleStartCapture} variant="default" type="button">
+                                            {t("Open Camera")}
+                                        </Button>
                                     )}
-                                /> */}
+                                </div>
+                                <aside className="flex flex-wrap mt-4">{thumbs}</aside>
                                 <Button type="button" onClick={handleButtonClick} disabled={isFetchingLocation}>
                                     تأكيد الموقع
                                 </Button>
@@ -250,8 +299,9 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
                     </div>
                 </div>
             ) : (
-                <AddRisksForm trafficLineData={trafficLineData} params={{ stationId, schoolId }} />
+                <AddRisksForm trafficLineData={trafficLineData} params={{ stationId, schoolId }} files={files} />
             )}
+            <canvas ref={canvasRef} className="hidden"></canvas>
         </div>
     );
 };

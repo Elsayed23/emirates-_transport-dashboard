@@ -2,8 +2,7 @@
 import React, { useState, useEffect, useContext, useMemo, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import DynamicBreadcrumb from '@/app/(dashboard)/_components/DynamicBreadcrumb'
-import { getSpecificStationName, getSpecificTrafficLineName, getSpecificSchoolName } from '@/app/simple_func/getSpecificData'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import axios from 'axios'
 import Loading from '@/app/(dashboard)/_components/Loading'
 import { toast } from 'sonner'
@@ -18,10 +17,15 @@ const page = ({ params: { stationId, schoolId } }) => {
     const [isSubmitting, setisSubmitting] = useState(false)
     const [isFirstTime, setIsFirstTime] = useState(true)
 
-    const { enStationName } = getSpecificStationName(stationId)
     const { t } = useTranslation()
     const { language } = useContext(LanguageContext)
-    const { arSchoolName, enSchoolName } = getSpecificSchoolName(stationId, schoolId)
+
+    const searchParams = useSearchParams()
+
+    const enStationName = searchParams.get('station')
+    const arSchoolName = searchParams.get('ar_school')
+    const enSchoolName = searchParams.get('en_school')
+
 
     useEffect(() => {
         const newAnswers = questions.filter(q => q.answer === 'نعم').map(q => q.questionAnswer)
@@ -90,7 +94,7 @@ const page = ({ params: { stationId, schoolId } }) => {
                     })
                 }
                 toast.success(t('The notification has been saved successfully'))
-                router.push(`/stations/${stationId}/school/${schoolId}/risks`)
+                router.push(`/stations/${stationId}/school/${schoolId}/risks??station=${enStationName}&ar_school=${arSchoolName}&en_school=${enSchoolName}`)
             }
         } catch (error) {
             console.log(error)

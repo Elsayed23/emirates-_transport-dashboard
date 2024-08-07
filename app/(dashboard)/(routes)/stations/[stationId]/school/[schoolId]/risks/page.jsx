@@ -10,9 +10,8 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { getSpecificStationName, getSpecificSchoolName, getSpecificTrafficLineName } from '@/app/simple_func/getSpecificData'
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Loading from '@/app/(dashboard)/_components/Loading'
 import axios from 'axios'
 import useTranslation from '@/app/hooks/useTranslation'
@@ -24,17 +23,22 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     const [risks, setRisks] = useState([])
     const [loading, setLoading] = useState(true)
-    const { enStationName } = getSpecificStationName(stationId)
+
+
     const router = useRouter()
 
-    const { arSchoolName, enSchoolName } = getSpecificSchoolName(stationId, schoolId)
+    const searchParams = useSearchParams()
+
+    const enStationName = searchParams.get('station')
+    const arSchoolName = searchParams.get('ar_school')
+    const enSchoolName = searchParams.get('en_school')
 
     const getRisks = async () => {
         try {
             const { data } = await axios.get(`/api/school_risks?station_id=${stationId}&school_id=${schoolId}`)
             console.log(data);
             if (!data?.length) {
-                router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)
+                router.push(`/stations/${stationId}/school/${schoolId}/add_risks?station=${enStationName}&ar_school=${arSchoolName}&en_school=${enStationName}`)
             }
             setRisks(data)
         } catch (error) {
@@ -77,6 +81,9 @@ const page = ({ params: { stationId, schoolId } }) => {
         exportRisksToExcel(risks, `${enSchoolName} Risks`);
     };
 
+    const makeDIR = language === 'ar' ? 'rtl' : 'ltr';
+
+
     return (
         !loading
             ?
@@ -87,7 +94,7 @@ const page = ({ params: { stationId, schoolId } }) => {
                         <Button className='w-fit justify-start' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)}>{isHaveRisks ? t('Update risks') : t('Add risks')}</Button>
                         <Button variant='outline' onClick={handleDownload}>{t('Download Risks')}</Button>
                     </div>
-                    <Table dir='rtl'>
+                    <Table dir={makeDIR}>
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[50px] text-center bg-blue-950 text-xs px-0 text-white border border-black">م <br /> NO</TableHead>
@@ -132,7 +139,7 @@ const page = ({ params: { stationId, schoolId } }) => {
                                         <tbody>
                                             {controlMeasures.map(({ measureAr, measureEn }, idx) => (
                                                 <tr key={idx}>
-                                                    <td className='border-l border-black p-3 w-1/2  text-center'>
+                                                    <td className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-2 w-1/2 text-center`}>
                                                         <h3>{measureAr}</h3>
                                                     </td>
                                                     <td className='p-3 w-1/2 text-center'>

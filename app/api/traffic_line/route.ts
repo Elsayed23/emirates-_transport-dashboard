@@ -1,5 +1,7 @@
 import { db } from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
+import path from 'path';
+import fs from 'fs';
 
 interface QuestionAnswer {
     questionId: number;
@@ -15,7 +17,7 @@ interface TrafficLine {
 }
 
 const targetQuestionIds = [1, 2, 5, 6];
-function analyzeRisks(trafficLines: TrafficLine[], targetQuestionIds: number[]): Record<string, number> {
+function analyzeRisks(trafficLines: any, targetQuestionIds: any) {
     return trafficLines.reduce((analysis: Record<string, number>, line: TrafficLine) => {
         const yesCount = line.risks.reduce((count, risk) => {
             return count + risk.questionAnswers.filter(qa => targetQuestionIds.includes(qa.questionId) && qa.answer === 'نعم').length;
@@ -36,7 +38,7 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ message: 'Missing required fields.' });
         }
 
-        const trafficLines: TrafficLine[] = await db.trafficLine.findMany({
+        const trafficLines = await db.trafficLine.findMany({
             orderBy: {
                 createdAt: 'asc'
             },
@@ -46,11 +48,10 @@ export async function GET(req: NextRequest) {
             },
             include: {
                 risks: {
-                    select: {
-                        questionAnswers: {
+                    include: {
+                        question: {
                             select: {
-                                questionId: true,
-                                answer: true
+                                userResponses: true
                             }
                         }
                     }
@@ -78,24 +79,25 @@ export async function GET(req: NextRequest) {
 
 
 export async function POST(req: Request) {
+    const formData = await req.formData();
 
-    const {
-        userId,
-        name,
-        schoolId,
-        stationId,
-        educationalLevel,
-        countOfStudents,
-        transferredCategory,
-        latitude,
-        longitude
-    } = await req.json();
+    const userId = formData.get('userId') as string;
+    const name = formData.get('name') as string;
+    const schoolId = formData.get('schoolId') as string;
+    const stationId = formData.get('stationId') as string;
+    const educationalLevel = formData.get('educationalLevel') as string;
+    const countOfStudents = formData.get('countOfStudents') as unknown as number;
+    const transferredCategory = formData.get('transferredCategory') as string;
+    const latitude: any = formData.get('latitude');
+    const longitude: any = formData.get('longitude');
+    const files = formData.getAll('image') as File[];
 
     if (!userId || !name || !schoolId || !stationId || !educationalLevel || !countOfStudents || !transferredCategory) {
         return NextResponse.json({ message: 'Invalid input' });
     }
 
     try {
+        // Save traffic line data to the database
         const trafficLine = await db.trafficLine.create({
             data: {
                 userId,
@@ -103,12 +105,33 @@ export async function POST(req: Request) {
                 schoolId,
                 stationId,
                 educationalLevel,
-                countOfStudents,
+                countOfStudents: Number(countOfStudents),
                 transferredCategory,
-                latitude,
-                longitude,
+                latitude: Number(latitude),
+                longitude: Number(longitude),
             }
         });
+
+        // Save images
+        const imagePromises = files.filter(file => file.type.startsWith('image/')).map(async (file) => {
+            const arrayBuffer = await file.arrayBuffer();
+            const buffer = new Uint8Array(arrayBuffer);
+            const fileName = `${Date.now()}-${file.name}`;
+            const filePath = path.join('/uploads', fileName);
+            fs.writeFileSync(path.join('./public', filePath), buffer);
+
+            // Save image path to TrafficLineImage model
+            await db.trafficLineImage.create({
+                data: {
+                    trafficLineId: trafficLine.id,
+                    imageUrl: filePath,
+                }
+            });
+
+            return filePath;
+        });
+
+        await Promise.all(imagePromises);
 
         return NextResponse.json({ id: trafficLine.id });
     } catch (error) {
@@ -116,6 +139,7 @@ export async function POST(req: Request) {
         return NextResponse.json({ message: 'Internal server error' });
     }
 }
+
 
 
 
@@ -133,9 +157,9 @@ export async function DELETE(req: NextRequest) {
             include: {
                 risks: {
                     include: {
-                        questionAnswers: {
+                        question: {
                             include: {
-                                controlMeasures: true
+                                answers: true
                             }
                         }
                     },

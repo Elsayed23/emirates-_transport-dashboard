@@ -56,7 +56,11 @@ export const GET = async () => {
                 id: true,
                 name: true,
                 email: true,
-                stationId: true,
+                station: {
+                    select: {
+                        id: true
+                    }
+                },
                 role: true,
             }
         });
@@ -100,7 +104,11 @@ export const PATCH = async (req: Request) => {
                 id: true,
                 name: true,
                 email: true,
-                stationId: true,
+                station: {
+                    select: {
+                        id: true
+                    }
+                },
                 role: true,
             }
         })
@@ -138,7 +146,11 @@ export const DELETE = async (req: Request) => {
                 id: true,
                 name: true,
                 email: true,
-                stationId: true,
+                station: {
+                    select: {
+                        id: true
+                    }
+                },
                 role: true,
             }
         })

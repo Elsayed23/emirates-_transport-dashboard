@@ -43,6 +43,7 @@ const CreateReportForm = ({ setReportData, }) => {
     const { language } = useContext(LanguageContext);
     const { t } = useTranslation();
     const [inspectionTypesData, setInspectionTypesData] = useState(null);
+    const [stations, setStations] = useState(null)
 
     const { user } = useAuth();
     const searchParams = useSearchParams();
@@ -60,6 +61,17 @@ const CreateReportForm = ({ setReportData, }) => {
     });
 
     const { isSubmitting, isValid } = form.formState;
+
+    const getStations = async () => {
+        try {
+
+            const { data } = await axios.get('/api/station')
+            setStations(data);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     const getInspectionTypes = async () => {
@@ -84,6 +96,7 @@ const CreateReportForm = ({ setReportData, }) => {
     }
 
     useEffect(() => {
+        getStations()
         getInspectionTypes();
     }, []);
 
@@ -97,8 +110,8 @@ const CreateReportForm = ({ setReportData, }) => {
         const inspectionTypeName = inspectionTypesData?.find((inspection) => {
             return inspection?.id === values.inspectionTypeId
         })?.name
-
-        setReportData({ ...values, inspectionTypeName });
+        const nameOfStation = stations.find(({ id }) => id === values.stationId)?.translationName;
+        setReportData({ ...values, inspectionTypeName, nameOfStation });
     };
 
     if (!inspectionTypesData) return <Loading />;
@@ -122,8 +135,8 @@ const CreateReportForm = ({ setReportData, }) => {
                                                 </SelectTrigger>
                                             </FormControl>
                                             <SelectContent dir={language === 'ar' ? 'rtl' : 'ltr'}>
-                                                {stationsData.map((station, idx) => (
-                                                    <SelectItem key={idx} value={station?.id?.toString()}>{language === 'ar' ? station?.name : station?.translationName}</SelectItem>
+                                                {stations?.map((station, idx) => (
+                                                    <SelectItem key={idx} value={station?.id}>{language === 'ar' ? station?.name : station?.translationName}</SelectItem>
                                                 ))}
                                             </SelectContent>
                                         </Select>

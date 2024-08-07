@@ -45,10 +45,14 @@ export const GET = async (req: NextRequest) => {
                     select: {
                         risks: {
                             select: {
-                                questionAnswers: {
+                                question: {
                                     select: {
-                                        questionId: true,
-                                        answer: true
+                                        id: true,
+                                        userResponses: {
+                                            select: {
+                                                response: true
+                                            }
+                                        }
                                     }
                                 }
                             }

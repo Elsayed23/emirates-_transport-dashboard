@@ -11,7 +11,7 @@ export async function POST(req: Request) {
         const newReport = await db.report.create({
             data: {
                 user_id: userId,
-                stationId: Number(stationId),
+                stationId,
                 nameOfStation,
                 nameOfSchool,
                 inspectionTypeId,
@@ -85,7 +85,11 @@ export async function GET(req: NextRequest) {
             where: { id: userId },
             include: {
                 role: true,
-                // Optionally include stationId if necessary
+                station: {
+                    select: {
+                        id: true
+                    }
+                }
             }
         });
 
@@ -99,7 +103,7 @@ export async function GET(req: NextRequest) {
             reports = await db.report.findMany({
                 where: {
                     approved: true,
-                    stationId: Number(user.stationId),
+                    stationId: user.station?.id,
                     inspectionType: {
                         isNot: {
                             name: 'Inspection of electronic control'

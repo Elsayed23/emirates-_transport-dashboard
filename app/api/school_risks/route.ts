@@ -44,8 +44,8 @@ export async function POST(req: Request) {
 
             return db.schoolRisks.create({
                 data: {
-                    schoolId: Number(schoolId),
-                    stationId: Number(stationId), // Add stationId
+                    schoolId,
+                    stationId,
                     questionId: risk.questionId,
                     causeOfRisk: risk.causeOfRisk,
                     activity: risk.activity,
@@ -78,15 +78,17 @@ export async function GET(req: NextRequest) {
         const schoolId = req.nextUrl.searchParams.get('school_id');
         const stationId = req.nextUrl.searchParams.get('station_id');
 
-        console.log(schoolId, stationId);
+        if (!schoolId || !stationId) {
+            return NextResponse.json({ message: 'Missing required fields.' });
+        }
 
         const risks = await db.schoolRisks.findMany({
             orderBy: {
                 questionId: 'asc'
             },
             where: {
-                schoolId: Number(schoolId),
-                stationId: Number(stationId)
+                schoolId,
+                stationId
             },
             include: {
                 controlMeasures: true
@@ -144,16 +146,16 @@ export async function PATCH(req: NextRequest) {
         await db.schoolControlMeasure.deleteMany({
             where: {
                 risk: {
-                    schoolId: Number(schoolId),
-                    stationId: Number(stationId)
+                    schoolId,
+                    stationId
                 }
             }
         });
 
         await db.schoolRisks.deleteMany({
             where: {
-                schoolId: Number(schoolId),
-                stationId: Number(stationId)
+                schoolId,
+                stationId
             }
         });
 
@@ -171,8 +173,8 @@ export async function PATCH(req: NextRequest) {
 
             return db.schoolRisks.create({
                 data: {
-                    schoolId: Number(schoolId),
-                    stationId: Number(stationId), // Add stationId
+                    schoolId,
+                    stationId,
                     questionId: risk.questionId,
                     causeOfRisk: risk.causeOfRisk,
                     activity: risk.activity,

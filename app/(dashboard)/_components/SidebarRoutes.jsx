@@ -6,6 +6,7 @@ import { FaMapMarkedAlt } from "react-icons/fa";
 import useTranslation from '@/app/hooks/useTranslation';
 import { MdDocumentScanner, MdImageSearch, MdModelTraining } from 'react-icons/md';
 import { FaCodePullRequest, FaUsers } from 'react-icons/fa6';
+import { BsFillQuestionSquareFill } from "react-icons/bs";
 import { useAuth } from '@/app/context/AuthContext';
 import {
     Accordion,
@@ -53,7 +54,13 @@ const SidebarRoutes = () => {
             icon: FaUsers,
             label: t('Users'),
             href: '/users'
-        }
+        },
+            {
+                icon: BsFillQuestionSquareFill,
+                label: 'الاسئلة',
+                href: '/questions'
+            },
+
         );
     }
 
