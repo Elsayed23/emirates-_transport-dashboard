@@ -1,153 +1,168 @@
-import { db } from '@/lib/db';
-import { NextRequest, NextResponse } from 'next/server';
-import { BASIC_HAZARDS } from './BASIC_HAZARDS'
+import { db } from "@/lib/db";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-    const { schoolId, stationId, risks } = await req.json();
+    const { schoolId, risks } = await req.json();
 
-    // Flatten the nested arrays of risks to a single array of risk objects
-    const flatRisks = risks.flat(Infinity);
-
-    // Check for required inputs
-    if (!schoolId || !stationId) {
-        return NextResponse.json({ message: 'Missing required fields or no risks provided.' });
+    if (!schoolId || !risks) {
+        return NextResponse.json({ message: 'Missing required fields or no risks provided.' }, { status: 400 });
     }
 
-    const allRisks = [
-        ...flatRisks.map((hazard: any) => ({
-            ...hazard,
-            controlMeasures: {
-                ar: hazard.controlMeasures.ar,
-                en: hazard.controlMeasures.en
-            }
-        })),
-        ...BASIC_HAZARDS.map(hazard => ({
-            ...hazard,
-            controlMeasures: {
-                ar: hazard.controlMeasures.ar,
-                en: hazard.controlMeasures.en
-            }
-        }))
-    ];
-
     try {
-        // Prepare risks and control measures for database insertion
-        const riskCreations = allRisks.map(risk => {
-            if (risk.controlMeasures.ar.length !== risk.controlMeasures.en.length) {
-                throw new Error(`Mismatched control measures lengths for risk with questionId: ${risk.questionId}`);
+        const basicHazards = await db.question.findMany({
+            where: {
+                question: 'اساسي'
+            },
+            include: {
+                answers: true
             }
+        });
 
-            const controlMeasures = risk.controlMeasures.ar.map((measureAr: string, index: number) => ({
-                measureAr,
-                measureEn: risk.controlMeasures.en[index]
-            }));
+        const allQuestionAnswers = [
+            ...risks,
+            ...basicHazards.map(hazard => ({
+                questionId: hazard.id,
+                response: 'basic'
+            }))
+        ];
 
-            return db.schoolRisks.create({
+        const riskCreations = allQuestionAnswers.map((risk) => {
+            return db.userResponse.create({
                 data: {
-                    schoolId,
-                    stationId,
-                    questionId: risk.questionId,
-                    causeOfRisk: risk.causeOfRisk,
-                    activity: risk.activity,
-                    typeOfActivity: risk.typeOfActivity,
-                    hazardSource: risk.hazardSource,
-                    risk: risk.risk,
-                    peopleExposedToRisk: risk.peopleExposedToRisk,
-                    expectedInjury: risk.expectedInjury,
-                    riskAssessment: risk.riskAssessment,
-                    residualRisks: risk.residualRisks,
-                    controlMeasures: {
-                        create: controlMeasures
-                    }
-                }
+                    school: { connect: { id: schoolId } },
+                    question: { connect: { id: risk.questionId } },
+                    response: risk.response
+                },
             });
         });
 
-        // Execute all database operations as a transaction
         const results = await db.$transaction(riskCreations);
         return NextResponse.json(results);
-
     } catch (error) {
-        console.error('Error creating risks:', error);
-        return NextResponse.json({ message: 'Internal server error', error: error });
+        console.error('Error creating school risks:', error);
+        return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
     }
 }
 
 export async function GET(req: NextRequest) {
     try {
         const schoolId = req.nextUrl.searchParams.get('school_id');
-        const stationId = req.nextUrl.searchParams.get('station_id');
 
-        if (!schoolId || !stationId) {
-            return NextResponse.json({ message: 'Missing required fields.' });
+        if (!schoolId) {
+            return NextResponse.json({ message: 'Missing required school_id parameter.' }, { status: 400 });
         }
 
-        const risks = await db.schoolRisks.findMany({
-            orderBy: {
-                questionId: 'asc'
-            },
+        const responses = await db.userResponse.findMany({
             where: {
                 schoolId,
-                stationId
+                response: {
+                    in: ['نعم', 'basic']
+                }
             },
             include: {
-                controlMeasures: true
+                question: {
+                    include: {
+                        answers: {
+                            include: {
+                                controlMeasures: true
+                            },
+                        },
+                    },
+                },
+            },
+            orderBy: {
+                question: {
+                    orderd: 'asc'
+                }
             }
         });
 
-        return NextResponse.json(risks);
+        // Process responses to format data
+        const processedResponses = responses.map(response => {
+            const { question, ...rest } = response;
+            return {
+                ...rest,
+                question: question.question,
+                translatedQuestion: question.translatedQuestion,
+                answers: question.answers.map(answer => ({
+                    ...answer,
+                    controlMeasures: answer.controlMeasures
+                }))
+            };
+        });
 
+        const allQuestionAnswers = await getAllQuestionAnswers(schoolId);
+
+        return NextResponse.json({ risks: processedResponses, allQuestionAnswers });
     } catch (error) {
-        console.error('Error getting risks:', error);
-        return NextResponse.json({ message: 'Internal server error' });
+        console.error('Error getting user responses:', error);
+        return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
     }
 }
 
+async function getAllQuestionAnswers(schoolId: string) {
+    const allQuestions = await db.userResponse.findMany({
+        orderBy: {
+            question: {
+                orderd: 'asc'
+            }
+        },
+        where: {
+            schoolId,
+            NOT: {
+                response: 'basic'
+            }
+        },
+        select: {
+            question: {
+                select: {
+                    question: true,
+                    translatedQuestion: true
+                }
+            },
+            response: true
+        }
+    });
+    return allQuestions;
+}
+
+
 export async function PATCH(req: NextRequest) {
-    const { schoolId, stationId, risks } = await req.json();
+    const { schoolId, risks } = await req.json();
 
-    const flatRisks = risks.flat(Infinity);
-
-    if (!schoolId || !stationId) {
-        return NextResponse.json({ message: 'Missing required fields or no risks provided.' });
-    }
-
-    let allRisks;
-    if (flatRisks.length === 0) {
-        allRisks = [
-            ...BASIC_HAZARDS.map(hazard => ({
-                ...hazard,
-                controlMeasures: {
-                    ar: hazard.controlMeasures.ar,
-                    en: hazard.controlMeasures.en
-                }
-            }))
-        ];
-    } else {
-        allRisks = [
-            ...flatRisks.map((hazard: any) => ({
-                ...hazard,
-                controlMeasures: {
-                    ar: hazard.controlMeasures.ar,
-                    en: hazard.controlMeasures.en
-                }
-            })),
-            ...BASIC_HAZARDS.map(hazard => ({
-                ...hazard,
-                controlMeasures: {
-                    ar: hazard.controlMeasures.ar,
-                    en: hazard.controlMeasures.en
-                }
-            }))
-        ];
+    if (!schoolId || !risks) {
+        return NextResponse.json({ message: 'Missing required fields or no risks provided.' }, { status: 400 });
     }
 
     try {
+        const basicHazards = await db.question.findMany({
+            where: {
+                question: 'اساسي'
+            },
+            include: {
+                answers: {
+                    include: {
+                        controlMeasures: true
+                    }
+                }
+            }
+        });
+
+        const allRisks = [
+            ...risks.map((risk: any) => ({
+                ...risk,
+                response: 'yes'
+            })),
+            ...basicHazards.map(hazard => ({
+                questionId: hazard.id,
+                response: 'basic'
+            }))
+        ];
+
         await db.schoolControlMeasure.deleteMany({
             where: {
                 risk: {
                     schoolId,
-                    stationId
                 }
             }
         });
@@ -155,48 +170,23 @@ export async function PATCH(req: NextRequest) {
         await db.schoolRisks.deleteMany({
             where: {
                 schoolId,
-                stationId
             }
         });
 
-        const riskCreations = allRisks.map(risk => {
-            if (risk.controlMeasures.ar.length !== risk.controlMeasures.en.length) {
-                throw new Error(`Mismatched control measures lengths for risk with questionId: ${risk.questionId}`);
-            }
-
-            const controlMeasures = risk.controlMeasures.ar.map((measureAr: string, index: number) => ({
-                measureAr,
-                measureEn: risk.controlMeasures.en[index]
-            }));
-
-            console.log(`Creating risk for questionId: ${risk.questionId}`, controlMeasures);
-
-            return db.schoolRisks.create({
+        const riskCreations = allRisks.map((risk) => {
+            return db.userResponse.create({
                 data: {
-                    schoolId,
-                    stationId,
-                    questionId: risk.questionId,
-                    causeOfRisk: risk.causeOfRisk,
-                    activity: risk.activity,
-                    typeOfActivity: risk.typeOfActivity,
-                    hazardSource: risk.hazardSource,
-                    risk: risk.risk,
-                    peopleExposedToRisk: risk.peopleExposedToRisk,
-                    expectedInjury: risk.expectedInjury,
-                    riskAssessment: risk.riskAssessment,
-                    residualRisks: risk.residualRisks,
-                    controlMeasures: {
-                        create: controlMeasures
-                    }
-                }
+                    school: { connect: { id: schoolId } },
+                    question: { connect: { id: risk.questionId } },
+                    response: risk.response
+                },
             });
         });
 
-        // Execute all database operations as a transaction
         const results = await db.$transaction(riskCreations);
         return NextResponse.json(results);
     } catch (error) {
-        console.error('Error replacing risks:', error);
-        return NextResponse.json({ message: 'Internal server error', error: error });
+        console.error('Error replacing school risks:', error);
+        return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
     }
 }

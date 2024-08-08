@@ -277,30 +277,35 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
                             return (
                                 <TableRow key={idx} className={`${idx % 2 === 0 ? 'bg-blue-400 bg-opacity-50 hover:bg-blue-100' : ''}`}>
-                                    <TableCell className="font-medium border border-black text-center p-2 text-xs">{idx + 1}</TableCell>
-                                    <TableCell className="font-medium border border-black text-center p-2 max-w-[100px] text-xs">{splitAndRender(causeOfRisk)}</TableCell>
-                                    <TableCell className="text-center p-2 text-xs border border-black max-w-[200px]">{splitAndRender(activity)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[80px]'>{splitAndRender(typeOfActivity)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[200px]'>{splitAndRender(hazardSource)}</TableCell>
-                                    <TableCell className='w-44 text-center p-2 text-xs border border-black'>{splitAndRender(riskDescription)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[130px]'>{splitAndRender(peopleExposedToRisk)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[100px]'>{splitAndRender(expectedInjury)}</TableCell>
-                                    <TableCell className='text-center p-2 text-xs border border-black max-w-[100px]'>{riskAssessment}</TableCell>
-                                    <TableCell className='border text-xs border-black min-w-[380px]'>
-                                        <tbody>
+                                    <TableCell className="font-medium border border-black text-center break-words text-wrap p-2 text-xs">{idx + 1}</TableCell>
+                                    <TableCell className="font-medium border border-black text-center break-words text-wrap p-2 max-w-[100px] text-xs">{splitAndRender(causeOfRisk)}</TableCell>
+                                    <TableCell className="text-center break-words text-wrap p-2 text-xs border border-black max-w-[200px]">{splitAndRender(activity)}</TableCell>
+                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[80px]'>{splitAndRender(typeOfActivity)}</TableCell>
+                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[200px]'>{splitAndRender(hazardSource)}</TableCell>
+                                    <TableCell className='w-44 text-center break-words text-wrap p-2 text-xs border border-black'>{splitAndRender(riskDescription)}</TableCell>
+                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[130px]'>{splitAndRender(peopleExposedToRisk)}</TableCell>
+                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{splitAndRender(expectedInjury)}</TableCell>
+                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{riskAssessment}</TableCell>
+                                    <TableCell className='border text-xs text-center p-1 border-black min-w-[380px]'>
+                                        <tbody className='w-full grid grid-cols-2'>
                                             {controlMeasures.map(({ ar, en }, idx) => (
-                                                <tr key={idx}>
-                                                    <td className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-2 w-1/2 text-center`}>
-                                                        <h3>{ar}</h3>
-                                                    </td>
-                                                    <td className='p-2 w-1/2 text-center'>
-                                                        <h3>{en}</h3>
-                                                    </td>
-                                                </tr>
+                                                <>
+                                                    <tr key={idx}>
+                                                        <td className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 w-1/2 text-center break-words text-wrap`}>
+                                                            <h3>{ar}</h3>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td className='p-1 w-1/2 text-center break-words text-wrap'>
+                                                            <h3>{en}</h3>
+                                                        </td>
+                                                    </tr>
+                                                </>
                                             ))}
                                         </tbody>
                                     </TableCell>
-                                    <TableCell className='text-center text-xs border border-black max-w-[100px]'>{residualRisks}</TableCell>
+                                    <TableCell className='text-center break-words text-wrap text-xs border border-black max-w-[100px]'>{residualRisks}</TableCell>
                                 </TableRow>
                             );
                         })}

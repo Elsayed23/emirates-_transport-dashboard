@@ -4,16 +4,14 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest) {
     try {
         const schoolId = req.nextUrl.searchParams.get('school_id');
-        const stationId = req.nextUrl.searchParams.get('station_id');
 
-        if (!stationId || !schoolId) {
+        if (!schoolId) {
             return NextResponse.json({ message: 'Missing required fields.' });
         }
 
-        const count = await db.schoolRisks.count({
+        const count = await db.userResponse.count({
             where: {
                 schoolId,
-                stationId
             }
         });
 

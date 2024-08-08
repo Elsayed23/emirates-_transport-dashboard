@@ -53,7 +53,6 @@ CREATE TABLE `School` (
 -- CreateTable
 CREATE TABLE `SchoolRisks` (
     `id` VARCHAR(191) NOT NULL,
-    `stationId` VARCHAR(191) NOT NULL,
     `schoolId` VARCHAR(191) NOT NULL,
     `questionId` VARCHAR(191) NOT NULL,
     `causeOfRisk` LONGTEXT NULL,
@@ -100,9 +99,22 @@ CREATE TABLE `TrafficLine` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `TrafficLineRisk` (
+CREATE TABLE `TrafficLineImage` (
     `id` VARCHAR(191) NOT NULL,
-    `trafficLineId` VARCHAR(191) NULL,
+    `trafficLineId` VARCHAR(191) NOT NULL,
+    `imageUrl` VARCHAR(191) NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Question` (
+    `id` VARCHAR(191) NOT NULL,
+    `question` LONGTEXT NOT NULL,
+    `translatedQuestion` LONGTEXT NOT NULL,
+    `orderd` INTEGER NOT NULL,
+    `appliesTo` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
@@ -110,13 +122,9 @@ CREATE TABLE `TrafficLineRisk` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `QuestionAnswer` (
+CREATE TABLE `Answer` (
     `id` VARCHAR(191) NOT NULL,
-    `trafficLineRiskId` VARCHAR(191) NULL,
-    `questionId` INTEGER NOT NULL,
-    `question` LONGTEXT NOT NULL,
-    `translatedQuestion` LONGTEXT NOT NULL,
-    `answer` LONGTEXT NOT NULL,
+    `questionId` VARCHAR(191) NOT NULL,
     `causeOfRisk` LONGTEXT NULL,
     `activity` LONGTEXT NULL,
     `typeOfActivity` LONGTEXT NULL,
@@ -129,15 +137,30 @@ CREATE TABLE `QuestionAnswer` (
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
+    UNIQUE INDEX `Answer_questionId_key`(`questionId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `TraffikLineControlMeasure` (
+CREATE TABLE `UserResponse` (
     `id` VARCHAR(191) NOT NULL,
-    `questionAnswerId` VARCHAR(191) NOT NULL,
-    `measureAr` LONGTEXT NOT NULL,
-    `measureEn` LONGTEXT NOT NULL,
+    `questionId` VARCHAR(191) NOT NULL,
+    `trafficLineId` VARCHAR(191) NOT NULL,
+    `response` LONGTEXT NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `ControlMeasure` (
+    `id` VARCHAR(191) NOT NULL,
+    `ar` LONGTEXT NOT NULL,
+    `en` LONGTEXT NOT NULL,
+    `answerId` VARCHAR(191) NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -226,6 +249,9 @@ ALTER TABLE `School` ADD CONSTRAINT `School_stationId_fkey` FOREIGN KEY (`statio
 ALTER TABLE `SchoolRisks` ADD CONSTRAINT `SchoolRisks_schoolId_fkey` FOREIGN KEY (`schoolId`) REFERENCES `School`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE `SchoolRisks` ADD CONSTRAINT `SchoolRisks_questionId_fkey` FOREIGN KEY (`questionId`) REFERENCES `Question`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE `SchoolControlMeasure` ADD CONSTRAINT `SchoolControlMeasure_riskId_fkey` FOREIGN KEY (`riskId`) REFERENCES `SchoolRisks`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
@@ -238,13 +264,19 @@ ALTER TABLE `TrafficLine` ADD CONSTRAINT `TrafficLine_schoolId_fkey` FOREIGN KEY
 ALTER TABLE `TrafficLine` ADD CONSTRAINT `TrafficLine_stationId_fkey` FOREIGN KEY (`stationId`) REFERENCES `Station`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `TrafficLineRisk` ADD CONSTRAINT `TrafficLineRisk_trafficLineId_fkey` FOREIGN KEY (`trafficLineId`) REFERENCES `TrafficLine`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `TrafficLineImage` ADD CONSTRAINT `TrafficLineImage_trafficLineId_fkey` FOREIGN KEY (`trafficLineId`) REFERENCES `TrafficLine`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `QuestionAnswer` ADD CONSTRAINT `QuestionAnswer_trafficLineRiskId_fkey` FOREIGN KEY (`trafficLineRiskId`) REFERENCES `TrafficLineRisk`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Answer` ADD CONSTRAINT `Answer_questionId_fkey` FOREIGN KEY (`questionId`) REFERENCES `Question`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `TraffikLineControlMeasure` ADD CONSTRAINT `TraffikLineControlMeasure_questionAnswerId_fkey` FOREIGN KEY (`questionAnswerId`) REFERENCES `QuestionAnswer`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `UserResponse` ADD CONSTRAINT `UserResponse_questionId_fkey` FOREIGN KEY (`questionId`) REFERENCES `Question`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `UserResponse` ADD CONSTRAINT `UserResponse_trafficLineId_fkey` FOREIGN KEY (`trafficLineId`) REFERENCES `TrafficLine`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `ControlMeasure` ADD CONSTRAINT `ControlMeasure_answerId_fkey` FOREIGN KEY (`answerId`) REFERENCES `Answer`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `reports` ADD CONSTRAINT `reports_stationId_fkey` FOREIGN KEY (`stationId`) REFERENCES `Station`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

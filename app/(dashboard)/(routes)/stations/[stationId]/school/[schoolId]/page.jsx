@@ -42,7 +42,7 @@ const page = ({ params: { stationId, schoolId } }) => {
 
     const getCountOfSchoolRisks = async () => {
         try {
-            const { data } = await axios.get(`/api/school_risks/count?station_id=${stationId}&school_id=${schoolId}`)
+            const { data } = await axios.get(`/api/school_risks/count?school_id=${schoolId}`)
 
             setCountOfSchoolRIsks(data)
         } catch (error) {

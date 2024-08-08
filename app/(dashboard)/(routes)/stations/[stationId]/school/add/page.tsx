@@ -13,7 +13,6 @@ const formSchema = z.object({
     name: z.string().min(1, { message: "Invalid field." }),
     translationName: z.string().min(1, { message: "Invalid field." }),
     contract: z.string().min(1, { message: "Invalid field." }),
-    stationId: z.string(),
 });
 
 const page = ({
@@ -29,7 +28,6 @@ const page = ({
             name: '',
             translationName: '',
             contract: '',
-            stationId,
         },
     });
 
@@ -38,9 +36,10 @@ const page = ({
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
 
-            await axios.post('/api/school', values);
+            await axios.post('/api/school', { ...values, stationId });
 
             router.push(`/stations/${stationId}`)
+
 
         } catch (error) {
             console.error(error);

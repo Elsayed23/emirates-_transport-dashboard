@@ -37,6 +37,9 @@ export const GET = async (req: NextRequest) => {
         }
 
         const schools = await db.school.findMany({
+            orderBy: {
+                createdAt: 'asc'
+            },
             where: {
                 stationId
             },

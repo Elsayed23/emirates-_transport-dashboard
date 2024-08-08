@@ -62,14 +62,16 @@ model School {
   risks           SchoolRisks[]
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
+
+  UserResponse UserResponse[]
 }
 
 model SchoolRisks {
   id                  String                 @id @default(uuid())
-  stationId           String
   schoolId            String
-  trafficLine         School?                @relation(fields: [schoolId], references: [id], onDelete: Cascade)
-  questionId          Int
+  questionId          String
+  school              School?                @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  question            Question               @relation(fields: [questionId], references: [id], onDelete: Cascade, name: "QuestionSchoolRisks")
   causeOfRisk         String?                @db.LongText
   activity            String?
   typeOfActivity      String?
@@ -85,11 +87,11 @@ model SchoolRisks {
 }
 
 model SchoolControlMeasure {
-  id        String      @id @default(uuid())
-  riskId    String
-  measureAr String      @db.LongText
-  measureEn String      @db.LongText
-  risk      SchoolRisks @relation(fields: [riskId], references: [id], onDelete: Cascade)
+  id     String      @id @default(uuid())
+  riskId String
+  ar     String      @db.LongText
+  en     String      @db.LongText
+  risk   SchoolRisks @relation(fields: [riskId], references: [id], onDelete: Cascade)
 }
 
 model TrafficLine {
@@ -125,10 +127,12 @@ model Question {
   question           String         @db.LongText
   translatedQuestion String         @db.LongText
   orderd             Int
+  appliesTo          String
   createdAt          DateTime       @default(now())
   updatedAt          DateTime       @updatedAt
   answers            Answer[]
   userResponses      UserResponse[]
+  schoolRisks        SchoolRisks[]  @relation("QuestionSchoolRisks")
 }
 
 model Answer {
@@ -150,14 +154,16 @@ model Answer {
 }
 
 model UserResponse {
-  id            String      @id @default(uuid())
+  id            String       @id @default(uuid())
   questionId    String
-  trafficLineId String
-  response      String      @db.LongText
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  question      Question    @relation(fields: [questionId], references: [id])
-  trafficLine   TrafficLine @relation(fields: [trafficLineId], references: [id], onDelete: Cascade)
+  trafficLineId String?
+  schoolId      String?
+  response      String       @db.LongText
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  question      Question     @relation(fields: [questionId], references: [id])
+  trafficLine   TrafficLine? @relation(fields: [trafficLineId], references: [id], onDelete: Cascade)
+  school        School?      @relation(fields: [schoolId], references: [id], onDelete: Cascade)
 }
 
 model ControlMeasure {

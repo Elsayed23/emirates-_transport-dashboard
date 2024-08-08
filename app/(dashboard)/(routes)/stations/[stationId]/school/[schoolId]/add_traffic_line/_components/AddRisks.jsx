@@ -22,7 +22,7 @@ const AddRisksForm = ({ trafficLineData, params: { stationId, schoolId }, files 
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const { data } = await axios.get('/api/questions');
+                const { data } = await axios.get('/api/questions?applies_to=trafficLine');
                 const formattedQuestions = data.map(q => ({
                     ...q,
                     answer: 'غير مجاب عليها' // default answer
