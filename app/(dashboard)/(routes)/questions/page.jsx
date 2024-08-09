@@ -190,6 +190,7 @@ const QuestionsPage = () => {
                                 <SelectLabel>{t('Apply To')}</SelectLabel>
                                 <SelectItem value="trafficLine">{t('Traffic Line')}</SelectItem>
                                 <SelectItem value="school">{t('School')}</SelectItem>
+                                <SelectItem value="built">{t('Built')}</SelectItem>
                             </SelectGroup>
                         </SelectContent>
                     </Select>
@@ -251,6 +252,8 @@ const QuestionsPage = () => {
                 {renderQuestions(questions.filter(q => q.appliesTo === 'trafficLine'))}
                 <h2 className="text-lg font-semibold mb-2">{t('School Questions')}</h2>
                 {renderQuestions(questions.filter(q => q.appliesTo === 'school'))}
+                <h2 className="text-lg font-semibold mb-2">{t('Built Questions')}</h2>
+                {renderQuestions(questions.filter(q => q.appliesTo === 'built'))}
             </div>
         </div>
     );

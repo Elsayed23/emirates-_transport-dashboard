@@ -170,18 +170,16 @@ const page = ({ params: { stationId, schoolId } }) => {
                                         <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{splitAndRender(expectedInjury)}</TableCell>
                                         <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{riskAssessment}</TableCell>
                                         <TableCell className='border text-xs text-center p-0 border-black min-w-[380px]'>
-                                            <div className='w-full grid grid-cols-2'>
-                                                {controlMeasures.map(({ ar, en }, idx) => (
-                                                    <>
-                                                        <div key={idx} className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 border-y text-center break-words text-wrap`}>
-                                                            <h3>{ar}</h3>
-                                                        </div>
-                                                        <div className='p-1 text-center break-words border-y border-black text-wrap'>
-                                                            <h3>{en}</h3>
-                                                        </div>
-                                                    </>
-                                                ))}
-                                            </div>
+                                            {controlMeasures.map(({ ar, en }, idx) => (
+                                                <div className='w-full grid grid-cols-2' key={idx}>
+                                                    <div key={idx} className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 border-y text-center break-words text-wrap`}>
+                                                        <h3>{ar}</h3>
+                                                    </div>
+                                                    <div className='p-1 text-center break-words border-y border-black text-wrap'>
+                                                        <h3>{en}</h3>
+                                                    </div>
+                                                </div>
+                                            ))}
                                         </TableCell>
                                         <TableCell className='text-center break-words text-wrap text-xs border-b border-black max-w-[100px]'>{residualRisks}</TableCell>
                                     </TableRow>

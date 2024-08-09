@@ -41,6 +41,7 @@ import {
 import 'leaflet/dist/leaflet.css';
 import { DialogTrigger } from '@radix-ui/react-dialog';
 import { useAuth } from '@/app/context/AuthContext';
+import FullScreenImageModal from '@/app/(dashboard)/_components/FullScreenImageModal';
 
 const MapContainer = dynamic(() => import('react-leaflet').then(module => module.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import('react-leaflet').then(module => module.TileLayer), { ssr: false });
@@ -54,6 +55,9 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const [isShowQuestionsDialogOpen, setIsShowQuestionsDialogOpen] = useState(false);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [isMapDialogOpen, setIsMapDialogOpen] = useState(false);
+
+    const [selectedImageUrl, setSelectedImageUrl] = useState(null);
+    const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 
     const [trafficLineData, setTrafficLineData] = useState('');
     const [allQuestionAnswers, setAllQuestionAnswers] = useState([]);
@@ -75,7 +79,6 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
             try {
                 const data = await getSpecificTrafficLineData(trafficLineId);
                 setTrafficLineData(data);
-                console.log(data);
             } catch (error) {
                 console.log(error);
             }
@@ -86,6 +89,9 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                 const { data } = await axios.get(`/api/risks?traffic_line_id=${trafficLineId}`);
                 const { risks, allQuestionAnswers } = data
                 setRisks(risks);
+                if (!risks?.length) {
+                    router.push(`/stations/${stationId}/school/${schoolId}`)
+                }
                 setAllQuestionAnswers(allQuestionAnswers);
             } catch (error) {
                 console.log(error);
@@ -155,7 +161,8 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const makeDIR = language === 'ar' ? 'rtl' : 'ltr';
 
     if (loading) return <Loading />
-    console.log(main?.user?.id === trafficLineData?.user?.id);
+
+
     return (
         <div className="p-6 min-h-[calc(100vh-80px)]">
             <div className="flex flex-col gap-9">
@@ -224,25 +231,41 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                         </Dialog>
                     </div>
                     <hr />
-                    {main?.user?.id === trafficLineData?.user?.id || main?.user?.role?.name === 'ADMIN' && (
-                        <>
-                            <Button variant='destructive' className='self-start' onClick={() => setIsDeleteDialogOpen(true)}>{t('Delete itinerary')}</Button>
-                            <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-                                <AlertDialogContent>
-                                    <AlertDialogHeader className='sm:text-center'>
-                                        <AlertDialogTitle>{t('Are you absolutely sure')}</AlertDialogTitle>
-                                        <AlertDialogDescription>
-                                            {t('This action cannot be undone')}
-                                        </AlertDialogDescription>
-                                    </AlertDialogHeader>
-                                    <AlertDialogFooter className='sm:justify-between'>
-                                        <AlertDialogCancel onClick={() => setIsDeleteDialogOpen(false)}>{t('Cancel')}</AlertDialogCancel>
-                                        <AlertDialogAction onClick={confirmDelete}>{t('Delete')}</AlertDialogAction>
-                                    </AlertDialogFooter>
-                                </AlertDialogContent>
-                            </AlertDialog>
-                        </>
-                    )}
+                    {
+                        main?.user?.id === trafficLineData?.user?.id || main?.user?.role?.name === 'ADMIN' ? (
+                            <>
+                                <Button variant='destructive' className='self-start' onClick={() => setIsDeleteDialogOpen(true)}>{t('Delete itinerary')}</Button>
+                                <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+                                    <AlertDialogContent>
+                                        <AlertDialogHeader className='sm:text-center'>
+                                            <AlertDialogTitle>{t('Are you absolutely sure')}</AlertDialogTitle>
+                                            <AlertDialogDescription>
+                                                {t('This action cannot be undone')}
+                                            </AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                        <AlertDialogFooter className='sm:justify-between'>
+                                            <AlertDialogCancel onClick={() => setIsDeleteDialogOpen(false)}>{t('Cancel')}</AlertDialogCancel>
+                                            <AlertDialogAction onClick={confirmDelete}>{t('Delete')}</AlertDialogAction>
+                                        </AlertDialogFooter>
+                                    </AlertDialogContent>
+                                </AlertDialog>
+                                <hr />
+                            </>
+                        )
+                            :
+                            null
+                    }
+                </div>
+                <div className="space-y-2">
+                    <h2 className='font-semibold'>صور خط السير</h2>
+                    {trafficLineData?.images?.map(({ imageUrl }, idx) => (
+                        <div key={idx} className='flex items-center'>
+                            <img src={imageUrl} alt="Traffic Line" className='w-20 h-20 rounded-sm cursor-pointer' onClick={() => {
+                                setSelectedImageUrl(imageUrl)
+                                setIsImageModalOpen(true)
+                            }} />
+                        </div>
+                    ))}
                 </div>
                 <Table dir={makeDIR}>
                     <TableHeader>
@@ -286,24 +309,17 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                                     <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[130px]'>{splitAndRender(peopleExposedToRisk)}</TableCell>
                                     <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{splitAndRender(expectedInjury)}</TableCell>
                                     <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{riskAssessment}</TableCell>
-                                    <TableCell className='border text-xs text-center p-1 border-black min-w-[380px]'>
-                                        <tbody className='w-full grid grid-cols-2'>
-                                            {controlMeasures.map(({ ar, en }, idx) => (
-                                                <>
-                                                    <tr key={idx}>
-                                                        <td className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 w-1/2 text-center break-words text-wrap`}>
-                                                            <h3>{ar}</h3>
-                                                        </td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td className='p-1 w-1/2 text-center break-words text-wrap'>
-                                                            <h3>{en}</h3>
-                                                        </td>
-                                                    </tr>
-                                                </>
-                                            ))}
-                                        </tbody>
+                                    <TableCell className='border text-xs text-center p-0 border-black min-w-[380px]'>
+                                        {controlMeasures.map(({ ar, en }, idx) => (
+                                            <div className='w-full grid grid-cols-2' key={idx}>
+                                                <div key={idx} className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 border-y text-center break-words text-wrap`}>
+                                                    <h3>{ar}</h3>
+                                                </div>
+                                                <div className='p-1 text-center break-words border-y border-black text-wrap'>
+                                                    <h3>{en}</h3>
+                                                </div>
+                                            </div>
+                                        ))}
                                     </TableCell>
                                     <TableCell className='text-center break-words text-wrap text-xs border border-black max-w-[100px]'>{residualRisks}</TableCell>
                                 </TableRow>
@@ -318,6 +334,11 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                     </TableFooter>
                 </Table>
             </div>
+            <FullScreenImageModal
+                isOpen={isImageModalOpen}
+                onClose={() => setIsImageModalOpen(false)}
+                imageUrl={selectedImageUrl || ''}
+            />
         </div>
     );
 };

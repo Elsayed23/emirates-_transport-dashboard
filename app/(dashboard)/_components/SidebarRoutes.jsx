@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import SideItems from './SideItems';
 import { IoMdDocument, IoMdHome } from "react-icons/io";
-import { FaMapMarkedAlt } from "react-icons/fa";
+import { FaBuilding, FaMapMarkedAlt } from "react-icons/fa";
 import useTranslation from '@/app/hooks/useTranslation';
 import { MdDocumentScanner, MdImageSearch, MdModelTraining } from 'react-icons/md';
 import { FaCodePullRequest, FaUsers } from 'react-icons/fa6';
@@ -18,6 +18,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { useOpen } from '@/app/context';
 import LanguageContext from '@/app/context/LanguageContext';
+import SingleRoute from './SingleRoute'
+import { GrDocumentConfig } from "react-icons/gr";
 
 const SidebarRoutes = () => {
     const { t } = useTranslation();
@@ -31,11 +33,11 @@ const SidebarRoutes = () => {
             label: t('home'),
             href: '/'
         },
-        {
-            icon: FaMapMarkedAlt,
-            label: t('stations'),
-            href: '/stations'
-        },
+        // {
+        //     icon: FaMapMarkedAlt,
+        //     label: t('stations'),
+        //     href: '/stations'
+        // },
         {
             icon: MdModelTraining,
             label: t('trainings'),
@@ -64,6 +66,19 @@ const SidebarRoutes = () => {
         );
     }
 
+    const typesOfRiskRegistersData = [
+        {
+            icon: FaMapMarkedAlt,
+            label: 'مخاطر المدارس والطرق',
+            href: '/stations'
+        },
+        {
+            icon: FaBuilding,
+            label: 'مخاطر المباني',
+            href: '/buildings'
+        },
+    ]
+
     const inspectionsData = [
         {
             icon: MdDocumentScanner,
@@ -87,11 +102,6 @@ const SidebarRoutes = () => {
         )
     }
 
-    const isActive = (href) => (
-        pathname === href
-        ||
-        pathname.startsWith(`reports/${href.split('/')[1]}`)
-    );
 
     const isReportsActive = pathname.includes('report') || pathname.includes('requests');
 
@@ -99,27 +109,41 @@ const SidebarRoutes = () => {
 
     const { isOpen } = useOpen()
 
-    const types = inspectionsData.map(({ label, href, icon: Icon }, idx) => (
-        <button
-            key={idx}
-            onClick={() => router.push(href)}
-            className={cn(
-                `pl-6 pr-2 break-words overflow-x-hidden w-full rounded-sm text-slate-500 hover:text-slate-600 hover:bg-red-300/20 duration-200`,
-                isActive(href) && 'text-red-700 hover:text-red-700 bg-red-200/20 hover:bg-red-200/20'
-            )}
-        >
-            <div className="flex items-center gap-2 py-4 duration-200">
-
-                <Icon size={23} className={cn('text-slate-500', isActive(href) && 'text-red-700')} />
-
-                <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>{label}</span>
-            </div>
-
-        </button>
+    const typesOfInspections = inspectionsData.map((types, idx) => (
+        <SingleRoute key={idx} {...types} />
     ));
+    const typesOfRiskRegisters = typesOfRiskRegistersData.map((types, idx) => (
+        <SingleRoute key={idx} {...types} />
+    ));
+
 
     return (
         <div className='flex flex-col w-full'>
+            <Accordion type="single" collapsible defaultValue={isReportsActive ? 'item-1' : ''}>
+                <AccordionItem value="item-1">
+                    <AccordionTrigger className={cn(
+                        `py-0 relative text-slate-500 hover:no-underline ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'} hover:text-slate-600 hover:bg-red-300/20 duration-300`,
+                        isReportsActive && 'text-red-700 bg-red-200/20'
+                    )}>
+                        <div className={cn(
+                            'flex items-center gap-2 py-4',
+                            isReportsActive && 'text-red-700'
+                        )}>
+                            <GrDocumentConfig size={23} className={cn(
+                                'text-slate-500',
+                                isReportsActive && 'text-red-700'
+                            )} />
+
+                            <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>{t('stations')}</span>
+                        </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="w-full">
+                        <div className="flex flex-col gap-2">
+                            {typesOfRiskRegisters}
+                        </div>
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
             {routes.map((route, idx) => (
                 <SideItems key={idx} {...route} />
             ))}
@@ -143,7 +167,7 @@ const SidebarRoutes = () => {
                     </AccordionTrigger>
                     <AccordionContent className="w-full">
                         <div className="flex flex-col gap-2">
-                            {types}
+                            {typesOfInspections}
                         </div>
                     </AccordionContent>
                 </AccordionItem>

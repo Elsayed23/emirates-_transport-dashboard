@@ -11,7 +11,8 @@ export async function POST(req: Request) {
     try {
         const basicHazards = await db.question.findMany({
             where: {
-                question: 'اساسي'
+                question: 'اساسي',
+                appliesTo: 'school'
             },
             include: {
                 answers: true

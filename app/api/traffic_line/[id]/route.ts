@@ -34,7 +34,8 @@ export async function GET(
                         name: true,
                         translationName: true
                     }
-                }
+                },
+                images: true
             }
         })
 

@@ -41,9 +41,9 @@ import { toast } from "sonner";
 import LanguageContext from "@/app/context/LanguageContext";
 import DeleteRequest from "./DeleteRequestModal";
 import UpdateInspectionModal from "./UpdateInspectionModal";
-import UploadAttachmentModal from './UploadAttachmentModal'; // Import the new modal
+import UploadAttachmentModal from './UploadAttachmentModal';
 import useTranslation from "@/app/hooks/useTranslation";
-import FullScreenImageModal from './FullScreenImageModal'; // Import the new modal
+import FullScreenImageModal from '@/app/(dashboard)/_components/FullScreenImageModal';
 
 export type InspectionAttachment = {
     id: string;

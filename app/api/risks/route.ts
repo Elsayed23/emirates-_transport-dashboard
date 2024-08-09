@@ -397,7 +397,8 @@ export async function POST(req: Request) {
         // Fetch all basic hazards from the database
         const basicHazards = await db.question.findMany({
             where: {
-                question: 'اساسي'
+                question: 'اساسي',
+                appliesTo: 'trafficLine'
             },
             include: {
                 answers: true
@@ -460,7 +461,9 @@ export async function GET(req: NextRequest) {
                 },
             },
             orderBy: {
-                createdAt: 'asc'
+                question: {
+                    orderd: 'asc'
+                }
             }
         });
 
