@@ -47,6 +47,7 @@ import ModifyUser from "./ModifyStationModal";
 export type User = {
     id: string;
     name: string;
+    approved: boolean,
     email: string;
     role: { id: string, name: string };
 };
@@ -65,6 +66,7 @@ const UsersDataTable = () => {
     const [loading, setLoading] = React.useState(true);
 
     const [isOpenModifyUser, setIsOpenModifyUser] = React.useState(false)
+    const [isApproved, setIsApproved] = React.useState(false)
 
     const router = useRouter()
 
@@ -85,6 +87,18 @@ const UsersDataTable = () => {
 
         setData(data)
     }
+
+    const handleApproved = async (user_id: string) => {
+        try {
+            await axios.patch('/api/approve', { user_id })
+            toast.success('Approved successfully')
+            setIsApproved(prev => !prev)
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+
 
 
     const { t } = useTranslation()
@@ -120,6 +134,14 @@ const UsersDataTable = () => {
             },
         },
         {
+            accessorKey: "approved",
+            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>Approve</div>,
+            cell: ({ row }) => {
+                return <div>{String(row.getValue('approved'))}</div>
+            },
+
+        },
+        {
             id: "actions",
             enableHiding: false,
             cell: ({ row }) => {
@@ -140,11 +162,11 @@ const UsersDataTable = () => {
                                 {t('Copy mail')}
                             </DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            {/* <DropdownMenuItem
-                                onClick={() => { router.push(`/profile/${user.id}`) }}
+                            <DropdownMenuItem
+                                onClick={() => { handleApproved(user.id) }}
                             >
-                                User profile
-                            </DropdownMenuItem> */}
+                                Approve
+                            </DropdownMenuItem>
                             {
                                 user.role.name !== 'OPERATIONS_MANAGER'
                                     ?
@@ -180,7 +202,7 @@ const UsersDataTable = () => {
 
     React.useEffect(() => {
         getUsers()
-    }, [])
+    }, [isApproved])
 
 
     const [columnVisibility, setColumnVisibility] =

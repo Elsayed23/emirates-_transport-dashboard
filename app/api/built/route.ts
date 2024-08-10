@@ -4,16 +4,17 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async (req: Request) => {
     try {
 
-        const { name, cityName } = await req.json()
+        const { name, cityName, userId } = await req.json()
 
-        if (!name || !cityName) {
+        if (!name || !cityName || !userId) {
             return NextResponse.json({ message: 'Missing required fields.' });
         }
 
         const built = await db.built.create({
             data: {
                 name,
-                cityName
+                cityName,
+                userId
             }
         })
 
@@ -38,6 +39,14 @@ export const GET = async (req: NextRequest) => {
             // orderBy: {
             //     createdAt: 'asc'
             // },
+            include: {
+                user: {
+                    select: {
+                        id: true,
+                        name: true
+                    }
+                }
+            }
         })
 
         return NextResponse.json(buildings)

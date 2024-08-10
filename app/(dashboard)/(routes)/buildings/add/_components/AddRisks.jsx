@@ -54,8 +54,8 @@ const AddRisksForm = ({ builtData }) => {
             } else {
                 setIsSubmitting(true);
 
-
                 const { data } = await axios.post('/api/built', {
+                    userId: user?.id,
                     name: builtData.name,
                     cityName: builtData.cityName
                 });
@@ -76,8 +76,6 @@ const AddRisksForm = ({ builtData }) => {
         } catch (error) {
             console.error('Failed to save data:', error);
             toast.error(t('Failed to save data'));
-        } finally {
-            setIsSubmitting(false);
         }
     }, [allTheAnswersFromQuestions, questions, user]);
 

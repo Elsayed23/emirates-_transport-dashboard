@@ -24,6 +24,7 @@ export const POST = async (req: Request) => {
             data: {
                 name,
                 email,
+                approved: true,
                 role: {
                     connect: {
                         name: "SAFETY_DIRECTOR"

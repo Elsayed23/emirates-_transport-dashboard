@@ -19,10 +19,11 @@ import { useAuth } from '@/app/context/AuthContext'
 
 const Card = ({
     id,
+    user,
     name,
     cityName,
     handleDeleteBuilt,
-    // createdAt
+    createdAt
 }) => {
 
     const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -60,15 +61,18 @@ const Card = ({
 
             <h2 className='text-lg font-semibold'>{name}</h2>
             <h2>المدينة: {cityName}</h2>
-            {/* <h2>{t('Date created')} {new Date(createdAt).toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', })}</h2> */}
+            <h2>{t('Date created')} {new Date(createdAt).toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', })}</h2>
+            <p>المبني مسجل بإسم: <span className='font-semibold'>{user.name}</span></p>
             {
-                main?.user?.role?.name !== "ADMIN"
-                &&
-                <div className="absolute top-2 right-2">
-                    <Button variant='destructive' size='icon' className='self-start rounded-full w-8 h-8' onClick={handleDeleteClick}>
-                        <FaXmark size={18} />
-                    </Button>
-                </div>
+                main?.user?.id === user?.id || main?.user?.role?.name === 'ADMIN'
+                    ?
+                    <div className="absolute top-2 right-2">
+                        <Button variant='destructive' size='icon' className='self-start rounded-full w-8 h-8' onClick={handleDeleteClick}>
+                            <FaXmark size={18} />
+                        </Button>
+                    </div>
+                    :
+                    null
             }
             {isDialogOpen && (
                 <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

@@ -23,6 +23,7 @@ export const POST = async (req: Request) => {
         const newUser = await db.user.create({
             data: {
                 name,
+                approved: true,
                 station: {
                     connect: {
                         id: stationId

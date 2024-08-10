@@ -22,12 +22,14 @@ export const POST = async (req: Request) => {
                 name,
                 email,
                 roleId,
+                approved: true,
                 password: hashedPassword,
             },
             select: {
                 id: true,
                 name: true,
                 email: true,
+                approved: true,
                 role: true,
             }
         });
@@ -56,6 +58,7 @@ export const GET = async () => {
                 id: true,
                 name: true,
                 email: true,
+                approved: true,
                 station: {
                     select: {
                         id: true
@@ -103,6 +106,7 @@ export const PATCH = async (req: Request) => {
             select: {
                 id: true,
                 name: true,
+                approved: true,
                 email: true,
                 station: {
                     select: {
@@ -146,6 +150,7 @@ export const DELETE = async (req: Request) => {
                 id: true,
                 name: true,
                 email: true,
+                approved: true,
                 station: {
                     select: {
                         id: true

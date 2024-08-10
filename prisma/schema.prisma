@@ -23,10 +23,12 @@ model User {
   role         Role?         @relation(fields: [roleId], references: [id], name: "RoleUsers")
   email        String        @unique
   password     String
+  approved     Boolean       @default(false)
   reports      Report[]
   trafficLines TrafficLine[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
+  Built        Built[]
 }
 
 model Role {
@@ -126,6 +128,8 @@ model Built {
   name      String
   cityName  String
   risks     UserResponse[]
+  userId    String?
+  user      User?          @relation(fields: [userId], references: [id])
   createdAt DateTime       @default(now())
   updatedAt DateTime       @updatedAt
 }

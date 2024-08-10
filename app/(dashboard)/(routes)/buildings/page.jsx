@@ -23,6 +23,8 @@ const page = () => {
     const getBuildings = async () => {
         try {
             const { data } = await axios.get(`/api/built`)
+            console.log(data);
+
             setBuildingsData(data)
             setLoading(false)
 
@@ -35,7 +37,7 @@ const page = () => {
     const handleDeleteBuilt = async (id) => {
         try {
 
-            await axios.delete(`/api/reports/${id}`)
+            await axios.delete(`/api/built/${id}`)
 
             toast.success(t('The report has been successfully deleted'))
             setToggleDeleteBuilt(prev => !prev)
@@ -72,7 +74,7 @@ const page = () => {
             <div className="flex flex-col gap-9">
                 <DynamicBreadcrumb routes={breadcrumbData} />
                 <Button className='w-fit' onClick={() => router.push('/buildings/add')}>إضافة مبني</Button>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {reportsCard}
                 </div>
             </div>
