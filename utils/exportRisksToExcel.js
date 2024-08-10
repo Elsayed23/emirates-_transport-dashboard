@@ -2,52 +2,75 @@ import * as XLSX from 'xlsx-js-style';
 import { saveAs } from 'file-saver';
 
 export const exportRisksToExcel = (data, filename) => {
-    // Transform the data to flatten the control measures
-    const transformedData = data.map(item => {
-        const controlMeasures = item.controlMeasures.map(measure => measure.measure).join('\n\n'); // Add extra newline for more space
-        return {
-            ...item,
-            controlMeasures,
-        };
-    });
+    // Transform the data to flatten the control measures and split Arabic/English text
+    const transformedData = data.map((entry, entryIndex) => {
+        return entry.answers.map((answer, answerIndex) => {
+            const controlMeasuresAr = answer.controlMeasures ? answer.controlMeasures.map(measure => measure.ar).join('\n\n') : '';
+            const controlMeasuresEn = answer.controlMeasures ? answer.controlMeasures.map(measure => measure.en).join('\n\n') : '';
+            return {
+                index: entryIndex + 1,
+                causeOfRisk: splitText(answer.causeOfRisk || ''),
+                activity: splitText(answer.activity || ''),
+                typeOfActivity: splitText(answer.typeOfActivity || ''),
+                hazardSource: splitText(answer.hazardSource || ''),
+                risk: splitText(answer.risk || ''),
+                peopleExposedToRisk: splitText(answer.peopleExposedToRisk || ''),
+                expectedInjury: splitText(answer.expectedInjury || ''),
+                riskAssessment: answer.riskAssessment || '',
+                controlMeasuresAr: controlMeasuresAr || '',
+                controlMeasuresEn: controlMeasuresEn || '',
+                residualRisks: answer.residualRisks || ''
+            };
+        });
+    }).flat();
 
-    // Define the headers in Arabic
+    // Helper function to split Arabic and English text
+    function splitText(text) {
+        const [ar, en] = text.split('|').map(part => part.trim());
+        return `${ar}\n${en}`; // Place Arabic on top and English below
+    }
+
+
+    // Define the headers in Arabic and English
     const headers = [
-        'م',
-        'سبب الخطر',
-        'النشاط',
-        'نوع النشاط',
-        'مصدر الخطر',
-        'الخطر',
-        'الأشخاص المعرضين للخطر',
-        'الإصابة المحتملة /الضرر',
-        'تقييم الخطر',
+        'No',
+        'سبب الخطر \n Cause of risk',
+        'النشاط \n Activity',
+        'نوع النشاط \n Type of Activity',
+        'مصدر الخطر \n Hazard',
+        'الخطر \n Risk',
+        'الأشخاص المعرضين للخطر \n People Exposed to Risk',
+        'الإصابة المحتملة /الضرر \n Expected Injury',
+        'LR',
+        'تقييم الخطر \n R S L',
         'تدابير الرقابة الحالية',
-        'المخاطر المتبقية'
+        'Existing Control Measures',
+        'المخاطر المتبقية \n Residual Risk ALARP'
     ];
 
-    // Prepare the data for worksheet
-    const worksheetData = [headers, ...transformedData.map((item, index) => [
-        { v: index + 1, t: 'n', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.causeOfRisk, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.activity, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.typeOfActivity, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.hazardSource, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.risk, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.peopleExposedToRisk, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.expectedInjury, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.riskAssessment, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } },
-        { v: item.controlMeasures, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2, padding: { top: 10, bottom: 10 } } } }, // Increase padding
-        { v: item.residualRisks, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', readingOrder: 2 } } }
+    // Prepare the data for the worksheet
+    const worksheetData = [headers, ...transformedData.map(item => [
+        { v: item.index, t: 'n', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: item.causeOfRisk, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: item.activity, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: item.typeOfActivity, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: item.hazardSource, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: item.risk, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: item.peopleExposedToRisk, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: item.expectedInjury, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: '', t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } }, // Placeholder for 'LR'
+        { v: item.riskAssessment, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } },
+        { v: item.controlMeasuresAr, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2, padding: { top: 10, bottom: 10 } } } }, // Arabic Control Measures
+        { v: item.controlMeasuresEn, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2, padding: { top: 10, bottom: 10 } } } }, // English Control Measures
+        { v: item.residualRisks, t: 's', s: { alignment: { wrapText: true, horizontal: 'center', vertical: 'center', readingOrder: 2 } } }
     ])];
 
     // Create a new workbook and a worksheet
     const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
 
-
     // Define styles
     const headerStyle = {
-        font: { name: 'Arial', sz: 12, bold: true, color: { rgb: "FFFFFF" } },
+        font: { sz: 11, color: { rgb: "FFFFFF" } },
         alignment: { vertical: 'center', horizontal: 'center', readingOrder: 2, wrapText: true },
         border: {
             top: { style: 'thin' },
@@ -60,7 +83,7 @@ export const exportRisksToExcel = (data, filename) => {
     };
 
     const dataStyle1 = {
-        font: { name: 'Arial', sz: 12 },
+        font: { sz: 11 },
         alignment: { vertical: 'center', horizontal: 'center', readingOrder: 2, wrapText: true },
         border: {
             top: { style: 'thin' },
@@ -72,7 +95,7 @@ export const exportRisksToExcel = (data, filename) => {
     };
 
     const dataStyle2 = {
-        font: { name: 'Arial', sz: 12 },
+        font: { sz: 11 },
         alignment: { vertical: 'center', horizontal: 'center', readingOrder: 2, wrapText: true },
         border: {
             top: { style: 'thin' },
@@ -86,17 +109,19 @@ export const exportRisksToExcel = (data, filename) => {
 
     // Apply styles to the headers and data cells
     worksheet['!cols'] = [
-        { wpx: 30 }, // Column for 'م'
-        { wpx: 100 }, // Column for 'سبب الخطر'
-        { wpx: 150 }, // Column for 'النشاط'
-        { wpx: 100 }, // Column for 'نوع النشاط'
-        { wpx: 150 }, // Column for 'مصدر الخطر'
-        { wpx: 200 }, // Column for 'الخطر'
-        { wpx: 150 }, // Column for 'الأشخاص المعرضين للخطر'
-        { wpx: 150 }, // Column for 'الإصابة المحتملة /الضرر'
-        { wpx: 100 }, // Column for 'تقييم الخطر'
-        { wpx: 300 }, // Column for 'تدابير الرقابة الحالية'
-        { wpx: 100 }  // Column for 'المخاطر المتبقية'
+        { wpx: 30 }, // Column for 'No'
+        { wpx: 100 }, // Column for 'سبب الخطر Cause of risk'
+        { wpx: 150 }, // Column for 'النشاط Activity'
+        { wpx: 100 }, // Column for 'نوع النشاط Type of Activity'
+        { wpx: 150 }, // Column for 'مصدر الخطر Hazard'
+        { wpx: 200 }, // Column for 'الخطر Risk'
+        { wpx: 150 }, // Column for 'الأشخاص المعرضين للخطر People Exposed to Risk'
+        { wpx: 150 }, // Column for 'الإصابة المحتملة /الضرر Expected Injury'
+        { wpx: 20 }, // Column for 'LR'
+        { wpx: 50 }, // Column for 'تقييم الخطر R S L'
+        { wpx: 300 }, // Column for 'تدابير الرقابة الحالية (عربي) Existing Control Measures (Arabic)'
+        { wpx: 300 }, // Column for 'تدابير الرقابة الحالية (إنجليزي) Existing Control Measures (English)'
+        { wpx: 70 }  // Column for 'المخاطر المتبقية Residual Risk ALARP'
     ];
 
     const range = XLSX.utils.decode_range(worksheet['!ref']);
@@ -113,6 +138,7 @@ export const exportRisksToExcel = (data, filename) => {
             }
         }
     }
+
 
     // Append worksheet to workbook
     const workbook = {

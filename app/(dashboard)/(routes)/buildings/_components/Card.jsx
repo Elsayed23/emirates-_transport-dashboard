@@ -56,7 +56,7 @@ const Card = ({
     }
 
     return (
-        <div onClick={() => router.push(`/reports/${id}`)} className={`border relative shadow-lg hover:scale-[1.03] duration-200 text-[#111] flex flex-col items-center gap-3 rounded-sm cursor-pointer p-4`}>
+        <div onClick={() => router.push(`/buildings/${id}?built=${name}`)} className={`border relative shadow-lg hover:scale-[1.03] duration-200 text-[#111] flex flex-col items-center gap-3 rounded-sm cursor-pointer p-4`}>
 
             <h2 className='text-lg font-semibold'>{name}</h2>
             <h2>المدينة: {cityName}</h2>

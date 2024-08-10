@@ -11,14 +11,14 @@ const FullScreenImageModal: React.FC<FullScreenImageModalProps> = ({ isOpen, onC
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
 
-            <DialogContent className='w-fit h-fit'>
+            <DialogContent className='w-fit h-fit '>
                 <DialogHeader>
                     <DialogTitle>
                         Image
                     </DialogTitle>
                 </DialogHeader>
-                <div className="min-h-[450px] max-h-[500px] min-w-full">
-                    <img src={imageUrl} alt="Inspection" className='w-full h-full object-contain' />
+                <div className="min-h-[450px] max-h-[500px] min-w-full rounded-md">
+                    <img src={imageUrl} alt="Inspection" className='w-full h-full object-contain md:object-fill rounded-md' />
                 </div>
             </DialogContent>
         </Dialog>

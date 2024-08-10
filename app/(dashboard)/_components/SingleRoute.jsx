@@ -18,7 +18,9 @@ const SingleRoute = ({
     const isActive = (href) => (
         pathname === href
         ||
-        pathname.startsWith(`reports/${href.split('/')[1]}`)
+        pathname.startsWith(`/reports/${href.split('/')[1]}`)
+        ||
+        pathname.startsWith(href)
     );
 
 

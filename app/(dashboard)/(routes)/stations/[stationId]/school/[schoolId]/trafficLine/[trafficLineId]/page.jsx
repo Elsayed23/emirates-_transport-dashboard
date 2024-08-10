@@ -42,6 +42,7 @@ import 'leaflet/dist/leaflet.css';
 import { DialogTrigger } from '@radix-ui/react-dialog';
 import { useAuth } from '@/app/context/AuthContext';
 import FullScreenImageModal from '@/app/(dashboard)/_components/FullScreenImageModal';
+import { exportQuestionsToExcel } from '@/utils/exportQuestionsToExcel';
 
 const MapContainer = dynamic(() => import('react-leaflet').then(module => module.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import('react-leaflet').then(module => module.TileLayer), { ssr: false });
@@ -108,8 +109,12 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const { language } = useContext(LanguageContext);
 
     const handleDownload = () => {
-        exportRisksToExcel(risks, `${trafficLineData?.name} Risks`);
+        exportRisksToExcel(risks, `${trafficLineData?.name} risks`);
     };
+    const handleDownloadQuestions = () => {
+        exportQuestionsToExcel(allQuestionAnswers, `${trafficLineData?.name} trafflicLine questions`);
+    }
+
 
     const handleDeleteTrafficLine = async () => {
         try {
@@ -177,6 +182,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                                 null
                         }
                         <Button variant='outline' onClick={handleDownload}>{t('Download Risks')}</Button>
+                        <Button variant='outline' onClick={handleDownloadQuestions}>تحميل الاسئلة</Button>
                         <Dialog open={isShowQuestionsDialogOpen} onOpenChange={setIsShowQuestionsDialogOpen}>
                             <DialogTrigger asChild>
                                 <Button variant="outline">{t('View question answers')}</Button>
@@ -258,14 +264,14 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                 </div>
                 <div className="space-y-2">
                     <h2 className='font-semibold'>صور خط السير</h2>
-                    {trafficLineData?.images?.map(({ imageUrl }, idx) => (
-                        <div key={idx} className='flex items-center'>
-                            <img src={imageUrl} alt="Traffic Line" className='w-20 h-20 rounded-sm cursor-pointer' onClick={() => {
+                    <div className='flex items-center gap-3'>
+                        {trafficLineData?.images?.map(({ imageUrl }, idx) => (
+                            <img src={imageUrl} key={idx} alt="Traffic Line" className='w-20 h-20 rounded-sm cursor-pointer' onClick={() => {
                                 setSelectedImageUrl(imageUrl)
                                 setIsImageModalOpen(true)
                             }} />
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
                 <Table dir={makeDIR}>
                     <TableHeader>

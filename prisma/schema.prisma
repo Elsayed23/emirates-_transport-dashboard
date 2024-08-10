@@ -52,18 +52,17 @@ model Station {
 }
 
 model School {
-  id              String        @id @default(uuid())
+  id              String         @id @default(uuid())
   name            String
   translationName String
   stationId       String
-  station         Station       @relation(fields: [stationId], references: [id])
+  station         Station        @relation(fields: [stationId], references: [id])
   contract        String
   trafficLine     TrafficLine[]
   risks           SchoolRisks[]
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-
-  UserResponse UserResponse[]
+  UserResponse    UserResponse[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
 }
 
 model SchoolRisks {
@@ -107,11 +106,11 @@ model TrafficLine {
   countOfStudents     Int
   transferredCategory String
   risks               UserResponse[]
-  createdAt           DateTime           @default(now())
-  updatedAt           DateTime           @updatedAt()
   latitude            Float
   longitude           Float
   images              TrafficLineImage[] @relation(name: "TrafficLineImages")
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt()
 }
 
 model TrafficLineImage {
@@ -123,10 +122,12 @@ model TrafficLineImage {
 }
 
 model Built {
-  id       String         @id @default(uuid())
-  name     String
-  cityName String
-  risks    UserResponse[]
+  id        String         @id @default(uuid())
+  name      String
+  cityName  String
+  risks     UserResponse[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
 }
 
 model Question {
@@ -155,9 +156,9 @@ model Answer {
   residualRisks       String?          @db.LongText
   expectedInjury      String?          @db.LongText
   controlMeasures     ControlMeasure[]
+  question            Question         @relation(fields: [questionId], references: [id], onDelete: Cascade)
   createdAt           DateTime         @default(now())
   updatedAt           DateTime         @updatedAt
-  question            Question         @relation(fields: [questionId], references: [id], onDelete: Cascade)
 }
 
 model UserResponse {

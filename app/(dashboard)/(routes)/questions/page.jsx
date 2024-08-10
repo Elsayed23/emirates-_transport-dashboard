@@ -54,23 +54,23 @@ const QuestionsPage = () => {
         fetchQuestions();
     }, []);
 
-    const handleAddAnswer = () => {
-        setAnswers([
-            ...answers,
-            {
-                causeOfRisk: '',
-                activity: '',
-                typeOfActivity: '',
-                hazardSource: '',
-                risk: '',
-                peopleExposedToRisk: '',
-                riskAssessment: '',
-                residualRisks: '',
-                expectedInjury: '',
-                controlMeasures: [{ ar: '', en: '' }],
-            },
-        ]);
-    };
+    // const handleAddAnswer = () => {
+    //     setAnswers([
+    //         ...answers,
+    //         {
+    //             causeOfRisk: '',
+    //             activity: '',
+    //             typeOfActivity: '',
+    //             hazardSource: '',
+    //             risk: '',
+    //             peopleExposedToRisk: '',
+    //             riskAssessment: '',
+    //             residualRisks: '',
+    //             expectedInjury: '',
+    //             controlMeasures: [{ ar: '', en: '' }],
+    //         },
+    //     ]);
+    // };
 
     const handleAddControlMeasure = (answerIndex) => {
         const newAnswers = [...answers];
@@ -244,7 +244,7 @@ const QuestionsPage = () => {
                         </div>
                     </div>
                 ))}
-                <Button size='sm' onClick={handleAddAnswer}>{t('Add Answer')}</Button>
+                {/* <Button size='sm' onClick={handleAddAnswer}>{t('Add Answer')}</Button> */}
                 <Button onClick={handleSubmit} disabled={!isBasic && (!question || !translatedQuestion || !orderd)}>{t('Save')}</Button>
             </div>
             <div className="w-full p-4 max-w-4xl border bg-white rounded-lg shadow-md mt-8">
