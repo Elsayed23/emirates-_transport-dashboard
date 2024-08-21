@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `Task` ADD COLUMN `count` INTEGER NULL,
+    ADD COLUMN `note` VARCHAR(191) NULL;

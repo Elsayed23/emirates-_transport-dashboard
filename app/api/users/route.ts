@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 export const POST = async (req: Request) => {
     try {
 
-        const { name, roleId, email, password } = await req.json();
+        const { name, roleId, email, password, gender, financialNumber } = await req.json();
 
 
         const userExists = await db.user.findUnique({ where: { email } });
@@ -24,6 +24,8 @@ export const POST = async (req: Request) => {
                 roleId,
                 approved: true,
                 password: hashedPassword,
+                gender,
+                financialNumber
             },
             select: {
                 id: true,
@@ -31,6 +33,8 @@ export const POST = async (req: Request) => {
                 email: true,
                 approved: true,
                 role: true,
+                gender: true,
+                financialNumber: true
             }
         });
 
@@ -65,6 +69,8 @@ export const GET = async () => {
                     }
                 },
                 role: true,
+                gender: true,
+                financialNumber: true
             }
         });
 
@@ -114,6 +120,8 @@ export const PATCH = async (req: Request) => {
                     }
                 },
                 role: true,
+                gender: true,
+                financialNumber: true
             }
         })
 

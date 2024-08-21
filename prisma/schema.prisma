@@ -15,20 +15,59 @@ enum RoleEnum {
   SAFETY_OFFICER
 }
 
+enum TaskEnum {
+  TRAFFIC_LINE_HAZARDS
+  BUILDINGS_HAZARDS
+  ELECTRONIC_SURVEILLANCE_REPORT
+  BUILDINGS_REPORT
+  BUSES_REPORT
+}
+
+enum TaskFrequencyEnum {
+  MONTHLY
+  INDIVIDUAL
+  DAILY
+  QUARTERLY
+}
+
+enum GenderEnum {
+  MALE
+  FEMALE
+}
+
 model User {
-  id           String        @id @default(uuid())
-  name         String
-  station      Station?
-  roleId       String?
-  role         Role?         @relation(fields: [roleId], references: [id], name: "RoleUsers")
-  email        String        @unique
-  password     String
-  approved     Boolean       @default(false)
-  reports      Report[]
-  trafficLines TrafficLine[]
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  Built        Built[]
+  id                String        @id @default(uuid())
+  name              String
+  station           Station?
+  roleId            String?
+  role              Role?         @relation(fields: [roleId], references: [id], name: "RoleUsers")
+  email             String        @unique
+  password          String
+  gender            GenderEnum
+  financialNumber   String?
+  approved          Boolean       @default(false)
+  reports           Report[]
+  trafficLines      TrafficLine[]
+  resetToken        String? // Add this field for storing reset token
+  resetTokenExpires DateTime? // Add this field for storing token expiration time
+  tasks             Task[]        @relation("UserTasks")
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  Built             Built[]
+}
+
+model Task {
+  id             String            @id @default(uuid())
+  name           TaskEnum
+  frequency      TaskFrequencyEnum
+  taskCount      Int
+  completedCount Int               @default(0)
+  note           String?
+  userId         String?
+  scheduledFor   DateTime?
+  user           User?             @relation(fields: [userId], references: [id], name: "UserTasks")
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
 }
 
 model Role {
@@ -174,7 +213,7 @@ model UserResponse {
   response      String       @db.LongText
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
-  question      Question     @relation(fields: [questionId], references: [id])
+  question      Question     @relation(fields: [questionId], references: [id], onDelete: Cascade)
   trafficLine   TrafficLine? @relation(fields: [trafficLineId], references: [id], onDelete: Cascade)
   school        School?      @relation(fields: [schoolId], references: [id], onDelete: Cascade)
   built         Built?       @relation(fields: [builtId], references: [id], onDelete: Cascade)
@@ -236,11 +275,33 @@ model Inspection {
 }
 
 model InspectionType {
-  id          String   @id @default(uuid())
-  name        String
-  inspections Report[] @relation("inspectionType")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt()
+  id           String        @id @default(uuid())
+  name         String
+  inspections  Report[]      @relation("inspectionType")
+  requirements Requirement[] @relation("InspectionTypeRequirement")
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt()
+}
+
+model Requirement {
+  id               String         @id @default(uuid())
+  requirement      String
+  notes            Note[]         @relation("RequirementNotes")
+  inspectionType   InspectionType @relation("InspectionTypeRequirement", fields: [inspectionTypeId], references: [id], onDelete: Cascade)
+  inspectionTypeId String
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt()
+}
+
+model Note {
+  id                 String      @id @default(uuid())
+  ar                 String
+  en                 String
+  noteClassification String
+  requirement        Requirement @relation("RequirementNotes", fields: [requirementId], references: [id], onDelete: Cascade)
+  requirementId      String
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt()
 }
 
 model InspectionAttachment {

@@ -40,7 +40,9 @@
     "app/(dashboard)/(routes)/requests/page.jsx",
     "app/(dashboard)/(routes)/reports/create/_components/CreateReportForm.jsx",
     "app/(dashboard)/(routes)/stations/[stationId]/school/[schoolId]/add_traffic_line/page.jsx",
-    "app/(dashboard)/(routes)/stations/[stationId]/school/[schoolId]/add_traffic_line/_components/AddRisks.jsx"
+    "app/(dashboard)/(routes)/stations/[stationId]/school/[schoolId]/add_traffic_line/_components/AddRisks.jsx",
+    "app/(dashboard)/(routes)/requirements/page.jsx",
+    "app/api/index.js"
   ],
   "exclude": [
     "node_modules"

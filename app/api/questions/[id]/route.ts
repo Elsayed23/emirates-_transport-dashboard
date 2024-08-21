@@ -13,6 +13,10 @@ export async function DELETE(
         }
         await db.question.delete({
             where: { id },
+            include: {
+                answers: true,
+                userResponses: true
+            }
         });
         return NextResponse.json({ message: 'Question deleted successfully' });
     } catch (error) {

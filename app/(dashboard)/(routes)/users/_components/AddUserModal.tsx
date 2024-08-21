@@ -31,12 +31,16 @@ import {
 import { toast } from "sonner";
 import useTranslation from "@/app/hooks/useTranslation";
 import LanguageContext from '@/app/context/LanguageContext';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 
 const formSchema = z.object({
     name: z.string().min(1),
     email: z.string().email(),
     password: z.string().min(4),
     roleId: z.string().min(1, { message: "Please select a role" }),
+    gender: z.string().min(1, { message: "You must choose the gender" }),
+    financialNumber: z.string().min(1, { message: "The Financial number field is required" })
 });
 
 interface FormValues {
@@ -44,6 +48,8 @@ interface FormValues {
     email: string;
     password: string;
     roleId: string;
+    gender: string;
+    financialNumber: string
 }
 
 type AddUserModalProps = {
@@ -61,6 +67,8 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
             email: '',
             password: '',
             roleId: '',
+            gender: '',
+            financialNumber: ''
         },
     });
 
@@ -82,6 +90,7 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
 
     const onSubmit = async (values: FormValues) => {
         try {
+
             const { data } = await axios.post('/api/users', values)
 
             setData((prevUsers: any) => {
@@ -90,7 +99,6 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                     data?.data
                 ]
             })
-            console.log(values);
 
             onClose();
             toast.success(data?.message)
@@ -175,6 +183,46 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                                                 ))}
                                             </SelectContent>
                                         </Select>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="gender"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Gender</FormLabel>
+                                    <FormControl>
+                                        <RadioGroup
+                                            onValueChange={(value) => field.onChange(value)}
+                                            value={field.value}
+                                        >
+                                            <div className="flex gap-4">
+                                                <div className="flex items-center space-x-2">
+                                                    <RadioGroupItem value="MALE" id="male" />
+                                                    <Label className='cursor-pointer' htmlFor="male">Male</Label>
+                                                </div>
+                                                <div className="flex items-center space-x-2">
+                                                    <RadioGroupItem value="FEMALE" id="female" />
+                                                    <Label className='cursor-pointer' htmlFor="female">Female</Label>
+                                                </div>
+                                            </div>
+                                        </RadioGroup>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="financialNumber"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Financial Number</FormLabel>
+                                    <FormControl>
+                                        <Input disabled={isSubmitting} placeholder="Financial Number" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

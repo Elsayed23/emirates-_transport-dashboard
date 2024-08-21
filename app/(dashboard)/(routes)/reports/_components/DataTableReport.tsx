@@ -241,8 +241,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
             accessorKey: "noteClassification",
             header: () => <div className="text-center">تصنيف الملاحظة <br /> Note classification</div>,
             cell: ({ row }) => (
-                <div className="capitalize">{t('secondary')}</div>
-                // <div className="capitalize">{row.getValue("noteClassification")}</div>
+                <div className="capitalize">{row.getValue("noteClassification")}</div>
             ),
         },
         {
@@ -330,6 +329,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
             rowSelection,
         },
     });
+    console.log(report.inspections);
 
     return (
         <div className="w-full rtl">

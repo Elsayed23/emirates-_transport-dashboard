@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from '@/components/ui/checkbox';
 
-const QuestionsPage = () => {
+const page = () => {
     const [question, setQuestion] = useState('');
     const [translatedQuestion, setTranslatedQuestion] = useState('');
     const [orderd, setOrderd] = useState('');
@@ -54,23 +54,6 @@ const QuestionsPage = () => {
         fetchQuestions();
     }, []);
 
-    // const handleAddAnswer = () => {
-    //     setAnswers([
-    //         ...answers,
-    //         {
-    //             causeOfRisk: '',
-    //             activity: '',
-    //             typeOfActivity: '',
-    //             hazardSource: '',
-    //             risk: '',
-    //             peopleExposedToRisk: '',
-    //             riskAssessment: '',
-    //             residualRisks: '',
-    //             expectedInjury: '',
-    //             controlMeasures: [{ ar: '', en: '' }],
-    //         },
-    //     ]);
-    // };
 
     const handleAddControlMeasure = (answerIndex) => {
         const newAnswers = [...answers];
@@ -80,7 +63,7 @@ const QuestionsPage = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete('/api/questions', { data: { id } });
+            await axios.delete(`/api/questions/${id}`);
             toast.success(t('Question deleted successfully'));
             setQuestions(questions.filter(q => q.id !== id));
         } catch (error) {
@@ -244,7 +227,6 @@ const QuestionsPage = () => {
                         </div>
                     </div>
                 ))}
-                {/* <Button size='sm' onClick={handleAddAnswer}>{t('Add Answer')}</Button> */}
                 <Button onClick={handleSubmit} disabled={!isBasic && (!question || !translatedQuestion || !orderd)}>{t('Save')}</Button>
             </div>
             <div className="w-full p-4 max-w-4xl border bg-white rounded-lg shadow-md mt-8">
@@ -259,4 +241,4 @@ const QuestionsPage = () => {
     );
 };
 
-export default QuestionsPage;
+export default page;

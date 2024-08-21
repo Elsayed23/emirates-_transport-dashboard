@@ -62,6 +62,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     const [busIdSaved, setBusIdSaved] = useState(false);
     const [photoCaptured, setPhotoCaptured] = useState(false);
     const [capturing, setCapturing] = useState(false);
+    const [requirementData, setRequirementData] = useState<any>(null)
     const [isFinishSubmitting, setIsFinishSubmitting] = useState(false);
     const [selectedRequirement, setSelectedRequirement] = useState<string>("");
     const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -79,7 +80,22 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
 
     const { isSubmitting, isValid } = form.formState;
 
-    console.log(reportData);
+    const getRequirement = async () => {
+        try {
+
+            const { data } = await axios.get(`/api/requirement/${reportData?.inspectionTypeId}`)
+            setRequirementData(data);
+
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getRequirement()
+    }, [reportData?.inspectionTypeId])
+
 
     const noteData =
         reportData.inspectionTypeName === "Inspection of electronic control"
@@ -155,9 +171,9 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     }, [files]);
 
     const saveInspectionInState = (inspection: FormSchema) => {
-        const selectedNote = noteData
-            .flatMap((d) => d.notes)
-            .find((note) => note.ar === inspection.requirement);
+        const selectedNote = requirementData
+            .flatMap((d: any) => d.notes)
+            .find((note: any) => note.ar === inspection.requirement);
 
         const inspectionData = {
             reportId: '',
@@ -165,10 +181,11 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
             idOfBus: inspection.idOfBus,
             description: selectedNote?.ar || "",
             enDescription: selectedNote?.en || "",
+            noteClassification: selectedNote?.noteClassification,
             requirement: selectedRequirement,
             files: files.map(({ file }) => file)
         };
-
+        // noteClassification
         setInspections((prevInspections) => [
             ...prevInspections,
             inspectionData,
@@ -190,10 +207,23 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     const submitAllInspections = async () => {
         try {
             const values = reportData;
+            const selectedNote = requirementData
+                .flatMap((d: any) => d.notes)
+                .find((note: any) => note.ar === form.getValues().requirement);
 
+            const inspectionData = {
+                reportId: '',
+                name: form.getValues().name,
+                idOfBus: form.getValues().idOfBus,
+                description: selectedNote?.ar || "",
+                enDescription: selectedNote?.en || "",
+                noteClassification: selectedNote?.noteClassification,
+                requirement: selectedRequirement,
+                files: files.map(({ file }) => file)
+            };
             const { data } = await axios.post('/api/reports', { ...values });
 
-            for (const inspection of inspections) {
+            for (const inspection of [...inspections, inspectionData]) {
                 const formData = new FormData();
                 formData.append("reportId", data?.id);
                 formData.append("name", inspection.name);
@@ -201,6 +231,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                 formData.append("description", inspection.description);
                 formData.append("enDescription", inspection.enDescription);
                 formData.append("requirement", inspection.requirement);
+                formData.append("noteClassification", inspection.noteClassification);
 
                 inspection.files.forEach((file: any) => {
                     formData.append("files", file);
@@ -246,7 +277,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     };
 
     const availableNotes =
-        noteData.find((data) => data.requirement === selectedRequirement)?.notes ||
+        requirementData?.find((data: any) => data.requirement === selectedRequirement)?.notes ||
         [];
 
     const thumbs = files.map(({ preview }, idx) => (
@@ -282,7 +313,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
         ) {
             toast.error("You have to complete the current inspection");
         } else {
-            await addInspectionToState(form.getValues());
+
             setIsDialogOpen(true);
         }
     };
@@ -425,7 +456,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                                             </SelectTrigger>
                                                         </FormControl>
                                                         <SelectContent>
-                                                            {noteData.map((data, idx) => (
+                                                            {requirementData?.map((data: any, idx: number) => (
                                                                 <SelectItem
                                                                     key={data.requirement + idx}
                                                                     value={data.requirement}
@@ -458,7 +489,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                                                 </SelectTrigger>
                                                             </FormControl>
                                                             <SelectContent>
-                                                                {availableNotes.map((note, index) => (
+                                                                {availableNotes.map((note: any, index: number) => (
                                                                     <SelectItem key={note.ar + index} value={note.ar}>
                                                                         {language === "ar" ? note.ar : note.en}
                                                                     </SelectItem>

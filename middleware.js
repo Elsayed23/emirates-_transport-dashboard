@@ -23,10 +23,10 @@ export async function middleware(req) {
     const token = req.cookies.get('__session')?.value; // Use the correct cookie name
     if (!token) {
         console.log('No token found');
-        if (pathname !== '/login') {
+        if (!['/login', '/forget_password', '/reset_password'].includes(pathname)) {
             return NextResponse.redirect(`${origin}/login`); // Redirect to login page if no token
         } else {
-            return NextResponse.next(); // Allow access to the login page
+            return NextResponse.next(); // Allow access to the login or password-related pages
         }
     }
 
@@ -41,7 +41,9 @@ export async function middleware(req) {
                 return NextResponse.next(); // Allow access to the login page
             }
         }
-
+        if (pathname.startsWith('/login')) {
+            return NextResponse.redirect(`${origin}/`);
+        }
         if (pathname.startsWith('/users')) {
             if (decoded.role.name === 'ADMIN') {
                 return NextResponse.next();

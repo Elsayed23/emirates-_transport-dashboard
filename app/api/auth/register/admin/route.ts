@@ -31,6 +31,7 @@ export const POST = async (req: Request) => {
                     }
                 },
                 password: hashedPassword,
+                gender: "MALE"
             },
         });
 

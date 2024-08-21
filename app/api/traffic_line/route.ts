@@ -77,7 +77,6 @@ export async function GET(req: NextRequest) {
 }
 
 
-
 export async function POST(req: Request) {
     const formData = await req.formData();
 
@@ -112,6 +111,22 @@ export async function POST(req: Request) {
             }
         });
 
+        // تحديث `completedCount` للمهمة المرتبطة بهذا النوع من المهام
+        await db.task.updateMany({
+            where: {
+                userId: userId,
+                name: 'TRAFFIC_LINE_HAZARDS',
+                completedCount: {
+                    lt: db.task.fields.taskCount // تأكد من أن المهمة لم تكتمل بالكامل بعد
+                }
+            },
+            data: {
+                completedCount: {
+                    increment: 1 // زيادة عدد المهام المكتملة بواحد
+                }
+            }
+        });
+
         // Save images
         const imagePromises = files.filter(file => file.type.startsWith('image/')).map(async (file) => {
             const arrayBuffer = await file.arrayBuffer();
@@ -139,7 +154,6 @@ export async function POST(req: Request) {
         return NextResponse.json({ message: 'Internal server error' });
     }
 }
-
 
 
 

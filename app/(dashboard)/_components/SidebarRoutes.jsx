@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import SideItems from './SideItems';
 import { IoMdDocument, IoMdHome } from "react-icons/io";
-import { FaBuilding, FaMapMarkedAlt } from "react-icons/fa";
+import { FaBuilding, FaListUl, FaMapMarkedAlt } from "react-icons/fa";
 import useTranslation from '@/app/hooks/useTranslation';
 import { MdDocumentScanner, MdImageSearch, MdModelTraining } from 'react-icons/md';
 import { FaCodePullRequest, FaUsers } from 'react-icons/fa6';
@@ -40,14 +40,14 @@ const SidebarRoutes = () => {
         // },
         {
             icon: MdModelTraining,
-            label: t('trainings'),
-            href: '/trainings'
+            label: 'المهمات',
+            href: '/tasks'
         },
     ];
 
     const isAdmin = user?.role?.name === 'ADMIN';
 
-    const isSafetyManaget = user?.role?.name === 'SAFETY_MANAGER';
+    const isSafetyManager = user?.role?.name === 'SAFETY_MANAGER';
 
     const isSafetyDirector = user?.role?.name === 'SAFETY_DIRECTOR';
 
@@ -62,19 +62,23 @@ const SidebarRoutes = () => {
                 label: 'الاسئلة',
                 href: '/questions'
             },
-
+            {
+                icon: FaListUl,
+                label: 'التطلبات',
+                href: '/requirements'
+            },
         );
     }
 
     const typesOfRiskRegistersData = [
         {
             icon: FaMapMarkedAlt,
-            label: 'مخاطر المدارس والطرق',
+            label: 'المدارس وخطوط السير',
             href: '/stations'
         },
         {
             icon: FaBuilding,
-            label: 'مخاطر المباني',
+            label: 'المباني والموظفين',
             href: '/buildings'
         },
     ]
@@ -83,21 +87,29 @@ const SidebarRoutes = () => {
         {
             icon: MdDocumentScanner,
             label: t('Electronic censorship'),
-            href: isAdmin || isSafetyManaget || isSafetyDirector ? '/reports/electronic_censorship/users' : '/reports/electronic_censorship'
+            href: isAdmin || isSafetyManager || isSafetyDirector ? '/reports/electronic_censorship/users' : '/reports/electronic_censorship'
         },
         {
             icon: IoMdDocument,
             label: t('Inspections'),
-            href: isAdmin || isSafetyManaget || isSafetyDirector ? '/reports/users' : '/reports'
+            href: isAdmin || isSafetyManager || isSafetyDirector ? '/reports/users' : '/reports'
         }
     ];
 
-    if (isAdmin || isSafetyManaget) {
+    if (isAdmin || isSafetyManager) {
         inspectionsData.push(
             {
                 icon: FaCodePullRequest,
                 label: t('Deletion requests'),
                 href: '/requests'
+            },
+
+        )
+        routes.push(
+            {
+                icon: FaCodePullRequest,
+                label: 'مهمات ضباط السلامة',
+                href: '/safety_officer'
             }
         )
     }
@@ -115,10 +127,30 @@ const SidebarRoutes = () => {
     const typesOfRiskRegisters = typesOfRiskRegistersData.map((types, idx) => (
         <SingleRoute key={idx} {...types} />
     ));
+    // const isActive = (href) => {
+    //     console.log(pathname, href);
 
+    //     (pathname === '/' && href === '/')
+    //         ||
+    //         pathname === href
+    //         ||
+    //         pathname?.startsWith(`${href}/`)
+    // }
+
+    const isActive = (href) => pathname === href
 
     return (
         <div className='flex flex-col w-full'>
+            <button onClick={() => router.push('/')} className={cn(`flex items-center gap-x-2 overflow-x-hidden text-slate-500 ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'}  hover:text-slate-600 hover:bg-red-300/20 duration-300`, isActive('/') && 'text-red-700 bg-red-200/20 hover:bg-red-200/20 hover:text-red-700')}>
+                <div className="flex items-center gap-2 py-4 duration-200">
+
+                    <IoMdHome size={23} className={cn('text-slate-500', isActive('/') && 'text-red-700')} />
+
+                    <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>{t('home')}</span>
+                </div>
+                <div className={cn(`${language === 'ar' ? 'ml-auto md:ml-0 md:mr-auto' : 'mr-auto md:mr-0 md:ml-auto'}  h-full opacity-0 border-2 border-red-700 transition-all`, isActive('/') && 'opacity-100 ')}></div>
+            </button>
+
             <Accordion type="single" collapsible defaultValue={isReportsActive ? 'item-1' : ''}>
                 <AccordionItem value="item-1">
                     <AccordionTrigger className={cn(
@@ -144,9 +176,9 @@ const SidebarRoutes = () => {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
-            {routes.map((route, idx) => (
+            {/* {routes.map((route, idx) => (
                 <SideItems key={idx} {...route} />
-            ))}
+            ))} */}
             <Accordion type="single" collapsible defaultValue={isReportsActive ? 'item-1' : ''}>
                 <AccordionItem value="item-1">
                     <AccordionTrigger className={cn(
@@ -172,6 +204,15 @@ const SidebarRoutes = () => {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
+            <button onClick={() => router.push('/tasks')} className={cn(`flex items-center gap-x-2 overflow-x-hidden text-slate-500 ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'}  hover:text-slate-600 hover:bg-red-300/20 duration-300`, isActive('/tasks') && 'text-red-700 bg-red-200/20 hover:bg-red-200/20 hover:text-red-700')}>
+                <div className="flex items-center gap-2 py-4 duration-200">
+
+                    <MdModelTraining size={23} className={cn('text-slate-500', isActive('/tasks') && 'text-red-700')} />
+
+                    <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>المهمات</span>
+                </div>
+                <div className={cn(`${language === 'ar' ? 'ml-auto md:ml-0 md:mr-auto' : 'mr-auto md:mr-0 md:ml-auto'}  h-full opacity-0 border-2 border-red-700 transition-all`, isActive('/tasks') && 'opacity-100 ')}></div>
+            </button>
         </div>
     );
 };

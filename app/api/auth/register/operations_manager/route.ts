@@ -10,7 +10,7 @@ const generateToken = (userId: string, email: string) => {
 export const POST = async (req: Request) => {
     try {
 
-        const { name, stationId, email, password } = await req.json();
+        const { name, stationId, email, password, gender } = await req.json();
 
 
         const userExists = await db.user.findUnique({ where: { email } });
@@ -36,6 +36,7 @@ export const POST = async (req: Request) => {
                     }
                 },
                 password: hashedPassword,
+                gender
             },
         });
 

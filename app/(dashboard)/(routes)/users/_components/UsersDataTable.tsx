@@ -50,8 +50,11 @@ export type User = {
     approved: boolean,
     email: string;
     role: { id: string, name: string };
+    gender: string;
+    financialNumber: string
 };
-
+// gender: true,
+// financialNumber: true
 
 const UsersDataTable = () => {
     const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -105,9 +108,11 @@ const UsersDataTable = () => {
 
     const columns: ColumnDef<User>[] = [
         {
-            accessorKey: "id",
-            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>م <br /> no</div>,
-            cell: ({ row }) => <div>{row.index + 1}</div>,
+            accessorKey: "financialNumber",
+            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>Financial Number</div>,
+            cell: ({ row }) => {
+                return <div>{row.getValue('financialNumber')}</div>
+            },
         },
         {
             accessorKey: "name",
@@ -116,7 +121,13 @@ const UsersDataTable = () => {
                 const role = row.getValue('role') as { name: string }
                 return <div>{role?.name === 'STATION' ? t(`filteredStationsData.${row.getValue('name')}`) : row.getValue('name')}</div>
             },
-
+        },
+        {
+            accessorKey: "gender",
+            header: () => <div className={language === 'ar' ? 'text-right' : 'text-left'}>Gender</div>,
+            cell: ({ row }) => {
+                return <div>{row.getValue('gender')}</div>
+            },
         },
         {
             accessorKey: "role",
