@@ -42,7 +42,7 @@ const SideItems = ({
 
   return (
     <button onClick={onClick} className={cn(`flex items-center gap-x-2 overflow-x-hidden text-slate-500 ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'}  hover:text-slate-600 hover:bg-red-300/20 duration-300`, isActive && 'text-red-700 bg-red-200/20 hover:bg-red-200/20 hover:text-red-700')}>
-      <div className="flex items-center gap-2 py-4 duration-200">
+      <div className="flex items-center gap-2 py-4 duration-200 justify-center">
 
         <Icon size={23} className={cn('text-slate-500', isActive && 'text-red-700')} />
 

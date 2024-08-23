@@ -29,7 +29,13 @@ export async function GET(
                             name: true
                         }
                     },
-                    inspectionType: true
+                    inspectionType: true,
+                    school: {
+                        select: {
+                            name: true,
+                            translationName: true
+                        }
+                    },
                 }
             })
 
@@ -57,7 +63,13 @@ export async function GET(
                             name: true
                         }
                     },
-                    inspectionType: true
+                    inspectionType: true,
+                    school: {
+                        select: {
+                            name: true,
+                            translationName: true
+                        }
+                    },
                 }
             })
 

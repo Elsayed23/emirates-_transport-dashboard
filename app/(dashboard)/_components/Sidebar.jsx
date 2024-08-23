@@ -19,7 +19,7 @@ const Sidebar = () => {
     const { logout } = useAuth()
 
     return (
-        <div className={`flex flex-col gap-2 h-full justify-between ${language === 'ar' ? 'border-l' : 'border-r'} relative bg-white`}>
+        <div className={`flex flex-col overflow-auto gap-12 h-full justify-between ${language === 'ar' ? 'border-l' : 'border-r'} relative bg-white`}>
             {/* <div className="pt-5 px-3">
                 <div className="p-2 rounded-full hover:bg-green-800  hover:text-white w-fit duration-200 cursor-pointer" onClick={() => setIsOpen(false)}>
                     <HiXMark size={22} />

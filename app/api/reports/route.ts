@@ -36,7 +36,7 @@ export async function POST(req: Request) {
                     select: {
                         translationName: true
                     }
-                }
+                },
             }
         });
 
@@ -123,6 +123,12 @@ export async function GET(req: NextRequest) {
                 },
                 include: {
                     inspectionType: true,
+                    school: {
+                        select: {
+                            name: true,
+                            translationName: true
+                        }
+                    },
                     _count: true,
                     user: {
                         select: {
@@ -143,6 +149,12 @@ export async function GET(req: NextRequest) {
                 },
                 include: {
                     inspectionType: true,
+                    school: {
+                        select: {
+                            name: true,
+                            translationName: true
+                        }
+                    },
                     _count: true,
                 }
             });
@@ -159,6 +171,12 @@ export async function GET(req: NextRequest) {
                     },
                     include: {
                         inspectionType: true,
+                        school: {
+                            select: {
+                                name: true,
+                                translationName: true
+                            }
+                        },
                         _count: true,
                         user: {
                             select: {
@@ -178,6 +196,12 @@ export async function GET(req: NextRequest) {
                     },
                     include: {
                         inspectionType: true,
+                        school: {
+                            select: {
+                                name: true,
+                                translationName: true
+                            }
+                        },
                         _count: true,
                         user: {
                             select: {

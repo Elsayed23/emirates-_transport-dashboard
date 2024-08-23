@@ -30,6 +30,12 @@ export const GET = async (req: NextRequest) => {
                         },
                     select: {
                         approved: true,
+                        school: {
+                            select: {
+                                name: true,
+                                translationName: true
+                            }
+                        },
                     },
                 },
                 _count: {

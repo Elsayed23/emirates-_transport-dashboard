@@ -21,7 +21,7 @@ const Card = ({
     id,
     user,
     nameOfStation,
-    nameOfSchool,
+    school: { name, translationName },
     inspectionType,
     approved,
     handleDeleteReport,
@@ -70,7 +70,7 @@ const Card = ({
             }
             {user && <h1 className='font-medium text-2xl'>{user.name}</h1>}
             <h2>{t('station')}- {t(`stationsData.${nameOfStation}`)}</h2>
-            <h2>{t('school')}- {nameOfSchool}</h2>
+            <h2>{t('school')}- {language === 'ar' ? name : translationName}</h2>
             <h2>{t('type')}- {t(inspectionType.name)}</h2>
             <h2>{t('Date created')} {new Date(createdAt).toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', })}</h2>
             {

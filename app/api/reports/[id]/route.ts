@@ -17,6 +17,12 @@ export async function GET(
                 id
             },
             include: {
+                school: {
+                    select: {
+                        name: true,
+                        translationName: true
+                    }
+                },
                 inspections: {
                     include: {
                         attachment: true
