@@ -14,6 +14,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import DynamicBreadcrumb from '@/app/(dashboard)/_components/DynamicBreadcrumb';
 import AddRisksForm from './AddRisks';
 import axios from 'axios';
+import { toast } from 'sonner';
 
 const formSchema = z.object({
     name: z.string().min(2, { message: "يجب أن يتكون الاسم من حرفين على الأقل" }),
@@ -90,7 +91,7 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
         setIsFetchingLocation(false);
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                console.log("User denied the request for Geolocation.");
+                toast.info("الرجاء السماح بالوصول الي الموقع");
                 break;
             case error.POSITION_UNAVAILABLE:
                 console.log("Location information is unavailable.");
@@ -135,7 +136,8 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
                     setCapturing(true);
                 }
             } catch (err) {
-                console.error("Error accessing camera:", err);
+                toast.info('الرجاء السماح بالوصول للكاميرا');
+                setCapturing(false);
             }
         };
 

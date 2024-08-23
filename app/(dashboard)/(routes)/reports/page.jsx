@@ -25,6 +25,8 @@ const page = () => {
             if (user) {
                 const { data } = await axios.get(`/api/reports?user_id=${user?.id}`)
                 setReportsData(data)
+                console.log(data);
+
                 setLoading(false)
             }
 

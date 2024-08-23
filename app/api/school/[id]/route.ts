@@ -36,12 +36,6 @@ export async function GET(
                         createdAt: 'asc'
                     },
                     include: {
-                        user: {
-                            select: {
-                                name: true,
-                                id: true
-                            }
-                        },
                         risks: {
                             select: {
                                 response: true,

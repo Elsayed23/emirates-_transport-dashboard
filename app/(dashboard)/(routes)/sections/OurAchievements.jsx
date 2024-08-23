@@ -10,22 +10,26 @@ import { FaSchoolFlag } from "react-icons/fa6";
 
 const OurAchievements = () => {
 
-    const countOfSchools = stationsData.map(({ schools }) => schools.length).reduce((curr, acc) => curr + acc)
-
     const [loading, setLoading] = useState(true)
 
     const [countsData, setCountsData] = useState({
         trafficLinesCount: 0,
-        countOfStudents: 0
+        countOfStudents: 0,
+        schoolsCount: 0
     })
 
     const getData = async () => {
         try {
-            const { data } = await axios.get("/api/traffic_line/all")
-            const { trafficLinesCount, countOfStudents } = data
+            const trafficLines = await axios.get("/api/traffic_line/all")
+            const schools = await axios.get("/api/school/count")
+
+            const { trafficLinesCount, countOfStudents } = trafficLines.data
+            const { schoolsCount } = schools.data
+
             setCountsData({
                 trafficLinesCount,
-                countOfStudents
+                countOfStudents,
+                schoolsCount
             })
             setLoading(false)
         } catch (error) {
@@ -52,7 +56,7 @@ const OurAchievements = () => {
         {
             icon: <FaSchoolFlag size={30} />,
             title: 'Count of schools',
-            data: countOfSchools
+            data: countsData.schoolsCount || 0
         },
     ]
 

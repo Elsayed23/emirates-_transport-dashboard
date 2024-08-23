@@ -14,7 +14,7 @@ export async function GET(
         if (isElectronicCensorship) {
             const reports = await db.report.findMany({
                 where: {
-                    user_id: id,
+                    userId: id,
                     inspectionType: {
                         is: {
                             name: "Inspection of electronic control"
@@ -42,7 +42,7 @@ export async function GET(
         } else {
             const reports = await db.report.findMany({
                 where: {
-                    user_id: id,
+                    userId: id,
                     inspectionType: {
                         isNot: {
                             name: "Inspection of electronic control"

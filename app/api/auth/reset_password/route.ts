@@ -4,7 +4,6 @@ import { db } from '@/lib/db';
 
 export const POST = async (req: Request) => {
     const { token, password } = await req.json();
-    console.log(token, password);
 
     try {
         // Find the user by reset token

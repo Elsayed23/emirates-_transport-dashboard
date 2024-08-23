@@ -30,6 +30,9 @@ export const GET = async () => {
     try {
 
         const stations = await db.station.findMany({
+            orderBy: {
+                createdAt: 'asc'
+            },
             include: {
                 _count: true
             }

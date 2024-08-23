@@ -4,31 +4,43 @@ const nodemailer = require("nodemailer");
 
 export async function POST(req: Request) {
     try {
-        const jsonData = await req.json();
 
-        const { userId, stationId, nameOfStation, nameOfSchool, inspectionTypeId, city } = jsonData;
+        const { userId, stationId, nameOfStation, schoolId, inspectionTypeId, city } = await req.json();
 
+        // Fetch the user's name and financial number
+        const user = await db.user.findUnique({
+            where: { id: userId },
+            select: { name: true, financialNumber: true }
+        });
+
+        if (!user) {
+            return NextResponse.json({ message: 'User not found' }, { status: 404 });
+        }
+
+        // Create the report, including the user's name and financial number
         const newReport = await db.report.create({
             data: {
-                user_id: userId,
+                userId,
+                userName: user.name, // Store the user's name
+                userFinancialNumber: user.financialNumber, // Store the user's financial number
                 stationId,
                 nameOfStation,
-                nameOfSchool,
+                schoolId,
                 inspectionTypeId,
                 city,
             },
             select: {
                 id: true,
-                user: {
+                userName: true,
+                school: {
                     select: {
-                        name: true
+                        translationName: true
                     }
                 }
             }
         });
 
-
-
+        // Fetch Safety Managers
         const safetyManagers = await db.user.findMany({
             where: {
                 role: {
@@ -41,8 +53,7 @@ export async function POST(req: Request) {
             },
         });
 
-
-        // Combine the two lists of users
+        // Configure nodemailer
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
@@ -51,17 +62,17 @@ export async function POST(req: Request) {
             },
         });
 
-        // Placeholder for sending notifications
-
-
         // Send notifications
         for (const safetyManager of safetyManagers) {
             await transporter.sendMail({
                 from: 'mido-dashboard@gmail.com',
                 to: safetyManager?.email,
                 subject: 'New Report Created',
-                text: `A new report has been created for the station: ${nameOfStation}. from ${newReport.user.name}`,
-                html: `Hello ${safetyManager.name},\n\n <p>A new report has been created for the station: <strong>${nameOfStation}</strong>. School => ${nameOfSchool}. <a href="http://localhost:3000/reports/${newReport.id}">see it</a></p>`,
+                text: `A new report has been created for the station: ${nameOfStation} by ${newReport.userName}`,
+                html: `Hello ${safetyManager.name},<br><br>
+               <p>A new report has been created for the station: <strong>${nameOfStation}</strong> by ${newReport.userName}.<br>
+               School: ${newReport.school.translationName}.<br>
+               <a href="http://localhost:3000/reports/${newReport.id}">View Report</a></p>`,
             });
         }
 
@@ -123,7 +134,7 @@ export async function GET(req: NextRequest) {
         } else if (user?.role?.name === 'SAFETY_OFFICER') {
             reports = await db.report.findMany({
                 where: {
-                    user_id: userId,
+                    userId,
                     inspectionType: {
                         isNot: {
                             name: 'Inspection of electronic control'

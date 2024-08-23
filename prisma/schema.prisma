@@ -36,24 +36,25 @@ enum GenderEnum {
 }
 
 model User {
-  id                String        @id @default(uuid())
-  name              String
-  station           Station?
-  roleId            String?
-  role              Role?         @relation(fields: [roleId], references: [id], name: "RoleUsers")
-  email             String        @unique
-  password          String
-  gender            GenderEnum
-  financialNumber   String?
-  approved          Boolean       @default(false)
-  reports           Report[]
-  trafficLines      TrafficLine[]
-  resetToken        String? // Add this field for storing reset token
-  resetTokenExpires DateTime? // Add this field for storing token expiration time
-  tasks             Task[]        @relation("UserTasks")
-  createdAt         DateTime      @default(now())
-  updatedAt         DateTime      @updatedAt
-  Built             Built[]
+  id                 String        @id @default(uuid())
+  name               String
+  station            Station?
+  roleId             String?
+  role               Role?         @relation(fields: [roleId], references: [id], name: "RoleUsers")
+  email              String        @unique
+  password           String
+  gender             GenderEnum
+  financialNumber    String?
+  approved           Boolean       @default(false)
+  reports            Report[]
+  needsPasswordReset Boolean       @default(false)
+  trafficLines       TrafficLine[]
+  resetToken         String?
+  resetTokenExpires  DateTime?
+  tasks              Task[]        @relation("UserTasks")
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+  Built              Built[]
 }
 
 model Task {
@@ -102,6 +103,7 @@ model School {
   trafficLine     TrafficLine[]
   risks           SchoolRisks[]
   UserResponse    UserResponse[]
+  Report          Report[]
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
 }
@@ -138,7 +140,9 @@ model TrafficLine {
   id                  String             @id @default(uuid())
   name                String
   userId              String?
-  user                User?              @relation(fields: [userId], references: [id])
+  userName            String? // Store the user's name
+  userFinancialNumber String? // Store the user's financial number
+  user                User?              @relation(fields: [userId], references: [id], onDelete: SetNull)
   schoolId            String
   school              School             @relation(fields: [schoolId], references: [id], onDelete: Cascade)
   stationId           String
@@ -163,14 +167,16 @@ model TrafficLineImage {
 }
 
 model Built {
-  id        String         @id @default(uuid())
-  name      String
-  cityName  String
-  risks     UserResponse[]
-  userId    String?
-  user      User?          @relation(fields: [userId], references: [id])
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
+  id                  String         @id @default(uuid())
+  name                String
+  cityName            String
+  userId              String?
+  userName            String? // Store the user's name
+  userFinancialNumber String? // Store the user's financial number
+  user                User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+  risks               UserResponse[]
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
 }
 
 model Question {
@@ -230,24 +236,24 @@ model ControlMeasure {
 }
 
 model Report {
-  id               String          @id @default(uuid())
-  stationId        String
-  station          Station         @relation(fields: [stationId], references: [id])
-  user_id          String
-  user             User            @relation(fields: [user_id], references: [id])
-  nameOfStation    String
-  city             String
-  inspectionTypeId String?
-  inspectionType   InspectionType? @relation(fields: [inspectionTypeId], references: [id], name: "inspectionType")
-  // schoolId         String
-  // school           School          @relation(fields: [schoolId], references: [id])
-  nameOfSchool     String?
-  enNameOfschool   String?
-  inspections      Inspection[]
-  approved         Boolean         @default(false)
-  rejectionReason  String?
-  createdAt        DateTime        @default(now())
-  updatedAt        DateTime        @updatedAt()
+  id                  String          @id @default(uuid())
+  stationId           String
+  station             Station         @relation(fields: [stationId], references: [id])
+  userId              String?
+  userName            String? // Store the user's name
+  userFinancialNumber String? // Store the user's financial number
+  user                User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+  nameOfStation       String
+  city                String
+  inspectionTypeId    String?
+  inspectionType      InspectionType? @relation(fields: [inspectionTypeId], references: [id], name: "inspectionType")
+  schoolId            String
+  school              School          @relation(fields: [schoolId], references: [id])
+  inspections         Inspection[]
+  approved            Boolean         @default(false)
+  rejectionReason     String?
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt()
 
   @@map("reports")
 }
@@ -322,4 +328,9 @@ model DeleteRequest {
   updatedAt       DateTime @updatedAt
 
   inspection Inspection @relation(fields: [inspectionId], references: [id], onDelete: Cascade)
+}
+
+model UpdateTrafficLineButtonState {
+  id      String  @id @default(uuid())
+  enabled Boolean @default(false)
 }

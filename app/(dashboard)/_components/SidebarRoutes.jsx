@@ -28,11 +28,6 @@ const SidebarRoutes = () => {
     const router = useRouter();
 
     const routes = [
-        {
-            icon: IoMdHome,
-            label: t('home'),
-            href: '/'
-        },
         // {
         //     icon: FaMapMarkedAlt,
         //     label: t('stations'),
@@ -67,6 +62,12 @@ const SidebarRoutes = () => {
                 label: 'التطلبات',
                 href: '/requirements'
             },
+            {
+                icon: FaCodePullRequest,
+                label: 'مهمات ضباط السلامة',
+                href: '/safety_officer'
+            }
+
         );
     }
 
@@ -105,13 +106,7 @@ const SidebarRoutes = () => {
             },
 
         )
-        routes.push(
-            {
-                icon: FaCodePullRequest,
-                label: 'مهمات ضباط السلامة',
-                href: '/safety_officer'
-            }
-        )
+
     }
 
 
@@ -176,9 +171,9 @@ const SidebarRoutes = () => {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
-            {/* {routes.map((route, idx) => (
+            {routes.map((route, idx) => (
                 <SideItems key={idx} {...route} />
-            ))} */}
+            ))}
             <Accordion type="single" collapsible defaultValue={isReportsActive ? 'item-1' : ''}>
                 <AccordionItem value="item-1">
                     <AccordionTrigger className={cn(
@@ -204,15 +199,21 @@ const SidebarRoutes = () => {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
-            <button onClick={() => router.push('/tasks')} className={cn(`flex items-center gap-x-2 overflow-x-hidden text-slate-500 ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'}  hover:text-slate-600 hover:bg-red-300/20 duration-300`, isActive('/tasks') && 'text-red-700 bg-red-200/20 hover:bg-red-200/20 hover:text-red-700')}>
-                <div className="flex items-center gap-2 py-4 duration-200">
+            {
+                isAdmin
+                    ?
+                    <button onClick={() => router.push('/tasks')} className={cn(`flex items-center gap-x-2 overflow-x-hidden text-slate-500 ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'}  hover:text-slate-600 hover:bg-red-300/20 duration-300`, isActive('/tasks') && 'text-red-700 bg-red-200/20 hover:bg-red-200/20 hover:text-red-700')}>
+                        <div className="flex items-center gap-2 py-4 duration-200">
 
-                    <MdModelTraining size={23} className={cn('text-slate-500', isActive('/tasks') && 'text-red-700')} />
+                            <MdModelTraining size={23} className={cn('text-slate-500', isActive('/tasks') && 'text-red-700')} />
 
-                    <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>المهمات</span>
-                </div>
-                <div className={cn(`${language === 'ar' ? 'ml-auto md:ml-0 md:mr-auto' : 'mr-auto md:mr-0 md:ml-auto'}  h-full opacity-0 border-2 border-red-700 transition-all`, isActive('/tasks') && 'opacity-100 ')}></div>
-            </button>
+                            <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>المهمات</span>
+                        </div>
+                        <div className={cn(`${language === 'ar' ? 'ml-auto md:ml-0 md:mr-auto' : 'mr-auto md:mr-0 md:ml-auto'}  h-full opacity-0 border-2 border-red-700 transition-all`, isActive('/tasks') && 'opacity-100 ')}></div>
+                    </button>
+                    :
+                    null
+            }
         </div>
     );
 };

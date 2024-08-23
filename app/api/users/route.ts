@@ -1,22 +1,21 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db'; // Adjust the path to your db file
+const axios = require('axios');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-
+const crypto = require('crypto');
 
 export const POST = async (req: Request) => {
     try {
-
-        const { name, roleId, email, password, gender, financialNumber } = await req.json();
-
+        const { name, roleId, email, gender, financialNumber } = await req.json();
 
         const userExists = await db.user.findUnique({ where: { email } });
         if (userExists) return NextResponse.json({ status: 400, message: "User already exists" });
 
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        // Generate a temporary password
+        const temporaryPassword = crypto.randomBytes(8).toString('hex');
+        const hashedPassword = await bcrypt.hash(temporaryPassword, 10);
 
-        // Create new user
+        // Create new user with the temporary password
         const newUser = await db.user.create({
             data: {
                 name,
@@ -25,7 +24,8 @@ export const POST = async (req: Request) => {
                 approved: true,
                 password: hashedPassword,
                 gender,
-                financialNumber
+                financialNumber,
+                needsPasswordReset: true, // You can add this flag to enforce password reset on first login
             },
             select: {
                 id: true,
@@ -34,18 +34,17 @@ export const POST = async (req: Request) => {
                 approved: true,
                 role: true,
                 gender: true,
-                financialNumber: true
+                financialNumber: true,
             }
         });
 
-
-        return NextResponse.json({ status: 200, message: 'Created user successfully!', data: newUser });
+        return NextResponse.json({ status: 200, message: 'Created user successfully! Password setup email sent.', data: newUser });
 
     } catch (err) {
         console.error(err);
         return NextResponse.json({ status: 'fail', error: err });
     }
-}
+};
 
 export const GET = async () => {
     try {
@@ -83,19 +82,24 @@ export const GET = async () => {
 
 export const PATCH = async (req: Request) => {
     try {
-        const { user_id, email, password } = await req.json();
+        const { user_id, email, name, financialNumber, gender } = await req.json();
 
-        if (!user_id || !email || !password) {
+        if (!user_id || !email || !name || !financialNumber || !gender) {
             return NextResponse.json({ message: 'Invalid input' });
         }
 
-        // Hash the new password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        // Generate a temporary password
+        const temporaryPassword = crypto.randomBytes(8).toString('hex');
+        const hashedPassword = await bcrypt.hash(temporaryPassword, 10);
+
 
         // Update the user in the database
         await db.user.update({
             where: { id: user_id },
             data: {
+                name,
+                financialNumber,
+                gender,
                 email,
                 password: hashedPassword,
             }

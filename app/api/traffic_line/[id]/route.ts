@@ -18,12 +18,8 @@ export async function GET(
                 name: true,
                 latitude: true,
                 longitude: true,
-                user: {
-                    select: {
-                        id: true,
-                        name: true
-                    }
-                },
+                userName: true,
+                userFinancialNumber: true,
                 station: {
                     select: {
                         translationName: true

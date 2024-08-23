@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
                 from: process.env.EMAIL,
                 to: safetyManager.email,
                 subject: 'New Delete Request',
-                text: `Hello ${safetyManager.name},\n\nA new delete request has been made by ($${request.inspection.report.user.name}).\n\ Reason: ${reason}`,
+                text: `Hello ${safetyManager.name},\n\nA new delete request has been made by ($${request.inspection.report.user?.name}).\n\ Reason: ${reason}`,
             });
         }
 
@@ -116,9 +116,9 @@ export async function PATCH(req: NextRequest) {
         } else if (action === 'REJECT') {
             await transporter.sendMail({
                 from: process.env.EMAIL,
-                to: deleteRequest.inspection.report.user.email,
+                to: deleteRequest.inspection.report.user?.email,
                 subject: 'Delete Request Rejected',
-                text: `Hello ${deleteRequest.inspection.report.user.name},\n\nYour delete request for inspection ID: ${deleteRequest.inspectionId} has been rejected. Reason: ${rejectionReason}`,
+                text: `Hello ${deleteRequest.inspection.report.user?.name},\n\nYour delete request for inspection ID: ${deleteRequest.inspectionId} has been rejected. Reason: ${rejectionReason}`,
             });
         }
 

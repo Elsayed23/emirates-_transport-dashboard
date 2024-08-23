@@ -23,7 +23,7 @@ export async function middleware(req) {
     const token = req.cookies.get('__session')?.value; // Use the correct cookie name
     if (!token) {
         console.log('No token found');
-        if (!['/login', '/forget_password', '/reset_password'].includes(pathname)) {
+        if (!['/login', '/forget_password', '/reset_password', '/set_password'].includes(pathname)) {
             return NextResponse.redirect(`${origin}/login`); // Redirect to login page if no token
         } else {
             return NextResponse.next(); // Allow access to the login or password-related pages

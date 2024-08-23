@@ -449,7 +449,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
             <DeleteRequest isOpen={isOpenDeleteRequest} inspectionId={inspectionId} onClose={() => { setIsOpenDeleteRequest(false) }} setIsDeleteRequestDone={setIsDeleteRequestDone} />
             {selectedInspection && (
                 <UpdateInspectionModal
-                    inspectionTypeName={report?.inspectionType?.name}
+                    inspectionTypeId={report?.inspectionType?.id}
                     isOpen={isOpenUpdateModal}
                     onClose={() => setIsOpenUpdateModal(false)}
                     inspectionId={selectedInspection.id}

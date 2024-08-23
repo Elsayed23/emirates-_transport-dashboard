@@ -3,70 +3,60 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const GET = async (req: NextRequest) => {
     try {
+        const isElectronicCensorship = req.nextUrl.searchParams.get('is_electronic_censorship');
 
-        const isElectronicCensorship = req.nextUrl.searchParams.get('is_electronic_censorship')
-
-
-        if (isElectronicCensorship) {
-            const safetyOfficers = await db.user.findMany({
-                where: {
-                    role: {
-                        name: 'SAFETY_OFFICER'
-                    },
+        const safetyOfficers = await db.user.findMany({
+            where: {
+                role: {
+                    name: 'SAFETY_OFFICER',
                 },
-                select: {
-                    _count: {
-                        select: {
-                            reports: {
-                                where: {
-                                    inspectionType: {
-                                        is: {
-                                            name: "Inspection of electronic control"
-                                        }
-                                    }
-                                }
-                            }
+            },
+            select: {
+                id: true,
+                name: true,
+                reports: {
+                    where: isElectronicCensorship
+                        ? {
+                            inspectionType: {
+                                name: "Inspection of electronic control",
+                            },
                         }
+                        : {
+                            inspectionType: {
+                                name: {
+                                    not: "Inspection of electronic control",
+                                },
+                            },
+                        },
+                    select: {
+                        approved: true,
                     },
-                    id: true,
-                    name: true,
                 },
-            })
-
-
-            return NextResponse.json(safetyOfficers)
-        } else {
-            const safetyOfficers = await db.user.findMany({
-                where: {
-                    role: {
-                        name: 'SAFETY_OFFICER'
-                    }
-                },
-                select: {
-                    _count: {
-                        select: {
-                            reports: {
-                                where: {
+                _count: {
+                    select: {
+                        reports: {
+                            where: isElectronicCensorship
+                                ? {
                                     inspectionType: {
-                                        isNot: {
-                                            name: "Inspection of electronic control"
-                                        }
-                                    }
+                                        name: "Inspection of electronic control",
+                                    },
                                 }
-                            }
-                        }
+                                : {
+                                    inspectionType: {
+                                        name: {
+                                            not: "Inspection of electronic control",
+                                        },
+                                    },
+                                },
+                        },
                     },
-                    id: true,
-                    name: true,
                 },
-            })
+            },
+        });
 
-
-            return NextResponse.json(safetyOfficers)
-        }
-
+        return NextResponse.json(safetyOfficers);
     } catch (error) {
-        console.log("[job_titles]", error);
-        return new NextResponse('Internal Error', { status: 500 })
+        console.log(error);
+        return new NextResponse('Internal Error', { status: 500 });
     }
-}
+};

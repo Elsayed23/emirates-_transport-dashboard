@@ -96,10 +96,23 @@ export async function POST(req: Request) {
     }
 
     try {
+
+        // Fetch the user's name and financial number
+        const user = await db.user.findUnique({
+            where: { id: userId },
+            select: { name: true, financialNumber: true }
+        });
+
+        if (!user) {
+            return NextResponse.json({ message: 'User not found' });
+        }
+
         // Save traffic line data to the database
         const trafficLine = await db.trafficLine.create({
             data: {
                 userId,
+                userName: user.name, // Store the user's name
+                userFinancialNumber: user.financialNumber, // Store the user's financial number
                 name,
                 schoolId,
                 stationId,

@@ -90,9 +90,8 @@ const AddRisksForm = ({ trafficLineData, params: { stationId, schoolId }, files 
         } catch (error) {
             console.error('Failed to save data:', error);
             toast.error(t('Failed to save data'));
-        } finally {
-            setIsSubmitting(false);
         }
+
     }, [allTheAnswersFromQuestions, questions, trafficLineData, files, user, t, router, stationId, schoolId]);
 
     const questionCard = useMemo(() => (

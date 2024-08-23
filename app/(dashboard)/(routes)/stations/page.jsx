@@ -22,6 +22,8 @@ const page = () => {
 
             const { data } = await axios.get('/api/station')
             setStations(data)
+            console.log(data);
+
             setLoading(false)
 
         } catch (error) {
@@ -30,9 +32,7 @@ const page = () => {
     }
 
 
-    const filteredStation = stations?.find(({ filterName }) => filterName === user?.name)
-
-    console.log(filteredStation);
+    const filteredStation = stations?.find(({ id }) => id === user?.stationId)
 
     useEffect(() => {
         getStations()

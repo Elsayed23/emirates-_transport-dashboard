@@ -25,7 +25,8 @@ import { useAuth } from '@/app/context/AuthContext'
 
 const StationCard = ({
     id,
-    user,
+    userId,
+    userName,
     color,
     name,
     educationalLevel,
@@ -65,6 +66,7 @@ const StationCard = ({
     const handleDialogClick = (e) => {
         e.stopPropagation();
     }
+    console.log(userId, main?.user?.id);
 
     return (
         <div onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafficLine/${id}`)} className='flex border shadow-lg hover:scale-[1.03] duration-200 relative text-[#111] flex-col gap-3 rounded-xl cursor-pointer px-4 py-5'>
@@ -97,9 +99,9 @@ const StationCard = ({
                     </div>
             }
             <p className='text-opacity-75 text-center text-sm'>{t('Date created')}: {new Date(createdAt).toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', })}</p>
-            <p>خط السير بإسم: <span className='font-semibold'>{user.name}</span></p>
+            <p>خط السير بإسم: <span className='font-semibold'>{userName}</span></p>
             {
-                main?.user?.id === user?.id || main?.user?.role?.name === 'ADMIN'
+                main?.user?.id === userId || main?.user?.role?.name === 'ADMIN'
                     ?
                     <div className="absolute top-2 right-2">
                         <Button variant='destructive' size='icon' className='self-start rounded-full w-8 h-8' onClick={handleDeleteClick}>

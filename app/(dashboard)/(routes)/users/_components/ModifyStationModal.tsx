@@ -23,17 +23,23 @@ import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { toast } from "sonner";
 import useTranslation from "@/app/hooks/useTranslation";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 
 // Define the schema for the form inputs
 const formSchema = z.object({
+    name: z.string().min(1, { message: "Name field is required" }),
     email: z.string().email({ message: "Invalid email address" }),
-    password: z.string().min(4, { message: "Password must be at least 6 characters long" }),
+    gender: z.string().min(1, { message: "You must choose the gender" }),
+    financialNumber: z.string().min(1, { message: "The Financial number field is required" }),
 });
 
 // Define the interface for form values based on the schema
 interface FormValues {
+    name: string;
     email: string;
-    password: string;
+    gender: string;
+    financialNumber: string;
 }
 
 type ModifyUserModalProps = {
@@ -45,12 +51,14 @@ type ModifyUserModalProps = {
 
 const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId, setData }) => {
 
-
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
+            name: '',
             email: '',
-            password: '',
+            gender: '',
+            financialNumber: ''
+
         },
     });
 
@@ -59,6 +67,7 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
             const { data } = await axios.patch('/api/users', { ...values, user_id: stationId })
 
             setData(data)
+            await axios.post('/api/auth/send_password_setup', { email: values.email });
             onClose()
         } catch (error) {
             console.error(error);
@@ -80,6 +89,19 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                         <FormField
                             control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>{t('Name')}</FormLabel>
+                                    <FormControl>
+                                        <Input disabled={isSubmitting} placeholder={t('the name')} {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
@@ -93,12 +115,39 @@ const ModifyUser: React.FC<ModifyUserModalProps> = ({ isOpen, onClose, stationId
                         />
                         <FormField
                             control={form.control}
-                            name="password"
+                            name="gender"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>{t('New Password')}</FormLabel>
+                                    <FormLabel>Gender</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} type="password" placeholder={`${t('New Password')}...`} {...field} />
+                                        <RadioGroup
+                                            onValueChange={(value) => field.onChange(value)}
+                                            value={field.value}
+                                        >
+                                            <div className="flex gap-4">
+                                                <div className="flex items-center space-x-2">
+                                                    <RadioGroupItem value="MALE" id="male" />
+                                                    <Label className='cursor-pointer' htmlFor="male">Male</Label>
+                                                </div>
+                                                <div className="flex items-center space-x-2">
+                                                    <RadioGroupItem value="FEMALE" id="female" />
+                                                    <Label className='cursor-pointer' htmlFor="female">Female</Label>
+                                                </div>
+                                            </div>
+                                        </RadioGroup>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="financialNumber"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Financial Number</FormLabel>
+                                    <FormControl>
+                                        <Input disabled={isSubmitting} placeholder="Financial Number" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

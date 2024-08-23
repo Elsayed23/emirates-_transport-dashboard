@@ -56,7 +56,7 @@ export async function GET(req: NextRequest) {
             // Fetch all reports created by the user
             reports = await db.report.findMany({
                 where: {
-                    user_id: userId,
+                    userId,
                     inspectionType: {
                         is: {
                             name: 'Inspection of electronic control'

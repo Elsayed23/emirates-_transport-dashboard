@@ -37,7 +37,6 @@ import { Label } from '@/components/ui/label';
 const formSchema = z.object({
     name: z.string().min(1),
     email: z.string().email(),
-    password: z.string().min(4),
     roleId: z.string().min(1, { message: "Please select a role" }),
     gender: z.string().min(1, { message: "You must choose the gender" }),
     financialNumber: z.string().min(1, { message: "The Financial number field is required" })
@@ -46,10 +45,9 @@ const formSchema = z.object({
 interface FormValues {
     name: string;
     email: string;
-    password: string;
     roleId: string;
     gender: string;
-    financialNumber: string
+    financialNumber: string;
 }
 
 type AddUserModalProps = {
@@ -65,7 +63,6 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
         defaultValues: {
             name: '',
             email: '',
-            password: '',
             roleId: '',
             gender: '',
             financialNumber: ''
@@ -90,28 +87,28 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
 
     const onSubmit = async (values: FormValues) => {
         try {
-
-            const { data } = await axios.post('/api/users', values)
+            // First, create the user without a password
+            const { data } = await axios.post('/api/users', { ...values });
 
             setData((prevUsers: any) => {
                 return [
                     ...prevUsers,
                     data?.data
                 ]
-            })
-
+            });
+            await axios.post('/api/auth/send_password_setup', { email: values.email });
             onClose();
-            toast.success(data?.message)
-            reset({ ...form.getValues(), name: '', email: '', password: '', roleId: '' });
+            toast.success(data?.message);
+            reset({ ...form.getValues(), name: '', email: '', roleId: '' });
         } catch (error) {
             console.log(error);
         }
     };
 
     const { t } = useTranslation();
-    const { language } = React.useContext(LanguageContext)
+    const { language } = React.useContext(LanguageContext);
 
-    const makeDIR = language === 'ar' ? 'rtl' : 'ltr'
+    const makeDIR = language === 'ar' ? 'rtl' : 'ltr';
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
@@ -142,19 +139,6 @@ const AddUserModal: React.FC<AddUserModalProps> = ({ isOpen, onClose, setData })
                                     <FormLabel>{t('Mail')}</FormLabel>
                                     <FormControl>
                                         <Input disabled={isSubmitting} type="email" placeholder={`${t('Mail')}...`} {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>{t('Password')}</FormLabel>
-                                    <FormControl>
-                                        <Input disabled={isSubmitting} type="password" placeholder={`${t('Password')}...`}  {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

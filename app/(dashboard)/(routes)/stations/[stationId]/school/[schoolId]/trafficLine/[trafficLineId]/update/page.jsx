@@ -9,10 +9,9 @@ import Loading from '@/app/(dashboard)/_components/Loading';
 import { toast } from 'sonner';
 import useTranslation from '@/app/hooks/useTranslation';
 import LanguageContext from '@/app/context/LanguageContext';
-import questionsData from '@/app/constants/questionsData';
 
 const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
-    const [questions, setQuestions] = useState(questionsData);
+    const [questions, setQuestions] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [trafficLineName, setTrafficLineName] = useState(null);
@@ -20,11 +19,11 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const { t } = useTranslation();
     const { language } = useContext(LanguageContext);
 
-    const searchParams = useSearchParams()
+    const searchParams = useSearchParams();
 
-    const enStationName = searchParams.get('station')
-    const arSchoolName = searchParams.get('ar_school')
-    const enSchoolName = searchParams.get('en_school')
+    const enStationName = searchParams.get('station');
+    const arSchoolName = searchParams.get('ar_school');
+    const enSchoolName = searchParams.get('en_school');
 
     const router = useRouter();
 
@@ -51,15 +50,12 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
         try {
             const { data } = await axios.get(`/api/risks?traffic_line_id=${trafficLineId}`);
             console.log(data.allQuestionAnswers);
-            const updatedQuestions = questions.map(q => {
-                const answer = data.allQuestionAnswers.find(d => d.questionId === q.questionId)?.answer || 'غير مجاب عليها';
-                return { ...q, answer };
-            });
-            setQuestions(updatedQuestions);
+
+            setQuestions(data.allQuestionAnswers);
         } catch (error) {
             console.log(error);
         }
-    }, [trafficLineId, questions]);
+    }, [trafficLineId]);
 
     useEffect(() => {
         getRisks();
@@ -68,7 +64,7 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const handleAnswerChange = useCallback((id, answer) => {
         setQuestions(prevQuestions =>
             prevQuestions.map(q =>
-                q.questionId === id ? { ...q, answer } : q
+                q.question.id === id ? { ...q, response: answer } : q
             )
         );
     }, []);
@@ -81,31 +77,19 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
         { title: t('Update risks') }
     ], [stationId, schoolId, trafficLineId, enStationName, arSchoolName, enSchoolName, trafficLineName, t, language]);
 
-    const allTheAnswersFromQuestions = useMemo(() => questions.map(({ answer }) => answer), [questions]);
+    const allTheAnswersFromQuestions = useMemo(() => questions?.map(({ response }) => response), [questions]);
 
     const handleSubmit = useCallback(async () => {
         try {
-
             if (allTheAnswersFromQuestions.includes('غير مجاب عليها')) {
                 toast.error(t('You must answer all questions'));
             } else {
                 setIsSubmitting(true);
                 const dataSending = questions.map(q => ({
-                    questionId: q.questionId,
-                    question: q.question,
-                    translatedQuestion: q.translatedQuestion,
-                    answer: q.answer,
-                    causeOfRisk: q.questionAnswer.causeOfRisk,
-                    activity: q.questionAnswer.activity,
-                    typeOfActivity: q.questionAnswer.typeOfActivity,
-                    hazardSource: q.questionAnswer.hazardSource,
-                    risk: q.questionAnswer.risk,
-                    peopleExposedToRisk: q.questionAnswer.peopleExposedToRisk,
-                    riskAssessment: q.questionAnswer.riskAssessment,
-                    residualRisks: q.questionAnswer.residualRisks,
-                    expectedInjury: q.questionAnswer.expectedInjury,
-                    controlMeasures: q.questionAnswer.controlMeasures
+                    questionId: q.question.id,
+                    response: q.response,
                 }));
+                console.log(dataSending);
 
                 await axios.patch('/api/risks', {
                     trafficLineId,
@@ -120,15 +104,15 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     }, [allTheAnswersFromQuestions, questions, router, stationId, schoolId, trafficLineId, t]);
 
     const questionCard = useMemo(() => (
-        questions.map(({ questionId, question, translatedQuestion, answer }, idx) => (
-            <div key={questionId} className='flex flex-col items-start gap-3 py-2 border-b'>
-                <span className="flex-1">{idx + 1}- {language === 'ar' ? question : translatedQuestion}</span>
+        questions?.map(({ question, response }, idx) => (
+            <div key={idx} className='flex flex-col items-start gap-3 py-2 border-b'>
+                <span className="flex-1">{idx + 1}- {language === 'ar' ? question.question : question.translatedQuestion}</span>
                 <div className="flex items-center gap-2">
-                    <Button size='sm' className={`${answer === 'نعم' && 'bg-green-800 hover:bg-green-700'}`} onClick={() => handleAnswerChange(questionId, 'نعم')}>{t('نعم')}</Button>
-                    <Button size='sm' className={`${answer === 'لا' && 'bg-red-800 hover:bg-red-700'}`} onClick={() => handleAnswerChange(questionId, 'لا')}>{t('لا')}</Button>
-                    <Button size='sm' className={`${answer === 'لا ينطبق' && 'bg-slate-500 hover:bg-slate-400'}`} onClick={() => handleAnswerChange(questionId, 'لا ينطبق')}>{t('لا ينطبق')}</Button>
+                    <Button size='sm' className={`${response === 'نعم' && 'bg-green-800 hover:bg-green-700'}`} onClick={() => handleAnswerChange(question.id, 'نعم')}>{t('نعم')}</Button>
+                    <Button size='sm' className={`${response === 'لا' && 'bg-red-800 hover:bg-red-700'}`} onClick={() => handleAnswerChange(question.id, 'لا')}>{t('لا')}</Button>
+                    <Button size='sm' className={`${response === 'لا ينطبق' && 'bg-slate-500 hover:bg-slate-400'}`} onClick={() => handleAnswerChange(question.id, 'لا ينطبق')}>{t('لا ينطبق')}</Button>
                 </div>
-                {answer !== 'غير مجاب عليها' && <span className={`text-sm font-semibold mt-2 ${answer === 'لا' ? 'text-red-700' : answer === 'نعم' ? 'text-green-700' : 'text-[#111]'}`}>{t('the answer')}: {t(answer)}</span>}
+                {response !== 'غير مجاب عليها' && <span className={`text-sm font-semibold mt-2 ${response === 'لا' ? 'text-red-700' : response === 'نعم' ? 'text-green-700' : 'text-[#111]'}`}>{t('the answer')}: {t(response)}</span>}
             </div>
         ))
     ), [questions, handleAnswerChange, language, t]);
@@ -143,7 +127,8 @@ const page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                         <Button onClick={handleSubmit} disabled={isSubmitting}>{t('Save')}</Button>
                     </div>
                 </div>
-            </div> :
+            </div>
+            :
             <Loading />
     );
 };

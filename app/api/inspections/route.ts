@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import path from 'path';
 import fs from 'fs';
+const crypto = require('crypto')
+
+function sanitizeFileName(fileName: string): string {
+    return fileName.replace(/[^a-z0-9.-]/gi, '_').toLowerCase();
+}
 
 export const POST = async (req: Request) => {
     try {
@@ -14,23 +19,31 @@ export const POST = async (req: Request) => {
         const enDescription = formData.get("enDescription") as string;
         const noteClassification = formData.get("noteClassification") as string;
 
-        const files = formData.getAll("files") as File[];
+        const file = formData.get("file") as File;
 
-        if (!reportId || !name || !idOfBus || !requirement || !description || !enDescription) {
+        if (!reportId || !name || !idOfBus || !requirement || !description || !enDescription || !file) {
             return NextResponse.json({ status: 400, message: "All fields are required" });
         }
 
-        const imagePromises = files.filter(file => file.type.startsWith('image/')).map(async (file) => {
-            const arrayBuffer = await file.arrayBuffer();
-            const buffer = new Uint8Array(arrayBuffer);
-            const fileName = `${Date.now()}-${file.name}`;
-            const filePath = path.join('/uploads', fileName);
-            fs.writeFileSync(path.join('./public', filePath), buffer);
+        if (!file.type.startsWith('image/')) {
+            return NextResponse.json({ status: 400, message: "Uploaded file must be an image" });
+        }
 
-            return filePath;
-        });
+        const uploadDir = path.join("./public/uploads");
 
-        const savedImages = await Promise.all(imagePromises);
+        // Ensure the uploads directory exists
+        if (!fs.existsSync(uploadDir)) {
+            fs.mkdirSync(uploadDir, { recursive: true });
+        }
+
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = new Uint8Array(arrayBuffer);
+        const randomString = crypto.randomBytes(6).toString('hex');
+        const sanitizedFileName = sanitizeFileName(file.name);
+        const fileName = `${Date.now()}-${randomString}-${sanitizedFileName}`;
+        const filePath = path.join("/uploads", fileName);
+
+        fs.writeFileSync(path.join(uploadDir, fileName), buffer);
 
         const newInspection = await db.inspection.create({
             data: {
@@ -41,14 +54,14 @@ export const POST = async (req: Request) => {
                 description,
                 enDescription,
                 noteClassification,
-                image: savedImages[0],
+                image: filePath, // Store the single image path
             }
         });
 
-        return NextResponse.json({ status: 200, message: 'Inspection created successfully!', inspection: newInspection });
+        return NextResponse.json({ status: 200, message: "Inspection created successfully!", inspection: newInspection });
 
     } catch (error) {
-        console.log("[upload]", error);
-        return new NextResponse('Internal Error', { status: 500 });
+        console.error("[Upload Error]", error);
+        return new NextResponse("Internal Error", { status: 500 });
     }
-}
+};

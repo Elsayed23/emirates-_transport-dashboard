@@ -42,7 +42,6 @@ import 'leaflet/dist/leaflet.css';
 import { DialogTrigger } from '@radix-ui/react-dialog';
 import { useAuth } from '@/app/context/AuthContext';
 import FullScreenImageModal from '@/app/(dashboard)/_components/FullScreenImageModal';
-import { exportQuestionsToExcel } from '@/utils/exportQuestionsToExcel';
 
 const MapContainer = dynamic(() => import('react-leaflet').then(module => module.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import('react-leaflet').then(module => module.TileLayer), { ssr: false });
@@ -62,6 +61,9 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
     const [trafficLineData, setTrafficLineData] = useState('');
     const [allQuestionAnswers, setAllQuestionAnswers] = useState([]);
+    const [isEnabled, setIsEnabled] = useState(false);
+
+
     useEffect(() => {
         // Apply Leaflet configuration only on the client side
         if (typeof window !== 'undefined') {
@@ -80,11 +82,26 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
             try {
                 const data = await getSpecificTrafficLineData(trafficLineId);
                 setTrafficLineData(data);
+
             } catch (error) {
                 console.log(error);
             }
         };
 
+        const getButtonStatus = async () => {
+            try {
+
+                const { data } = await axios.get('/api/updateTrafficLineButtonStatus')
+
+                const { status } = data
+
+                setIsEnabled(status)
+
+            } catch (error) {
+                console.log(error);
+
+            }
+        }
         const fetchRisks = async () => {
             try {
                 const { data } = await axios.get(`/api/risks?traffic_line_id=${trafficLineId}`);
@@ -102,6 +119,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
         };
 
         fetchTrafficLineData();
+        getButtonStatus()
         fetchRisks();
     }, [trafficLineId]);
 
@@ -111,9 +129,27 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const handleDownload = () => {
         exportRisksToExcel(risks, `${trafficLineData?.name} risks`);
     };
-    const handleDownloadQuestions = () => {
-        exportQuestionsToExcel(allQuestionAnswers, `${trafficLineData?.name} trafflicLine questions`);
-    }
+
+    const handleDownloadQuestions = async () => {
+        try {
+            const response = await axios.post('/api/export_questions_to_PDF', {
+                data: allQuestionAnswers,
+                user: trafficLineData.user,
+            }, {
+                responseType: 'blob', // Important to handle the PDF as a binary blob
+            });
+
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${trafficLineData.name}_questions_report.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error('Error downloading PDF:', error);
+        }
+    };
 
 
     const handleDeleteTrafficLine = async () => {
@@ -167,20 +203,19 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
     if (loading) return <Loading />
 
+    console.log(main?.user);
+
 
     return (
         <div className="p-6 min-h-[calc(100vh-80px)]">
             <div className="flex flex-col gap-9">
                 <DynamicBreadcrumb routes={breadcrumbData} />
                 <div className="flex flex-col gap-4">
+                    <div className="flex gap-2">
+                        <h4>المفتش: <span className='font-semibold'>{trafficLineData?.userName}</span> | الرقم المالي: <span className='font-semibold'>{trafficLineData?.userFinancialNumber}</span></h4>
+                    </div>
                     <div className="flex items-center gap-3">
-                        {
-                            main?.user?.id === trafficLineData?.user?.id || main?.user?.role?.name === 'ADMIN'
-                                ?
-                                <Button className='w-fit justify-start' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafficLine/${trafficLineId}/update`)}>{risks.length ? t('Update risks') : t('Add risks')}</Button>
-                                :
-                                null
-                        }
+                        <Button className='w-fit justify-start' disabled={!isEnabled} onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafficLine/${trafficLineId}/update?station=${trafficLineData?.station?.translationName}&ar_school=${trafficLineData?.school?.name}&en_school=${trafficLineData?.school?.translationName}`)}>{t('Update risks')}</Button>
                         <Button variant='outline' onClick={handleDownload}>{t('Download Risks')}</Button>
                         <Button variant='outline' onClick={handleDownloadQuestions}>تحميل الاسئلة</Button>
                         <Dialog open={isShowQuestionsDialogOpen} onOpenChange={setIsShowQuestionsDialogOpen}>
@@ -238,7 +273,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                     </div>
                     <hr />
                     {
-                        main?.user?.id === trafficLineData?.user?.id || main?.user?.role?.name === 'ADMIN' ? (
+                        main?.user?.financialNumber === trafficLineData?.userFinancialNumber || main?.user?.role?.name === 'ADMIN' ? (
                             <>
                                 <Button variant='destructive' className='self-start' onClick={() => setIsDeleteDialogOpen(true)}>{t('Delete itinerary')}</Button>
                                 <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>

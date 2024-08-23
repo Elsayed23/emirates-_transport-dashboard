@@ -97,12 +97,6 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     }, [reportData?.inspectionTypeId])
 
 
-    const noteData =
-        reportData.inspectionTypeName === "Inspection of electronic control"
-            ? ESInotes
-            : reportData.inspectionTypeName === "Inspection of safety procedures on school buses"
-                ? busInspectionNotes
-                : buildingInspectionNotes;
 
 
     useEffect(() => {
@@ -234,7 +228,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                 formData.append("noteClassification", inspection.noteClassification);
 
                 inspection.files.forEach((file: any) => {
-                    formData.append("files", file);
+                    formData.append("file", file);
                 });
 
                 await axios.post("/api/inspections", formData, {

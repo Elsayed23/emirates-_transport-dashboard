@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 import Loading from '@/app/(dashboard)/_components/Loading'
 import { useAuth } from '@/app/context/AuthContext'
 
-const page = () => {
+const Page = () => {
 
     const [officersData, setOfficersData] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -26,11 +26,23 @@ const page = () => {
         try {
             if (user) {
                 const { data } = await axios.get('/api/safety_officer')
-                setOfficersData(data)
+
+                // If the role is 'SAFETY_DIRECTOR', filter and count only approved reports
+                const processedData = data.map(officer => {
+                    const approvedReportsCount = officer.reports.filter(report => report.approved).length;
+                    return {
+                        ...officer,
+                        _count: {
+                            reports: user?.role?.name === 'SAFETY_DIRECTOR' ? approvedReportsCount : officer._count.reports
+                        }
+                    }
+                })
+
+                console.log(data, processedData);
+
+                setOfficersData(processedData)
                 setLoading(false)
             }
-
-
         } catch (error) {
             console.log(error);
         }
@@ -41,9 +53,7 @@ const page = () => {
     }, [user])
 
     const { t } = useTranslation()
-
     const router = useRouter()
-
 
     const breadcrumbData = [
         {
@@ -52,7 +62,6 @@ const page = () => {
     ]
 
     if (loading) return <Loading />
-
 
     return (
         <div className="p-6 min-h-[calc(100vh-80px)]">
@@ -70,4 +79,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
