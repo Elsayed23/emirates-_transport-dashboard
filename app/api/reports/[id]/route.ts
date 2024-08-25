@@ -25,7 +25,9 @@ export async function GET(
                 },
                 inspections: {
                     include: {
-                        attachment: true
+                        attachment: true,
+                        note: true,
+                        requirement: true
                     }
                 },
                 user: {
@@ -34,7 +36,7 @@ export async function GET(
                         name: true
                     }
                 },
-                inspectionType: true
+                inspectionType: true,
             }
         })
 

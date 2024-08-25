@@ -259,23 +259,23 @@ model Report {
 }
 
 model Inspection {
-  id                 String                 @id @default(uuid())
-  reportId           String
-  name               String
-  image              String                 @db.LongText
-  idOfBus            Int
-  rootCause          String?                @db.LongText
-  correctiveAction   String?                @db.LongText
-  attachment         InspectionAttachment[] @relation("InspectionAttachment")
-  requirement        String?
-  isClosed           Boolean                @default(false)
-  noteClassification String
-  description        String
-  enDescription      String?
-  report             Report                 @relation(fields: [reportId], references: [id], onDelete: Cascade)
-  createdAt          DateTime               @default(now())
-  updatedAt          DateTime               @updatedAt()
-  DeleteRequest      DeleteRequest[]
+  id               String                 @id @default(uuid())
+  reportId         String
+  name             String
+  image            String                 @db.LongText
+  idOfBus          Int
+  rootCause        String?                @db.LongText
+  correctiveAction String?                @db.LongText
+  attachment       InspectionAttachment[] @relation("InspectionAttachment")
+  requirementId    String?
+  requirement      Requirement?           @relation(fields: [requirementId], references: [id])
+  isClosed         Boolean                @default(false)
+  noteId           String?
+  note             Note?                  @relation(fields: [noteId], references: [id])
+  report           Report                 @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt()
+  DeleteRequest    DeleteRequest[]
 
   @@map("inspections")
 }
@@ -294,20 +294,34 @@ model Requirement {
   requirement      String
   notes            Note[]         @relation("RequirementNotes")
   inspectionType   InspectionType @relation("InspectionTypeRequirement", fields: [inspectionTypeId], references: [id], onDelete: Cascade)
+  Inspection       Inspection[]
   inspectionTypeId String
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt()
 }
 
 model Note {
-  id                 String      @id @default(uuid())
+  id                 String             @id @default(uuid())
   ar                 String
   en                 String
   noteClassification String
-  requirement        Requirement @relation("RequirementNotes", fields: [requirementId], references: [id], onDelete: Cascade)
+  severity           Int
+  requirement        Requirement        @relation("RequirementNotes", fields: [requirementId], references: [id], onDelete: Cascade)
   requirementId      String
-  createdAt          DateTime    @default(now())
-  updatedAt          DateTime    @updatedAt()
+  correctiveAction   CorrectiveAction[] @relation("NoteCorrectiveAction")
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt()
+  inspections        Inspection[]
+}
+
+model CorrectiveAction {
+  id        String   @id @default(uuid())
+  ar        String
+  en        String
+  noteId    String
+  note      Note     @relation("NoteCorrectiveAction", fields: [noteId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt()
 }
 
 model InspectionAttachment {

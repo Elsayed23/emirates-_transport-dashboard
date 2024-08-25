@@ -28,6 +28,7 @@ const ReportPage = ({ params: { id } }) => {
         }
         return reportData.inspections.filter(inspection => inspection.noteClassification === note_classification).length;
     };
+    console.log(reportData);
 
     const getReport = async () => {
         try {
@@ -89,7 +90,7 @@ const ReportPage = ({ params: { id } }) => {
                     <tbody className="text-gray-600 text-sm font-light">
                         <tr className="border-b border-gray-200 hover:bg-gray-100">
                             <td className="py-3 px-6 text-center border border-gray-300">{t(`stationsData.${reportData.nameOfStation}`)}</td>
-                            <td className="py-3 px-6 text-center border border-gray-300">{reportData?.nameOfSchool}</td>
+                            <td className="py-3 px-6 text-center border border-gray-300">{reportData?.school?.name} <br /> {reportData?.school?.translationName}</td>
                             <td className="py-3 px-6 text-center border border-gray-300">{new Date(reportData.createdAt).toLocaleDateString()}</td>
                         </tr>
                     </tbody>

@@ -1,382 +1,1791 @@
 [
     {
-        "requirement": "سائق_النقل_المدرسي | School_bus_drivers",
-        "notes": [
-            {
-                "ar": "عدم وجود سجل التفقد اليومي للحافلة",
-                "en": "Absence of daily bus inspection log"
-            },
-            {
-                "ar": "القيادة بسرعة عالية",
-                "en": "Driving at high speed"
-            },
-            {
-                "ar": "عدم تفقد السائق للحافلة وفقا لنموذج التفقد اليومي حيث يتم تعبئة النموذج دون التأكد من تطابق البنود مع الملاحظات بالحافلة",
-                "en": "The driver does not inspect the bus according to the daily inspection form, as the form is filled out without ensuring that the items match the notes on the bus"
-            },
-            {
-                "ar": "رمي/ القاء القمامه من النافذة أثناء القيادة",
-                "en": "Throwing garbage out the window while driving"
-            },
-            {
-                "ar": "وجود احد المنقولين بالحافلة قبل صعود السائق للحافلة",
-                "en": "The presence of students on the bus before driver boarded the bus"
-            },
-            {
-                "ar": "عدم الالتزام بالزي و المظهر العام و المحافظة على النظافة الشخصية",
-                "en": "Non-compliance with dress and general appearance and maintaining personal hygiene"
-            },
-            {
-                "ar": "السماح للطلبة باستخدام الهاتف الخاص به (الانشغال عن الطريق)",
-                "en": "Allowing students to use their phone (being busy on the road)"
-            },
-            {
-                "ar": "تخزين أغراض شخصية داخل الحافلة",
-                "en": "The presence of personal property inside the bus"
-            },
-            {
-                "ar": "تخزين أدوات النظافة داخل الحافلة",
-                "en": "Storing toiletries inside the bus"
-            },
-            {
-                "ar": "وضع الجهاز اللوحي / للوحة الحافلة خالية على محرك الحافلة",
-                "en": "PUTTED TABLET AND NO STUDENTS BOARD ON ENGINE"
-            },
-            {
-                "ar": "الانشغال عن الطريق (التحدث مع المنقولين)",
-                "en": "Being distracted from the road in talking with transferees"
-            },
-            {
-                "ar": "استعمال سجل تفقد يومي للحافلة غير محدث",
-                "en": "Using outdated daily bus inspection log"
-            },
-            {
-                "ar": "الانشغال عن الطريق باستخدام الجهاز اللوحي لتحضير المنقولين",
-                "en": "Distraction from the road due to the use of tablet for passenger checklist"
-            },
-            {
-                "ar": "عدم تسجيل صعود ونزول المنقولين",
-                "en": "Not recording the ascent and disembarkation of transported persons"
-            },
-            {
-                "ar": "الرجوع الحافلة للخلف أثناء الرحلة",
-                "en": "Failure to document passenger boarding and disembarking"
-            },
-            {
-                "ar": "نقل شخص غير مصرح له بالصعود للحافلة",
-                "en": "Unauthorized individual boarding the bus"
-            },
-            {
-                "ar": "تركيب لوحة (الحافلة خالية)بوجود منقولين",
-                "en": "Placing a 'Bus Empty' sign with passengers on board"
-            },
-            {
-                "ar": "سير الحافلة عكس اتجاه الطريق",
-                "en": "Bus traveling in the opposite direction of the road"
-            },
-            {
-                "ar": "صعود/نزول المنقولين بنقاط غير امنة",
-                "en": "Boarding/alighting passengers at unsafe points"
-            },
-            {
-                "ar": "صعود/نزول المنقولين على مسافة بعيدة عن منزله",
-                "en": "Passengers boarding/alighting far from home"
-            },
-            {
-                "ar": "عدم إلتزام السائق بوضع لوحة (الحافلة خالية)بعد انتهاء الرحلة",
-                "en": "Driver's failure to display 'Bus Empty' sign post-trip"
-            },
-            {
-                "ar": "فتح ذراع التوقف دون وجود منقولين",
-                "en": "Extending the stop arm when no passengers are present"
-            },
-            {
-                "ar": "عدم فتح زراع التوقف اثناء نزول المنقولين",
-                "en": "Failure to extend the stop arm while passengers are disembarking"
-            },
-            {
-                "ar": "تفقد الحافلة عند الوصول لنقطة السكون 'الموقف النهائي للحافلة'",
-                "en": "Inspecting the bus upon reaching the final stop"
-            },
-            {
-                "ar": "عدم تفقد الحافلة بعد نزول الطلبة من الحافلة",
-                "en": "Not inspecting the bus after students disembark"
-            },
-            {
-                "ar": "عدم الالتزام بربط حزام الامان بصورة صحيحة",
-                "en": "Failure to properly fasten seat belts"
-            },
-            {
-                "ar": "استخدام حافلة النقل المدرسي بعد ساعات العمل الرسمية",
-                "en": "Using the school bus outside official working hours"
-            },
-            {
-                "ar": "وجود ممتلكات شخصية داخل الحافلة",
-                "en": "The presence of personal property inside the bus"
-            },
-            {
-                "ar": "استخدام حافلة النقل المدرسي لأغراض شخصية",
-                "en": "Using the school bus for personal purposes"
-            },
-            {
-                "ar": "وجود أدوات نظافة داخل الحافلة",
-                "en": "There are toiletries inside the bus"
-            },
-            {
-                "ar": "الانشغال عن الطريق في الحديث مع المنقولين",
-                "en": "Being distracted from the road in talking with transferees"
-            },
-            {
-                "ar": "استخدام 'النسور' أو 'التدخين' في الحافلة",
-                "en": "Smoking or vaping inside the bus"
-            },
-            {
-                "ar": "الانشغال عن الطريق باستخدام الهاتف",
-                "en": "Driving distraction due to phone use"
-            },
-            {
-                "ar": "الانشغال عن الطريق شرب مشروبات ساخنة /باردة",
-                "en": "Driving distraction due to consuming hot/cold beverages"
-            },
-            {
-                "ar": "التجاوز الخطر أو التجاوز الغير حتمي",
-                "en": "Dangerous vehicle overtaking"
-            },
-            {
-                "ar": "عدم التأكد من خلو محيط الحافلة من الطلبة قبل الحركة",
-                "en": "Failure to ensure the area around the bus is clear of students before moving"
-            },
-            {
-                "ar": "إنزال وتحميل الطلبة في مكان خطر",
-                "en": "Student loading and unloading in a dangerous area"
-            },
-            {
-                "ar": "عدم إعطاء الطلبة الوقت الكافي للركوب أو النزول",
-                "en": "Not allowing students sufficient time to board or disembark"
-            },
-            {
-                "ar": "ترك باب الحافلة مفتوح أثناء القيادة بوجود الطلبة",
-                "en": "Leaving the bus door open while driving with students onboard"
-            },
-            {
-                "ar": "التسرع بفتح باب الحافلة قبل التوقف",
-                "en": "Rushing to open the bus door before coming to a complete stop"
-            },
-            {
-                "ar": "استخدام فتحة التفاف ممنوعة أو مسموحة دون مبرر",
-                "en": "Unauthorized or unjustified use of the emergency exit"
-            },
-            {
-                "ar": "الرجوع إلى الخلف بصورة خطرة",
-                "en": "Reckless reversing"
-            }
-        ]
-    },
-    {
-        "requirement": "مشرف_النقل_والسلامة | School_bus_supervisor",
+        "requirement": "سائق النقل المدرسي | School_bus_drivers",
+        "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
         "notes": [
             {
                 "ar": "انشغال بالهاتف وقت تقديم الخدمة",
-                "en": "Using the phone while providing service"
+                "en": "Using the phone while providing service",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "منع استخدام الهاتف أثناء القيادة منعاً باتاً",
+                        "en": "Strictly prohibit the use of phones while driving under any circumstances"
+                    },
+                    {
+                        "ar": "توعية السائقين بضرورة التوقف بمكان آمن في الحالات الاضطرارية لاستخدام الهاتف",
+                        "en": "Educate drivers on the importance of pulling over to a safe location to use their phones in emergencies"
+                    },
+                    {
+                        "ar": "مراقبة السائقين أثناء القيادة بواسطة منسقي الحركة",
+                        "en": "Monitor drivers with the help of traffic coordinators"
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to the disciplinary regulations"
+                    }
+                ]
             },
             {
-                "ar": "عدم بارتداء السترة العاكسة",
-                "en": "Not wearing a reflective vest"
+                "ar": "الانشغال عن الطريق باستخدام الجهاز اللوحي لتحضير المنقولين",
+                "en": "Distraction from the road due to the use of tablet for passenger checklist",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "الإعداد قبل الرحلة: التأكد من إتمام قائمة المنقولين قبل بدء الرحلة لتجنب الحاجة لاستخدام الجهاز اللوحي أثناء القيادة.",
+                        "en": "Prepare before the trip: Ensure the checklist is completed before starting the trip to avoid using the tablet while driving."
+                    },
+                    {
+                        "ar": "تحديد نقاط وقوف محددة حيث يمكن للسائق استخدام الجهاز اللوحي بأمان للتحقق من أو تحديث قائمة المنقولين اثناء الوقوف التام.",
+                        "en": "Designate specific stops where the driver can safely use the tablet to check or update the passenger list while fully stopped."
+                    },
+                    {
+                        "ar": "التدريب المنتظم: إجراء جلسات تدريب منتظمة للسائقين حول مخاطر التشتت وأهمية البقاء مركزين على الطريق.",
+                        "en": "Regular training: Conduct regular training sessions for drivers on the dangers of distractions and the importance of staying focused on the road."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تسجيل صعود ونزول المنقولين",
+                "en": "Not recording the ascent and disembarkation of transported persons",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "تنبية السائق بضرور تسجيل حضور الطلبة في السجل اليومي",
+                        "en": "Reminder for the driver to record students' attendance in the daily log"
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations"
+                    }
+                ]
+            },
+            {
+                "ar": "صعود/نزول المنقولين بنقاط غير امنة.",
+                "en": "Boarding/alighting passengers at unsafe points",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "وقوف الحافلة على نفس جهة المدرسة/البيت لتفادي قطع الشارع (داخل الأحياء السكنية) أثناء التحميل والتنزيل",
+                        "en": "The bus should stop on the same side of the school/house to avoid crossing the street (within residential areas) during pick-up and drop-off."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "صعود/نزول المنقولين على مسافة بعيدة عن منزله.",
+                "en": "Passengers boarding/alighting far from home",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "وقوف الحافلة على نفس جهة المدرسة/البيت لتفادي قطع الشارع (داخل الأحياء السكنية) أثناء التحميل والتنزيل",
+                        "en": "The bus should stop on the same side of the school/house to avoid crossing the street (within residential areas) during pick-up and drop-off."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "استخدام حافلة النقل المدرسي لأغراض شخصية",
+                "en": "Using the school bus for personal purposes",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "الالتزام بالقوانين و التعليمات بعدم استخدام حافلة النقل المدرسي لأغراض شخصية",
+                        "en": "Adhere to the regulations and instructions by not using the school bus for personal purposes."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "استخدام \"النسور\" أو \"التدخين\" في الحافلة.",
+                "en": "Smoking or vaping inside the bus",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "الالتزام بالقوانين و التعليمات بعدم استخدام النسوار أو التدخين في الحافلة و بالمواقع الغير مصرح بها",
+                        "en": "Adhere to the regulations and instructions by not using the school bus for personal purposes."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "الانشغال عن الطريق باستخدام الهاتف",
+                "en": "Driving distraction due to phone use",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "منع استخدام الهاتف أثناء القيادة منعاً باتاً",
+                        "en": "Prohibit the use of phones while driving completely."
+                    },
+                    {
+                        "ar": "توعية السائقين بضرورة التوقف بمكان آمن في الحالات الاضطرارية لاستخدام الهاتف",
+                        "en": "Educate drivers on the need to stop in a safe location in emergency situations to use their phones."
+                    },
+                    {
+                        "ar": "مراقبة السائقين أثناء القيادة بواسطة منسقي الحركة",
+                        "en": "Monitor drivers while driving through traffic coordinators."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وأخرى تشجيعية لالتزام السائقين بالسرعة وقواعد المرور",
+                        "en": "Implement disciplinary and encouraging measures to ensure drivers adhere to speed limits and traffic rules."
+                    }
+                ]
+            },
+            {
+                "ar": "الانشغال عن الطريق شرب مشروبات ساخنة /باردة.",
+                "en": "Driving distraction due to consuming hot/cold beverages",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "توعية السائقين بمخاطر تناول المشروبات أثناء القيادة وتدريبهم على ممارسات القيادة الآمنة.",
+                        "en": "Raise awareness among drivers about the dangers of consuming beverages while driving and provide training on safe driving practices."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق اللإئحة الانضباطية",
+                        "en": "Implement disciplinary measures in accordance with the compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "التجاوز الخطر أو التجاوز الغير حتمي",
+                "en": "Dangerous vehicle overtaking",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "التدريب الدوري للسائقين على الالتزام بقواعد المرور",
+                        "en": "Regular training for drivers on adhering to traffic rules."
+                    },
+                    {
+                        "ar": "مراقبة المركبات في الطرق بواسطة منسق العمليات",
+                        "en": "Monitor vehicles on the roads through the operations coordinator."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم التأكد من خلو محيط الحافلة من الطلبة قبل الحركة",
+                "en": "Failure to ensure the area around the bus is clear of students before moving",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "المراقبة المنقولين أثناء الصعود والنزول من قبل السائق، وضمان بقائهم في مناطق الأمان.",
+                        "en": "Ensure drivers monitor passengers while boarding and alighting, and confirm they remain in safe areas."
+                    },
+                    {
+                        "ar": "مراقبة السائق للمنقولين من خلال الشاشة الالكترونية اثناء عملية الصعود والنزول",
+                        "en": "Use the electronic monitor to oversee passengers during boarding and alighting."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to the compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "ترك باب الحافلة مفتوح أثناء القيادة بوجود الطلبة",
+                "en": "Leaving the bus door open while driving with students onboard.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "تدريب السائقين: تقديم تدريب شامل للسائقين حول أهمية إبقاء باب الحافلة مغلقًا أثناء سير الحافلة.",
+                        "en": "Provide comprehensive training for drivers on the importance of keeping the bus doors closed while the bus is in motion."
+                    },
+                    {
+                        "ar": "تفقد سلامة إلزامية قبل الرحلة حيث يتحقق السائق من أن جميع الأبواب مغلقة ومؤمنة بشكل صحيح قبل بدء الرحلة.",
+                        "en": "Conduct mandatory pre-trip safety checks to ensure all doors are securely closed and locked before starting the journey."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures in line with compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "تسرع السائق بفتح باب الحافلة قبل التوقف",
+                "en": "Rushing to open the bus door before coming to a complete stop",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "تدريب للسائقين يؤكد على أهمية الانتظار حتى تتوقف الحافلة تمامًا قبل فتح الباب",
+                        "en": "Train drivers on the importance of waiting until the bus has completely stopped before opening the door."
+                    },
+                    {
+                        "ar": "توعية بالسلامة لتثقيف السائقين والمنقولين حول المخاطر المرتبطة بفتح الباب قبل وقوف الحافلة وقوف تام.",
+                        "en": "Conduct safety awareness programs to educate drivers and passengers about the risks of opening the door before the bus has come to a complete stop."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Enforce disciplinary actions in accordance with compliance guidelines."
+                    }
+                ]
+            },
+            {
+                "ar": "تفقد الحافلة بشكل عشوائي غير دقيق.",
+                "en": "Random and inaccurate inspection of the bus",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إرسال السائق للتدريب تفقد الحافلة من قبل مشرفي النقل والسلامة والسائقين للتأكد من عدم وجود أي طالب في الحافلة بعد كل رحلة",
+                        "en": "Send the driver for training on inspecting the bus by transport and safety supervisors and drivers to ensure no students are left on the bus after each trip."
+                    },
+                    {
+                        "ar": "المراقبة المستمرة للحافلات بعد الانتهاء من الرحلات من قبل منسقي الحركة للتأكد من خلو الحافلات من الطلاب (عن طريق تفقد عينات عشوائية بشكل مستمر)",
+                        "en": "Continuously monitor the buses after trips by traffic coordinators to ensure buses are clear of students (by checking random samples regularly)."
+                    },
+                    {
+                        "ar": "قيام مشرفي السلامة التأكد من نزول جميع الطلاب من الحافلة المدرسية بالاستعانة بكشوفات أسماء الطلبة",
+                        "en": "Ensure all students have exited the school bus using student name lists, as verified by safety supervisors."
+                    },
+                    {
+                        "ar": "استخدام لوحة 'الحافلة خالية' وذلك من أجل التأكد من قيام السائق بتفقد الحافلة قبل مغادرتها",
+                        "en": "Use the 'Bus Empty' sign to ensure the driver has inspected the bus before leaving."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تفقد الحافلة قبل صعود الطلبة للحافلة.",
+                "en": "Not inspecting the bus before students board.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إرسال السائق للتدريب تفقد الحافلة من قبل مشرفي النقل والسلامة والسائقين للتأكد من عدم وجود أي طالب في الحافلة بعد كل رحلة",
+                        "en": "Send the driver for training on inspecting the bus by transport and safety supervisors and drivers to ensure no students are left on the bus after each trip."
+                    },
+                    {
+                        "ar": "المراقبة المستمرة للحافلات بعد الانتهاء من الرحلات من قبل منسقي الحركة للتأكد من خلو الحافلات من الطلاب (عن طريق تفقد عينات عشوائية بشكل مستمر)",
+                        "en": "Continuously monitor the buses after trips by traffic coordinators to ensure buses are clear of students (by checking random samples regularly)."
+                    },
+                    {
+                        "ar": "قيام مشرفي السلامة التأكد من نزول جميع الطلاب من الحافلة المدرسية بالاستعانة بكشوفات أسماء الطلبة",
+                        "en": "Ensure all students have exited the school bus using student name lists, as verified by safety supervisors."
+                    },
+                    {
+                        "ar": "استخدام لوحة 'الحافلة خالية' وذلك من أجل التأكد من قيام السائق بتفقد الحافلة قبل مغادرتها",
+                        "en": "Use the 'Bus Empty' sign to ensure the driver has inspected the bus before leaving."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تفقد الحافلة بعد نزول الطلبة من الحافلة.",
+                "en": "Not inspecting the bus after students disembark.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إرسال السائق للتدريب تفقد الحافلة من قبل مشرفي النقل والسلامة والسائقين للتأكد من عدم وجود أي طالب في الحافلة بعد كل رحلة",
+                        "en": "Send the driver for training on inspecting the bus by transport and safety supervisors and drivers to ensure no students are left on the bus after each trip."
+                    },
+                    {
+                        "ar": "المراقبة المستمرة للحافلات بعد الانتهاء من الرحلات من قبل منسقي الحركة للتأكد من خلو الحافلات من الطلاب (عن طريق تفقد عينات عشوائية بشكل مستمر)",
+                        "en": "Continuously monitor the buses after trips by traffic coordinators to ensure buses are clear of students (by checking random samples regularly)."
+                    },
+                    {
+                        "ar": "قيام مشرفي السلامة التأكد من نزول جميع الطلاب من الحافلة المدرسية بالاستعانة بكشوفات أسماء الطلبة",
+                        "en": "Ensure all students have exited the school bus using student name lists, as verified by safety supervisors."
+                    },
+                    {
+                        "ar": "استخدام لوحة 'الحافلة خالية' وذلك من أجل التأكد من قيام السائق بتفقد الحافلة قبل مغادرتها",
+                        "en": "Use the 'Bus Empty' sign to ensure the driver has inspected the bus before leaving."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود أحد المنقولين بالحافلة بعد نزول مشرف النقل والسلامة من الحافلة.",
+                "en": "A student remaining on the bus after the transportation and safety supervisor leaves the bus.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إرسال السائق للتدريب تفقد الحافلة من قبل مشرفي النقل والسلامة والسائقين للتأكد من عدم وجود أي طالب في الحافلة بعد كل رحلة",
+                        "en": "Send the driver for training on inspecting the bus by transport and safety supervisors and drivers to ensure no students are left on the bus after each trip."
+                    },
+                    {
+                        "ar": "المراقبة المستمرة للحافلات بعد الانتهاء من الرحلات من قبل منسقي الحركة للتأكد من خلو الحافلات من الطلاب (عن طريق تفقد عينات عشوائية بشكل مستمر)",
+                        "en": "Continuously monitor the buses after trips by traffic coordinators to ensure buses are clear of students (by checking random samples regularly)."
+                    },
+                    {
+                        "ar": "قيام مشرفي السلامة التأكد من نزول جميع الطلاب من الحافلة المدرسية بالاستعانة بكشوفات أسماء الطلبة",
+                        "en": "Ensure all students have exited the school bus using student name lists, as verified by safety supervisors."
+                    },
+                    {
+                        "ar": "استخدام لوحة 'الحافلة خالية' وذلك من أجل التأكد من قيام السائق بتفقد الحافلة قبل مغادرتها",
+                        "en": "Use the 'Bus Empty' sign to ensure the driver has inspected the bus before leaving."
+                    }
+                ]
+            },
+            {
+                "ar": "تركيب لوحة (الحافلة خالية)بوجود منقولين",
+                "en": "Placing a 'Bus Empty' sign with passengers on board",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تقديم تدريب للسائقين والمشرفين على الاستخدام الصحيح اللوحة 'الحافلة خالية' لتجنب هذه الأخطاء.",
+                        "en": "Train drivers and supervisors on the correct use of the 'Bus Empty' sign to avoid mistakes."
+                    },
+                    {
+                        "ar": "تنفيذ فحوصات منتظمة للتأكد من الاستخدام الصحيح اللوحة 'الحافلة خالية' في جميع الأوقات.",
+                        "en": "Conduct regular inspections to ensure the 'Bus Empty' sign is used correctly at all times."
+                    },
+                    {
+                        "ar": "وضع إجراءات تأديبية للمخالفات المتكررة لتعزيز أهمية الاستخدام الصحيح للوحة",
+                        "en": "Establish disciplinary procedures for repeated violations to emphasize the importance of proper sign usage."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم إلتزام السائق بوضع لوحة (الحافلة خالية)بعد انتهاء الرحلة",
+                "en": "Driver's failure to display 'Bus Empty' sign post-trip",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تقديم تدريب للسائقين والمشرفين على الاستخدام الصحيح اللوحة 'الحافلة خالية' لتجنب هذه الأخطاء.",
+                        "en": "Train drivers and supervisors on the correct use of the 'Bus Empty' sign to avoid mistakes."
+                    },
+                    {
+                        "ar": "تنفيذ فحوصات منتظمة للتأكد من الاستخدام الصحيح اللوحة 'الحافلة خالية' في جميع الأوقات.",
+                        "en": "Conduct regular inspections to ensure the 'Bus Empty' sign is used correctly at all times."
+                    },
+                    {
+                        "ar": "وضع إجراءات تأديبية للمخالفات المتكررة لتعزيز أهمية الاستخدام الصحيح للوحة",
+                        "en": "Establish disciplinary procedures for repeated violations to emphasize the importance of proper sign usage."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم فتح زراع التوقف اثناء نزول المنقولين",
+                "en": "Failure to extend the stop arm while passengers are disembarking",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تدريب للسائقين على أهمية استخدام ذراع التوقف لضمان سلامة الطلاب.",
+                        "en": "Train drivers on the importance of using the stop arm to ensure student safety."
+                    },
+                    {
+                        "ar": "إجراء فحوصات دورية للتأكد من أن آلية ذراع التوقف تعمل بشكل صحيح وتُستخدم بالشكل المطلوب.",
+                        "en": "Conduct regular checks to ensure the stop arm mechanism is functioning correctly and used as required."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures in line with compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "إنزال وتحميل الطلبة في مكان خطر",
+                "en": "Student loading and unloading in a dangerous area",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تخصيص مناطق آمنة محددة لتحميل وتنزيل الطلاب، بعيدًا عن حركة المرور أو المخاطر الأخرى.",
+                        "en": "Designate specific safe areas for loading and unloading students, away from traffic or other hazards."
+                    },
+                    {
+                        "ar": "تدريب مشرفي الحافلات والسائقين على تقييم واختيار المناطق الآمنة لتحميل وتنزيل الطلاب.",
+                        "en": "Train bus supervisors and drivers on assessing and selecting safe areas for student loading and unloading."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم إعطاء الطلبة الوقت الكافي للركوب أو النزول",
+                "en": "Not allowing students sufficient time to board or disembark",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "اعطاء الطلاب الوقت الكافي للصعود والنزول بأمان.",
+                        "en": "Allow students sufficient time to board and disembark safely."
+                    },
+                    {
+                        "ar": "توعية السائقين على أن يكونوا على دراية باحتياجات الطلاب ومنحهم الوقت الكافي للصعود والنزول بأمان.",
+                        "en": "Ensure drivers are aware of students' needs and provide them with adequate time to board and disembark safely."
+                    },
+                    {
+                        "ar": "التاكيد على مشرفي الحافلات مساعدة وإدارة عملية الصعود والنزول.",
+                        "en": "Emphasize the role of bus supervisors in assisting and managing the boarding and disembarking process."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "استخدام فتحة التفاف ممنوعة أو مسموحة دون مبرر",
+                "en": "Unauthorized or unjustified use of the emergency exit",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "التدريب الدوري للسائقين على الالتزام بقواعد المرور",
+                        "en": "Regularly train drivers on adhering to traffic rules."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "الرجوع إلى الخلف بصورة خطرة",
+                "en": "Reckless reversing",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "القيادة بسرعة عالية",
+                "en": "Driving at high speed",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "التدريب الدوري للسائقين على الالتزام بقواعد المرور",
+                        "en": "Regular training for drivers on adhering to traffic rules."
+                    },
+                    {
+                        "ar": "مراقبة المركبات في الطرق بواسطة منسقي الحركة",
+                        "en": "Monitoring of vehicles on the roads by movement coordinators."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implementation of disciplinary actions according to the disciplinary regulations."
+                    },
+                    {
+                        "ar": "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ حسب خطة الطوارئ",
+                        "en": "Training and awareness for drivers and supervisors on emergency procedures according to the emergency plan."
+                    }
+                ]
+            },
+            {
+                "ar": "رمي/ القاء القمامه من النافذة أثناء القيادة",
+                "en": "Throwing garbage out the window while driving",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "التدريب الدوري للسائقين على الالتزام بقواعد المرور",
+                        "en": "Conduct regular training for drivers on adhering to traffic rules."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Enforce disciplinary measures according to compliance guidelines."
+                    }
+                ]
+            },
+            {
+                "ar": "السماح للطلبة باستخدام الهاتف الخاص به (الانشغال عن الطريق)",
+                "en": "Allowing students to use their phone (being busy on the road)",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "وضع وتنفيذ سياسة تقيد استخدام الهاتف أثناء اللحظات الحرجة.",
+                        "en": "Develop and implement a policy that restricts phone use during critical moments."
+                    },
+                    {
+                        "ar": "تطبيق نظام رصد لمشرفي الحافلات لمراقبة وتوثيق سلوك الطلاب بانتظام.",
+                        "en": "Implement a monitoring system for bus supervisors to regularly observe and document student behavior."
+                    },
+                    {
+                        "ar": "الإبلاغ عن السلوك غير المناسب على الحافلة ومعالجته.",
+                        "en": "Report and address inappropriate behavior on the bus."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Enforce disciplinary measures according to compliance guidelines."
+                    }
+                ]
+            },
+            {
+                "ar": "الانشغال عن الطريق (التحدث مع  المنقولين)",
+                "en": "Being distracted from the road in talking with transferees",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "منع السائقين من الدخول في محادثات مع الركاب أثناء القيادة.",
+                        "en": "Prohibit drivers from engaging in conversations with passengers while driving."
+                    },
+                    {
+                        "ar": "تدريب السائقين على الحفاظ على التركيز على الطريق ومخاطر التشتيت.",
+                        "en": "Train drivers on maintaining focus on the road and the risks of distraction."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Enforce disciplinary measures according to compliance guidelines."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود سجل التفقد اليومي للحافلة",
+                "en": "Absence of daily bus inspection log",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "سجلات يومية إلزامية: تطبيق سياسة تلزم بإكمال سجل التفقد اليومي للحافلة قبل كل رحلة.",
+                        "en": "Mandatory Daily Records: Implement a policy that requires the completion of a daily bus inspection log before each trip."
+                    },
+                    {
+                        "ar": "نظام تسجيل رقمي: تقديم نظام رقمي لتسجيل وحفظ سجلات التفقد اليومي لسهولة الوصول والمراجعة.",
+                        "en": "Digital Recording System: Provide a digital system for recording and storing daily inspection logs for easy access and review."
+                    },
+                    {
+                        "ar": "التدريب على الفحص: تقديم تدريب للسائقين والمشرفين حول كيفية إجراء وتسجيل عمليات الفحص اليومي بشكل صحيح.",
+                        "en": "Inspection Training: Offer training for drivers and supervisors on how to properly conduct and record daily inspections."
+                    },
+                    {
+                        "ar": "مراجعات دورية: وضع عملية مراجعة روتينية لضمان أن سجلات الفحص تُكمل وتُحفظ بدقة.",
+                        "en": "Routine Reviews: Establish a routine review process to ensure that inspection records are completed and accurately maintained."
+                    }
+                ]
+            },
+            {
+                "ar": "نقل شخص غير مصرح له بالصعود للحافلة.",
+                "en": "Unauthorized individual boarding the bus",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "توعية السائقين بعدم السماح للأشخاص غير مصرح لهم بصعود في الحافلة",
+                        "en": "Educate drivers not to allow unauthorized persons to board the bus."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "سير الحافلة عكس اتجاه الطريق.",
+                "en": "Bus traveling in the opposite direction of the road",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "الالتزام الصارم بالمسارات: فرض سياسات صارمة تلزم السائقين بالالتزام بالمسارات المحددة وقوانين المرور في جميع الأوقات.",
+                        "en": "Strict Route Compliance: Enforce strict policies requiring drivers to adhere to designated routes and traffic laws at all times."
+                    },
+                    {
+                        "ar": "مراقبة GPS: تطبيق مراقبة GPS لتتبع مسارات الحافلات في الوقت الفعلي واكتشاف أي انحرافات عن الاتجاه الصحيح.",
+                        "en": "GPS Monitoring: Implement GPS tracking to monitor bus routes in real-time and detect any deviations from the correct path."
+                    },
+                    {
+                        "ar": "إعادة تدريب السائقين: تقديم إعادة تدريب للسائقين على سلامة الطرق وأهمية اتباع قواعد المرور.",
+                        "en": "Driver Retraining: Provide retraining for drivers on road safety and the importance of following traffic regulations."
+                    },
+                    {
+                        "ar": "إجراءات تأديبية: وضع إجراءات تأديبية واضحة للسائقين الذين ينتهكون قواعد المرور بقيادة الحافلة في الاتجاه الخاطئ.",
+                        "en": "Disciplinary Actions: Establish clear disciplinary procedures for drivers who violate traffic rules by driving the bus in the wrong direction."
+                    }
+                ]
+            },
+            {
+                "ar": "تفقد الحافلة عند الوصول لنقطة السكون 'الموقف النهائي للحافلة'",
+                "en": "Inspecting the bus upon reaching the final stop",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تنبيه السائقين ومشرفي السلامة للتأكد من صعود جميع الطلاب",
+                        "en": "Alert drivers and safety supervisors to ensure that all students have boarded the bus."
+                    },
+                    {
+                        "ar": "عدم مغادرة الحافلة المدرسية لحين التأكد من علم إدارة المدرسة بأي طالب غير متواجد بالحافلة",
+                        "en": "Do not depart from the school bus until confirming with the school administration if any student is missing from the bus."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم الالتزام بربط حزام الامان بصورة صحيحة",
+                "en": "Failure to properly fasten seat belts",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تنبية السائق بضرورة استخدام حزام الأمان",
+                        "en": "Remind the driver of the necessity to use the seatbelt."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "استخدام حافلة النقل المدرسي بعد ساعات العمل الرسمية",
+                "en": "Using the school bus outside official working hours.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تنبية السائق بضرورة عدم استخدام حافلة النقل المدرسي بعد ساعات العمل الرسمية",
+                        "en": "Remind the driver not to use the school bus after official working hours."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تفقد السائق للحافلة وفقا لنموذج التفقد اليومي  حيث يتم تعبئة النموذج دون التأكد منتطابق البنود مع الملاحظات بالحافلة",
+                "en": "The driver does not inspect the bus according to the daily inspection form, as the form is filled out without ensuring that the items match the notes on the bus",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات وفق البنود و الملاحظات بالحافلة",
+                        "en": "Follow up and implement the daily bus inspection checklist according to the items and notes for the bus."
+                    },
+                    {
+                        "ar": "توعية السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية وا لأ وردو) مع ترجمة عربية",
+                        "en": "Educate drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود احد المنقولين بالحافلة قبل صعود السائق للحافلة.",
+                "en": "The presence of students on the bus before the driver boarded the bus.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تم التنبيه على السائق بالتواجد داخل الحافلة أثناء عملية صعود الطلبة وعدم ترك الحافلة في وضع التشغيل",
+                        "en": "The driver has been reminded to remain inside the bus during the student boarding process and not to leave the bus running."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "الرجوع الحافلة للخلف أثناء الرحلة.",
+                "en": "Failure to document passenger boarding and disembarking",
+                "noteClassification": "ثانوية",
+                "severity": 2,
+                "correctiveAction": [
+                    {
+                        "ar": "التأكيد على السائقين بعدم الرجوع للخلف لأي سبب إلا بالحالات الطارئة",
+                        "en": "Ensure that drivers do not reverse the bus for any reason except in emergencies."
+                    },
+                    {
+                        "ar": "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ حسب خطة الطوارئ",
+                        "en": "Train and educate drivers and supervisors on emergency procedures according to the emergency plan."
+                    },
+                    {
+                        "ar": "صيانة الحافلات بشكل دوري شاملة المرايا والزجاج والكاميرات لتمكين السائق من رؤية مكونات الطريق بشكل جيد",
+                        "en": "Perform regular maintenance on buses, including mirrors, windows, and cameras, to ensure the driver has a clear view of the road."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم الالتزام بالزي و المظهر العام و المحافظة على النظافة الشخصية.",
+                "en": "Non-compliance with dress and general appearance and maintaining personal hygiene",
+                "noteClassification": "ثانوية",
+                "severity": 2,
+                "correctiveAction": [
+                    {
+                        "ar": "توجيه السائق بالالتزام بالزي و المظهر  العام و المحافظة على النظافة الشخصية",
+                        "en": "Instruct the driver to adhere to uniform and overall appearance standards and maintain personal cleanliness."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
             },
             {
                 "ar": "تخزين أغراض شخصية داخل الحافلة",
-                "en": "The presence of personal property inside the bus"
+                "en": "The presence of personal property inside the bus",
+                "noteClassification": "ثانوية",
+                "severity": 2,
+                "correctiveAction": [
+                    {
+                        "ar": "سياسة تخزين الأغراض الشخصية: تنفيذ سياسة تحد من تخزين الأغراض الشخصية داخل الحافلة.",
+                        "en": "Personal Items Storage Policy: Implement a policy that limits the storage of personal items inside the bus."
+                    },
+                    {
+                        "ar": "تخزين آمن: توفير منطقة مخصصة لتخزين الأغراض الشخصية الضرورية بأمان أثناء الرحلة.",
+                        "en": "Secure Storage: Provide a designated area for securely storing necessary personal items during the trip."
+                    },
+                    {
+                        "ar": "التفتيش: إجراء فحوصات منتظمة لضمان الامتثال لسياسة عدم تخزين الأغراض الشخصية.",
+                        "en": "Inspections: Conduct regular checks to ensure compliance with the personal items storage policy."
+                    }
+                ]
             },
             {
-                "ar": "عدم قيام بمساعدة الطلاب في عملية الصعود والنزول",
-                "en": "Not assisting students with boarding and disembarking"
+                "ar": "تخزين أدوات النظافة داخل الحافلة",
+                "en": "Storing toiletries inside the bus",
+                "noteClassification": "ثانوية",
+                "severity": 2,
+                "correctiveAction": [
+                    {
+                        "ar": "حظر التخزين: منع تخزين أدوات النظافة أو الأشياء غير الضرورية داخل الحافلة.",
+                        "en": "Prohibited Storage: Ban the storage of cleaning tools or unnecessary items inside the bus."
+                    },
+                    {
+                        "ar": "مناطق تخزين مخصصة: توفير قسم صغير وآمن لتخزين أدوات النظافة الأساسية إذا لزم الأمر خلال الرحلة.",
+                        "en": "Designated Storage Areas: Provide a small, secure area for storing essential cleaning tools if needed during the trip."
+                    },
+                    {
+                        "ar": "التدقيق المنتظم: إجراء فحوصات منتظمة لضمان عدم تخزين أدوات النظافة بشكل غير صحيح.",
+                        "en": "Regular Audits: Conduct regular inspections to ensure that cleaning tools are not improperly stored."
+                    }
+                ]
             },
             {
-                "ar": "عدم قيام برصد السلوكيات السلبية للمنقولين",
-                "en": "Not monitoring the behavior of students"
+                "ar": "وضع الجهاز اللوحي / للوحة الحافلة خالية على  محرك الحافلة",
+                "en": "PUTTED TABLET AND NO STUDENTS BOARD ON ENGINE",
+                "noteClassification": "ثانوية",
+                "severity": 2,
+                "correctiveAction": [
+                    {
+                        "ar": "التدريب: التأكد من تدريب السائقين والموظفين على الاستخدام الصحيح للأجهزة واللوحات.",
+                        "en": "Training: Ensure that drivers and staff are trained on the proper use of devices and panels."
+                    },
+                    {
+                        "ar": "التثبيت الآمن: تركيب حوامل أو أدوات لتثبيت الأجهزة اللوحية أو اللوحات لضمان عدم وضعها على المحرك.",
+                        "en": "Secure Installation: Install holders or tools to secure tablets or panels to prevent placing them on the dashboard."
+                    },
+                    {
+                        "ar": "الفحوصات قبل الرحلة: إدراج فحص تثبيت الأجهزة واللوحات بشكل صحيح في إجراءات الفحص قبل الرحلة.",
+                        "en": "Pre-Trip Checks: Include the secure placement of devices and panels in pre-trip inspection procedures."
+                    }
+                ]
             },
             {
-                "ar": "عدم التزام بتسليم الطلاب لأولياء الأمور أو من ينوب عنهم",
-                "en": "Not handing over students to parents or guardians"
+                "ar": "استعمال سجل تفقد يومي للحافلة غير محدث",
+                "en": "Using outdated daily bus inspection log",
+                "noteClassification": "ثانوية",
+                "severity": 1,
+                "correctiveAction": [
+                    {
+                        "ar": "تحديث سجلات التفتيش: التأكد من تحديث جميع سجلات التفتيش بانتظام واستخدام أحدث الإصدارات.",
+                        "en": "Ensure all inspection records are regularly updated and that the latest versions are in use."
+                    },
+                    {
+                        "ar": "السجلات الرقمية: النظر في الانتقال إلى نظام رقمي لسجلات التفتيش لضمان أنها دائمًا محدثة وقابلة للوصول.",
+                        "en": "Consider transitioning to a digital system for inspection records to ensure they are always up-to-date and accessible."
+                    },
+                    {
+                        "ar": "تدريب الموظفين على أهمية استخدام سجلات التفتيش المحدثة.",
+                        "en": "Train staff on the importance of using updated inspection records."
+                    }
+                ]
             },
             {
-                "ar": "عدم القيام بمساعدة المنقولين بعبور الطريق لتوصيلهم من المنزل الى الحافلة وبالعكس",
-                "en": "Not assisting students with crossing the road to and from the bus"
+                "ar": "فتح ذراع التوقف دون وجود منقولين",
+                "en": "Extending the stop arm when no passengers are present.",
+                "noteClassification": "ثانوية",
+                "severity": 1,
+                "correctiveAction": [
+                    {
+                        "ar": "تدريب السائقين: تقديم التدريب لضمان أن ذراع التوقف يتم فتحه فقط عند الحاجة القانونية أو عند صعود أو نزول الطلاب.",
+                        "en": "Train drivers: Provide training to ensure the stop arm is only extended when legally required or when passengers are boarding or disembarking."
+                    },
+                    {
+                        "ar": "إجراءات واضحة: وضع إجراءات واضحة لاستخدام ذراع التوقف لمنع تفعيله بدون حاجة.",
+                        "en": "Clear procedures: Establish clear procedures for using the stop arm to prevent unnecessary activation."
+                    },
+                    {
+                        "ar": "المراقبة: تنفيذ أنظمة مراقبة لضمان استخدام ذراع التوقف بشكل صحيح وفقط عند الضرورة.",
+                        "en": "Monitoring: Implement monitoring systems to ensure the stop arm is used correctly and only when necessary."
+                    }
+                ]
             },
             {
-                "ar": "نوم أثناء تقديم الخدم",
-                "en": "Sleeping while providing service"
-            },
-            {
-                "ar": "التعامل مع المنقولين بعنف",
-                "en": "Treating students violently"
-            },
-            {
-                "ar": "القيام برمي حقيبة أحد المنقولين من الحافلة",
-                "en": "Throwing a student's bag from the bus"
-            },
-            {
-                "ar": "وجود حقائب وامتعة الطلاب بممرر الحافلة",
-                "en": "Students' bags and belongings are in the bus aisle"
-            },
-            {
-                "ar": "تفقد الحافلة بشكل عشوائي غير دقيق",
-                "en": "Random and inaccurate inspection of the bus"
-            },
-            {
-                "ar": "عدم تفقد الحافلة قبل صعود الطلبة للحافلة",
-                "en": "Not inspecting the bus before students board"
-            },
-            {
-                "ar": "عدم تفقد الحافلة بعد نزول الطلبة من الحافلة",
-                "en": "Not inspecting the bus after students disembark"
-            },
-            {
-                "ar": "وجود احد المنقولين بالحافلة بعد نزول مشرف النقل والسلامة من الحافلة",
-                "en": "A student remaining on the bus after the transportation and safety supervisor leaves the bus"
-            },
-            {
-                "ar": "القيام بوضع لوحة الحافلة خالية",
-                "en": "Installing an empty bus panel"
-            },
-            {
-                "ar": "السماح للطلاب باستخدام الجهاز اللوحي لتحضير المنقولين",
-                "en": "Allowing students to use the tablet to prepare for the students"
-            },
-            {
-                "ar": "السماح السائق باستخدام الجهاز اللوحي لتحضير المنقولين",
-                "en": "Allowing the driver to use the tablet to prepare for the students"
-            },
-            {
-                "ar": "عدم القيام بتقديم الاسعفات الأولية عن إصابة احد المنقولين",
-                "en": "Not providing first aid in case of injury to a student"
+                "ar": "عدم القيام بوضع لوحة الحافلة خالية.",
+                "en": "Installing an empty bus panel",
+                "noteClassification": "ثانوية",
+                "severity": 1,
+                "correctiveAction": [
+                    {
+                        "ar": "توفير تعليمات واضحة للسائقين والموظفين حول كيفية ومتى استخدام لوحة الحافلة الخالية.",
+                        "en": "Provide clear guidelines to drivers and staff on how and when to use the 'Bus Empty' sign."
+                    },
+                    {
+                        "ar": "الفحوصات المنتظمة: تضمين الاستخدام الصحيح للوحة الحافلة الخالية في الفحوصات الروتينية لضمان الامتثال.",
+                        "en": "Regular Inspections: Include the proper use of the 'Bus Empty' sign in routine inspections to ensure compliance."
+                    },
+                    {
+                        "ar": "تدريب الموظفين على أهمية عرض لوحة الحافلة الخالية بدقة لتجنب الالتباس.",
+                        "en": "Train staff on the importance of accurately displaying the 'Bus Empty' sign to avoid confusion."
+                    }
+                ]
             }
         ]
     },
     {
-        "requirement": "سلوك_المنقولين | Student_behavior",
-        "notes": [
-            {
-                "ar": "عدم التزام بربط حزام الأمان وقت الرحلة",
-                "en": "Not wearing a seatbelt during the trip"
-            },
-            {
-                "ar": "تدافع الطلبة عند النزول على الدرج",
-                "en": "Pushing students when going down the stairs"
-            },
-            {
-                "ar": "فتح الطلبة نافذة الحافلة",
-                "en": "The students opened the bus window"
-            },
-            {
-                "ar": "وقوف الطلاب في أماكن تعرض حياتهم للخطر",
-                "en": "Students standing in places that put their lives in danger"
-            },
-            {
-                "ar": "تخزين أغراض شخصية داخل الحافلة",
-                "en": "The presence of personal property inside the bus"
-            },
-            {
-                "ar": "استعداد للنزول قبل وقف الحافلة",
-                "en": "Preparing to disembark before the bus has stopped"
-            },
-            {
-                "ar": "استخدام مواد تؤثر على سلامة المنقولين في الحافلة",
-                "en": "Using materials that affect the safety of students on the bus"
-            },
-            {
-                "ar": "مشاجرة الطلبة في الحافلة",
-                "en": "Fighting between students on the bus"
-            },
-            {
-                "ar": "عدم التزام بصعود الحافلة في الوقت المحدد أثناء الرحلة",
-                "en": "Not boarding the bus on time during the trip"
-            },
-            {
-                "ar": "إصابة أحد الطلبة في الحافلة",
-                "en": "A student being injured on the bus"
-            },
-            {
-                "ar": "استلقاء على المقعد أثناء الرحلة",
-                "en": "Lying down on the seat during the trip"
-            },
-            {
-                "ar": "عدم الجلوس بالشكل الصحيح على المقاعد مما يؤثر على سلامة وقت الرحلة",
-                "en": "Not sitting properly on the seats, affecting safety during the trip"
-            },
-            {
-                "ar": "تشتت انتباه السائق الحافلة أثناء القيادة وذلك لاقتراب أحد الطلبة من ازرار التحكم بالحافلة",
-                "en": "The driver's attention being distracted while driving due to a student approaching the bus controls"
-            },
-            {
-                "ar": "العبث بناقل الحركة أثناء سير الحافلة",
-                "en": "Tampering with the transmission while the bus is moving"
-            },
-            {
-                "ar": "إيقاف الحافلة ومنع السائق من تقديم الخدمة",
-                "en": "Stopping the bus and preventing the driver from providing the service"
-            },
-            {
-                "ar": "التعدي على سائق الحافلة",
-                "en": "Assaulting the bus driver"
-            },
-            {
-                "ar": "التعدي على مشرف النقل والسلامة",
-                "en": "Assaulting the transportation and safety supervisor"
-            },
-            {
-                "ar": "الوقوف اثناء سير الحافلة",
-                "en": "Standing while the bus is moving"
-            },
-            {
-                "ar": "القيام بوضع لوحة الحافلة خالية",
-                "en": "Installing an empty bus panel"
-            },
-            {
-                "ar": "جلوس في الأماكن غير المخصصة في الحافلة",
-                "en": "Sitting in unauthorized places on the bus"
-            },
-            {
-                "ar": "الاعتداء على اخرين بعنف",
-                "en": "Violently assaulting others"
-            }
-        ]
-    },
-    {
-        "requirement": "ملاحظات_على_سلوك_ولي_الامر_او_من_ينوب_عنه | Notes_to_the_guardian_or_his_representativ",
-        "notes": [
-            {
-                "ar": "عدم التزام بترك المسافة الآمنة من الحافلة",
-                "en": "Unsafe Proximity to the Bus"
-            },
-            {
-                "ar": "صعود ولي امر الطالب او من ينوب عنه للحافلة",
-                "en": "Boarding the Bus by a Guardian or Representative"
-            },
-            {
-                "ar": "صعود ولي امر الطالب او من ينوب عنه للحافلة والتعدي على المنقولين",
-                "en": "Boarding the Bus by a Guardian or Representative and assaulting the passengers"
-            }
-        ]
-    },
-    {
-        "requirement": "تشغلية_إدارية | Administrative_operations",
+        "requirement": "تشغلية إدارية | Administrative operations",
+        "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
         "notes": [
             {
                 "ar": "زيادة عدد المنقولين في الحافلة عن عدد المقاعد",
-                "en": "Increased passengers on the bus beyond seating capacity"
+                "en": "Increased passengers on the bus beyond seating capacity.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "قيام منسقي الحركة بالرقابة الدورية على الحافلات للتأكد من عدم تجاوز الحد المسموح به لسعة الحافلة",
+                        "en": "Conduct regular inspections by movement coordinators to ensure that the bus does not exceed its allowed capacity."
+                    },
+                    {
+                        "ar": "توجيه السائقين بعدم القيادة في حال تجاوز سعة الحافلة",
+                        "en": "Instruct drivers not to operate the bus if the capacity is exceeded."
+                    }
+                ]
             },
             {
                 "ar": "زيادة زمن الرحلة عن 60 دقيقة",
-                "en": "Exceeding the trip duration of 60 minutes"
+                "en": "Exceeding the trip duration of 60 minutes",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "تحسين مسارات الحافلات لضمان ألا يتجاوز زمن الرحلة 60 دقيقة كلما كان ذلك ممكنًا.",
+                        "en": "Optimize bus routes to ensure that travel time does not exceed 60 minutes whenever possible."
+                    },
+                    {
+                        "ar": "متابعة أنظمة مراقبة لتتبع زمن الرحلات وضمان الامتثال للحدود الزمنية.",
+                        "en": "Implement monitoring systems to track travel times and ensure compliance with time limits."
+                    }
+                ]
             },
             {
                 "ar": "عدم وجود ما يثبة الرقابة الميدانية",
-                "en": "Lack of evidence of field supervision"
+                "en": "Lack of evidence of field supervision",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "توثيق الرقابة الميدنية لضمان الحفاظ على السجلات.",
+                        "en": "Regular Audits: Conduct regular audits on field supervision to ensure records are maintained."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Enforce disciplinary actions according to compliance guidelines."
+                    }
+                ]
             },
             {
-                "ar": "تقديم خدمة النقل دون وجود مشرف النقل والسلامة بالحافلة",
-                "en": "Providing transportation service without the presence of a transportation and safety supervisor"
+                "ar": "تقديم خدمة النقل دون وجود مشرف النقل والسلامة بالحافلة.",
+                "en": "Providing transportation service without the presence of a transportation and safety supervisor",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إجراء تفتيشات عشوائية للتأكد من الامتثال للسياسة.",
+                        "en": "Conduct random inspections to ensure compliance with policies."
+                    },
+                    {
+                        "ar": "تنفيذ نظام جدولة لضمان تخصيص المشرفين لجميع الرحلات.",
+                        "en": "Implement a scheduling system to ensure supervisors are assigned to all trips."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Enforce disciplinary actions according to compliance guidelines."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "سلوك المنقولين | Student behavior",
+        "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
+        "notes": [
+            {
+                "ar": "استعداد للنزول قبل وقف الحافلة.",
+                "en": "Preparing to disembark before the bus has stopped",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "تقديم تدريب للسائقين يؤكد على أهمية الانتظار حتى تتوقف الحافلة تمامًا قبل فتح الباب",
+                        "en": "Train drivers on the importance of waiting until the bus has come to a complete stop before opening the door."
+                    },
+                    {
+                        "ar": "توعية بالسلامة لتثقيف السائقين والطلاب حول المخاطر المرتبطة بفتح الباب قبل وقوف الحافلة وقوف تام.",
+                        "en": "Conduct safety awareness sessions to educate drivers and students about the risks of opening the door before the bus is fully stopped."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Enforce disciplinary actions in line with the compliance guidelines."
+                    }
+                ]
+            },
+            {
+                "ar": "إصابة أحد الطلبة في الحافلة.",
+                "en": "A student being injured on the bus",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "تقديم مشرفات النقل والسلامة الإسعافات الأولية اللازمة",
+                        "en": "Ensure transportation and safety supervisors are trained to provide necessary first aid."
+                    },
+                    {
+                        "ar": "التأكد من محتوايات صندوق الإسعافات الأولية وصلاحيتها",
+                        "en": "Regularly check the contents of the first aid kit and confirm their validity."
+                    }
+                ]
+            },
+            {
+                "ar": "تشتت انتباه السائق الحافلة أثناء القيادة وذلك لاقتراب أحد الطلبة من ازرار التحكم بالحافلة.",
+                "en": "The driver's attention being distracted while driving due to a student approaching the bus controls",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "الابلاغ عن أي سلوكيات سلبية للطالب داخل الحافلة حسب إجراءات البلاغ المتعمد",
+                        "en": "Report any negative student behavior on the bus according to the intentional reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطالب داخل الحافلة",
+                        "en": "Implement disciplinary actions for student behavior on the bus."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق اإلسعافات الأولية لمعالجة الحالة البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to address minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "إيقاف  الطلاب للحافلة ومنع السائق من تقديم الخدمة.",
+                "en": "Stopping the bus and preventing the driver from providing the service",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "الابلاغ عن أي سلوكيات سلبية للطالب حسب إجراءات البلاغ المتعمد",
+                        "en": "Report any negative student behaviors following the established reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطالب",
+                        "en": "Implement disciplinary measures to address the student’s behavior."
+                    }
+                ]
+            },
+            {
+                "ar": "الوقوف اثناء سير الحافلة",
+                "en": "Standing while the bus is moving",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "مراقبة مشرفي النقل والسلامة للطلاب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                        "en": "Implement disciplinary measures for student behaviors on the buses."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "جلوس في الأماكن غير  المخصصة في الحافلة.",
+                "en": "Sitting in unauthorized places on the bus",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "مراقبة مشرفي النقل والسلامة للطلاب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                        "en": "Implement disciplinary measures for student behaviors on the buses."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "الاعتداء على اخرين بعنف.",
+                "en": "Violently assaulting others",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "مراقبة مشرفي النقل والسلامة للطلاب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                        "en": "Implement disciplinary measures for student behaviors on the buses."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "تدافع الطلبة عند النزول على الدرج",
+                "en": "Pushing students when going down the stairs",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لضمان عدم ممازحة الطالب لبعضهم أثناءالصعود والنزول من الحافلة المدرسية",
+                        "en": "Implement disciplinary procedures to ensure that students do not engage in playful behavior with each other while boarding and alighting from the school bus."
+                    },
+                    {
+                        "ar": "الابلاغ عن أي سلوكيات سلبية للطالب أثناء الصعود والنزول حسب إجراءات الابلاغ المعتمدة",
+                        "en": "Report any negative student behaviors during boarding and alighting according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "التأكد من سلامة درج الحافلة ونظافتها لتفادي انزالق الركاب عند الصعود والنزول",
+                        "en": "Ensure that the bus steps are safe and clean to prevent passengers from slipping while boarding and alighting."
+                    },
+                    {
+                        "ar": "فتح و إغلاق باب الحافلة فقط في حالة الوقوف التام",
+                        "en": "Open and close the bus door only when the bus is completely stopped."
+                    }
+                ]
+            },
+            {
+                "ar": "وقوف الطلاب في أماكن تعرض حياتهم للخطر",
+                "en": "Students standing in places that put their lives in danger",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "منع نقل أي طالب لأي مسافة دون توفير مقعد مخصص له",
+                        "en": "Prevent the transport of any student for any distance without providing a designated seat for them."
+                    },
+                    {
+                        "ar": "مراقبة مشرفي النقل والسلامة للطلاب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                        "en": "Implement disciplinary measures for student behaviors on the buses."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "مشاجرة الطلبة في الحافلة.",
+                "en": "Fighting between students on the bus.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "مراقبة مشرفي النقل والسلامة للطلاب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                        "en": "Implement disciplinary measures for student behaviors on the buses."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم التزام بصعود الحافلة في الوقت المحدد أثناء الرحلة",
+                "en": "Not boarding the bus on time during the trip",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "سياسات الدقة في المواعيد: وضع وتنفيذ سياسات تتطلب من جميع الركاب الصعود إلى الحافلة في الوقت المحدد أثناء الرحلات.",
+                        "en": "Punctuality Policies: Establish and enforce policies requiring all passengers to board the bus at the scheduled times during trips."
+                    },
+                    {
+                        "ar": "التواصل: التواصل بشكل واضح مع الطلاب والمشرفين حول أوقات الصعود لضمان الدقة في المواعيد.",
+                        "en": "Communication: Clearly communicate with students and supervisors about boarding times to ensure punctuality."
+                    },
+                    {
+                        "ar": "عواقب التأخير: تطبيق عواقب للتأخر المتكرر لتشجيع الالتزام بالمواعيد.",
+                        "en": "Consequences for Delay: Implement consequences for repeated tardiness to encourage adherence to the schedule."
+                    },
+                    {
+                        "ar": "الإشراف: التأكد من أن المشرفين يديرون عملية الصعود بكفاءة ويذكرون الطلاب بأهمية الالتزام بالمواعيد.",
+                        "en": "Supervision: Ensure that supervisors manage the boarding process efficiently and remind students of the importance of punctuality."
+                    }
+                ]
+            },
+            {
+                "ar": "استلقاء على المقعد أثناء الرحلة.",
+                "en": "Lying down on the seat during the trip",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "مراقبة مشرفي النقل والسلامة للطلاب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                        "en": "Implement disciplinary measures for student behaviors on the buses."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم الجلوس بالشكل الصحيح على المقاعد مما يؤثر على سلامة وقت الرحلة",
+                "en": "Not sitting properly on the seats, affecting safety during the trip",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "مراقبة مشرفي النقل والسلامة للطلاب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                        "en": "Implement disciplinary measures for student behaviors on the buses."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "العبث بناقل الحركة أثناء سير الحافلة",
+                "en": "Tampering with the transmission while the bus is moving",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "مراقبة مشرفي النقل والسلامة للطلاب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الإبلاغ عن أي سلوكيات سلبية للطلاب داخل الحافلة حسب إجراءات الإبلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات",
+                        "en": "Implement disciplinary measures for student behaviors on the buses."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم التزام بربط حزام الأمان وقت الرحلة.",
+                "en": "Not wearing a seatbelt during the trip",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "توعية وتدريب الطلبة على الإجراءات  الامنة داخل الحافلة",
+                        "en": "Educate and train students on safety procedures inside the bus."
+                    },
+                    {
+                        "ar": "مراقبة مشرفي النقل والسالمة للطالب اثناء تواجدهم داخل الحافلة",
+                        "en": "Monitor transport and safety supervisors for students while they are on the bus."
+                    },
+                    {
+                        "ar": "الابلاغ عن أي سلوكيات سلبية للطالب داخل الحافلة حسب إجراءات الابلاغ المعتمدة",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطالب داخل الحافلة",
+                        "en": "Implement disciplinary measures for student behavior on the bus."
+                    }
+                ]
+            },
+            {
+                "ar": "استخدام مواد تؤثر على سلامة المنقولين في الحافلة.",
+                "en": "Using materials that affect the safety of students on the bus.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "عمل صيانة دورية للحافلة شاملةاملقاعد واألجزاء الداخلية للحافلة",
+                        "en": "Perform regular maintenance on the bus, including seats and interior parts."
+                    },
+                    {
+                        "ar": "قيام السائق قبل كل رحلةب التأكد من أن املقاعد آمنة إضافة الى مصادر خطورة أخرى قد تؤثر على سالمة املنقولين",
+                        "en": "Before each trip, the driver must ensure that the seats are safe and check for other potential hazards that may affect the safety of passengers."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق اسعافات ألولية معالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "فتح الطلبة نافذة الحافلة",
+                "en": "The students opened the bus window",
+                "noteClassification": "ثانوية",
+                "severity": 2,
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب أقفال للنوافذ: تجهيز نوافذ الحافلات بأقفال لمنع الطلاب من فتحها دون إذن.",
+                        "en": "Window Locks Installation: Equip bus windows with locks to prevent students from opening them without permission."
+                    },
+                    {
+                        "ar": "الإشراف: تعيين مشرف حافلة لمراقبة سلوك الطلاب أثناء الرحلة لضمان بقاء النوافذ مغلقة.",
+                        "en": "Supervision: Assign a bus supervisor to monitor student behavior during the trip to ensure windows remain closed."
+                    },
+                    {
+                        "ar": "التوعية: توعية الطلاب بالمخاطر المرتبطة بفتح نوافذ الحافلة أثناء الحركة.",
+                        "en": "Awareness: Educate students about the dangers of opening bus windows while the vehicle is in motion."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "مشرف النقل والسلامة | School bus supervisor",
+        "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
+        "notes": [
+            {
+                "ar": "عدم القيام بمساعدة المنقولين بعبور الطريق لتوصيلهم من المنزل الى الحافلة وبالعكس",
+                "en": "Not assisting students with crossing the road to and from the bus.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "وقوف الحافلة على نفس جهة المدرسة/البيت لتفادي قطع الشارع (داخل الأحياء السكنية) أثناء التحميل والتنزيل",
+                        "en": "The bus should stop on the same side of the school/house to avoid crossing the street (within residential areas) during pick-up and drop-off."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود حقائب وامتعة الطلاب بممر الحافلة.",
+                "en": "Students' bags and belongings are in the bus aisle.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "متابعة مشرفي النقل والسلامة في الحافلات لتنفيذ منع الطلبة من وضع الحقائب في الممرات والتاكد من خلوها دائمًا.",
+                        "en": "Ensure that transportation and safety supervisors enforce the rule prohibiting students from placing bags in the aisles and regularly confirm they are clear."
+                    },
+                    {
+                        "ar": "إجراء تفتيش دوري قبل مغادرة الحافلة للتأكد من أن جميع الممرات خالية من العوائق.",
+                        "en": "Conduct routine inspections before the bus departs to ensure all aisles are free of obstructions."
+                    }
+                ]
+            },
+            {
+                "ar": "السماح للطلاب باستخدام الجهاز اللوحي لتحضير المنقولين",
+                "en": "Allowing students to use the tablet to prepare for the students.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "منع وصول الطلاب إلى الجهاز اللوحي، وضمان استخدامه فقط من قبل المصرح لهم.",
+                        "en": "Restrict student access to the tablet, ensuring it is used only by authorized personnel."
+                    },
+                    {
+                        "ar": "تقديم تدريب لمشرفي الحافلات حول الاستخدام الصحيح للجهاز اللوحي مع التأكيد على أهمية منع الوصول من قبل الطلاب.",
+                        "en": "Provide training to bus supervisors on the proper use of the tablet, emphasizing the importance of preventing student access."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to the compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم قيام بمساعدة الطلاب في عملية الصعود والنزول.",
+                "en": "Not assisting students with boarding and disembarking.",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "توعية مشرفي الحافلات و السائقين تقديم المساعدة للطلاب أثناء الصعود والنزول.",
+                        "en": "Educate bus supervisors and drivers on assisting students during boarding and disembarking."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم قيام برصد السلوكيات السلبية للمنقولين.",
+                "en": "Not monitoring the behavior of students.",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تطبيق نظام رصد لمشرفي الحافلات لمراقبة وتوثيق سلوك الطلاب بانتظام.",
+                        "en": "Implement a monitoring system for bus supervisors to regularly observe and document student behavior."
+                    },
+                    {
+                        "ar": "الإبلاغ عن السلوك غير المناسب على الحافلة ومعالجته.",
+                        "en": "Report and address inappropriate behavior on the bus."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم التزام بتسليم الطلاب لأولياء الأمور أو من ينوب عنهم.",
+                "en": "Not handing over students to parents or guardians.",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تدريب مشرفي الحافلات على أهمية اتباع إجراءات التسليم لضمان سلامة الطلاب.",
+                        "en": "Train bus supervisors on the importance of following delivery procedures to ensure student safety."
+                    },
+                    {
+                        "ar": "التواصل بانتظام مع أولياء الأمور حول سياسات التسليم وأهمية الالتزام بهابتعاون مع ادارة المدرسة.",
+                        "en": "Communicate regularly with parents about delivery policies and the importance of compliance in collaboration with school administration."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Implement disciplinary measures according to compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "القيام برمي حقيبة أحد المنقولين من الحافلة.",
+                "en": "Throwing a student's bag from the bus.",
+                "noteClassification": "رئيسية",
+                "severity": 4,
+                "correctiveAction": [
+                    {
+                        "ar": "تطبيق نظام رصد لمشرفي الحافلات لمراقبة وتوثيق سلوك الطلاب بانتظام.",
+                        "en": "Implement a monitoring system for bus supervisors to regularly observe and document student behavior."
+                    },
+                    {
+                        "ar": "الإبلاغ عن السلوك غير المناسب على الحافلة ومعالجته.",
+                        "en": "Report and address inappropriate behavior on the bus."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية",
+                        "en": "Enforce disciplinary measures according to compliance guidelines."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم بارتداء السترة العاكسة.",
+                "en": "Not wearing a reflective vest.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تنبية المشرف بضرورة بارتداء السترة العاكسة.",
+                        "en": "Remind the supervisor of the necessity to wear a reflective vest."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية.",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "نوم أثناء تقديم الخدم.",
+                "en": "Sleeping while providing service.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تنبية و التوعية بضرورة عدم النوم أثناء تقديم الخدمة.",
+                        "en": "Remind and educate on the necessity of not sleeping while providing service."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية.",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "التعامل مع المنقولين بعنف.",
+                "en": "Treating students violently.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تدريب السائقين ومشرفي النقل والسلامة على أخلاقيات التعامل مع الطلاب.",
+                        "en": "Train drivers and transport and safety supervisors on the ethics of dealing with students."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية في حال مخالفة السائقين أو مشرفي النقل والسلامة لقوانين التعامل مع الطلاب.",
+                        "en": "Implement disciplinary actions if drivers or transport and safety supervisors violate student interaction policies."
+                    },
+                    {
+                        "ar": "ابلاغ إدارات المدارس عن أي سلوكيات خاطئة من قبل الطلاب داخل الحافلة.",
+                        "en": "Report any incorrect behaviors by students on the bus to school administrations."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية.",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "السماح السائق باستخدام الجهاز اللوحي لتحضير المنقولين.",
+                "en": "Allowing the driver to use the tablet to prepare for the students.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "عدم استخدام الأجهزة أثناء القيادة: فرض سياسة صارمة تمنع السائقين من استخدام الأجهزة اللوحية أو غيرها أثناء حركة المركبة.",
+                        "en": "No Device Use While Driving: Enforce a strict policy prohibiting drivers from using tablets or other devices while the vehicle is in motion."
+                    },
+                    {
+                        "ar": "تعيين مشرف: تعيين مشرف للحافلة للتعامل مع تجهيزات الطلاب باستخدام الجهاز اللوحي، للسماح للسائق بالتركيز على القيادة.",
+                        "en": "Assign Supervisor: Assign a bus supervisor to handle student preparations using the tablet, allowing the driver to focus on driving."
+                    },
+                    {
+                        "ar": "التحضير قبل الرحلة: التأكد من إكمال جميع التجهيزات الطلابية باستخدام الجهاز اللوحي قبل بدء الرحلة.",
+                        "en": "Pre-Trip Preparation: Ensure all student preparations using the tablet are completed before the trip begins."
+                    },
+                    {
+                        "ar": "مراقبة الامتثال: تطبيق أنظمة مراقبة لضمان امتثال السائقين لسياسة عدم استخدام الأجهزة أثناء القيادة.",
+                        "en": "Compliance Monitoring: Implement monitoring systems to ensure drivers comply with the no-device-use policy while driving."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم القيام بتقديم الاسعافات الأولية عن إصابة احد المنقولين.",
+                "en": "Not providing first aid in case of injury to a student.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تدريب على الإسعافات الأولية: التأكد من أن جميع مشرفي الحافلات والسائقين مدربون ومعتمدون في إجراءات الإسعافات الأولية.",
+                        "en": "First Aid Training: Ensure all bus supervisors and drivers are trained and certified in first aid procedures."
+                    },
+                    {
+                        "ar": "أطقم الإسعافات الأولية: تجهيز جميع الحافلات بأطقم إسعافات أولية مجهزة بالكامل وفحصها بانتظام للتحقق من انتهاء الصلاحية وإعادة التجهيز.",
+                        "en": "First Aid Kits: Equip all buses with fully stocked first aid kits and regularly inspect them to check expiration dates and restock as needed."
+                    },
+                    {
+                        "ar": "بروتوكولات الطوارئ: وضع بروتوكولات واضحة للاستجابة للإصابات، بما في ذلك تقديم الإسعافات الأولية على الفور.",
+                        "en": "Emergency Protocols: Establish clear protocols for responding to injuries, including the immediate provision of first aid."
+                    },
+                    {
+                        "ar": "تدريبات منتظمة: إجراء تدريبات منتظمة لضمان الجاهزية في التعامل مع الحالات الطبية الطارئة على الحافلة.",
+                        "en": "Regular Drills: Conduct regular drills to ensure readiness in handling medical emergencies on the bus."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود احد المنقولين بالحافلة بعد نزول مشرف النقل والسلامة من الحافلة.",
+                "en": "A student remaining on the bus after the transportation and safety supervisor leaves the bus.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إرسال مشرفة النقل والسلامة للتدريب.",
+                        "en": "Assign safety and transport supervisors to inspect buses after each trip to ensure no students remain onboard."
+                    },
+                    {
+                        "ar": "تفقد الحافلة من قبل السائقين للتأكد من عدم وجود أي طالب في الحافلة بعد كل رحلة.",
+                        "en": "Continuously monitor buses after trips through transport coordinators to confirm they are empty, with regular random checks."
+                    },
+                    {
+                        "ar": "المراقبة المستمرة للحافلات بعد الانتهاء من الرحلات من قبل منسقي الحركة للتأكد من خلو الحافلات من الطلاب.",
+                        "en": "Have safety supervisors verify that all students have exited the bus, using student attendance lists as a reference."
+                    },
+                    {
+                        "ar": "قيام مشرفي السلامة التأكد من نزول جميع الطلاب من الحافلة المدرسية بالاستعانة بكشوفات أسماء الطلبة.",
+                        "en": "Enforce disciplinary measures according to the compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "القيام بوضع لوحة الحافلة خالية.",
+                "en": "Installing an empty bus panel.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "تقديم تدريب للسائقين والمشرفين على الاستخدام الصحيح اللوحة \"الحافلة خالية\" لتجنب هذه الأخطاء.",
+                        "en": "Provide training to drivers and supervisors on the correct use of the \"Bus Empty\" sign to avoid these errors."
+                    },
+                    {
+                        "ar": "تنفيذ فحوصات منتظمة للتأكد من الاستخدام الصحيح اللوحة \"الحافلة خالية\" في جميع الأوقات.",
+                        "en": "Conduct regular inspections to ensure that the \"Bus Empty\" sign is used correctly at all times."
+                    },
+                    {
+                        "ar": "وضع إجراءات تأديبية للمخالفات المتكررة لتعزيز أهمية الاستخدام الصحيح للوحة.",
+                        "en": "Implement disciplinary measures for repeated violations to emphasize the importance of correct sign usage."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية.",
+                        "en": "Apply punitive measures in accordance with the disciplinary code."
+                    }
+                ]
+            },
+            {
+                "ar": "تفقد الحافلة بشكل عشوائي غير دقيق.",
+                "en": "Random and inaccurate inspection of the bus.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إرسال مشرفة النقل والسلامة للتدريب.",
+                        "en": "Assign transportation and safety supervisors to inspect the bus after each trip to ensure no students remain onboard."
+                    },
+                    {
+                        "ar": "تفقد الحافلة من قبل السائقين للتأكد من عدم وجود أي طالب في الحافلة بعد كل رحلة.",
+                        "en": "Continuously monitor buses after trips through transport coordinators to confirm they are empty, using regular random checks."
+                    },
+                    {
+                        "ar": "المراقبة المستمرة للحافلات بعد الانتهاء من الرحلات من قبل منسقي الحركة للتأكد من خلو الحافلات من الطلاب.",
+                        "en": "Have safety supervisors verify that all students have exited the bus by checking student attendance lists."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تفقد الحافلة قبل صعود الطلبة للحافلة.",
+                "en": "Not inspecting the bus before students board.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إرسال مشرفة النقل والسلامة للتدريب.",
+                        "en": "Assign transportation and safety supervisors to inspect the bus after each trip to ensure no students remain onboard."
+                    },
+                    {
+                        "ar": "تفقد الحافلة من قبل مشرفي النقل والسلامة والسائقين للتأكد من عدم وجود أي طالب في الحافلة بعد كل رحلة.",
+                        "en": "Continuously monitor buses after trips through transport coordinators to confirm they are empty, using regular random checks."
+                    },
+                    {
+                        "ar": "المراقبة المستمرة للحافلات بعد الانتهاء من الرحلات من قبل منسقي الحركة للتأكد من خلو الحافلات من الطلاب.",
+                        "en": "Have safety supervisors verify that all students have exited the bus by checking student attendance lists."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تفقد الحافلة بعد نزول الطلبة من الحافلة.",
+                "en": "Not inspecting the bus after students disembark.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "إرسال مشرفة النقل والسلامة للتدريب.",
+                        "en": "Assign transportation and safety supervisors to inspect the bus after each trip to ensure no students remain onboard."
+                    },
+                    {
+                        "ar": "تفقد الحافلة من قبل مشرفي النقل والسلامة والسائقين للتأكد من عدم وجود أي طالب في الحافلة بعد كل رحلة.",
+                        "en": "Continuously monitor buses after trips through transport coordinators to confirm they are empty, using regular random checks."
+                    },
+                    {
+                        "ar": "المراقبة المستمرة للحافلات بعد الانتهاء من الرحلات من قبل منسقي الحركة للتأكد من خلو الحافلات من الطلاب.",
+                        "en": "Have safety supervisors verify that all students have exited the bus by checking student attendance lists."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "ملاحظات على سلوك ولي الامر او من ينوب عنه | Notes to the guardian or his representativ",
+        "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
+        "notes": [
+            {
+                "ar": "التعدي على سائق الحافلة.",
+                "en": "Assaulting the bus driver.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "عدم السماح لأي شخص من غير مستخدمي الحافلة المنتظمين بالصعود اليها.",
+                        "en": "Do not allow anyone who is not a regular bus user to board the bus."
+                    },
+                    {
+                        "ar": "توعية السائقين ومشرفي السلامة بالحافلة بالإبلاغ المباشر لمنسق العمليات في حالة التعرض إلى اعتداء دون التصرف الفردي لحل الموضوع.",
+                        "en": "Educate drivers and bus safety supervisors to report any assault to the operations coordinator rather than handling it individually."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطالب داخل الحافلة.",
+                        "en": "Implement disciplinary actions for student behavior on the bus."
+                    },
+                    {
+                        "ar": "تدريب السائقين والمشرفات على التعامل في حالة الاعتداء.",
+                        "en": "Train drivers and supervisors on how to handle incidents of assault."
+                    }
+                ]
+            },
+            {
+                "ar": "التعدي على مشرف النقل والسلامة.",
+                "en": "Assaulting the transportation and safety supervisor.",
+                "noteClassification": "رئيسية",
+                "severity": 3,
+                "correctiveAction": [
+                    {
+                        "ar": "عدم السماح لأي شخص من غير مستخدمي الحافلة المنتظمين بالصعود اليها.",
+                        "en": "Do not allow anyone who is not a regular bus user to board the bus."
+                    },
+                    {
+                        "ar": "توعية السائقين ومشرفي السلامة بالحافلة والإبلاغ المباشر لمنسق العمليات في حالة التعرض إلى اعتداء دون التصرف الفردي لحل الموضوع.",
+                        "en": "Educate drivers and bus safety supervisors to report any assault directly to the operations coordinator rather than handling it individually."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطالب داخل الحافلة.",
+                        "en": "Implement disciplinary actions for student behavior on the bus."
+                    },
+                    {
+                        "ar": "تدريب السائقين والمشرفات على التعامل في حالة الاعتداء.",
+                        "en": "Train drivers and supervisors on how to handle incidents of assault."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم التزام بترك المسافة الآمنة من الحافلة.",
+                "en": "Unsafe Proximity to the Bus.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "وضع وتطبيق إرشادات للحفاظ على مسافة آمنة من الحافلة في جميع الأوقات.",
+                        "en": "Develop and implement guidelines to maintain a safe distance from the bus at all times."
+                    },
+                    {
+                        "ar": "توعية السائقين ومشرفي النقل والسلامة حول أهمية الحفاظ على مسافة آمنة من الحافلات.",
+                        "en": "Educate drivers, transportation, and safety supervisors on the importance of maintaining a safe distance from buses."
+                    },
+                    {
+                        "ar": "التأكد من اتباع إرشادات المسافة الآمنة، خاصة أثناء الصعود والنزول.",
+                        "en": "Ensure adherence to safe distance guidelines, particularly during boarding and alighting."
+                    }
+                ]
+            },
+            {
+                "ar": "صعود ولي أمر الطالب أو من ينوب عنه للحافلة.",
+                "en": "Boarding the Bus by a Guardian or Representative.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "توعية السائقين بعدم السماح للأشخاص غير مصرح لهم بالصعود في الحافلة.",
+                        "en": "Raise drivers' awareness not to allow unauthorized persons to board the bus."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية.",
+                        "en": "Implement disciplinary actions according to the disciplinary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "صعود ولي أمر الطالب أو من ينوب عنه للحافلة والتعدي على المنقولين.",
+                "en": "Boarding the Bus by a Guardian or Representative and assaulting the passengers.",
+                "noteClassification": "رئيسية",
+                "severity": 5,
+                "correctiveAction": [
+                    {
+                        "ar": "تطبيق سياسات صارمة تمنع الأشخاص غير المصرح لهم من الصعود إلى الحافلة.",
+                        "en": "Enforce strict policies to prevent unauthorized individuals from boarding the bus."
+                    },
+                    {
+                        "ar": "توعية السائقين والمشرفين حول كيفية التعامل مع صعود غير المصرح به والاعتداءات المحتملة.",
+                        "en": "Train drivers and supervisors on how to handle unauthorized boarding and potential assaults."
+                    },
+                    {
+                        "ar": "ضمان توثيق جميع الحوادث المتعلقة بصعود غير المصرح به والاعتداءات والإبلاغ عنها للسلطات المختصة.",
+                        "en": "Ensure all incidents related to unauthorized boarding and assaults are documented and reported to the appropriate authorities."
+                    }
+                ]
             }
         ]
     }

@@ -3,11 +3,11 @@ import { NextResponse } from 'next/server';
 
 export async function PATCH(req: Request) {
     try {
-        const { inspectionId, requirement, description, enDescription } = await req.json();
+        const { noteId, requirementId, inspectionId } = await req.json();
 
         await db.inspection.update({
             where: { id: inspectionId },
-            data: { requirement, description, enDescription },
+            data: { requirementId, noteId },
         });
 
         return NextResponse.json({ message: 'Inspection details updated successfully' });

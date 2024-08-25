@@ -1,151 +1,1277 @@
 [
     {
-        "requirement": "متطلب 1 | Requirement 1",
+        "requirement": "General Access – Internal | المداخل الرئيسية",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
         "notes": [
             {
+                "ar": "الممرات والبوابات تحتوي على عوائق، مما يشكل خطرًا للعرقلة والانزلاق والسقوط",
+                "en": "Obstructions in passageways are creating slip, trip, and fall risks",
+                "severity": 2,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إزالة جميع العوائق من الممرات فورًا لمنع الحوادث.",
+                        "en": "Remove all obstructions from passageways immediately to prevent accidents."
+                    },
+                    {
+                        "ar": "إجراء عمليات تفتيش منتظمة لضمان بقاء الممرات خالية من العوائق.",
+                        "en": "Conduct regular inspections to ensure passageways remain clear."
+                    }
+                ]
+            },
+            {
+                "ar": "لافتات مخارج الطوارئ غير واضحة أو غير  مضيئة بشكل كافٍ.",
+                "en": "Exit signs are poorly illuminated or visible",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "مخارج الطوارئ معلمة بشكل واضح.",
+                        "en": "Exits and fire exits clearly marked."
+                    },
+                    {
+                        "ar": "إجراءات الإخلاء مثبتة في كل مكتب.",
+                        "en": "Fire evacuation procedures displayed at each office."
+                    },
+                    {
+                        "ar": "مخارج الطوارئ والوصول إلى طفايات الحريق واضحة بشكل دائم.",
+                        "en": "Access to exits and extinguishers to be kept clear at all times."
+                    }
+                ]
+            },
+            {
+                "ar": "السلالم ليست في حالة جيدة",
+                "en": "Stair treads are in poor condition",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إصلاح أو استبدال درجات السلالم التالفة فورًا لمنع الحوادث.",
+                        "en": "Repair or replace any damaged stair treads immediately to prevent accidents."
+                    },
+                    {
+                        "ar": "تنفيذ عمليات تفتيش دورية لمراقبة حالة السلالم و الدرجات.",
+                        "en": "Implement regular inspections to monitor the condition of stair treads."
+                    }
+                ]
+            },
+            {
+                "ar": "الدرابزين ليست في حالة جيدة",
+                "en": "Staircase handrails are deteriorated",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إصلاح أو استبدال الدرابزين التالف لضمان أنها آمنه ومتينه للاستخدام الملائم.",
+                        "en": "Repair or replace deteriorated handrails to ensure they are secure and safe for use."
+                    },
+                    {
+                        "ar": "الفحص الدوري للدرابزين لمنع تدهورها و الحد من المخاطر المتعلقة بالسلامة.",
+                        "en": "Regularly inspect handrails to prevent further deterioration and potential safety risks."
+                    }
+                ]
+            },
+            {
+                "ar": "يتم تخزين مواد في منطقة السلالم، مما يتسبب في عوائق",
+                "en": "Stairways are used for storage",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إزالة جميع المواد المخزنة على السلالم فورًا للقضاء على المخاطر المتعلقة بالسلامة.",
+                        "en": "Clear all stored items from stairways to eliminate hazards."
+                    },
+                    {
+                        "ar": "فرض سياسة صارمة تمنع استخدام السلالم كمناطق تخزين.",
+                        "en": "Enforce a strict policy against using stairways as storage areas."
+                    }
+                ]
+            },
+            {
+                "ar": "مخارج الطوارئ مغلقة أو تحتوي على عوائق",
+                "en": "Corridors and exits are obstructed or locked",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إزالة جميع العوائق على الفور والتأكد من أن المخارج والممرات تكون دائمًا مفتوحة وخالية من العوائق.",
+                        "en": "Immediately clear all obstructions and ensure that corridors and exits are always accessible and unlocked."
+                    },
+                    {
+                        "ar": "تنفيذ عملية تفتيش دورية للحفاظ على المسارات خالية ومفتوحة.",
+                        "en": "Implement a routine inspection to maintain clear and accessible pathways."
+                    }
+                ]
+            },
+            {
+                "ar": "الأبواب والبوابات غير ملائمة لمتطلبات المبنى",
+                "en": "Doors and gates are not of suitable construction",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال الأبواب والبوابات لتلبية معايير البناء والسلامة المطلوبة.",
+                        "en": "Replace or reinforce doors and gates to meet building codes and safety standards."
+                    },
+                    {
+                        "ar": "إجراء تقييمات دورية لضمان أن جميع الأبواب والبوابات تتوافق مع الأنظمة اللوائح اللازمة.",
+                        "en": "Conduct regular assessments to ensure all doors and gates comply with the necessary regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "الحواجز أو الأبواب الزجاجية الشفافة غير محددة بوضوح",
+                "en": "Transparent surfaces/panels in doors are not clearly marked",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "وضع علامات أو ملصقات واضحة على جميع الأسطح والحواجز الشفافة في الأبواب لمنع الحوادث.",
+                        "en": "Apply clear markings or decals to all transparent surfaces and panels in doors to prevent accidents."
+                    },
+                    {
+                        "ar": "فحص الحواجز و الأبواب الزجاجية الشفافة بانتظام للتأكد من بقاء العلامات واضحة وسليمة.",
+                        "en": "Check regularly to ensure that the markings remain visible and intact."
+                    }
+                ]
+            },
+            {
+                "ar": "الأبواب المزودة بنظام الدخول الإلكتروني تفتقر إلى ميزات السلامة المناسبة لضمان الدخول والخروج الآمن في حالات الطوارئ",
+                "en": "Power-operated doors lack adequate safety features",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "ترقية الأبواب المزودة بنظام الدخول الإلكتروني بميزات أمان مناسبة مثل أجهزة الاستشعار لضمان التشغيل الآمن.",
+                        "en": "Upgrade power-operated doors with appropriate safety features such as sensors to ensure safe operation."
+                    },
+                    {
+                        "ar": "إجراء صيانة واختبارات دورية لميزات الأمان للتأكد من أنها تعمل بشكل صحيح.",
+                        "en": "Perform regular maintenance and testing of safety features to ensure they are functioning properly."
+                    }
+                ]
+            },
+            {
+                "ar": "أثناء عمليات التنظيف، لا يتم استخدام علامات التحذير لضمان سلامة الزوار والموظفين",
+                "en": "Warning signs are not used during cleaning, risking safety",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من استخدام علامات التحذير دائمًا أثناء عمليات التنظيف لتحذير الزوار والموظفين من المخاطر المحتملة.",
+                        "en": "Ensure that warning signs are always used during cleaning operations to alert visitors and staff to potential hazards."
+                    },
+                    {
+                        "ar": "تدريب جميع موظفي التنظيف على أهمية استخدام علامات التحذير بشكل مناسب.",
+                        "en": "Train all cleaning staff on the importance of using warning signs."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "General Office Safety & Ergonomics | المكاتب وبيئة العمل في المكاتب",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "الإضاءة في مناطق العمل والممرات غير كافية",
+                "en": "Lighting in work areas and walkways is inadequate",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "توفير مستويات اضاءة مناسبة.",
+                        "en": "Provide suitable lights."
+                    },
+                    {
+                        "ar": "قياس مستوى شدة الاضاءة.",
+                        "en": "Monitor and measure light level."
+                    },
+                    {
+                        "ar": "تعديل مواقع المكاتب في حال وجود انعكاس على الشاشات.",
+                        "en": "Arrange workstations to reduce/avoid glare and reflections on display screen."
+                    }
+                ]
+            },
+            {
+                "ar": "الكراسي غير مريحة أو غير آمنة",
+                "en": "Chairs are not in a safe condition",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "توفير كراسي بتصميم يدعم الظهر بشكل صحيح.",
+                        "en": "Provide chairs with proper lumbar support."
+                    },
+                    {
+                        "ar": "تدريب الموظفين و تثقيفهم حول وضعيات الجلوس الصحيحة وضبط الكراسي.",
+                        "en": "Educate employees on proper posture and chair adjustment."
+                    },
+                    {
+                        "ar": "إجراء فحوصات وصيانة دورية للكراسي.",
+                        "en": "Regularly inspect and maintain chairs."
+                    }
+                ]
+            },
+            {
+                "ar": "لا توجد مساحات كافية لحركة الموظفين",
+                "en": "Walking and egress clearance is insufficient",
+                "severity": 2,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إزالة الأثاث أو المعدات أو المواد غير الضرورية لتحرير المساحة وتحسين حرية الحركة.",
+                        "en": "Remove unnecessary furniture, equipment, or materials to free up space and improve movement clearance."
+                    },
+                    {
+                        "ar": "توفير معدات الأثاث الأكثر كفاءة في استخدام المساحة لتعظيم المساحة المتاحة.",
+                        "en": "Replace bulky furniture with more compact and space-efficient options to maximize available space."
+                    }
+                ]
+            },
+            {
+                "ar": "لا يتم صيانة المكاتب أو تنظيفها، مما يؤثر على النظافة العامة.",
+                "en": "Housekeeping is not adequately maintained",
+                "severity": 2,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "وضع جداول تنظيف يومية.",
+                        "en": "Establish daily cleaning routines."
+                    },
+                    {
+                        "ar": "تحديد مسؤوليات تنظيف محددة.",
+                        "en": "Designate specific housekeeping responsibilities."
+                    },
+                    {
+                        "ar": "توفير مساحات تخزين كافية لمنع الفوضى.",
+                        "en": "Provide sufficient storage to prevent clutter."
+                    }
+                ]
+            },
+            {
+                "ar": "بيانات السلامة MSDS للمواد المستخدمة في عمليات التنظيف غير متوفرة أو غير مخزنة بشكل مناسب.",
+                "en": "MSDS for office and housekeeping chemicals are not available",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تحديث سجلات بيانات السلامة باستمرار وجعلها متاحة.",
+                        "en": "Update MSDS and keep MSDS records current and accessible."
+                    },
+                    {
+                        "ar": "إجراء تدريبات على التعامل الآمن مع المواد الكيميائية.",
+                        "en": "Conduct training on handling chemicals safely."
+                    },
+                    {
+                        "ar": "وضع وثائق بيانات السلامة في مواقع يسهل الوصول إليها.",
+                        "en": "Place MSDS documents in easily accessible locations."
+                    }
+                ]
+            },
+            {
+                "ar": "ملصقات الصحة والسلامة المهنية غير متوفرة أو غير مستخدمه بشكل مناسب.",
+                "en": "OSH posters are not prominently displayed",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من عرض ملصقات السلامة بشكل واضح.",
+                        "en": "Ensure OSHA posters are prominently displayed."
+                    },
+                    {
+                        "ar": "الحفاظ على تحديث الملصقات بالمعلومات الأحدث.",
+                        "en": "Keep posters updated with the latest information."
+                    },
+                    {
+                        "ar": "تثقيف و إبلاغ الموظفين بأهمية هذه الملصقات.",
+                        "en": "Inform employees about the importance of these posters."
+                    }
+                ]
+            },
+            {
+                "ar": "المناطق المغطاة بالسجاد غير نظيفة أو السجاد غير مؤمن على الأرض ويحتوي على عيوب أو متهالك.",
+                "en": "Carpeted areas are not clean, carpets are not secured to the floor, and some are worn.",
+                "severity": 2,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إصلاح أو استبدال السجاد التالف.",
+                        "en": "Fix or replace damaged carpeting."
+                    },
+                    {
+                        "ar": "استخدام السجاد الغير قابل للانزلاق و وضعه في المناطق ذات الحركة الكثيفة.",
+                        "en": "Use Non-Slip Mats amd place mats in high-traffic areas."
+                    },
+                    {
+                        "ar": "التأكد من نظافة السجاد بشكل مستمر.",
+                        "en": "Making sure that carpets are kept clean at all the times."
+                    }
+                ]
+            },
+            {
+                "ar": "الكابلات الكهربائية غير مغطاة بالشكل المناسب لضمان سلامة الموظفين اثناء الحركة داخل المكتب",
+                "en": "Permanent use cords are not covered by runners when crossing walkways.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تحديد وإزالة أي كابلات غير ضرورية في الممرات لمنع مخاطر التعثر.",
+                        "en": "Identify and eliminate any unnecessary cables in walkways to prevent trip hazards."
+                    },
+                    {
+                        "ar": "تطبيق حلول إدارة الكابلات مثل أغطية الكابلات الأرضية أو القنوات لإبقاء الكابلات منظمة وبعيدة عن الممرات.",
+                        "en": "Implement cable management solutions such as floor cable covers, cable trays, or conduits to keep cables organized and out of walkways."
+                    },
+                    {
+                        "ar": "استخدام أربطة الكابلات أو المشابك لتثبيت الكابلات على طول الجدران أو تحت المكاتب.",
+                        "en": "Use cable ties or clips to secure cables along walls or under desks, ensuring they don’t create hazards."
+                    }
+                ]
+            },
+            {
+                "ar": "لا يتم استخدام جميع المعدات المكتبية بشكل صحيح.",
+                "en": "Office equipment is not being used correctly.",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "توعية الموظفين الاستخدام الصحيح للمعدات.",
+                        "en": "Educate employees on proper equipment use."
+                    },
+                    {
+                        "ar": "فحص المعدات بانتظام للتحقق من وظيفتها.",
+                        "en": "Regularly check equipment functionality."
+                    }
+                ]
+            },
+            {
+                "ar": "الموظفين لا يستخدمون المكاتب الخاصة بهم بكفاءة و يقومون بالجلوس بشكل خاطئ أو المناولة اليدوية الغير صحيحة",
+                "en": "Employees are not using their workstations efficiently and are stretching or reaching for objects placed far away.",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "إجراء تقييمات لتحسين معدات و أدوات العمل.",
+                        "en": "Perform assessments to optimize workstation setup."
+                    },
+                    {
+                        "ar": "توفير مكاتب وكراسي وحوامل شاشات قابلة للتعديل و التكييف.",
+                        "en": "Provide adjustable desks, chairs, and monitor stands."
+                    },
+                    {
+                        "ar": "تفعيل الاستراحات المنتظمة للوقاية من الإصابات الناتجة عن الإجهاد.",
+                        "en": "Encourage regular breaks to prevent strain injuries."
+                    }
+                ]
+            },
+            {
+                "ar": "تكييف الهواء غير مناسب",
+                "en": "The air condition is not adequate.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تصليح أو استبدال نظام التكييف إذا  كان قديمًا أو غير فعال.",
+                        "en": "Upgrade or Replace the HVAC System: If the air conditioning system is outdated or insufficient, consider upgrading or replacing it to ensure adequate climate control."
+                    },
+                    {
+                        "ar": "إضافة وحدات تكييف محمولة إذا كان نظام التكييف غير كاف لتوفير التبريد الإضافي في مناطق محدد.",
+                        "en": "If the central air conditioning is inadequate, introduce portable AC units to provide additional cooling in specific areas."
+                    }
+                ]
+            },
+            {
+                "ar": "لا يمكن التحكم في مكيف الهواء",
+                "en": "The air condition cannot be controlled.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "جدولة صيانة منتظمة لأنظمة التكييف.",
+                        "en": "Schedule regular maintenance for HVAC systems."
+                    },
+                    {
+                        "ar": "توفير إمكانية الوصول إلى تحكمات درجة الحرارة للموظفين.",
+                        "en": "Provide employees access to temperature controls."
+                    },
+                    {
+                        "ar": "مراقبة جودة الهواء الداخلي بانتظام.",
+                        "en": "Regularly monitor indoor air quality."
+                    }
+                ]
+            },
+            {
+                "ar": "يوجد ضرر واضح في الأبواب والجدران والأسقف وغيرها",
+                "en": "There is visible damage to doors, walls, ceilings, etc.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إصلاح الأضرار الهيكلية.",
+                        "en": "Prioritize repairs to damaged structures."
+                    },
+                    {
+                        "ar": "إجراء فحوصات هيكلية منتظمة.",
+                        "en": "Conduct regular structural inspections."
+                    },
+                    {
+                        "ar": "تركيب حواجز أمان حول المناطق المتضررة حتى إصلاحها.",
+                        "en": "Install barriers around damaged areas until repaired."
+                    }
+                ]
+            },
+            {
+                "ar": "مستوى الضوضاء غير مقبول ولا يمكن التحكم به",
+                "en": "The noise level is not acceptable or controlled.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "استخدام مواد عازلة للصوت لتقليل الضوضاء.",
+                        "en": "Use soundproofing materials to reduce noise."
+                    },
+                    {
+                        "ar": "توفير معدات الحماية الشخصية مثل تقديم حماية للأذن في المناطق ذات الضوضاء العالية.",
+                        "en": "Offer ear protection in high-noise areas."
+                    },
+                    {
+                        "ar": "تخصيص مناطق هادئة في مكان العمل.",
+                        "en": "Designate quiet zones in the workplace."
+                    }
+                ]
+            },
+            {
+                "ar": "لا يتم توفير صناديق إعادة التدوير وإفراغها بانتظام",
+                "en": "Recycling bins are not provided or emptied regularly.",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من وضع صناديق إعادة التدوير وتسهيل الوصول إليها.",
+                        "en": "Ensure recycling bins are labeled and accessible."
+                    },
+                    {
+                        "ar": "تدريب الموظفين على التخلص السليم من النفايات.",
+                        "en": "Train employees on proper waste disposal."
+                    },
+                    {
+                        "ar": "تنفيذ جدول زمني لجمع النفايات بانتظام.",
+                        "en": "Implement a schedule for regular waste collection."
+                    }
+                ]
+            },
+            {
+                "ar": "يوجد هناك حواف حادة أو تلف في الأثاث",
+                "en": "Furniture has sharp edges, points, burns, or splinters.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التخلص من حواف الأثاث الحادة.",
+                        "en": "Modify or pad sharp furniture edges."
+                    },
+                    {
+                        "ar": "إعادة ترتيب الأثاث لتقليل التعرض للحواف الحادة.",
+                        "en": "Arrange furniture to minimize exposure to sharp edges."
+                    },
+                    {
+                        "ar": "استبدال الأثاث الخطير بخيارات أكثر أمانً.",
+                        "en": "Replace furniture with safer alternatives."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Office Equipment | معدات المكتب",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "لا توجد آلات النسخ على مسافة مناسبة من مكاتب العمل",
+                "en": "Photocopiers are not located at an appropriate distance from workstations.",
+                "severity": 3,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "نقل آلات النسخ إلى مناطق مخصصة لا تتداخل مع مكاتب العمل و ضمان وجودها على مسافة آمنة ومريحة.",
+                        "en": "Relocate photocopiers to designated areas that do not interfere with workstations, ensuring they are at a safe and comfortable distance."
+                    }
+                ]
+            },
+            {
+                "ar": "إبقاء أدراج الخزائن والملفات مفتوحة عندما تكون قيد الاستخدام و يتم تحميلها بشكل زائد",
+                "en": "Filing cabinet drawers are not kept closed when not in use and are overloaded.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التاكد من أدارج الخزائن وأبوابها  مغلقة عند عدم الاستخدام.",
+                        "en": "Ensure cabinet drawers and doors are kept closed when not in use."
+                    },
+                    {
+                        "ar": "استبدال خزائن الملفات الكبيرة التي يصعب إدارتها بخزائن أصغر وأكثر سهولة في الاستخدام والتي من غير المحتمل أن يتم تحميلها بشكل زائد.",
+                        "en": "Replace large, difficult-to-manage filing cabinets with smaller, more user-friendly options that are less likely to be overloaded."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "General Access – External | الدخول و الخروج العام ",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "عدم الفصل بين طرق المركبات و المشاة و استخدامهم الطرق ذاتها",
+                "en": "There is insufficient separation between vehicles and pedestrians where they use the same routes.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب حواجز فاصلة بين طرق المركبات ومسارات المشاة لضمان عدم وقوع حوادث الدهس.",
+                        "en": "Install barriers to separate vehicle routes from pedestrian paths to prevent overlap."
+                    },
+                    {
+                        "ar": "توفير مسارات مشاة محددة وواضحة بشكل مناسب ومزودة بإشارات مرورية لتنبيه السائقين والمشاة.",
+                        "en": "Provide designated pedestrian pathways that are clearly marked and equipped with traffic signs to alert both drivers and pedestrians."
+                    }
+                ]
+            },
+            {
+                "ar": "الطرق غير مشار إليها بشكل مناسب من خلال علامات التحذير / المعلومات",
+                "en": "Routes are not suitably indicated by warning or information signs.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب إشارات تحذيرية وإرشادية في جميع المواقع الهامة لتوجيه المشاة والسائقين بشكل آمن وفعال.",
+                        "en": "Install warning and informational signs at all critical locations to guide pedestrians and drivers safely and effectively."
+                    }
+                ]
+            },
+            {
+                "ar": "الإضاءة الخارجية غير كافية",
+                "en": "External lighting is not adequate.",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب إضاءة خارجية كافية على طول المسارات والمواقف لضمان رؤية واضحة للمشاة والسائقين.",
+                        "en": "Install sufficient external lighting along pathways and parking areas to ensure clear visibility for pedestrians and drivers."
+                    },
+                    {
+                        "ar": "التأكد من أن جميع الإضاءة تعمل بشكل صحيح وفعال.",
+                        "en": "Ensure that all lighting is functioning correctly and efficiently."
+                    }
+                ]
+            },
+            {
+                "ar": "الطرق و علامات التحذير ومواقف المركبات غير مضاءه أو محدده بشكل واضح ومناسب",
+                "en": "Routes, signs, and parking lots are not clearly marked or lit.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "وضع علامات تحذير وإشارات مرورية واضحة على طول المسارات والمواقف.",
+                        "en": "Install clear warning and informational signs along routes and parking areas."
+                    },
+                    {
+                        "ar": "توفير إضاءة كافية لهذه العلامات لضمان رؤيتها ليلاً ونهار.",
+                        "en": "Provide adequate lighting for these signs to ensure they are visible both day and night."
+                    }
+                ]
+            },
+            {
+                "ar": "الطرق ومواقف المركبات غير نظيفة وآمنه (مثال: وجود مياه مسكوبه و مواد مشحمه و غيرها)",
+                "en": "Walkways and parking lots are not free from water, grease, etc.",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تنظيف الطرق ومواقف المركبات بانتظام من أي مواد خطرة مثل المياه المسكوبة والزيوت.",
+                        "en": "Regularly clean walkways and parking lots of hazardous materials like spilled water and grease."
+                    },
+                    {
+                        "ar": "وضع خطط صيانة دورية لضمان نظافة وسلامة المناطق العامة.",
+                        "en": "Implement a routine maintenance plan to ensure the cleanliness and safety of public areas."
+                    }
+                ]
+            },
+            {
                 "ar": "لا توجد محددات سرعة في ساحة المحطة",
-                "en": "There are no speed limits in the station yard",
-                "noteClassification": "ثانوية"
-            },
-            {
-                "ar": "لا يوجد علامات ارشادية للمباني وأماكن الخدمات في المحطة اثناء الدخول من البوابة الرئيسية او داخل المبنى الرئيسي",
-                "en": "There are no guidance signs for buildings and service locations in the station while entering from the main gate or inside the main building",
-                "noteClassification": "ثانوية"
-            },
-            {
-                "ar": "لا توجد مواقف داخلية خاصة للزوار والمراجعين",
-                "en": "There are no internal parking spaces for visitors and reviewers",
-                "noteClassification": "ثانوية"
+                "en": "No speed limits are posted in the station yard",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب لوحات تحدد السرعة المسموح بها في ساحة المحطة وتوزيعها في مواقع استراتيجية لتكون مرئية للسائقين.",
+                        "en": "Install speed limit signs in the station yard and place them in strategic locations to be visible to drivers."
+                    }
+                ]
             },
             {
                 "ar": "ساحة مواقف الحافلات غير مرصوفة وتغطيها الاتربة والحصى",
-                "en": "The bus parking area is unpaved and covered with dirt and gravel",
-                "noteClassification": "ثانوية"
+                "en": "The bus parking area is unpaved and covered with dust and gravel",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إعادة رصف ساحة مواقف الحافلات لضمان سطح مستوٍ وآمن للسير.",
+                        "en": "Resurface the bus parking area to ensure a level and safe walking/driving surface."
+                    },
+                    {
+                        "ar": "تنظيف الساحة بانتظام من الأتربة والحصى لضمان عدم تسببها في أي مخاطر.",
+                        "en": "Regularly clean the area of dust and gravel to prevent potential hazards."
+                    }
+                ]
             },
             {
                 "ar": "تخزين طفايات الحريق منتهية الصلاحية وبعض أدوات السلامة في الحافلة (قواعد احزمة) خارج الأماكن المخصص لتخزينها",
-                "en": "Storing expired fire extinguishers and some safety tools in the bus (belt rules) outside the designated storage areas",
-                "noteClassification": "رئيسية"
+                "en": "Expired fire extinguishers and safety equipment stored improperly",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "فحص وتجديد طفايات الحريق منتهية الصلاحية.",
+                        "en": "Inspect and replace expired fire extinguishers."
+                    },
+                    {
+                        "ar": "تخزين أدوات السلامة في الأماكن المخصصة لها وفقًا للمعايير واللوائح المعتمد.",
+                        "en": "Store safety equipment in designated areas according to approved standards and regulations."
+                    }
+                ]
             },
             {
-                "ar": "وجود اسلاك كهربائية غير مغطاة بالشكل المناسب",
-                "en": "The presence of electrical wires not properly covered",
-                "noteClassification": "رئيسية"
+                "ar": "لا توجد مواقف داخلية خاصة للزوار والمراجعين",
+                "en": "No dedicated parking spaces for visitors and contractors",
+                "severity": 3,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "تخصيص مواقف مخصصة لوقوف الزوار والمراجعين داخل المنشأة لتجنب الازدحام وتوفير الراحة لهم.",
+                        "en": "Allocate designated parking spaces for visitors and contractors within the facility to avoid congestion and provide convenience."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Windows | النوافذ",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "لا يمكن التحكم بفتح وغلق النوافذ بأمان، دون تعرض أحد لخطر",
+                "en": "The window can be opened in a manner that poses a risk to individuals.",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب أقفال على النوافذ للتحكم في مدى فتحها، مما يقلل من خطر السقوط أو التعرض للإصابة.",
+                        "en": "Install window locks or restrictors to control how far the window can be opened, reducing the risk of accidental falls or injuries."
+                    },
+                    {
+                        "ar": "التأكد من أن آلية قفل النوافذ سهلة الاستخدام و آمنة بما يكفي لمنع الفتح غير المصرح به.",
+                        "en": "Ensure that the locking mechanism is easy to use but secure enough to prevent unauthorized opening."
+                    }
+                ]
             },
             {
-                "ar": "عدم وضوح مخارج الطوارئ",
-                "en": "Emergency exits are not clear",
-                "noteClassification": "رئيسية"
+                "ar": "فتحات النوافذ غير آمنه لمنع أي شخص من السقوط",
+                "en": "The width of the window is not restricted, creating a potential risk of falling out.",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب قضبان أمان أو محددات لتقليل عرض فتحات النوافذ، مما يمنع خطر سقوط الأشخاص.",
+                        "en": "Install safety bars or restrictors to limit the width of window openings, preventing the risk of individuals falling out."
+                    },
+                    {
+                        "ar": "التأكد من أن المحددات تفي بمعايير السلامة وتفحص بانتظام لضمان فعاليته.",
+                        "en": "Ensure the restrictors meet safety standards and are regularly inspected for effectiveness."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "First Aid | الإسعافات الأولية ",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "عدم تتوفر أدوات الإسعافات الأولية و لا يمكن الوصول إليها ووضعها بشكل مناسب حسب إرشادات OSHAD",
+                "en": "First aid kits are either not available, not easily accessible, or inadequately stocked according to OSHAD standards.",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من أن أدوات الإسعافات الأولية متوفرة بشكل كافٍ وفقاً لمعايير OSHAD وتوزيعها في مواقع يسهل الوصول إليها في مكان العمل.",
+                        "en": "Ensure that first aid kits are properly stocked according to OSHAD standards and placed in easily accessible locations throughout the workplace."
+                    },
+                    {
+                        "ar": "فحص وتجديد أدوات الإسعافات الأولية بانتظام لضمان توفر المواد اللازمة.",
+                        "en": "Regularly inspect and replenish the first aid kits to maintain adequate supplies."
+                    }
+                ]
             },
             {
-                "ar": "السلالم ليست بحالة جيدة",
-                "en": "The stairs are not in good condition",
-                "noteClassification": "رئيسية"
+                "ar": "عدم توفر  متدرب حاصل على شهادة الإسعافات الأولية في موقع العمل",
+                "en": "There is no qualified First Aider with a valid certificate present on-site.",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تدريب واعتماد عدد كافٍ من الموظفين في الإسعافات الأولية لضمان وجود شخص مؤهل في الموقع خلال ساعات العمل.",
+                        "en": "Train and certify a sufficient number of employees in first aid, ensuring that there is always a qualified First Aider on-site during working hours."
+                    },
+                    {
+                        "ar": "الاحتفاظ بسجلات لجميع حاملي شهادات الإسعافات الأولية وحالة شهاداتهم.",
+                        "en": "Keep records of all certified First Aiders and their certification status."
+                    }
+                ]
             },
             {
-                "ar": "درابزين الدرج ليس بحالة جيدة",
-                "en": "The stair railing is not in good condition",
-                "noteClassification": "ثانوية"
+                "ar": "عدم معرفة الموظفين بكيفية الوصول لصندوق الإسعافات الأولية عند الحاجة (عند سؤال الموظف)",
+                "en": "Employees are unaware of how to access first aid when needed.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "عقد جلسات تدريبية وتمارين لتعليم الموظفين كيفية الوصول إلى أدوات الإسعافات الأولية واستخدامها بالإضافة إلى الإجراءات الطارئة.",
+                        "en": "Conduct training sessions and drills to educate employees on the location and use of first aid kits and emergency procedures."
+                    },
+                    {
+                        "ar": "نشر تعليمات واضحة ولافتات في جميع أنحاء المنشأة لإرشاد الموظفين حول كيفية الوصول إلى الإسعافات الأولية.",
+                        "en": "Post clear instructions and signs throughout the facility to guide employees on how to access first aid."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Fire escape routes and safety signs | مخارج الطوارئ وعلامات السلامة ",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "مخارج الطوارئ غير واضحة للجميع أو غير مشار إليها بواسطة الألواح الإرشادية",
+                "en": "Fire escape routes and exits are not clearly indicated by signs.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب لوحات إرشادية مضيئة وواضحة لتحديد مسارات ومخارج الطوارئ في جميع أنحاء المبنى.",
+                        "en": "Install clear, illuminated signs to indicate fire escape routes and exits throughout the building."
+                    },
+                    {
+                        "ar": "التأكد من أن هذه اللوحات مرئية في جميع ظروف الإضاءة وأن يتم فحصها بانتظام للتأكد من عملها.",
+                        "en": "Ensure that these signs are visible in all lighting conditions and are regularly checked for functionality."
+                    }
+                ]
             },
             {
-                "ar": "يتم تخزين مواد في منطقة السلالم",
-                "en": "Materials are being stored in the stairwell area",
-                "noteClassification": "رئيسية"
+                "ar": "عدم توفر خريطة الإخلاء في الحالات الطارئة أو عدم توفر خطة الإخلاء و مخارج الطوارئ بشكل واضح",
+                "en": "The Emergency Evacuation Route and Action Plan are not posted.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "وضع خريطة طريق الإخلاء وخطة الإجراءات الطارئة في كافة المكاتب.",
+                        "en": "Post the emergency evacuation route map and action plan in prominent locations within the facility."
+                    },
+                    {
+                        "ar": "توعية جميع الموظفين على إجراءات الإخلاء والتأكد من فهم خطة الطوارئ.",
+                        "en": "Ensure all employees are trained on the evacuation procedures and understand the emergency plan."
+                    }
+                ]
             },
             {
-                "ar": "وجود عوائق في مخارج الطوارئ",
-                "en": "There are obstacles in the emergency exits",
-                "noteClassification": "رئيسية"
+                "ar": "مخارج الطوارئ تحتوي على عوائق",
+                "en": "Fire escape routes are obstructed.",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إزالة جميع العوائق من مخارج الطوارئ لضمان سهولة استخدمها في حالات الطوارئ.",
+                        "en": "Clear all obstructions from fire escape routes to ensure they are fully accessible in an emergency."
+                    },
+                    {
+                        "ar": "فحص مخارج الطوارئ بانتظام للتأكد من خلوها من أي عوائق.",
+                        "en": "Regularly inspect escape routes to maintain them free of any blockages."
+                    }
+                ]
             },
             {
-                "ar": "عدم تناسب الأبواب والبوبات مع المبني",
-                "en": "Doors and gates do not fit the building",
-                "noteClassification": "ثانوية"
+                "ar": "بعض أبواب الطوارئ غير قابلة للفتح و مغلقة",
+                "en": "Some fire doors are not operable or are obstructed.",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "فحص وإصلاح أو استبدال أي أبواب طوارئ غير قابلة للتشغيل لضمان إمكانية استخدامها في حالات الطوارئ.",
+                        "en": "Inspect and repair or replace any non-operable fire doors to ensure they can be used in an emergency."
+                    },
+                    {
+                        "ar": "التأكد من خلو جميع أبواب الطوارئ من العوائق في جميع الأوقات.",
+                        "en": "Keep all fire doors free of obstructions at all times."
+                    }
+                ]
             },
             {
-                "ar": "عدم وضوح الأبواب والحواجز الشفافة",
-                "en": "The doors and transparent barriers are not clear",
-                "noteClassification": "ثانوية"
+                "ar": "لا يوجد تعليمات واضحه عن كيفية كسر زجاج نقطة الحريق في حالة نشوب الحريق",
+                "en": "Fire action notices are not positioned at each manual break glass point.",
+                "severity": 2,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب ملصقات واضحة لكيفية التصرف في حالة الحريق عند كل نقطة كسر زجاج يدوية لتوجيه الموظفين حول الإجراءات الصحيحة أثناء الحريق.",
+                        "en": "Install clear fire action notices at each manual break glass point to guide employees on the proper procedures during a fire."
+                    },
+                    {
+                        "ar": "التأكد من أن هذه التعليمات مرئية وسهلة الفهم.",
+                        "en": "Ensure these notices are visible and easily understandable."
+                    }
+                ]
             },
             {
-                "ar": "عدم استخدام علامات التحذير لضمان سلامة الزوار والموظفين أثناء عمليات التنظيف",
-                "en": "Not using warning signs to ensure the safety of visitors and employees during cleaning operations",
-                "noteClassification": "رئيسية"
+                "ar": "عدم القدره على الوصول لطفايات الحريق وخراطيم وفحصها و استخدامها",
+                "en": "Fire extinguishers and fire hose reels are not accessible, or have not been checked and maintained for operation.",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من أن جميع طفايات الحريق وخراطيم المياه متوفرة وجاهزة للاستخدام.",
+                        "en": "Ensure all fire extinguishers and hose reels are easily accessible and free from obstructions."
+                    },
+                    {
+                        "ar": "تنفيذ جدول فحص وصيانة منتظم للتحقق من وظائف جميع معدات مكافحة الحرائق.",
+                        "en": "Implement a regular inspection and maintenance schedule to check the functionality of all firefighting equipment."
+                    }
+                ]
             },
             {
-                "ar": "عدم كفاية الإضائة في المكاتب والممرات",
-                "en": "Insufficient lighting in offices and corridors",
-                "noteClassification": "ثانوية"
+                "ar": "عدم توفر أرقام الاتصال في حالات الطوارئ (غير منشورة أو مرئية)",
+                "en": "Emergency contact numbers are not posted or visible.",
+                "severity": 3,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "نشر أرقام الاتصال في حالات الطوارئ في مواقع مرئية في جميع أنحاء المبني.",
+                        "en": "Post emergency contact numbers in visible locations throughout the facility."
+                    },
+                    {
+                        "ar": "التأكد من تحديث هذه الأرقام بانتظام وأنها متاحة لجميع الموظفين.",
+                        "en": "Ensure that these numbers are updated regularly and are accessible to all employees."
+                    }
+                ]
             },
             {
-                "ar": "عدم وجود مساحة كافية لحركة الموظفين داخل المكاتب",
-                "en": "There is not enough space for employee movement inside the offices",
-                "noteClassification": "ثانوية"
+                "ar": "نظام إضاءة الطوارئ لا يعمل بشكل مناسب",
+                "en": "The emergency lighting system is not functioning properly.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "فحص وإصلاح نظام الإضاءة الطارئة لضمان عمله بشكل صحيح أثناء انقطاع التيار الكهربائي.",
+                        "en": "Inspect and repair the emergency lighting system to ensure it functions correctly during a power outage."
+                    },
+                    {
+                        "ar": "فحص أضواء الطوارئ بانتظام واستبدال أي مكونات معطلة.",
+                        "en": "Regularly test the emergency lights and replace any faulty components."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Welfare | الرفاهية والمرافق",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "عدم توفير وسائل راحة مناسبة وكافية للموظفين والموظفات",
+                "en": "Suitable and sufficient conveniences for male and female staff are not provided.",
+                "severity": 3,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من توفير مرافق كافية (مثل الحمامات والمطبخ) وتخصيصها بشكل مناسب للموظفين والموظفات.",
+                        "en": "Ensure that adequate facilities (e.g., restrooms, changing rooms) are available and appropriately separated for male and female staff."
+                    },
+                    {
+                        "ar": "فحص وتنظيف المرافق بانتظام لضمان تلبيتها لاحتياجات جميع الموظفين.",
+                        "en": "Regularly assess the facilities to ensure they meet the needs of all employees."
+                    }
+                ]
             },
             {
-                "ar": "عدم صيانة المكاتب وتنظيفها بشكل دوري",
-                "en": "Offices are not maintained and cleaned regularly",
-                "noteClassification": "ثانوية"
+                "ar": "مرافق المطبخ غير نظيفة و عملية",
+                "en": "Kitchen/kitchenette facilities are not clean and functional.",
+                "severity": 2,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تطبيق جدول تنظيف وصيانة لضمان نظافة المطبخ وصلاحيته للعمل.",
+                        "en": "Implement a cleaning and maintenance schedule to ensure kitchen/kitchenette areas are kept clean and in good working order."
+                    },
+                    {
+                        "ar": "التأكد من أن جميع الأجهزة الكهربية وأدوات المطبخ تعمل بشكل جيد وتفحص بانتظام.",
+                        "en": "Ensure all kitchen appliances and utensils are functional and regularly inspected."
+                    }
+                ]
             },
             {
-                "ar": "عدم توفير ملصقات الصحة والسلامة المهنية في المبني",
-                "en": "Lack of occupational health and safety stickers in the building",
-                "noteClassification": "رئيسية"
+                "ar": "مناطق المراحيض غير نظيفة وعملية",
+                "en": "Toilet areas are not clean and functional.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "وضع جدول تنظيف بشكل مستمر لضمان نظافة وصلاحية مرافق الحمامات.",
+                        "en": "Establish a routine cleaning schedule and ensure all toilet facilities are maintained in a hygienic condition."
+                    },
+                    {
+                        "ar": "إصلاح أي تجهيزات غير صالحة للعمل والتأكد من توفر كميات كافية من الصابون و ورق الحمام أو المناشف.",
+                        "en": "Repair any non-functional fixtures and ensure adequate supplies of soap and toilet paper or hand towels."
+                    }
+                ]
             },
             {
-                "ar": "خلل في تكييف الهواء",
-                "en": "Malfunction in air conditioning",
-                "noteClassification": "ثانوية"
+                "ar": "مرافق المغاسل والحمامات لا يتوفر فيها المواد المنظفة و المعقمه و الماء الدافئ.",
+                "en": "Washing facilities (soap, warm water) are not available.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من تجهيز جميع مرافق الغسيل بالصابون والماء الدافئ والمنتجات الصحية الأخرى.",
+                        "en": "Ensure that all washing facilities are equipped with soap, warm water, and other necessary hygiene products."
+                    },
+                    {
+                        "ar": "فحص وتجديد هذه المستلزمات بانتظام للحفاظ على معايير النظافة.",
+                        "en": "Regularly check and replenish these supplies to maintain hygiene standards."
+                    }
+                ]
             },
             {
-                "ar": "عدم توفر صناديق إعادة التدوير",
-                "en": "Recycling bins are not available",
-                "noteClassification": "ثانوية"
+                "ar": "عدم توفر الإضاءة والتهوية المناسبة والكافية",
+                "en": "Adequate lighting and ventilation are not present.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب أو إصلاح أنظمة الإضاءة والتهوية لضمان إضاءة وتهوية جيدة لجميع المناطق، خاصة المطابخ والحمامات.",
+                        "en": "Install or repair lighting and ventilation systems to ensure all areas, especially kitchens and restrooms, are well-lit and ventilated."
+                    },
+                    {
+                        "ar": "إجراء فحوصات دورية لضمان عمل هذه الأنظمة بشكل صحيح.",
+                        "en": "Conduct regular inspections to ensure these systems are functioning correctly."
+                    }
+                ]
             },
             {
-                "ar": "وجود حواف حادة وتلف علي اثاث المكاتب",
-                "en": "There are sharp edges and damage to office furniture",
-                "noteClassification": "رئيسية"
+                "ar": "يوجد تسرب للمياه أو ضرر في تمديدات المياه",
+                "en": "There are observable drips or water damage.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إصلاح أي تسربات أو أضرار في تمديدات المياه فوراً لمنع زيادتها وظهور مخاطر أمنية محتملة.",
+                        "en": "Repair any leaks or water damage immediately to prevent further deterioration and potential safety hazards."
+                    },
+                    {
+                        "ar": "فحص شبكات الصرف الصحي بانتظام لاكتشاف وحل المشاكل في وقت مبكر.",
+                        "en": "Regularly inspect the plumbing system to identify and address issues early."
+                    }
+                ]
             },
             {
-                "ar": "وجود كسر او تلف في المقابس الكهربائية",
-                "en": "There is a breakage or damage in the electrical sockets",
-                "noteClassification": "رئيسية"
+                "ar": "عدم توفر كميات كافية من مياه الشرب الصحية التي يمكن الوصول إليها بسهولة",
+                "en": "An adequate supply of wholesome drinking water is not readily accessible.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من توفر كميات كافية من مياه الشرب النظيفة وسهولة الوصول إليها من قبل جميع الموظفين.",
+                        "en": "Ensure that a sufficient supply of clean drinking water is available and easily accessible to all staff."
+                    },
+                    {
+                        "ar": "فحص وصيانة برادات المياه بانتظام لضمان نظافتها وصلاحيتها للعمل.",
+                        "en": "Regularly check and maintain water dispensers or fountains to ensure they are clean and operational."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": " Electrical | الكهرباء",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "تمديدات الكهربائية غير مؤمنة و ليست في حالة جيدة (بدون أسلاك مكشوفة أو ما شابه)",
+                "en": "Extension cords are not secured and are in poor condition (with exposed wires or bent prongs).",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال أو إصلاح تمديدات الكهرباء التالفة فوراً لمنع المخاطر الكهربائية.",
+                        "en": "Immediately replace or repair damaged extension cords to prevent electrical hazards."
+                    },
+                    {
+                        "ar": "تأمين التمديدات الكهربائية لمنع التعثر والمخاطر الأخرى المحتملة.",
+                        "en": "Secure extension cords to prevent tripping and other potential safety risks."
+                    }
+                ]
             },
             {
-                "ar": "عدم تامين التمديدات الكهربائية",
-                "en": "Failure to secure electrical installations",
-                "noteClassification": "رئيسية"
+                "ar": "المفاتيح والمقابس الكهربائية ليست في حالة جيدة",
+                "en": "Plug tops and sockets are not in good condition.",
+                "severity": 2,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "فحص جميع المقابس الكهربائية وأغطية القوابس واستبدال أي منها إذا كانت تالفة أو معيبة.",
+                        "en": "Inspect all electrical outlets and plug tops, replacing any that are damaged or faulty."
+                    },
+                    {
+                        "ar": "جدولة عمليات الفحص الدورية للحفاظ على سلامة و وظيفة الدوائر الكهربائية.",
+                        "en": "Regularly schedule inspections to maintain the safety and functionality of electrical components."
+                    }
+                ]
             },
             {
-                "ar": "وجود تسريب للمياة",
-                "en": "There is water leakage",
-                "noteClassification": "ثانوية"
+                "ar": "عدم القدرة للوصول بسهولة إلى غرفة الكهرباء (اللوحات الكهربائية) و تخزين المواد القابلة للاحتراق بالقرب منها",
+                "en": "Access to electrical panels is not clear, and combustible materials are stored nearby.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من وجود ملصقات تشير إلى اللوحات الكهربائية.",
+                        "en": "Ensure that all electrical panels are clearly labeled."
+                    },
+                    {
+                        "ar": "التأكد من أن الطرق المؤدية للوحات الكهربائية يظل خاليًا من العوائق في جميع الأوقات.",
+                        "en": "Ensure that access to electrical panels is kept clear and unobstructed at all times."
+                    },
+                    {
+                        "ar": "إزالة أي مواد قابلة للاحتراق من المناطق القريبة من اللوحات الكهربائية لمنع خطر الحريق.",
+                        "en": "Remove any combustible materials from areas near electrical panels to prevent fire hazards."
+                    }
+                ]
             },
             {
-                "ar": "نظام إضاءة الطوارئ لا يعمل",
-                "en": "The emergency lighting system is not working",
-                "noteClassification": "رئيسية"
+                "ar": "عدم إيقاف تشغيل المعدات الكهربائية (وإغلاق الاضواء) غير الضرورية وفصلها بعد الاستخدام",
+                "en": "Non-essential electrical equipment is not switched off and disconnected after use.",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "تنفيذ سياسة تتطلب إيقاف وفصل جميع المعدات الكهربائية غير الضرورية عندما لا تكون قيد الاستخدام.",
+                        "en": "Implement a policy that requires all non-essential electrical equipment to be switched off and unplugged when not in use."
+                    },
+                    {
+                        "ar": "توعية الموظفين بضرورة اغلاق الأجهزة الكهربائية بعد الانتهاء من العمل.",
+                        "en": "Aware staff to turn off lights after finishing duty."
+                    }
+                ]
             },
             {
-                "ar": "عدم توزيع او لصق ارقام التواصل في حالة الطوارئ",
-                "en": "Emergency contact numbers are not distributed or posted",
-                "noteClassification": "رئيسية"
+                "ar": "وجود احمال زائدة على الوصلات متعددة النقاط قيد الاستخدام",
+                "en": "Multi-point adapters are in use.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الحد من استخدام الوصلات متعددة النقاط لمنع تحميل الدوائر الكهربائية بشكل زائد، والنظر في تركيب منافذ إضافية عند الحاجة.",
+                        "en": "Limit the use of multi-point adapters to prevent overloading circuits, and consider installing additional outlets where needed."
+                    },
+                    {
+                        "ar": "إجراء تدقيقات كهربائية منتظمة لضمان استخدام جميع مصادر الطاقة بشكل آمن وضمن القدرة المسموح بها.",
+                        "en": "Conduct regular electrical audits to ensure that all power sources are used safely and within capacity."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": " Security | الأمان",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "عدم تطبيق قواعد الزائرين والمراجعين",
+                "en": "Visitor/contractor rules are not in place.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "وضع وتنفيذ قواعد وإرشادات واضحة للزائرين والمراجعين والعملاء.",
+                        "en": "Establish and implement clear rules and guidelines for visitors and contractors."
+                    },
+                    {
+                        "ar": "توصيل هذه القواعد لجميع الأفراد المعنيين والتأكد من تطبيقها.",
+                        "en": "Communicate these rules to all relevant personnel and ensure they are enforced."
+                    }
+                ]
             },
             {
-                "ar": "عدم معرفة الموظفين لكيفية الوصول لصندوق الإسعافات الأولية عند الحاجة اليها",
-                "en": "Employees do not know how to access the first aid kit when needed",
-                "noteClassification": "رئيسية"
-            },
+                "ar": "عدم تسجيل بيانات الزوار والمراجعين عند الدخول والخروج",
+                "en": "Visitors' check-in and check-out times are not recorded, and a register is not maintained.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إنشاء نظام لتسجيل وقت دخول وخروج الزائرين والمراجعين والمتعاقدين، بما في ذلك الاحتفاظ بالسجلات.",
+                        "en": "Set up a check-in/check-out system for all visitors and contractors, including maintaining a register."
+                    },
+                    {
+                        "ar": "مراجعة السجلات بانتظام لضمان دقة حفظ السجلات والامتثال للبروتوكولات الأمنية.",
+                        "en": "Regularly review the register to ensure accurate record-keeping and compliance with security protocols."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Housekeeping | التدبير المنزلي",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
             {
-                "ar": "عدم توفر أدوات الإسعافات الأولية",
-                "en": "Lack of first aid tools",
-                "noteClassification": "رئيسية"
-            },
+                "ar": "ضعف في ممارسات التدبير المنزلي مع وجود أسلاك متدلية وإضاءة غير كافية في ممرات المكتب",
+                "en": "Poor housekeeping with trailing cables and inadequate lighting in office corridors.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "ضمان خلو الممرات من العوائق وتنظيم الأسلاك بشكل صحيح.",
+                        "en": "Ensure that all walkways are kept clear of obstacles and that cables are properly managed."
+                    },
+                    {
+                        "ar": "تحسين الإضاءة في المناطق المعتمة لتقليل خطر الانزلاق والتعثر.",
+                        "en": "Improve lighting in dim areas to reduce the risk of slips and trips."
+                    },
+                    {
+                        "ar": "إجراء فحوصات دورية للتدبير المنزلي للحفاظ على ظروف آمنة.",
+                        "en": "Conduct regular housekeeping checks to maintain safe conditions."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Manual Handling | المناولة اليدوية",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
             {
-                "ar": "وجود كسور او تشرخات في زجاج المكاتب",
-                "en": "There are cracks or fractures in the office glass",
-                "noteClassification": "رئيسية"
+                "ar": "التعامل غير السليم مع الصناديق الثقيلة والمعدات بدون استخدام العربات أو التقنيات المناسبة",
+                "en": "Improper handling of heavy boxes and equipment without using trolleys or proper techniques.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "توفير التدريب المناسب على تقنيات المناولة اليدوية لجميع الموظفين.",
+                        "en": "Provide manual handling training to all staff, emphasizing proper lifting techniques."
+                    },
+                    {
+                        "ar": "تزويد الموظفين بالمعدات المناسبة مثل العربات للمساعدة في نقل الحمولات الثقيلة.",
+                        "en": "Supply appropriate lifting aids, such as trolleys, to reduce manual handling risks."
+                    },
+                    {
+                        "ar": "مراجعة وتحديث إجراءات المناولة بانتظام لضمان الامتثال لمعايير السلام.",
+                        "en": "Supervisors should monitor manual handling activities and intervene when unsafe practices are observed."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Noise | الضوضاء",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "ضوضاء مفرطة من أجهزة متعددة الوظائف (الطابعة/الماسح الضوئي/الفاكس) تؤثر على محطات العمل القريبة",
+                "en": "Excessive noise from MFU (printer/scanner/fax) disturbing nearby workstations.",
+                "severity": 2,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "نقل المعدات المكتبية المزعجة إلى مناطق معزولة بعيدًا عن محطات العمل.",
+                        "en": "Relocate noisy office equipment to isolated areas away from workstations."
+                    },
+                    {
+                        "ar": "استخدام حواجز صوتية إذا كان النقل غير ممكن.",
+                        "en": "Use soundproof enclosures if relocation is not possible."
+                    },
+                    {
+                        "ar": "مراقبة مستويات الضوضاء بانتظام واتخاذ الخطوات اللازمة لتقليل التعرض، مثل إنشاء مناطق هادئة.",
+                        "en": "Monitor noise levels regularly and take steps to reduce exposure, such as implementing quiet zones."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Working with Display Screen Equipment | العمل باستخدام شاشات العرض",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "استخدام الموظفين لمعدات العرض البصري دون تعديل الوضعية أو أخذ استراحات منتظمة.",
+                "en": "Staff using display screen equipment without posture adjustment or regular breaks.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إجراء تقييمات لمعدات العرض البصري لجميع محطات العمل.",
+                        "en": "Conduct DSE assessments for all workstations."
+                    },
+                    {
+                        "ar": "توفير المعدات المريحة مثل الكراسي القابلة للتعديل وحوامل الشاشات.",
+                        "en": "Provide ergonomic equipment such as adjustable chairs and monitor stands."
+                    },
+                    {
+                        "ar": "تدريب الموظفين على الوضعية السليمة وأهمية أخذ استراحات منتظمة لمنع إصابات الإجهاد.",
+                        "en": "Train staff on proper posture and the importance of taking regular breaks to prevent strain injuries."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Working at Height | العمل في المناطق المرتفعة",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "وصول غير آمن إلى الأرفف العليا والمناطق المخصصة للعرض بدون استخدام المعدات المناسبة (مثل السلالم المتحركة).",
+                "en": "Unsafe access to top shelves and display areas without proper equipment (e.g., stepladders).",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من توفر واستخدام معدات السلامة المناسبة مثل السلالم والأحزمة عند العمل في المناطق المرتفعة.",
+                        "en": "Ensure that appropriate safety equipment, such as ladders and harnesses, is available and used when working at height."
+                    },
+                    {
+                        "ar": "توفير التدريبات على ممارسات العمل الآمن في الارتفاعات و الالتزام بقوانين السلامة.",
+                        "en": "Provide training on safe working practices at height and enforce strict adherence to safety protocols."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "Work-Related Stress and Mental Health | مؤشرات على الضغط النفسي",
+        "inspectionTypeId": "77b21ecc-ed9b-4e75-8304-61a09f668468",
+        "notes": [
+            {
+                "ar": "مؤشرات على الضغط النفسي نتيجة الأحمال العالية للعمل وغياب الدعم الإداري.",
+                "en": "Indications of stress due to high workloads and lack of managerial support.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تنفيذ برامج و تدريبات إدارة الضغط النفسي تتضمن اجتماعات منتظمة بين الموظفين والأداريين.",
+                        "en": "Implement a stress management program that includes regular one-on-one meetings between employees and managers."
+                    },
+                    {
+                        "ar": "تسهيل الوصول إلى مواد تتعلق بالصحة النفسية و العقلية وضمان أن تكون أعباء العمل معقولة وموزعة بشكل جيد.",
+                        "en": "Offer access to mental health resources and ensure that workloads are reasonable and well-distributed."
+                    }
+                ]
             }
         ]
     }

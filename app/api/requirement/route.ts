@@ -19,12 +19,23 @@ export const POST = async (req: NextRequest) => {
                     create: notes.map(note => ({
                         ar: note.ar,
                         en: note.en,
-                        noteClassification: note.noteClassification
+                        severity: note.severity,
+                        noteClassification: note.noteClassification,
+                        correctiveAction: {
+                            create: note.correctiveAction?.map((action: any) => ({
+                                ar: action.ar,
+                                en: action.en,
+                            })) || []
+                        }
                     }))
                 }
             },
             include: {
-                notes: true,
+                notes: {
+                    include: {
+                        correctiveAction: true,
+                    }
+                },
             }
         });
 
@@ -35,6 +46,3 @@ export const POST = async (req: NextRequest) => {
         return new NextResponse('Internal Server Error', { status: 500 });
     }
 };
-
-
-

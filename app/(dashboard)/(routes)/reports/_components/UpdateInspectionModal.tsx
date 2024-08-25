@@ -26,21 +26,21 @@ import useTranslation from "@/app/hooks/useTranslation";
 import LanguageContext from "@/app/context/LanguageContext";
 
 const formSchema = z.object({
-    requirement: z.string().min(1, { message: "Invalid field" }),
-    description: z.string().min(1, { message: "Invalid field" }),
+    requirementId: z.string().min(1, { message: "Invalid field" }),
+    noteId: z.string().min(1, { message: "Invalid field" }),
 });
 
 interface FormValues {
-    requirement: string;
-    description: string;
+    requirementId: string;
+    noteId: string;
 }
 
 type UpdateInspectionModalProps = {
     isOpen: boolean;
     onClose: () => void;
     inspectionId: string;
-    requirement: string;
-    description: string;
+    requirementId: string;
+    noteId: string;
     inspectionTypeId: string;
     setInspectionUpdated: any;
 };
@@ -49,16 +49,16 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
     isOpen,
     onClose,
     inspectionId,
-    requirement,
-    description,
+    requirementId,
+    noteId,
     inspectionTypeId,
     setInspectionUpdated
 }) => {
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            requirement: '',
-            description: '',
+            requirementId: '',
+            noteId: '',
         },
     });
 
@@ -81,7 +81,8 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
 
     const onSubmit = async (values: FormValues) => {
         try {
-            await axios.patch('/api/update_inspection_details', { ...values, inspectionId, enDescription: selectedNote?.en });
+
+            await axios.patch('/api/update_inspection_details', { ...values, inspectionId });
             setInspectionUpdated((prev: boolean) => !prev);
             onClose();
             toast.success('Inspection details updated successfully');
@@ -94,16 +95,16 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
     const { formState: { isSubmitting, isValid }, setValue, watch } = form;
 
     React.useEffect(() => {
-        setValue('requirement', requirement);
-        setValue('description', description);
+        setValue('requirementId', requirementId);
+        setValue('noteId', noteId);
     }, [isOpen]);
-
+    // noteId, requirementId, inspectionId
     React.useEffect(() => {
-        const selectedRequirement = watch('requirement');
-        const selectedRequirementData = requirementData.find((req: any) => req.requirement === selectedRequirement);
+        const selectedRequirement = watch('requirementId');
+        const selectedRequirementData = requirementData.find((req: any) => req.id === selectedRequirement);
         const notes = selectedRequirementData?.notes || [];
         setAvailableNotes(notes);
-    }, [watch('requirement'), requirementData]);
+    }, [watch('requirementId'), requirementData]);
 
     const { t } = useTranslation();
     const { language } = React.useContext(LanguageContext);
@@ -120,7 +121,7 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
                     <form onSubmit={form.handleSubmit(onSubmit)} dir={makeDIR} className="space-y-8">
                         <FormField
                             control={form.control}
-                            name="requirement"
+                            name="requirementId"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>{t('Requirement')}</FormLabel>
@@ -128,8 +129,8 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
                                         <Select
                                             dir={makeDIR}
                                             onValueChange={(value) => {
-                                                setValue('requirement', value);
-                                                setValue('description', '');
+                                                setValue('requirementId', value);
+                                                setValue('noteId', '');
                                                 setSelectedNote(null);
                                             }}
                                             defaultValue={field.value}
@@ -139,10 +140,10 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
                                             </SelectTrigger>
                                             <SelectContent>
                                                 {requirementData.map((data: any, idx: number) => (
-                                                    <SelectItem key={data.id} value={data.requirement}>
+                                                    <SelectItem key={data.id} value={data.id}>
                                                         {language === "ar"
-                                                            ? data.requirement.split("|")[0]
-                                                            : data.requirement.split("|")[1]}
+                                                            ? data.requirement.split("|")[1]
+                                                            : data.requirement.split("|")[0]}
                                                     </SelectItem>
                                                 ))}
                                             </SelectContent>
@@ -154,7 +155,7 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
                         />
                         <FormField
                             control={form.control}
-                            name="description"
+                            name="noteId"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>{t('Description')}</FormLabel>
@@ -162,8 +163,8 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
                                         <Select
                                             dir={makeDIR}
                                             onValueChange={(value) => {
-                                                setValue('description', value);
-                                                const note = availableNotes.find(note => note.ar === value || note.en === value);
+                                                setValue('noteId', value);
+                                                const note = availableNotes.find(note => note.id === value);
                                                 setSelectedNote(note || null);
                                             }}
                                             defaultValue={field.value}
@@ -173,7 +174,7 @@ const UpdateInspectionModal: React.FC<UpdateInspectionModalProps> = ({
                                             </SelectTrigger>
                                             <SelectContent>
                                                 {availableNotes.map((note, index) => (
-                                                    <SelectItem key={note.id} value={note.ar}>
+                                                    <SelectItem key={note.id} value={note.id}>
                                                         {language === "ar" ? note.ar : note.en}
                                                     </SelectItem>
                                                 ))}

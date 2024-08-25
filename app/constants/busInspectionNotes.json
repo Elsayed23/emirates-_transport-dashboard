@@ -1,407 +1,1829 @@
 [
     {
-        "requirement": "جاهزية_هيكل_الحافلة | bus_body_readiness",
+        "requirement": "Special needs | أصحاب الهمم",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
         "notes": [
-            {
-                "ar": "تلف في الهيكل الداخلي للحافلة",
-                "en": "Damage to the bus's internal structure"
-            },
-            {
-                "ar": "تلف في الهيكل الخارجي للحافلة",
-                "en": "Damage to the bus's external structure"
-            },
-            {
-                "ar": "تلف في تظليل النوافذ (المخفي)",
-                "en": "Damage in windows shade"
-            },
-            {
-                "ar": "تلف في مساحات الزجاج الامامي",
-                "en": "Damage to the windshield wipers"
-            },
-            {
-                "ar": "عدم وجود مرآة خلفية للحافلة",
-                "en": "Absence of the rearview mirror"
-            },
-            {
-                "ar": "تلف وعطل  باب الركاب",
-                "en": "Damage and malfunction of the passenger door"
-            },
-            {
-                "ar": "وجود توصيلات كهربائية غير مغطاة",
-                "en": "Exposed electrical connections"
-            },
-            {
-                "ar": "عدم إزالة الإشارات التحذيرية الضوئية القديمة",
-                "en": "Failure to remove old warning lights"
-            },
-            {
-                "ar": "عدم وجود لوحة الحافلة خالية",
-                "en": "Absence of a 'bus empty' sign"
-            },
-            {
-                "ar": "تلف في قاعدة لوحة الحافلة خالية",
-                "en": "Damage to the frame of the 'empty bus' sign"
-            },
-            {
-                "ar": "كسر  في المرآة الجانبية",
-                "en": "Broken side mirror"
-            },
-            {
-                "ar": "عدم تثبيت سلة المهملات",
-                "en": "Trash bin is not fixed"
-            },
-            {
-                "ar": "عدم وجود مقابض فتح النوافذ",
-                "en": "Absence of window opening handles"
-            },
-            {
-                "ar": "عدم وجود حاجز امام مقاعد المنقولين",
-                "en": "Absence of a barrier in front of the passengers' seats"
-            },
-            {
-                "ar": "وجود كتابة ورسومات علي الهيكل الداخلي للحافلة",
-                "en": "Presence of writing and drawings on the bus's interior"
-            },
-            {
-                "ar": "ذراع 'التوقف'  لا يعمل",
-                "en": "Inoperable 'stop' arm sign"
-            },
-            {
-                "ar": "عدم وجود أرفف لحقائب الطلاب",
-                "en": "Absence of shelves for student bags"
-            },
-            {
-                "ar": "كسر في زجاج  الحافلة",
-                "en": "Broken bus glass"
-            },
-            {
-                "ar": "وجود صدأ  وتشققات على الهيكل الخارجي للحافلة",
-                "en": "Rust and cracks on the bus exterior"
-            },
-            {
-                "ar": "وجود أثر حادث على هيكل الحافلة الخارجي",
-                "en": "Damage to the external bus structure due to accident"
-            }
-        ]
-    },
-    {
-        "requirement": "سلامة_وامن_المنقولين | Passenger_safety",
-        "notes": [
-            {
-                "ar": "حزام الأمان تالف ولا يعمل بالشكل المطلوب",
-                "en": "Seatbelts are damaged and do not function properly"
-            },
-            {
-                "ar": "تلف حزم الأمان ووجود أجزاء حادة نتيجة تحطم او كسر غطاء الحماية",
-                "en": "Damage to seatbelts and presence of sharp edges due to damage or cracking of the protective cover"
-            },
-            {
-                "ar": "وجود اجزاء حادة في الهيكل الداخلي للحافلة",
-                "en": "Presence of sharp edges in the bus internal structure"
-            },
-            {
-                "ar": "تلف في مانع الانزلاق للدرج",
-                "en": "Damage to the anti-slip tape on the bus steps"
-            },
-            {
-                "ar": "حزام الأمان ثنائي النقاط ويتعارض مع المتطلبات التشريعية",
-                "en": "Two-point seatbelts do not comply with regulatory requirements"
-            }
-        ]
-    },
-    {
-        "requirement": "ملصقات_الحافلة_الأرقام_التعريفية | Bus_sticker_identification_numbers",
-        "notes": [
-            {
-                "ar": "الرقم الداخلي للحافلة(B00) على هيكل الحافلة غير واضح",
-                "en": "Internal number (B00) not clear"
-            },
-            {
-                "ar": "عدم وجود الرقم الداخلي للحافلة(B00) على هيكل الحافلة",
-                "en": "The internal bus number (B00) on the bus body is not available"
-            },
-            {
-                "ar": "الرقم المرجعي(DOT)علي هيكل الحافلة غير واضح",
-                "en": "Reference number (DOT) on the bus structure not clear"
-            },
-            {
-                "ar": "عدم وجود الرقم المرجعي للحافلة(DOT)حسب تشريعات مركز النقل المتكامل",
-                "en": "The DOT reference number on the bus body is not available"
-            },
-            {
-                "ar": "تلف  الملصقات الخارجية للحافلة",
-                "en": "The bus external stickers are damaged"
-            },
-            {
-                "ar": "تغطية ملصقات الحافلة بأجهزة الرادار الخاصة بالشرطة",
-                "en": "The bus's stickers are covered by police radar devices."
-            },
-            {
-                "ar": "تلف الشريط الفسفوري الخارجي للحافلة",
-                "en": "Damaged external reflective bus tape"
-            },
-            {
-                "ar": "وجود ملصق (حافلة مدرسية) علي الزجاج الامامي يؤثر علي مجال رؤية السائق",
-                "en": "A 'School Bus' sticker on the windshield is obstructing the driver's field of vision."
-            },
-            {
-                "ar": "تلف الشريط الفسفوري الداخلي للحافلة",
-                "en": "Damage in the internal bus reflective tape"
-            }
-        ]
-    },
-    {
-        "requirement": "متطلبات_الحافلة_الميكانيكية | Mechanical_bus_requirements",
-        "notes": [
-            {
-                "ar": "تلف/ تعطل المكابح",
-                "en": "Brake failure or malfunction"
-            },
-            {
-                "ar": "وجود عطل ناقل الحركة",
-                "en": "Transmission failure"
-            },
-            {
-                "ar": "العتبة المتحركة لصعود الحافلة لا تعمل وفق المطلوب",
-                "en": "The bus's movable step is not working properly. Tires:"
-            },
-            {
-                "ar": "وجود تلف في الإطارات",
-                "en": "Tire damage"
-            },
-            {
-                "ar": "خروج الادخنة من عادم الحافلة  بكثافة",
-                "en": "Excessive smoke emission from the bus exhaust"
-            },
-            {
-                "ar": "وجود انسكابات زيوت'زيد ناقل الحركة/زيت محرك المركبة",
-                "en": "Oil leakage (transmission/engine)"
-            },
-            {
-                "ar": "وجود عطل بمحرك الحافلة",
-                "en": "Bus engine failure"
-            }
-        ]
-    },
-    {
-        "requirement": "أنظمة_التنبية_والأنظمة_الالكترونية | Alert_systems_and_electronic_systems",
-        "notes": [
-            {
-                "ar": "شاشة الكاميرا ت لا تعمل",
-                "en": "Camera screen is not working"
-            },
-            {
-                "ar": "تعطل حساس باب الركاب",
-                "en": "Passenger door sensor is malfunctioning"
-            },
-            {
-                "ar": "تعطل مستشعر الحركة وجهاز الإنذار",
-                "en": "Motion sensor and alarm are malfunctioning"
-            },
-            {
-                "ar": "العبث مستشعر الحركة وجهاز الإنذار",
-                "en": "Motion sensor and alarm have been tampered with"
-            },
-            {
-                "ar": "عدم وجود مستشعر الحركة وجهاز الإنذار'حلقة أولى +رياض أطفال'",
-                "en": "There is no motion sensor and alarm for the 'First Ring + Kindergarten'"
-            },
-            {
-                "ar": "العبث بالإنذار الصوتي",
-                "en": "The audible alarm has been tampered with"
-            },
-            {
-                "ar": "تعطل اللوحة الالكترونية الأمامية للحافلة",
-                "en": "The front electronic display of the bus is malfunctioning"
-            },
-            {
-                "ar": "تعطل انذار الرجوع للخلف",
-                "en": "The reversing alarm is malfunctioning"
-            },
-            {
-                "ar": "كاميرا (الرجوع للخلف) لا تعمل",
-                "en": "The reversing camera is not working"
-            },
-            {
-                "ar": "تلف فى كاميرا الحافلة خارجية",
-                "en": "External cameras not working or damaged"
-            },
-            {
-                "ar": "تلف فى كاميرا الحافلة الداخلية",
-                "en": "Internal cameras not working or damaged"
-            },
-            {
-                "ar": "لا توجد تسجيلات في MDVR",
-                "en": "No records in the MDVR"
-            },
-            {
-                "ar": "خلل في أنظمة الكاميرات",
-                "en": "Failing of camera system"
-            }
-        ]
-    },
-    {
-        "requirement": "مصابيح_وانارات_الحافلة | Bus_lights",
-        "notes": [
-            {
-                "ar": "وجود كسر في الإضائة الداخلية للحافلة",
-                "en": "There is a broken light in the bus's interior"
-            },
-            {
-                "ar": "كسر في المصابيح الخلفية للحافلة",
-                "en": "The bus's rear lights are broken"
-            },
-            {
-                "ar": "كسر في المصابيح الامامية للحافلة",
-                "en": "The bus's headlights are broken"
-            },
-            {
-                "ar": "تلف / كسر في الإشارات التحذيرية للحافلة",
-                "en": "The bus's warning signals are damaged or broken"
-            }
-        ]
-    },
-    {
-        "requirement": "نظافة_الحافلة_وجاهزيتها | Bus_cleanliness_and_readiness",
-        "notes": [
-            {
-                "ar": "عدم نظافة الحافلة من الداخل",
-                "en": "Poor houskeeping in the bus"
-            },
-            {
-                "ar": "عدم نظافة الحافلة من الخارج",
-                "en": "Bus not clean from outside"
-            },
-            {
-                "ar": "وجود( كتابة /رسومات) علي مقاعد الحافلة",
-                "en": "Drawings and writing on the bus seats"
-            },
-            {
-                "ar": "تمزق في مقاعد الحافلة",
-                "en": "Tear in the bus seats"
-            },
-            {
-                "ar": "تلف وتحطم كراسي الحافلة",
-                "en": "Damage or brake of the car seats"
-            }
-        ]
-    },
-    {
-        "requirement": "الطوارئ_والسلامة | Emergency_safety",
-        "notes": [
-            {
-                "ar": "عدم تثبيت صندوق الإسعافات الأولية",
-                "en": "First aid box not fixed"
-            },
-            {
-                "ar": "وجود نقص بمحتوى صندوق الإسعافات الالية",
-                "en": "First aid box content not full"
-            },
-            {
-                "ar": "عدم وجود صندوق الإسعافات الأولية",
-                "en": "There is no first aid box"
-            },
-            {
-                "ar": "عدم تثبيت طفايات الحريق",
-                "en": "Not fixing the fire extinguishers"
-            },
-            {
-                "ar": "عدم إزالة قاعدة طفايات الحريق القديمة",
-                "en": "Old fire extinguishers base is not removed"
-            },
-            {
-                "ar": "عدم إزالة قاعدة طفايات الحريق القديمة",
-                "en": "Fire extinguishers not available"
-            },
-            {
-                "ar": "انتهاء فحص طفاية الحريق",
-                "en": "Expired fire extinguishers"
-            },
-            {
-                "ar": "عدم صلاحية طفاية الحريق",
-                "en": "Damaged fire extinguishers"
-            },
-            {
-                "ar": "عدم وجود مطارق السلامة",
-                "en": "No safety hammer available"
-            },
-            {
-                "ar": "نقص في مطارق السلامة",
-                "en": "Missing safety hammer"
-            },
-            {
-                "ar": "عدم وجود ما يثبت فحص أبواب الطوارئ",
-                "en": "No emergency door inspection record"
-            },
-            {
-                "ar": "انتهاء صلاحية فحص باب الطوارئ",
-                "en": "Expired emergency door"
-            },
-            {
-                "ar": "التنبية الصوتي اثناء فتح باب الطوارئ لا يعمل",
-                "en": "Emergency exit door alarm not working"
-            },
-            {
-                "ar": "عدم وجود مايثبت فحص منظومة إطفاء الذاتي للحافلة",
-                "en": "Lack of verified inspection for the bus's automatic fire suppression system"
-            },
-            {
-                "ar": "تعطل منظومة اطفاء الحريق محرك الحافلة",
-                "en": "Bus engine's fire suppression system malfunction"
-            }
-        ]
-    },
-    {
-        "requirement": "جاهزية_التصاريح_والتراخيص | Readiness_of_permits_licenses",
-        "notes": [
-            {
-                "ar": "انتهاء تصريح مزاولة المهنة",
-                "en": "Expired professional license"
-            },
-            {
-                "ar": "عدم وجود ما يثبت الحصول على تصريح مزاولة المهنة",
-                "en": "No proof for obtaining professional license"
-            },
-            {
-                "ar": "انتهاء ملكلية الحافلة",
-                "en": "Expired bus vehicle license"
-            },
-            {
-                "ar": "انتهاء رخصة القيادة السائق",
-                "en": "Expired driving license for the driver"
-            },
-            {
-                "ar": "عدم وجود رخصة قيادة حافلة ثقيلة",
-                "en": "No heavy vehicle license"
-            }
-        ]
-    },
-    {
-        "requirement": "أصحاب_الهمم | Special_needs",
-        "notes": [
-            {
-                "ar": "انتهاء فحص رفعة مقاعد أصحاب الهمم",
-                "en": "Expired special needs lifting crane"
-            },
-            {
-                "ar": "عدم وجود مايثبت فحص رافعة مقاعد أصحاب الهمم",
-                "en": "No confirmed inspection for people with determination seating lift"
-            },
-            {
-                "ar": "عدم وجود مايثبت فحص أحزامة (ربط/تثبيت) مقعاعد أصحاب الهمم في الحافلة",
-                "en": "Absence of confirmed inspection for securing seat belts for seats designated for people with determination"
-            },
             {
                 "ar": "تلف في احزمة ربط وتثبيت مقاعد أصحاب الهمم",
-                "en": "Damage to seat restraints for  people with determination"
+                "en": "Damage to seat restraints for people with determination",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "عمل صيانة دورية للحافلة شاملةاملقاعد واألجزاء الداخلية للحافلة",
+                        "en": "Conduct regular maintenance of the bus, including seats and internal parts."
+                    },
+                    {
+                        "ar": "قيام السائق قبل كل رحلةبالتأكد من أن املقاعد آمنة إضافةإلىأي مصادر خطورةأخرى قد تؤثر على سلامة املنقولين",
+                        "en": "Have the driver check seats and other potential hazards before each trip."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الاسعافات الاولية لمعالجة الحالة البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor injuries immediately."
+                    }
+                ]
             },
             {
                 "ar": "عدم وجود احزمة ربط وتثبيت مقاعد أصحاب الهمم",
-                "en": "Absence of seat belt restraints for people with determination"
+                "en": "Absence of seat belt restraints for people with determination",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد أحزمة الأمان بشكل يومي و الابلاغ عن أية أعطال بشكل فوري",
+                        "en": "Drivers should inspect seat belts daily and report any malfunctions immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "انتهاء فحص رفعة مقاعد أصحاب الهمم",
+                "en": "Expired special needs lifting crane",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال أو إصلاح أي رافعة مقاعد منتهية الصلاحية تستخدم لأصحاب الهمم لضمان التشغيل الآمن.",
+                        "en": "Replace or repair any expired seat lifts used for people with disabilities to ensure safe operation."
+                    },
+                    {
+                        "ar": "إنشاء جدول صيانة يتضمن فحوصات منتظمة واستبدال الرافعات في الوقت المناسب.",
+                        "en": "Establish a maintenance schedule that includes regular inspections and timely replacement of lifts."
+                    },
+                    {
+                        "ar": "تنفيذ نظام لتتبع تواريخ انتهاء صلاحية جميع المعدات وضمان تحديثها في الوقت المناسب.",
+                        "en": "Implement a system to track the expiration dates of all equipment and ensure they are updated on time."
+                    },
+                    {
+                        "ar": "تقديم تدريب لموظفي الصيانة على أهمية الفحوصات المنتظمة واستبدال المعدات في الوقت المناسب.",
+                        "en": "Train maintenance staff on the importance of regular inspections and timely replacement of equipment."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود مايثبت فحص رافعة مقاعد أصحاب الهمم",
+                "en": "No confirmed inspection for people with determination seating lift",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التأكد من فحص جميع رافعات المقاعد لأصحاب الهمم بانتظام والحفاظ على توثيق صحيح لهذه الفحوصات.",
+                        "en": "Ensure that all seat lifts for people with disabilities are regularly inspected and properly documented."
+                    },
+                    {
+                        "ar": "جدولة تدقيقات منتظمة للتحقق من إجراء الفحوصات وتوثيقها.",
+                        "en": "Schedule regular audits to verify that inspections are conducted and documented."
+                    },
+                    {
+                        "ar": "دمج فحوصات رافعات المقاعد في جدول الصيانة الدوري لضمان عدم التغاضي عنها.",
+                        "en": "Integrate seat lift inspections into the routine maintenance schedule to ensure they are not overlooked."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود مايثبت فحص أحزامة (ربط/تثبيت) مقعاعد أصحاب الهمم في الحافلة",
+                "en": "Absence of confirmed inspection for securing seat belts for seats designated for people with determination",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تطبيق فحص أحزمة الأمان المخصصة لأصحاب الهمم بانتظام وضمان توثيق صحيح.",
+                        "en": "Regularly inspect safety belts designed for people with disabilities and ensure proper documentation."
+                    },
+                    {
+                        "ar": "تدريب الموظفين على الإجراءات الصحيحة لفحص وتثبيت أحزمة الأمان لأصحاب الهمم",
+                        "en": "Train staff on the correct procedures for inspecting and securing safety belts for people with disabilities."
+                    }
+                ]
             },
             {
                 "ar": "عدم المعرفة والالمام  باستخدام رافعة أصحاب الهمم (العمل يدوي في أوقات الطوارئ)",
-                "en": "Inadequate proficiency in operating the wheelchair lift (manual operation during emergencies"
+                "en": "Inadequate proficiency in operating the wheelchair lift (manual operation during emergencies)",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تقديم تدريب شامل للسائقين والمشرفين على تشغيل رافعات الكراسي المتحركة، بما في ذلك التشغيل اليدوي في حالات الطوارئ.",
+                        "en": "Provide comprehensive training for drivers and supervisors on operating wheelchair lifts, including manual operation in emergency situations."
+                    },
+                    {
+                        "ar": "إجراء تدريبات منتظمة لضمان أن السائقين على دراية تامة بالتشغيل اليدوي لرافعات الكراسي المتحركة.",
+                        "en": "Conduct regular drills to ensure that drivers are fully familiar with the manual operation of wheelchair lifts."
+                    },
+                    {
+                        "ar": "تطوير إجراءات طوارئ واضحة للتشغيل اليدوي والتأكد من أن جميع السائقين على دراية بها.",
+                        "en": "Develop clear emergency procedures for manual operation and ensure all drivers are aware of them."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "أنظمة التنبية والأنظمة الالكترونية | Alert systems and electronic systems",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "عدم وجود مستشعر الحركة وجهاز الإنذار \"حلقة أولى +رياض أطفال\"",
+                "en": "There is no motion sensor and alarm for the \"First Ring + Kindergarten\"",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الصيانة الدورية الوقائية لجميع الحافلات",
+                        "en": "Conduct routine preventive maintenance for all buses."
+                    },
+                    {
+                        "ar": "التفقد اليومي من قبل السائقين قبل البدء بالرحلات",
+                        "en": "Daily inspections by drivers before starting trips."
+                    }
+                ]
+            },
+            {
+                "ar": "التنبية الصوتي اثناء فتح باب الطوارئ لا يعمل",
+                "en": "Emergency exit door alarm not working",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائقين بالتأكد وبشكل يومي من عمل جهاز الإنذار لأبواب الطوارئ",
+                        "en": "Drivers must check daily that the emergency door alarm system is functioning properly."
+                    },
+                    {
+                        "ar": "قيام السائق بالتأكد من إغلاق باب الطوارئ بشكل محكم بعد كل رحلة",
+                        "en": "Drivers must ensure that the emergency door is securely closed after each trip."
+                    },
+                    {
+                        "ar": "تفقد وصيانة دورية لأبواب الطوارئ ضمن جميع برامج الصيانة الوقائية للحافلات",
+                        "en": "Regular inspection and maintenance of emergency doors as part of all preventive maintenance programs for buses."
+                    }
+                ]
+            },
+            {
+                "ar": "شاشة الكاميرا ت لا تعمل",
+                "en": "Camera screen is not working",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في شاشة الكاميرات",
+                        "en": "Immediate reporting of any defects or failures in the camera screens."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "توعية السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Educate drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "تعطل حساس باب الركاب",
+                "en": "Passenger door sensor is malfunctioning",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في حساس باب الركاب",
+                        "en": "Immediate reporting of any defects or failures in the passenger door sensor."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "توعية السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Educate drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "تعطل مستشعر الحركة وجهاز الإنذار",
+                "en": "Motion sensor and alarm are malfunctioning",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في مستشعر الحركة وجهاز الإنذار",
+                        "en": "Immediate reporting of any defects or failures in the motion sensor and alarm."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "توعية السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Educate drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "العبث مستشعر الحركة وجهاز الإنذار",
+                "en": "Motion sensor and alarm have been tampered with",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في مستشعر الحركة وجهاز الإنذار",
+                        "en": "Immediate reporting of any defects or failures in the motion sensor and alarm."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "توعية السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Educate drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "العبث بالإنذار الصوتي",
+                "en": "The audible alarm has been tampered with",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في بالإنذار الصوتي",
+                        "en": "Immediate reporting of any defects or failures in the audible alarm."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "توعية السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Educate drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "تعطل انذار الرجوع للخلف",
+                "en": "The reversing alarm is malfunctioning",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في انذار الرجوع للخلف",
+                        "en": "Immediate reporting of any defects or failures in the reversing alarm."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "توعية السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Educate drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "كاميرا (الرجوع للخلف) لا تعمل",
+                "en": "The reversing camera is not working",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في كاميرا (الرجوع للخلف)",
+                        "en": "Immediate reporting of any defects or failures in the reversing camera."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "توعية السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Educate drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف فى كاميرا الحافلة خارجية",
+                "en": "External cameras not working or damaged",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو تلف فى كاميرا الحافلة خارجية",
+                        "en": "Immediate reporting of any defects or damage to the external bus cameras."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "تزويد السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Provide drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف فى كاميرا الحافلة الداخلية",
+                "en": "Internal cameras not working or damaged",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو تلف فى كاميرا الحافلة الداخلية",
+                        "en": "Immediate reporting of any defects or damage to the internal bus cameras."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Regular maintenance of the systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "تزويد السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Provide drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "لا توجد تسجيلات في MDVR",
+                "en": "No records in the MDVR",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في MDVR لمنسقي الحركة والمشرفين",
+                        "en": "Immediately report any defects or failures in the MDVR to the movement coordinators and supervisors."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Perform regular maintenance on systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "تزويد السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Provide drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "خلل في أنظمة الكاميرات",
+                "en": "Failing of camera system",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإبلاغ الفوري عن أي عيوب أو فشل في MDVR لمنسقي الحركة والمشرفين",
+                        "en": "Immediately report any defects or failures in the MDVR to the movement coordinators and supervisors."
+                    },
+                    {
+                        "ar": "متابعة وتطبيق قائمة التفتيش اليومية للحافلات",
+                        "en": "Follow-up and implementation of the daily bus inspection checklist."
+                    },
+                    {
+                        "ar": "الصيانة الدورية للأنظمة لتجنب أي أعطال",
+                        "en": "Perform regular maintenance on systems to prevent any malfunctions."
+                    },
+                    {
+                        "ar": "تزويد السائقين بمقاطع فيديو خاصة بالتوعية عن التفقد اليومي للحافلة والمعدة باللغتين (الإنجليزية والأوردو) مع ترجمة عربية",
+                        "en": "Provide drivers with awareness videos about the daily bus inspection, prepared in both English and Urdu, with Arabic translation."
+                    }
+                ]
+            },
+            {
+                "ar": "تعطل اللوحة الالكترونية الأمامية للحافلة",
+                "en": "The front electronic display of the bus is malfunctioning",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإصلاح الفوري: إصلاح أو استبدال اللوحة الإلكترونية المعطلة في أسرع وقت ممكن.",
+                        "en": "Repair or replace malfunctioning electronic panels as quickly as possible."
+                    },
+                    {
+                        "ar": "الصيانة المنتظمة: جدولة فحوصات صيانة دورية لجميع اللوحات الإلكترونية لضمان عملها بشكل صحيح.",
+                        "en": "Schedule regular maintenance checks for all electronic panels to ensure proper functionality."
+                    },
+                    {
+                        "ar": "أنظمة النسخ الاحتياطي: النظر في تركيب نظام عرض احتياطي لتقليل التعطيل في حالة حدوث عطل.",
+                        "en": "Consider installing backup display systems to minimize service disruptions in case of panel failure."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "الطوارئ والسلامة | Emergency safety",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "عدم وجود طفايات الحريق في الحافلة",
+                "en": "Fire extinguishers not available",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "يتم فحص وصيانة جميع طفايات الحريق بالحافلات المدرسية من قبل جهات مختصة وبشكل دوري",
+                        "en": "All fire extinguishers in the school buses are inspected and maintained periodically by specialized entities."
+                    },
+                    {
+                        "ar": "التفقد اليومي لطفايات الحريق من قبل السائقين قبل البدء بالرحلات",
+                        "en": "Daily inspection of fire extinguishers by drivers before starting trips."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم صلاحية طفاية الحريق",
+                "en": "Damaged fire extinguishers",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "يتم فحص وصيانة جميع طفايات الحريق بالحافلات المدرسية من قبل جهات مختصة وبشكل دوري",
+                        "en": "All fire extinguishers in the school buses are inspected and maintained periodically by specialized entities."
+                    },
+                    {
+                        "ar": "التفقد اليومي لطفايات الحريق من قبل السائقين قبل البدء بالرحلات",
+                        "en": "Daily inspection of fire extinguishers by drivers before starting trips."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود مطارق السلامة",
+                "en": "No safety hammer available",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التفقد اليومي توفر مطاق السلامة من قبل السائقين قبل البدء بالرحلات و التأكد من وجود مطارق السلامة",
+                        "en": "Daily inspection of safety equipment by drivers before starting trips, and ensuring the presence of safety hammers."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود مايثبت فحص منظومة إطفاء الذاتي للحافلة",
+                "en": "Lack of verified inspection for the bus's automatic fire suppression system",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "اجراء الصيانة الوقائية والفحص الفني للحافلات بشكل دوري",
+                        "en": "Conduct regular preventive maintenance and technical inspection of the buses."
+                    },
+                    {
+                        "ar": "تدريب السائقين ومشرفي النقل والسلامة على عملية إخلاء الحافلة في حالة الطوارئ إضافة الى الإجراءات الخاصة بالحريق في خطة الطوارئ",
+                        "en": "Train drivers, transportation, and safety supervisors on the bus evacuation process in case of emergencies, in addition to fire procedures as part of the emergency plan."
+                    }
+                ]
+            },
+            {
+                "ar": "تعطل منظومة اطفاء الحريق محرك الحافلة",
+                "en": "Bus engine's fire suppression system malfunction",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "اجراء الصيانة الوقائية والفحص الفني للحافلات بشكل دوري",
+                        "en": "Regular preventive maintenance and technical inspections of buses."
+                    },
+                    {
+                        "ar": "تدريب السائقين ومشرفي النقل والسلامة على عملية إخلاء الحافلة في حالة الطوارئ إضافة الى الإجراءات الخاصة بالحريق في خطة الطوارئ",
+                        "en": "Train drivers and safety supervisors on bus evacuation and fire procedures during emergencies."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود ما يثبت فحص أبواب الطوارئ",
+                "en": "No emergency door inspection record",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائقين بالتأكد وبشكل يومي من عمل جهاز الإنذار لأبواب الطوارئ",
+                        "en": "Drivers must check daily that the emergency door alarm is functioning."
+                    },
+                    {
+                        "ar": "قيام السائق بالتأكد من إغلاق باب الطوارئ بشكل محكم بعد كل رحلة",
+                        "en": "Drivers must ensure that the emergency door is securely closed after each trip."
+                    },
+                    {
+                        "ar": "تفقد وصيانة دورية لأبواب الطوارئ ضمن جميع برامج الصيانة الوقائية للحافلات",
+                        "en": "Regular inspection and maintenance of emergency doors as part of all preventive maintenance programs for buses."
+                    }
+                ]
+            },
+            {
+                "ar": "انتهاء صلاحية فحص باب الطوارئ",
+                "en": "Expired emergency door",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائقين بالتأكد وبشكل يومي من عمل جهاز الإنذار لأبواب الطوارئ",
+                        "en": "Drivers must check daily that the emergency door alarm is functioning."
+                    },
+                    {
+                        "ar": "قيام السائق بالتأكد من إغلاق باب الطوارئ بشكل محكم بعد كل رحلة",
+                        "en": "Drivers must ensure that the emergency door is securely closed after each trip."
+                    },
+                    {
+                        "ar": "تفقد وصيانة دورية لأبواب الطوارئ ضمن جميع برامج الصيانة الوقائية للحافلات",
+                        "en": "Regular inspection and maintenance of emergency doors as part of all preventive maintenance programs for buses."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود صندوق الإسعافات الأولية",
+                "en": "There is no first aid box",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام منسقي العمليات بالرقابة الدورية على الحافلات للتأكد من توفر صندوق الإسعافات اولية",
+                        "en": "Movement coordinators should conduct regular inspections of the buses to ensure the presence of a first aid kit."
+                    },
+                    {
+                        "ar": "قيام منسقي العمليات بالرقابة الدورية على السائقين للتأكد من تعبئة قائمة التفتيش اليومية الحافلة بما يشمل صندوق الإسعافات الأولية",
+                        "en": "Movement coordinators should conduct regular checks on drivers to ensure that the daily bus inspection checklist, including the first aid kit, is completed."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تثبيت طفايات الحريق",
+                "en": "Not fixing the fire extinguishers",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "يتم فحص وصيانة جميع طفايات الحريق بالحافلات المدرسية من قبل جهات مختصة وبشكل دوري",
+                        "en": "All fire extinguishers on school buses are inspected and maintained by specialized entities on a regular basis."
+                    },
+                    {
+                        "ar": "التفقد اليومي لطفايات الحريق من قبل السائقين قبل البدء بالرحلات",
+                        "en": "Drivers must perform a daily check of fire extinguishers before starting their trips."
+                    }
+                ]
+            },
+            {
+                "ar": "نقص في مطارق السلامة",
+                "en": "Missing safety hammer",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الفحوصات الأمنية: إجراء فحوصات أمنية دورية للتأكد من وجود جميع المعدات الأمنية، بما في ذلك المطارق، وأنها في حالة جيدة.",
+                        "en": "Security Inspections: Conduct regular security inspections to ensure all safety equipment, including hammers, is present and in good condition."
+                    },
+                    {
+                        "ar": "إجراءات الاستبدال: وضع إجراءات لاستبدال المطارق الأمنية المفقودة أو التالفة على الفور.",
+                        "en": "Replacement Procedures: Establish procedures for the immediate replacement of lost or damaged safety hammers."
+                    },
+                    {
+                        "ar": "التدريب على المعدات: تدريب موظفي الحافلات على موقع واستخدام المطارق الأمنية بشكل صحيح.",
+                        "en": "Equipment Training: Train bus staff on the location and proper use of safety hammers."
+                    },
+                    {
+                        "ar": "إدارة الجرد: تطبيق نظام إدارة الجرد لتتبع المعدات الأمنية وضمان عدم فقدان أي منها.",
+                        "en": "Inventory Management: Implement an inventory management system to track safety equipment and ensure none is lost."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تثبيت صندوق الإسعافات الأولية",
+                "en": "First aid box not fixed",
+                "severity": 4,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "تثبيت صندوق الإسعافات الأولية في مكان امن وسهل الوصول إليه في الحافلات الطارئة.",
+                        "en": "Secure the first aid kit in a safe and easily accessible location in emergency buses."
+                    },
+                    {
+                        "ar": "قيام منسقي الحركة بالرقابة الدورية على الحافلات للتأكد من توفر صندوق اسعافات اولية",
+                        "en": "Movement coordinators should conduct regular inspections of the buses to ensure the presence of a first aid kit."
+                    },
+                    {
+                        "ar": "قيام منسقي الحركة بالرقابة الدورية على السائقين للتأكد من تعبئة قائمة التفتيش اليومية للحافلة بما يشمل صندوق الإسعافات أولية",
+                        "en": "Movement coordinators should conduct regular checks on drivers to ensure that the daily bus inspection checklist, including the first aid kit, is completed."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود نقص بمحتوى صندوق الإسعافات الأولية",
+                "en": "First aid box content not full",
+                "severity": 4,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام منسقي الحركة بالرقابة الدورية على الحافلات للتأكد من توفر صندوق اسعافات اولية",
+                        "en": "Movement coordinators should conduct regular inspections of the buses to ensure the presence of a first aid kit."
+                    },
+                    {
+                        "ar": "قيام منسقي الحركة بالرقابة الدورية على السائقين للتأكد من تعبئة قائمة التفتيش اليومية للحافلة بما يشمل صندوق الإسعافات أولية",
+                        "en": "Movement coordinators should conduct regular checks on drivers to ensure that the daily bus inspection checklist, including the first aid kit, is completed."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم إزالة قاعدة طفايات الحريق القديمة",
+                "en": "Old fire extinguishers base is not removed",
+                "severity": 5,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "إزالة قاعدة طفايات الحريق القديمة",
+                        "en": "Remove the old fire extinguisher base."
+                    },
+                    {
+                        "ar": "التفقد اليومي للحافلة من قبل السائقين قبل البدء بالرحلات والتأكد من سلامتها",
+                        "en": "Conduct a daily inspection of the bus by the drivers before starting trips to ensure its safety."
+                    }
+                ]
+            },
+            {
+                "ar": "انتهاء فحص طفاية الحريق",
+                "en": "Expired fire extinguishers",
+                "severity": 5,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "فحص وصيانة جميع طفايات الحريق بالحافلات المدرسية من قبل جهات مختصة وبشكل دوري",
+                        "en": "Inspect and maintain all fire extinguishers on school buses by specialized entities on a regular basis."
+                    },
+                    {
+                        "ar": "التفقد اليومي لطفايات الحريق من قبل السائقين قبل البدء بالرحلات",
+                        "en": "Conduct a daily check of fire extinguishers by the drivers before starting trips."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "جاهزية التصاريح والتراخيص | Readiness of permits licenses",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "عدم وجود رخصة قيادة حافلة ثقيلة",
+                "en": "No heavy vehicle license",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "التحقق من الرخصة: التأكد من أن جميع السائقين يحملون رخصة قيادة مركبة ثقيلة صالحة قبل تكليفهم بقيادة الحافلة.",
+                        "en": "Verify license: Ensure that all drivers hold a valid heavy vehicle driving license before assigning them to drive the bus."
+                    },
+                    {
+                        "ar": "تقديم برامج تدريب وشهادات للسائقين للحصول على رخصة قيادة مركبة ثقيلة إذا لم يكن لديهم واحدة.",
+                        "en": "Provide training programs and certifications for drivers to obtain a heavy vehicle driving license if they do not have one."
+                    },
+                    {
+                        "ar": "تنفيذ سياسة تمنع أي سائق بدون رخصة صالحة من قيادة الحافلة حتى يتم حل المشكلة.",
+                        "en": "Implement a policy that prevents any driver without a valid license from driving the bus until the issue is resolved."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود ما يثبت الحصول على تصريح مزاولة المهنة",
+                "en": "No proof for obtaining a professional license",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "نظام التحقق: تطبيق نظام للتحقق وتوثيق تراخيص مهنية جميع السائقين والمشرفين على الحافلات بانتظام.",
+                        "en": "Verification system: Implement a system to regularly verify and document the professional licenses of all drivers and supervisors."
+                    },
+                    {
+                        "ar": "مراقبة التراخيص: إنشاء قاعدة بيانات مركزية لمراقبة تواريخ انتهاء التراخيص المهنية وضمان تجديدها في الوقت المناسب.",
+                        "en": "License monitoring: Establish a central database to monitor the expiration dates of professional licenses and ensure they are renewed on time."
+                    },
+                    {
+                        "ar": "التدريب على الامتثال: تقديم تدريب لجميع الموظفين حول أهمية الحفاظ على التراخيص محدثة والتبعات القانونية لعدم الامتثال.",
+                        "en": "Compliance training: Provide training to all staff on the importance of maintaining updated licenses and the legal consequences of non-compliance."
+                    },
+                    {
+                        "ar": "التدقيق الدوري: إجراء عمليات تدقيق منتظمة لضمان أن جميع الأفراد لديهم تراخيص سارية ومحدثة.",
+                        "en": "Regular audits: Conduct regular audits to ensure that all individuals have valid and up-to-date licenses."
+                    }
+                ]
+            },
+            {
+                "ar": "انتهاء تصريح مزاولة المهنة",
+                "en": "Expired professional license",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "إجراء تفتيش من قبل منسقي العمليات للتحقق من أن جميع التراخيص التصايرح سارية.",
+                        "en": "Conduct inspections by operations coordinators to verify that all professional licenses are valid."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات عقابية وفق الإئحة الانضباطية.",
+                        "en": "Apply disciplinary actions according to the compliance regulations."
+                    }
+                ]
+            },
+            {
+                "ar": "انتهاء ملكية الحافلة",
+                "en": "Expired bus vehicle license",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "نظام تتبع التراخيص: تطبيق نظام لمراقبة وتنبيه حول تواريخ انتهاء تراخيص المركبات.",
+                        "en": "License tracking system: Implement a system to monitor and alert about vehicle license expiration dates."
+                    },
+                    {
+                        "ar": "تجديد في الوقت المناسب: ضمان تجديد جميع تراخيص الحافلات قبل تواريخ انتهاء صلاحيتها.",
+                        "en": "Timely renewal: Ensure that all bus licenses are renewed before their expiration dates."
+                    },
+                    {
+                        "ar": "مراقبة الامتثال: إجراء فحوصات دورية للتحقق من أن جميع تراخيص الحافلات سارية.",
+                        "en": "Compliance monitoring: Conduct regular checks to ensure that all bus licenses are valid."
+                    },
+                    {
+                        "ar": "عقوبات عدم الامتثال: وضع عقوبات أو إجراءات تصحيحية لعدم تجديد تراخيص الحافلات في الوقت المحدد.",
+                        "en": "Non-compliance penalties: Establish penalties or corrective actions for failure to renew bus licenses on time."
+                    }
+                ]
+            },
+            {
+                "ar": "انتهاء رخصة القيادة السائق",
+                "en": "Expired driving license for the driver",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "مراقبة تراخيص السائقين: تطبيق نظام لتتبع تواريخ انتهاء صلاحية تراخيص السائقين وضمان تجديدها في الوقت المناسب.",
+                        "en": "Driver license monitoring: Implement a system to track driver license expiration dates and ensure timely renewal."
+                    },
+                    {
+                        "ar": "الإيقاف الفوري: إيقاف السائقين الذين انتهت صلاحية تراخيصهم على الفور حتى يقوموا بتجديدها.",
+                        "en": "Immediate suspension: Suspend drivers whose licenses have expired until they renew them."
+                    },
+                    {
+                        "ar": "فحوصات دورية: إجراء فحوصات روتينية للتحقق من أن جميع السائقين لديهم تراخيص سارية.",
+                        "en": "Regular checks: Conduct routine inspections to verify that all drivers have valid licenses."
+                    },
+                    {
+                        "ar": "مسؤولية السائق: توعية السائقين بمسؤوليتهم في الحفاظ على رخصة محدثة والعواقب المترتبة على عدم الامتثال.",
+                        "en": "Driver responsibility: Educate drivers on their responsibility to maintain a valid license and the consequences of non-compliance."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "جاهزية هيكل الحافلة | bus body readiness",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "عدم وجود لوحة الحافلة خالية",
+                "en": "Absence of a 'bus empty' sign",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب لوحة 'الحافلة خالية': التأكد من تجهيز كل حافلة بلافتة 'الحافلة خالية' واضحة ومرئية.",
+                        "en": "Install 'Bus Empty' signs: Ensure each bus is equipped with a clear and visible 'Bus Empty' sign."
+                    },
+                    {
+                        "ar": "إجراء تفتيش منتظمة للتأكد من أن لافتة 'الحافلة خالية' موجودة.",
+                        "en": "Conduct regular inspections to verify that the 'Bus Empty' sign is present."
+                    },
+                    {
+                        "ar": "توعية السائقين والمشرفين على أهمية عرض لافتة 'الحافلة خالية'.",
+                        "en": "Educate drivers and supervisors on the importance of displaying the 'Bus Empty' sign."
+                    },
+                    {
+                        "ar": "استخدام التفتيش المفاجئ أو الرقابة الميدانية لمراقبة الامتثال لهذا المتطلب.",
+                        "en": "Use spot checks or field inspections to monitor compliance with this requirement."
+                    }
+                ]
+            },
+            {
+                "ar": "ذراع 'التوقف' لا يعمل",
+                "en": "Inoperable 'stop' arm sign",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إصلاح أي خلل في ذراع 'التوقف' على الفور قبل السماح بتشغيل الحافلة.",
+                        "en": "Repair any malfunction in the 'Stop' arm immediately before allowing the bus to operate."
+                    },
+                    {
+                        "ar": "جدولة الصيانة الدورية للتحقق من وظائف ذراع 'التوقف' ومعالجة المشاكل المحتملة قبل حدوثها.",
+                        "en": "Schedule regular maintenance to verify the functionality of the 'Stop' arm and address potential issues before they occur."
+                    },
+                    {
+                        "ar": "مطالبة السائقين بإجراء عمليات تفقد يومية على ذراع 'التوقف' كجزء من قائمة الفحص قبل الرحلة.",
+                        "en": "Require drivers to perform daily inspections of the 'Stop' arm as part of the pre-trip checklist."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف وعطل باب الركاب",
+                "en": "Damage and malfunction of the passenger door",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد باب الركاب بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check the passenger door daily and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود توصيلات كهربائية غير مغطاة",
+                "en": "Exposed electrical connections",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد من عدم وجود توصيلات كهربائية غير مغطاة بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check daily for uncovered electrical connections and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف في قاعدة لوحة الحافلة خالية",
+                "en": "Damage to the frame of the 'empty bus' sign",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد عدم وجود تلف في قاعدة لوحة الحافلة خالية بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check daily for any damage to the bus panel base and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "كسر في المرآة الجانبية",
+                "en": "Broken side mirror",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد المرآة الجانبية بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check the side mirror daily and report any malfunctions immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود مقابض فتح النوافذ",
+                "en": "Absence of window opening handles",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد والتأكد من وجود مقابض فتح النوافذ بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check daily to ensure the presence of window handles and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود حاجز امام مقاعد المنقولين",
+                "en": "Absence of a barrier in front of the passengers' seats",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد وجود حاجز امام مقاعد المنقولين بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check daily for the presence of a barrier in front of the seats for passengers being transported and report any malfunctions immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "كسر في زجاج الحافلة",
+                "en": "Broken bus glass",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد زجاج الحافلة بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check the bus windows daily and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف في مساحات الزجاج الامامي",
+                "en": "Damage to the windshield wipers",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "الصيانة الدورية: تطبيق فحوصات وصيانة دورية لمساحات الزجاج الأمامي لضمان أنها في حالة عمل جيدة.",
+                        "en": "Routine Maintenance: Implement regular inspections and maintenance for windshield wipers to ensure they are in good working condition."
+                    },
+                    {
+                        "ar": "استبدال فوري: وضع بروتوكول لاستبدال المساحات التالفة أو المعطلة على الفور.",
+                        "en": "Immediate Replacement: Establish a protocol for the immediate replacement of damaged or malfunctioning wipers."
+                    },
+                    {
+                        "ar": "فحص ما قبل الرحلة: إلزام السائقين بفحص وظيفة مساحات الزجاج الأمامي كجزء من فحص ما قبل الرحلة.",
+                        "en": "Pre-Trip Inspection: Require drivers to check the functionality of windshield wipers as part of the pre-trip inspection."
+                    },
+                    {
+                        "ar": "نظام الإبلاغ: إنشاء نظام للإبلاغ للسائقين عن أي مشاكل في مساحات الزجاج الأمامي لاتخاذ إجراءات سريعة.",
+                        "en": "Reporting System: Create a reporting system for drivers to promptly report any issues with windshield wipers for quick resolution."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود مرآة خلفية للحافلة",
+                "en": "Absence of the rearview mirror",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "فحوصات إلزامية للمعدات: وضع فحوصات إلزامية للتحقق من وجود وحالة جميع المعدات الأساسية، بما في ذلك المرايا الخلفية.",
+                        "en": "Mandatory Equipment Checks: Implement mandatory checks to verify the presence and condition of all essential equipment, including rearview mirrors."
+                    },
+                    {
+                        "ar": "تركيب فوري: التأكد من استبدال أو تركيب أي مرايا خلفية مفقودة أو مكسورة على الفور قبل استخدام الحافلة.",
+                        "en": "Immediate Installation: Ensure that any missing or broken rearview mirrors are replaced or installed immediately before the bus is used."
+                    },
+                    {
+                        "ar": "توعية السائقين: تدريب السائقين على أهمية المرايا الخلفية للقيادة الآمنة والمخاطر المرتبطة بغيابها.",
+                        "en": "Driver Education: Train drivers on the importance of rearview mirrors for safe driving and the risks associated with their absence."
+                    },
+                    {
+                        "ar": "بروتوكولات الفحص: تضمين فحوصات المرايا الخلفية في بروتوكولات الفحص المنتظم للحافلات.",
+                        "en": "Inspection Protocols: Include rearview mirror checks in the regular bus inspection protocols."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود أرفف لحقائب الطلاب",
+                "en": "Absence of shelves for student bags",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "تركيب الأرفف: تركيب أرفف أو مناطق تخزين مخصصة في الحافلات لتخزين حقائب الطلاب بأمان أثناء التنقل.",
+                        "en": "Shelf Installation: Install shelves or designated storage areas in buses for securely storing students' bags during transit."
+                    },
+                    {
+                        "ar": "إرشادات تنظيمية: وضع إرشادات للتخزين الصحيح لمتعلقات الطلاب لتجنب الفوضى وضمان السلامة.",
+                        "en": "Organizational Guidelines: Establish guidelines for the proper storage of students' belongings to avoid clutter and ensure safety."
+                    },
+                    {
+                        "ar": "الإشراف: التأكد من أن مشرفي الحافلات يساعدون الطلاب في تنظيم حقائبهم في مناطق التخزين المخصصة.",
+                        "en": "Supervision: Ensure bus supervisors assist students in organizing their bags in the designated storage areas."
+                    },
+                    {
+                        "ar": "الفحوصات الدورية: إجراء فحوصات دورية للتأكد من أن مناطق التخزين تُحفظ وتُستخدم بشكل صحيح.",
+                        "en": "Regular Inspections: Conduct regular inspections to ensure that storage areas are properly maintained and used correctly."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف في الهيكل الداخلي للحافلة",
+                "en": "Damage to the bus's internal structure",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "عمل صيانة دورية للحافلة شاملة المقاعد في حالة وجود تلف في الهيكل الداخلي للحافلة.",
+                        "en": "Routine Bus Maintenance: Conduct regular maintenance, including seat inspections, in case of damage to the bus's interior structure."
+                    },
+                    {
+                        "ar": "قيام السائق بتفقد أحزمة الأمان بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "Daily Seatbelt Checks: Have drivers check seatbelts daily and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "First Aid Kit Availability: Ensure that a first aid kit is available to handle minor incidents promptly."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف في الهيكل الخارجي للحافلة",
+                "en": "Damage to the bus's external structure",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "عمل صيانة دورية للحافلة في حالة وجود تلف في الهيكل الخارجي للحافلة.",
+                        "en": "Routine Exterior Bus Maintenance: Conduct regular maintenance if there is damage to the bus's exterior structure."
+                    },
+                    {
+                        "ar": "قيام السائق بتفقد أحزمة الأمان بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "Daily Seatbelt Checks: Have drivers inspect seatbelts daily and report any malfunctions immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف في تظليل النوافذ (المخفي)",
+                "en": "Damage in windows shade",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإصلاح أو الاستبدال: إصلاح أو استبدال تظليل النوافذ التالفة فوراً للحفاظ على الحماية من الشمس والخصوصية.",
+                        "en": "Repair or Replacement: Repair or replace damaged window tinting immediately to maintain sun protection and privacy."
+                    },
+                    {
+                        "ar": "جدول الفحص: وضع جدول فحص منتظم لتظليل النوافذ لاكتشاف التلف مبكراً.",
+                        "en": "Inspection Schedule: Set up a regular inspection schedule for window tinting to detect damage early."
+                    },
+                    {
+                        "ar": "مراقبة الجودة: التأكد من استخدام مواد عالية الجودة لتظليل النوافذ للحد من احتمالية التلف.",
+                        "en": "Quality Control: Ensure high-quality materials are used for window tinting to minimize the likelihood of damage."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم إزالة الإشارات التحذيرية الضوئية القديمة",
+                "en": "Failure to remove old warning lights",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "بروتوكول الإزالة: وضع بروتوكول واضح لإزالة الإشارات التحذيرية الضوئية القديمة في الوقت المناسب.",
+                        "en": "Removal Protocol: Establish a clear protocol for removing outdated warning lights in a timely manner."
+                    },
+                    {
+                        "ar": "تدريب الموظفين: تدريب طاقم الصيانة على أهمية إزالة الإشارات التحذيرية القديمة لتجنب الالتباس.",
+                        "en": "Staff Training: Train maintenance staff on the importance of removing outdated warning lights to avoid confusion."
+                    },
+                    {
+                        "ar": "التفتيش: فحص الحافلات بانتظام للتأكد من عدم بقاء أي إشارات تحذيرية قديمة.",
+                        "en": "Inspections: Regularly inspect buses to ensure no outdated warning lights remain."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم تثبيت سلة المهملات",
+                "en": "Trash bin is not fixed",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "التثبيت الآمن: التأكد من تثبيت جميع سلال المهملات بإحكام في الحافلة لمنع تحركها أثناء السفر.",
+                        "en": "Secure Installation: Ensure all trash bins are securely fastened in the bus to prevent movement during travel."
+                    },
+                    {
+                        "ar": "الفحوصات المنتظمة: إجراء فحوصات دورية للتأكد من بقاء سلال المهملات مثبتة بإحكام.",
+                        "en": "Regular Inspections: Conduct regular checks to ensure trash bins remain securely fastened."
+                    },
+                    {
+                        "ar": "أنظمة التثبيت المعيارية: استخدام أنظمة تثبيت معيارية لسلال المهملات لضمان تثبيتها بشكل آمن دائمًا.",
+                        "en": "Standardized Fixing Systems: Use standardized fixing systems for trash bins to ensure they are always securely fastened."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود كتابة ورسومات علي الهيكل الداخلي للحافلة",
+                "en": "Presence of writing and drawings on the bus's interior",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "التنظيف المنتظم: تنفيذ جدول تنظيف منتظم لإزالة أي رسومات أو كتابات من الهيكل الداخلي للحافلة.",
+                        "en": "Regular Cleaning: Implement a regular cleaning schedule to remove any drawings or writings from the bus's interior surfaces."
+                    },
+                    {
+                        "ar": "طلاء مقاوم للرسومات: النظر في تطبيق طلاء مقاوم للرسومات على الأسطح الداخلية لتسهيل التنظيف.",
+                        "en": "Anti-Graffiti Coating: Consider applying anti-graffiti coatings to interior surfaces to facilitate cleaning."
+                    },
+                    {
+                        "ar": "توعية الطلاب: توعية الطلاب بأهمية احترام ممتلكات المدرسة وعواقب تخريبها.",
+                        "en": "Student Awareness: Educate students on the importance of respecting school property and the consequences of vandalism."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود صدأ وتشققات على الهيكل الخارجي للحافلة",
+                "en": "Rust and cracks on the bus exterior",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "الإصلاح الفوري: معالجة أي صدأ أو تشققات بسرعة من خلال إصلاح أو استبدال الأجزاء المتضررة.",
+                        "en": "Immediate Repairs: Address any rust or cracks promptly by repairing or replacing affected parts."
+                    },
+                    {
+                        "ar": "التفتيش المنتظم: تنفيذ فحوصات منتظمة للهيكل الخارجي للحافلة لتحديد المشكلات ومعالجتها في وقت مبكر.",
+                        "en": "Regular Inspections: Conduct regular inspections of the bus's exterior to identify and address issues early."
+                    },
+                    {
+                        "ar": "منع الصدأ: تطبيق طلاءات مضادة للصدأ واستخدام مواد عالية الجودة لمنع التآكل في المستقبل.",
+                        "en": "Rust Prevention: Apply anti-rust coatings and use high-quality materials to prevent future corrosion."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود أثر حادث على هيكل الحافلة الخارجي",
+                "en": "Damage to the external bus structure due to accident",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "تقييم الأضرار: تقييم الأضرار فورًا وتحديد ما إذا كانت الحافلة آمنة للتشغيل.",
+                        "en": "Damage Assessment: Assess damage immediately and determine if the bus is safe to operate."
+                    },
+                    {
+                        "ar": "الإصلاحات الاحترافية: التأكد من إجراء أي إصلاحات من قبل محترفين معتمدين لاستعادة السلامة الهيكلية للحافلة.",
+                        "en": "Professional Repairs: Ensure all repairs are performed by certified professionals to restore the bus's structural integrity."
+                    },
+                    {
+                        "ar": "الإبلاغ عن الحوادث: تنفيذ بروتوكول للإبلاغ عن الحوادث وتوثيقها والإصلاحات التي تليها.",
+                        "en": "Incident Reporting: Implement a protocol for reporting and documenting incidents and the subsequent repairs."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "سلامة وامن المنقولين | Passenger safety",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "تلف حزم الأمان ووجود أجزاء حادة نتيجة تحطم او كسر غطاء الحماية",
+                "en": "Damage to seatbelts and presence of sharp edges due to damage or cracking of the protective cover",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "عمل صيانة دورية للحافلة شاملة المقاعد والأجزاء الداخلية للحافلة.",
+                        "en": "Perform regular maintenance on the bus, including the seats and interior parts."
+                    },
+                    {
+                        "ar": "قيام السائق بتفقد أحزمة الأمان بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check seat belts daily and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود اجزاء حادة في الهيكل الداخلي للحافلة",
+                "en": "Presence of sharp edges in the bus internal structure",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "عمل صيانة دورية للحافلة شاملة المقاعد والأجزاء الداخلية للحافلة.",
+                        "en": "Perform regular maintenance on the bus, including seats and interior parts."
+                    },
+                    {
+                        "ar": "قيام السائق بتفقد عدم وجود وجود اجزاء حادة في الهيكل الداخلي للحافلة بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check daily for any sharp edges in the bus's interior structure and report any issues immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف في مانع الانزلاق للدرج",
+                "en": "Damage to the anti-slip tape on the bus steps",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "عمل صيانة دورية للحافلة شاملة المقاعد والأجزاء الداخلية للحافلة.",
+                        "en": "Perform regular maintenance on the bus, including seats and interior parts."
+                    },
+                    {
+                        "ar": "قيام السائق بتفقد والتاكد من سلامة مانع الانزلاق للدرج بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check daily to ensure the safety of the slip-resistant step and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الأولية لمعالجة الحالات البسيطة فور حدوثها.",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "حزام الأمان تالف ولا يعمل بالشكل المطلوب",
+                "en": "Seatbelts are damaged and do not function properly",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد أحزمة الأمان بشكل يومي والإبلاغ عن أية أعطال بشكل فوري.",
+                        "en": "The driver must check seat belts daily and report any malfunctions immediately."
+                    },
+                    {
+                        "ar": "توعية وتدريب الطلبة على الإجراءات الآمنة داخل الحافلة.",
+                        "en": "Educate and train students on safety procedures inside the bus."
+                    }
+                ]
+            },
+            {
+                "ar": "حزام الأمان ثنائي النقاط ويتعارض مع المتطلبات التشريعية",
+                "en": "Two-point seatbelts do not comply with regulatory requirements",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "ترقية أحزمة الأمان: استبدال أحزمة الأمان ذات النقطتين بأحزمة أمان تتوافق مع المتطلبات التنظيمية الحالية.",
+                        "en": "Seatbelt Upgrades: Replace two-point seatbelts with seatbelts that comply with current regulatory requirements."
+                    },
+                    {
+                        "ar": "التحقق من الامتثال: التحقق بانتظام من أن جميع المعدات السلامة، بما في ذلك أحزمة الأمان، تلبي أحدث معايير السلامة.",
+                        "en": "Compliance Verification: Regularly check that all safety equipment, including seatbelts, meets the latest safety standards."
+                    },
+                    {
+                        "ar": "التدريب على استخدام أحزمة الأمان: تدريب السائقين والمشرفين على الاستخدام الصحيح لأحزمة الأمان وأهمية الامتثال.",
+                        "en": "Seatbelt Usage Training: Train drivers and supervisors on the correct use of seatbelts and the importance of compliance."
+                    },
+                    {
+                        "ar": "بروتوكولات الفحص: تضمين فحوصات أحزمة الأمان في بروتوكولات الفحص الروتينية لضمان الامتثال المستمر.",
+                        "en": "Inspection Protocols: Include seatbelt inspections in routine inspection protocols to ensure continuous compliance."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "متطلبات الحافلة الميكانيكية | Mechanical bus requirements",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "تلف/ تعطل المكابح",
+                "en": "Brake failure or malfunction",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الصيانة الدورية الوقائية لجميع الحافلات",
+                        "en": "Conduct routine preventive maintenance for all buses"
+                    },
+                    {
+                        "ar": "توفير خدمة المساعدة على الطرق بشكل متواصل ولجميع المركبات",
+                        "en": "Providing continuous roadside assistance for all vehicles"
+                    },
+                    {
+                        "ar": "تدريب السائقين على التعامل مع سيناريو تعطل الحافلة في الطريق حسب خطة الطوارئ",
+                        "en": "Training drivers to handle bus breakdown scenarios on the road according to the emergency plan"
+                    },
+                    {
+                        "ar": "نقل الطلاب مباشرة في حال تعطل الحافلة باستخدام الحافلات الاحتياطية",
+                        "en": "Transporting students directly in case of a bus breakdown using backup buses"
+                    }
+                ]
+            },
+            {
+                "ar": "وجود تلف في الإطارات",
+                "en": "Tire damage",
+                "severity": 5,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال الإطارات بشكل دوري ومنتظم بعد قطعها مسافة معينة",
+                        "en": "Replace tires periodically and inspect them regularly after they have covered a certain distance"
+                    },
+                    {
+                        "ar": "التأكد من سلامة الإطارات واستبدالها إن لزم أثناء عمليات الصيانة الوقائية",
+                        "en": "Ensure tire safety and replace them if necessary during preventive maintenance"
+                    },
+                    {
+                        "ar": "التفقد اليومي للإطارات من قبل السائقين والإبلاغ الفوري عن أي أعطال لمعالجتها",
+                        "en": "Daily inspection of tires by drivers and immediate reporting of any faults for resolution"
+                    },
+                    {
+                        "ar": "توعية السائقين بإجراءات القيادة الآمنة في حالة تلف الإطارات أثناء السير",
+                        "en": "Educate drivers on safe driving procedures in case of tire damage while driving"
+                    },
+                    {
+                        "ar": "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ حسب خطة الطوارئ",
+                        "en": "Train and educate drivers and supervisors on emergency procedures according to the emergency plan"
+                    }
+                ]
+            },
+            {
+                "ar": "وجود عطل ناقل الحركة",
+                "en": "Transmission failure",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "تنفيذ فحوصات دورية على نظام ناقل الحركة كجزء من الصيانة الروتينية.",
+                        "en": "Conduct regular checks on the transmission system as part of routine maintenance."
+                    },
+                    {
+                        "ar": "معالجة أي علامات على فشل ناقل الحركة على الفور لتجنب التأخيرات التشغيلية.",
+                        "en": "Address any signs of transmission failure immediately to avoid operational delays."
+                    },
+                    {
+                        "ar": "تدريب السائقين على التعرف على العلامات المبكرة لمشاكل ناقل الحركة والإبلاغ عنها بسرعة.",
+                        "en": "Train drivers to recognize and promptly report early signs of transmission issues."
+                    },
+                    {
+                        "ar": "وضع خطة للتعامل مع أعطال ناقل الحركة أثناء الرحلة، بما في ذلك ترتيبات النقل البديلة.",
+                        "en": "Develop a plan to handle transmission failures during trips, including alternative transportation arrangements."
+                    }
+                ]
+            },
+            {
+                "ar": "العتبة المتحركة لصعود الحافلة لا تعمل وفق المطلوب",
+                "en": "The bus's movable step is not working properly",
+                "severity": 4,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "إصلاح العتبة المتحركة على الفور إذا كانت تعمل بشكل غير صحيح.",
+                        "en": "Repair the moving threshold immediately if it is malfunctioning."
+                    },
+                    {
+                        "ar": "تضمين العتبة المتحركة في فحوصات الصيانة الروتينية لضمان أنها تعمل دائمًا.",
+                        "en": "Include the moving threshold in routine maintenance checks to ensure it is always operational."
+                    },
+                    {
+                        "ar": "تدريب الموظفين على التشغيل الصحيح للعتبة المتحركة وأهمية الإبلاغ عن أي أعطال.",
+                        "en": "Train staff on the proper operation of the moving threshold and the importance of reporting any malfunctions."
+                    }
+                ]
+            },
+            {
+                "ar": "خروج الادخنة من عادم الحافلة بكثافة",
+                "en": "Excessive smoke emission from the bus exhaust",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "صيانة المحرك: إجراء الصيانة والخدمة الدورية لمحرك الحافلة لتقليل انبعاث الدخان.",
+                        "en": "Engine Maintenance: Perform regular maintenance and servicing of bus engines to reduce smoke emissions."
+                    },
+                    {
+                        "ar": "اختبارات الانبعاثات: تطبيق اختبارات انبعاثات دورية لضمان امتثال الحافلات للمعايير البيئية.",
+                        "en": "Emissions Testing: Implement routine emissions tests to ensure buses comply with environmental standards."
+                    },
+                    {
+                        "ar": "بروتوكول الإصلاح: وضع بروتوكول لإصلاح الحافلات التي تفشل في اختبارات الانبعاثات أو تظهر عليها علامات انبعاث الدخان بكثافة.",
+                        "en": "Repair Protocol: Establish a protocol for repairing buses that fail emissions tests or show signs of heavy smoke emissions."
+                    },
+                    {
+                        "ar": "تدريب السائقين: تدريب السائقين على التعرف على علامات انبعاث الدخان بكثافة والإبلاغ عنها على الفور لإجراء الصيانة.",
+                        "en": "Driver Training: Train drivers to recognize and promptly report signs of heavy smoke emissions for immediate maintenance."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود انسكابات زيوت (زيت ناقل الحركة/زيت محرك المركبة)",
+                "en": "Oil leakage (transmission/engine)",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "الفحوصات الدورية: تطبيق فحوصات دورية للكشف عن تسربات الزيت في المحرك أو ناقل الحركة ومعالجتها.",
+                        "en": "Routine Inspections: Implement regular checks for oil leaks in the engine or transmission and address them promptly."
+                    },
+                    {
+                        "ar": "إصلاح فوري: وضع بروتوكول للإصلاح الفوري لأي تسربات زيت يتم اكتشافها لمنع المزيد من الضرر.",
+                        "en": "Immediate Repairs: Establish a protocol for the immediate repair of any detected oil leaks to prevent further damage."
+                    },
+                    {
+                        "ar": "الصيانة الوقائية: إجراء صيانة وقائية للحافلات لتقليل احتمالية حدوث تسربات الزيت.",
+                        "en": "Preventive Maintenance: Conduct preventive maintenance on buses to reduce the likelihood of oil leaks."
+                    },
+                    {
+                        "ar": "توعية السائقين: تدريب السائقين على فحص علامات تسرب الزيت والإبلاغ عنها على الفور لإجراء الصيانة.",
+                        "en": "Driver Awareness: Train drivers to inspect for signs of oil leaks and report them immediately for maintenance."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود عطل بمحرك الحافلة",
+                "en": "Bus engine failure",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "صيانة دورية للمحرك: إجراء الصيانة والخدمة الدورية لمحركات الحافلات لمنع حدوث الأعطال.",
+                        "en": "Routine Engine Maintenance: Perform regular maintenance and servicing of bus engines to prevent breakdowns."
+                    },
+                    {
+                        "ar": "إصلاحات فورية: تطبيق بروتوكول لإجراء إصلاحات فورية عند اكتشاف عطل في المحرك.",
+                        "en": "Immediate Repairs: Implement a protocol for immediate repairs when engine faults are detected."
+                    },
+                    {
+                        "ar": "الصيانة الوقائية: جدولة الصيانة الوقائية لتحديد المشكلات المحتملة قبل أن تؤدي إلى عطل في المحرك.",
+                        "en": "Preventive Maintenance: Schedule preventive maintenance to identify potential issues before they lead to engine failure."
+                    },
+                    {
+                        "ar": "تدريب السائقين: تدريب السائقين على التعرف على العلامات المبكرة لمشاكل المحرك والإبلاغ عنها على الفور.",
+                        "en": "Driver Training: Train drivers to recognize early signs of engine problems and report them immediately."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "مصابيح وانارات الحافلة | Bus lights",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "وجود كسر في الإضائة الداخلية للحافلة",
+                "en": "There is a broken light in the bus's interior",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال فوري: استبدال أي إضاءة داخلية مكسورة على الفور لضمان الإضاءة المناسبة داخل الحافلة.",
+                        "en": "Immediate Replacement: Replace any broken interior lighting immediately to ensure proper illumination inside the bus."
+                    },
+                    {
+                        "ar": "الفحوصات الدورية: تضمين فحوصات الإضاءة الداخلية في الفحص الروتيني للحافلات.",
+                        "en": "Routine Inspections: Include interior lighting checks in the routine bus inspections."
+                    },
+                    {
+                        "ar": "تركيبات عالية الجودة: استخدام تركيبات إضاءة متينة وعالية الجودة لتقليل تكرار الانكسارات.",
+                        "en": "High-Quality Fixtures: Use durable, high-quality light fixtures to reduce the frequency of breakages."
+                    },
+                    {
+                        "ar": "الإبلاغ عن الحوادث: إنشاء نظام للإبلاغ عن الإضاءة المكسورة حتى يتم معالجتها على الفور.",
+                        "en": "Incident Reporting: Establish a system for reporting broken lights to ensure they are promptly addressed."
+                    }
+                ]
+            },
+            {
+                "ar": "كسر في المصابيح الخلفية للحافلة",
+                "en": "The bus's rear lights are broken",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال فوري: استبدال المصابيح الخلفية المكسورة على الفور لضمان رؤية الحافلة من قبل المركبات الأخرى على الطريق.",
+                        "en": "Immediate Replacement: Replace broken tail lights immediately to ensure the bus is visible to other vehicles on the road."
+                    },
+                    {
+                        "ar": "الفحوصات الدورية: تضمين فحوصات المصابيح الخلفية في الفحوصات الدورية للحافلات للكشف عن أي مشكلات ومعالجتها.",
+                        "en": "Routine Inspections: Include tail light checks in the regular bus inspections to detect and address any issues."
+                    },
+                    {
+                        "ar": "إبلاغ السائقين: تدريب السائقين على فحص المصابيح الخلفية قبل كل رحلة والإبلاغ عن أي مشكلات لإصلاحها فورًا.",
+                        "en": "Driver Reporting: Train drivers to inspect tail lights before each trip and report any issues for immediate repair."
+                    },
+                    {
+                        "ar": "استخدام قطع غيار عالية الجودة: التأكد من استخدام قطع غيار عالية الجودة ومتينة للمصابيح الخلفية لتقليل تكرار الانكسارات.",
+                        "en": "High-Quality Parts: Ensure that high-quality, durable parts are used for tail lights to reduce the frequency of breakages."
+                    }
+                ]
+            },
+            {
+                "ar": "كسر في المصابيح الامامية للحافلة",
+                "en": "The bus's headlights are broken",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال فوري: استبدال المصابيح الأمامية المكسورة على الفور لضمان رؤية الحافلة بشكل جيد على الطريق.",
+                        "en": "Immediate Replacement: Replace broken headlights immediately to ensure the bus is well-lit on the road."
+                    },
+                    {
+                        "ar": "الفحوصات الدورية: تضمين فحوصات المصابيح الأمامية في الفحوصات الدورية للحافلات لضمان عملها بشكل صحيح.",
+                        "en": "Routine Inspections: Include headlight checks in regular bus inspections to ensure they function correctly."
+                    },
+                    {
+                        "ar": "إبلاغ السائقين: إلزام السائقين بفحص المصابيح الأمامية قبل كل رحلة والإبلاغ عن أي مشاكل لإصلاحها فورًا.",
+                        "en": "Driver Reporting: Require drivers to inspect headlights before each trip and report any issues for immediate repair."
+                    },
+                    {
+                        "ar": "تركيبات عالية الجودة: استخدام تركيبات مصابيح أمامية عالية الجودة ومتينة لتقليل احتمالية الانكسارات.",
+                        "en": "High-Quality Fixtures: Use high-quality, durable headlight fixtures to reduce the likelihood of breakages."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف / كسر في الإشارات التحذيرية للحافلة",
+                "en": "The bus's warning signals are damaged or broken",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "إصلاح فوري: إصلاح أو استبدال أي إشارات تحذيرية تالفة أو مكسورة على الحافلة على الفور.",
+                        "en": "Immediate Repair: Repair or replace any damaged or broken warning signals on the bus immediately."
+                    },
+                    {
+                        "ar": "فحوصات دورية: تضمين فحوصات وظائف الإشارات التحذيرية في الفحوصات الدورية للحافلات.",
+                        "en": "Routine Inspections: Include the functionality checks of warning signals in the regular bus inspections."
+                    },
+                    {
+                        "ar": "تدريب السائقين: تدريب السائقين على أهمية إشارات التحذير الفعالة وكيفية فحصها قبل كل رحلة.",
+                        "en": "Driver Training: Train drivers on the importance of effective warning signals and how to inspect them before each trip."
+                    },
+                    {
+                        "ar": "قطع غيار عالية الجودة: استخدام قطع غيار عالية الجودة للإشارات التحذيرية لتقليل خطر التلف.",
+                        "en": "High-Quality Parts: Use high-quality parts for warning signals to reduce the risk of damage."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "ملصقات الحافلة الأرقام التعريفية | Bus sticker identification numbers",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "وجود ملصق (حافلة مدرسية) علي الزجاج الامامي يؤثر علي مجال رؤية السائق",
+                "en": "A 'School Bus' sticker on the windshield is obstructing the driver's field of vision.",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "قيام السائق بتفقد والتاكد من سلامة الزجاج الامامي حيث لا يوجد يؤثر علي مجال رؤية السائق بشكل يومي والإبلاغ عن أية أعطال بشكل فوري",
+                        "en": "The driver must check daily to ensure the safety of the windshield, ensuring it does not obstruct the driver’s field of vision, and report any malfunctions immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف الشريط الفسفوري الداخلي للحافلة",
+                "en": "Damage in the internal bus reflective tape",
+                "severity": 2,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال فوري: استبدال أي شريط فسفوري داخلي تالف على الفور لضمان الرؤية والسلامة.",
+                        "en": "Immediate Replacement: Replace any damaged internal phosphorescent tape immediately to ensure visibility and safety."
+                    },
+                    {
+                        "ar": "الفحوصات الدورية: تضمين فحوصات حالة الشريط الفسفوري في الفحوصات الدورية للحافلات.",
+                        "en": "Routine Inspections: Include inspections of the phosphorescent tape's condition in the regular bus inspections."
+                    },
+                    {
+                        "ar": "مواد عالية الجودة: استخدام شريط فسفوري عالي الجودة ومتين لتقليل الحاجة إلى الاستبدال المتكرر.",
+                        "en": "High-Quality Materials: Use high-quality, durable phosphorescent tape to reduce the need for frequent replacements."
+                    },
+                    {
+                        "ar": "آلية الإبلاغ: إنشاء نظام يمكن لموظفي الحافلة من خلاله الإبلاغ عن التلف في الشريط الفسفوري لاتخاذ الإجراءات الفورية.",
+                        "en": "Reporting Mechanism: Establish a system for bus staff to report tape damage promptly for immediate action."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف الملصقات الخارجية للحافلة",
+                "en": "The bus external stickers are damaged",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال الملصقات التالفة: استبدال أي ملصقات تالفة فورًا للحفاظ على الرؤية والامتثال للوائح.",
+                        "en": "Immediately replace any damaged labels to maintain visibility and compliance with regulations."
+                    },
+                    {
+                        "ar": "الفحص المنتظم: تضمين حالة الملصقات كجزء من الفحوصات المنتظمة للحافلة.",
+                        "en": "Include label conditions as part of the routine bus inspections."
+                    },
+                    {
+                        "ar": "استخدام مواد عالية الجودة: التأكد من أن الملصقات مصنوعة من مواد متينة ومقاومة للعوامل الجوية لتمديد عمرها.",
+                        "en": "Ensure the use of high-quality, weather-resistant materials for labels to extend their lifespan."
+                    }
+                ]
+            },
+            {
+                "ar": "تغطية ملصقات الحافلة بأجهزة الرادار الخاصة بالشرطة",
+                "en": "The bus's stickers are covered by police radar devices.",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "إعادة موقع أجهزة الرادار: التعاون مع السلطات المحلية لإعادة موقع أجهزة الرادار حتى لا تعيق أي ملصقات على الحافلة.",
+                        "en": "Collaborate with local authorities to relocate radar devices to avoid obstructing any essential bus labels."
+                    },
+                    {
+                        "ar": "فحص الرؤية: التأكد من بقاء جميع ملصقات الحافلة الضرورية مرئية في جميع الأوقات، خاصة المتعلقة بالسلامة والتعريف.",
+                        "en": "Ensure that all necessary bus labels, particularly those related to safety and identification, remain visible at all times."
+                    },
+                    {
+                        "ar": "التدقيق المنتظم: إجراء تدقيقات منتظمة لضمان عدم حجب الملصقات بواسطة أي معدات أو أجهزة.",
+                        "en": "Conduct regular audits to ensure that no equipment or devices are obstructing the labels."
+                    }
+                ]
+            },
+            {
+                "ar": "تلف الشريط الفسفوري الخارجي للحافلة",
+                "en": "Damaged external reflective bus tape",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال الشريط التالف: استبدال أي شريط فسفوري تالف فورًا للحفاظ على رؤية الحافلة ليلاً.",
+                        "en": "Immediately replace any damaged reflective tape to maintain nighttime visibility of the bus."
+                    },
+                    {
+                        "ar": "مراقبة الجودة: استخدام شريط فسفوري عالي الجودة ومتين لتقليل احتمالية التلف في المستقبل.",
+                        "en": "Use high-quality reflective tape to reduce the likelihood of future damage."
+                    },
+                    {
+                        "ar": "الفحوصات المنتظمة: تضمين حالة الشريط الفسفوري في الفحوصات الروتينية للحافلة.",
+                        "en": "Include the condition of the reflective tape in routine bus inspections."
+                    }
+                ]
+            },
+            {
+                "ar": "الرقم الداخلي للحافلة(B00) على هيكل الحافلة غير واضح",
+                "en": "Internal number (B00) not clear",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال رقم الحافلة الداخلى التالف برقم جديد واضح",
+                        "en": "Replace any damaged internal bus numbers with new, clearly visible ones."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود الرقم الداخلي للحافلة(B00) على هيكل الحافلة",
+                "en": "The internal bus number (B00) on the bus body is not available",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "مخاطبة الجهة المختصة لوضع الرقم الداخلى على الحافلة",
+                        "en": "Coordinate with the relevant authority to ensure the correct placement of the internal bus number."
+                    }
+                ]
+            },
+            {
+                "ar": "الرقم المرجعي(DOT)علي هيكل الحافلة غير واضح",
+                "en": "Reference number (DOT) on the bus structure not clear",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "استبدال الرقم المرجعى التالف برقم جديد واضح",
+                        "en": "Replace any damaged reference numbers with new, clearly visible ones."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم وجود الرقم المرجعي للحافلة(DOT)حسب تشريعات مركز النقل المتكامل",
+                "en": "The DOT reference number on the bus body is not available",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "مخاطبة الجهة المختصة لوضع الرقم المرجعى الحافلة",
+                        "en": "Coordinate with the relevant authority to ensure the correct placement of the bus's reference number."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "requirement": "نظافة الحافلة وجاهزيتها | Bus cleanliness and readiness",
+        "inspectionTypeId": "45dbf966-8991-4609-b0af-1e56a1305fa6",
+        "notes": [
+            {
+                "ar": "تلف وتحطم كراسي الحافلة",
+                "en": "Damage or break of the car seats",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الصيانة الدورية: إجراء فحوصات وصيانة دورية لمقاعد الحافلات لضمان أنها في حالة جيدة.",
+                        "en": "Routine Maintenance: Conduct regular inspections and maintenance of bus seats to ensure they are in good condition."
+                    },
+                    {
+                        "ar": "بروتوكولات الإصلاح: وضع بروتوكول لإصلاح أو استبدال المقاعد التالفة بسرعة.",
+                        "en": "Repair Protocols: Establish a protocol for quickly repairing or replacing damaged seats."
+                    },
+                    {
+                        "ar": "توعية الطلاب: توعية الطلاب بأهمية احترام ممتلكات الحافلات وعواقب إتلاف المقاعد.",
+                        "en": "Student Awareness: Educate students on the importance of respecting bus property and the consequences of seat damage."
+                    },
+                    {
+                        "ar": "الإبلاغ عن الحوادث: تطبيق نظام للإبلاغ عن أي تلف في المقاعد على الفور لضمان الحل السريع.",
+                        "en": "Incident Reporting: Implement a system to report any seat damage immediately to ensure a quick resolution."
+                    }
+                ]
+            },
+            {
+                "ar": "تمزق في مقاعد الحافلة",
+                "en": "Tear in the bus seats",
+                "severity": 3,
+                "noteClassification": "رئيسية",
+                "correctiveAction": [
+                    {
+                        "ar": "الابلاغ عن أي سلوكيات سلبية للطالب داخل الحافلة حسب إجراءات الابلاغ المعتمد",
+                        "en": "Report any negative student behaviors on the bus according to the approved reporting procedures."
+                    },
+                    {
+                        "ar": "تطبيق إجراءات انضباطية لسلوكيات الطالب داخل الحافلة",
+                        "en": "Implement disciplinary measures for student behaviors on the bus."
+                    },
+                    {
+                        "ar": "التأكد من وجود صندوق الإسعافات الاولية لمعالجة الحالات البسيطة فور حدوثها",
+                        "en": "Ensure the presence of a first aid kit to handle minor incidents immediately."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم نظافة الحافلة من الداخل",
+                "en": "Poor housekeeping in the bus",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "جدول التنظيف اليومي: تنفيذ جدول تنظيف يومي للحفاظ على بيئة نظيفة وصحية داخل الحافلة.",
+                        "en": "Implement a daily cleaning schedule to maintain a clean and hygienic environment inside the bus."
+                    },
+                    {
+                        "ar": "تحديد المسؤوليات: تكليف موظفين معينين بمسؤولية التأكد من تنظيف الحافلة يوميًا.",
+                        "en": "Assign specific staff members the responsibility of ensuring daily bus cleanliness."
+                    },
+                    {
+                        "ar": "التفتيش: إجراء تفتيشات منتظمة لضمان الامتثال لجدول التنظيف.",
+                        "en": "Conduct regular inspections to ensure adherence to the cleaning schedule."
+                    }
+                ]
+            },
+            {
+                "ar": "عدم نظافة الحافلة من الخارج",
+                "en": "Bus not clean from outside",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "الغسيل المنتظم: وضع جدول غسيل منتظم للحفاظ على نظافة ومظهر الحافلة من الخارج.",
+                        "en": "Establish a regular washing schedule to maintain the exterior cleanliness and appearance of the bus."
+                    },
+                    {
+                        "ar": "استخدام المعدات المناسبة: التأكد من استخدام المعدات ومواد التنظيف المناسبة لمنع تلف الهيكل الخارجي للحافلة.",
+                        "en": "Ensure the use of appropriate equipment and cleaning materials to prevent damage to the bus exterior."
+                    },
+                    {
+                        "ar": "التفتيش: تضمين النظافة الخارجية في الفحوصات الروتينية للحفاظ على المعايير.",
+                        "en": "Include exterior cleanliness in routine inspections to uphold standards."
+                    }
+                ]
+            },
+            {
+                "ar": "وجود( كتابة /رسومات) علي مقاعد الحافلة",
+                "en": "Drawings and writing on the bus seats",
+                "severity": 1,
+                "noteClassification": "ثانوية",
+                "correctiveAction": [
+                    {
+                        "ar": "التنظيف المنتظم: تنفيذ روتين تنظيف لإزالة أي كتابة أو رسومات من مقاعد الحافلة.",
+                        "en": "Implement a routine cleaning schedule to remove any graffiti or markings from bus seats."
+                    },
+                    {
+                        "ar": "تدابير مكافحة التخريب: النظر في استخدام أغطية مقاعد مقاومة للكتابة أو سهلة التنظيف.",
+                        "en": "Consider using vandal-resistant or easy-to-clean seat covers."
+                    },
+                    {
+                        "ar": "توعية الطلاب: توعية الطلاب بأهمية احترام ممتلكات الحافلة وعواقب التخريب.",
+                        "en": "Educate students on the importance of respecting bus property and the consequences of vandalism."
+                    }
+                ]
             }
         ]
     }

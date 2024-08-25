@@ -52,19 +52,33 @@ export type InspectionAttachment = {
     path: string;
 };
 
+export type Note = {
+    id: string;
+    ar: string;
+    en: string;
+    noteClassification: string;
+    severity: number;
+    requirementId: string;
+};
+
+export type Requirement = {
+    id: string;
+    requirement: string;
+    inspectionTypeId: string;
+};
 
 export type Inspection = {
     id: string;
     image: string;
-    rootCause: string;
-    correctiveAction: string;
+    rootCause: string | null;
+    correctiveAction: string | null;
     isClosed: boolean;
     idOfBus: number;
-    noteClassification: string;
-    description: string;
-    enDescription: string;
-    requirement: string;
-    attachment: InspectionAttachment | null;
+    noteId: string;
+    note: Note;
+    requirementId: string;
+    requirement: Requirement;
+    attachment: InspectionAttachment[];
 };
 
 export type Report = {
@@ -73,6 +87,7 @@ export type Report = {
     nameOfSchool: string;
     inspections: Inspection[];
 };
+
 
 export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveActionAdded, setIsInspectionClose, setIsDeleteRequestDone }: any) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -168,6 +183,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
 
     const { user } = useAuth()
     const { t } = useTranslation()
+    const [noteId, setNoteId] = React.useState('')
     const { language } = React.useContext(LanguageContext);
 
     const handleAddRootCause = async (rootCause: any, inspectionId: string) => {
@@ -176,10 +192,11 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         setInspectionId(inspectionId)
     }
 
-    const handleAddCorrectiveAction = async (correctiveAction: any, inspectionId: string) => {
+    const handleAddCorrectiveAction = async (correctiveAction: any, inspectionId: string, noteId: string) => {
         setIsOpenCorrectiveAction(true)
         setCorrectiveAction(correctiveAction == null ? '' : correctiveAction)
         setInspectionId(inspectionId)
+        setNoteId(noteId)
     }
 
     const handleDeleteRequest = async (inspectionId: string) => {
@@ -195,7 +212,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         },
         {
             accessorKey: "image",
-            header: () => <div className="text-center">صورة <br /> photo</div>,
+            header: () => <div className="text-center">صورة <br />photo</div>,
             cell: ({ row }) => (
                 <div>
                     <img
@@ -213,52 +230,47 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         },
         {
             accessorKey: "requirement",
-            header: () => <div className="text-center">المتطلب <br /> requirement</div>,
+            header: () => <div className="text-center">المتطلب <br />requirement</div>,
             cell: ({ row }) => {
-                const requirement = row.getValue("requirement") as string
+                const requirement: any = row.original.requirement.requirement;
                 return (
-                    <div className="flex flex-col gap-1 text-center">{requirement.split('|')[0]} <hr /> <span>{requirement.split('|')[1]}</span></div>
-                )
+                    <div className="flex flex-col gap-1 text-center">{requirement.split('|')[1]} <hr /> <span>{requirement.split('|')[0]}</span></div>
+                );
             },
         },
         {
-            accessorKey: "idOfBus",
-            header: () => <div className="text-center">الدليل (BOO)</div>,
-            cell: ({ row }) => <div>{row.getValue("idOfBus")}</div>,
-        },
-        {
-            accessorKey: 'description',
-            header: () => <div className="text-center">وصف الملاحظة <br /> Description of the note</div>,
+            accessorKey: 'note',
+            header: () => <div className="text-center">وصف الملاحظة <br />Description of the note</div>,
             cell: ({ row }) => (
                 <div className="max-w-[200px] flex flex-col gap-1 text-center">
-                    {row.getValue('description')}
+                    {row.original.note.ar}
                     <hr />
-                    <span className="text-center">{row.original.enDescription}</span>
+                    <span className="text-center">{row.original.note.en}</span>
                 </div>
             ),
         },
         {
-            accessorKey: "noteClassification",
-            header: () => <div className="text-center">تصنيف الملاحظة <br /> Note classification</div>,
+            accessorKey: "note.noteClassification",
+            header: () => <div className="text-center">تصنيف الملاحظة <br />Note classification</div>,
             cell: ({ row }) => (
-                <div className="capitalize">{row.getValue("noteClassification")}</div>
+                <div className="capitalize">{row.original.note.noteClassification}</div>
             ),
         },
         {
             accessorKey: "rootCause",
-            header: () => <div className="text-center">السبب الجذري <br /> Root cause</div>,
+            header: () => <div className="text-center">السبب الجذري <br />Root cause</div>,
             cell: ({ row }) => <div className='max-w-80 text-wrap break-words'>{row.getValue("rootCause")}</div>,
         },
         {
             accessorKey: "correctiveAction",
-            header: () => <div className="text-center">الإجراء التصحيحي <br /> Corrective action</div>,
+            header: () => <div className="text-center">الإجراء التصحيحي <br />Corrective action</div>,
             cell: ({ row }) => <div className='max-w-80 text-wrap break-words'>{row.getValue("correctiveAction")}</div>,
         },
         {
             accessorKey: "attachment",
             header: () => <div className="text-center">Attachment</div>,
             cell: ({ row }) => {
-                const attachment = row.getValue("attachment") as [InspectionAttachment] | null;
+                const attachment: any = row.getValue("attachment") as InspectionAttachment[] | null;
                 return renderAttachment(attachment);
             },
         },
@@ -284,7 +296,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
                                         <DropdownMenuItem onClick={() => handleAddRootCause(inspection.rootCause, inspection.id)}>
                                             {inspection.rootCause ? t('Modify root cause') : t('Adding a root cause')}
                                         </DropdownMenuItem>
-                                        <DropdownMenuItem onClick={() => handleAddCorrectiveAction(inspection.correctiveAction, inspection.id)}>
+                                        <DropdownMenuItem onClick={() => handleAddCorrectiveAction(inspection.correctiveAction, inspection.id, inspection.noteId)}>
                                             {inspection.correctiveAction ? t('Modify corrective action') : t('Add a corrective action')}
                                         </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => handleUploadAttachment(row.original)}>
@@ -445,7 +457,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
                 </div>
             </div>
             <AddRootCause isOpen={isOpenRootCause} onClose={() => { setIsOpenRootCause(false) }} rootCause={rootCause} inspectionId={inspectionId} setIsRootCauseAdded={setIsRootCauseAdded} />
-            <AddCorrectiveAction isOpen={isOpenCorrectiveAction} onClose={() => { setIsOpenCorrectiveAction(false) }} correctiveAction={correctiveAction} inspectionId={inspectionId} setIsCorrectiveActionAdded={setIsCorrectiveActionAdded} />
+            <AddCorrectiveAction isOpen={isOpenCorrectiveAction} onClose={() => { setIsOpenCorrectiveAction(false) }} noteId={noteId} inspectionId={inspectionId} setIsCorrectiveActionAdded={setIsCorrectiveActionAdded} />
             <DeleteRequest isOpen={isOpenDeleteRequest} inspectionId={inspectionId} onClose={() => { setIsOpenDeleteRequest(false) }} setIsDeleteRequestDone={setIsDeleteRequestDone} />
             {selectedInspection && (
                 <UpdateInspectionModal
@@ -453,8 +465,8 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
                     isOpen={isOpenUpdateModal}
                     onClose={() => setIsOpenUpdateModal(false)}
                     inspectionId={selectedInspection.id}
-                    requirement={selectedInspection.requirement}
-                    description={selectedInspection.description}
+                    requirementId={selectedInspection.requirement.id}
+                    noteId={selectedInspection.note.id}
                     setInspectionUpdated={(value: any) => handleUpdateInspection(selectedInspection.id, value)}
                 />
             )}

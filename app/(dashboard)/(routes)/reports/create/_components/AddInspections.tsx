@@ -38,8 +38,9 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
+    AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { stationsData } from "@/app/constants";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const formSchema = z.object({
     name: z.string().min(1, { message: "Name is required" }),
@@ -159,6 +160,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
             }
         }
     };
+    const [isNoteModalOpen, setIsNoteModalOpen] = useState(false);
 
     useEffect(() => {
         return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
@@ -167,24 +169,37 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     const saveInspectionInState = (inspection: FormSchema) => {
         const selectedNote = requirementData
             .flatMap((d: any) => d.notes)
-            .find((note: any) => note.ar === inspection.requirement);
+            .find((note: any) => note.id === inspection.requirement);
+
+        const selectedRequirement = requirementData
+            .find((req: any) => req.id === selectedNote?.requirementId);
+
+        console.log(selectedNote
+            , selectedRequirement);
+
+        if (!selectedNote || !selectedRequirement) {
+            console.error("Note or Requirement not found for the given input.");
+            return;
+        }
 
         const inspectionData = {
             reportId: '',
             name: inspection.name,
             idOfBus: inspection.idOfBus,
-            description: selectedNote?.ar || "",
-            enDescription: selectedNote?.en || "",
-            noteClassification: selectedNote?.noteClassification,
-            requirement: selectedRequirement,
+            requirement: selectedRequirement.requirement,
+            noteAr: selectedNote.ar,
+            noteEn: selectedNote.en,
+            noteId: selectedNote.id,
+            requirementId: selectedRequirement.id,
             files: files.map(({ file }) => file)
         };
-        // noteClassification
+
         setInspections((prevInspections) => [
             ...prevInspections,
             inspectionData,
         ]);
     };
+
 
     const addInspectionToState = async (values: FormSchema) => {
         try {
@@ -203,16 +218,17 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
             const values = reportData;
             const selectedNote = requirementData
                 .flatMap((d: any) => d.notes)
-                .find((note: any) => note.ar === form.getValues().requirement);
+                .find((note: any) => note.id === form.getValues().requirement);
+
+            const selectedRequirement = requirementData
+                .find((req: any) => req.id === selectedNote?.requirementId);
 
             const inspectionData = {
                 reportId: '',
                 name: form.getValues().name,
                 idOfBus: form.getValues().idOfBus,
-                description: selectedNote?.ar || "",
-                enDescription: selectedNote?.en || "",
-                noteClassification: selectedNote?.noteClassification,
-                requirement: selectedRequirement,
+                noteId: selectedNote?.id,
+                requirementId: selectedRequirement.id,
                 files: files.map(({ file }) => file)
             };
             const { data } = await axios.post('/api/reports', { ...values });
@@ -222,10 +238,8 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                 formData.append("reportId", data?.id);
                 formData.append("name", inspection.name);
                 formData.append("idOfBus", inspection.idOfBus);
-                formData.append("description", inspection.description);
-                formData.append("enDescription", inspection.enDescription);
-                formData.append("requirement", inspection.requirement);
-                formData.append("noteClassification", inspection.noteClassification);
+                formData.append("noteId", inspection.noteId);
+                formData.append("requirementId", inspection.requirementId);
 
                 inspection.files.forEach((file: any) => {
                     formData.append("file", file);
@@ -265,14 +279,23 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     };
 
     const { t } = useTranslation();
+    const [selectedNote, setSelectedNote] = useState('')
 
     const handleClassificationChange = (value: string) => {
-        form.setValue("requirement", value); // Set the noteClassification based on the selected note
+        form.setValue("requirement", value);
+        const getNote = requirementData
+            .flatMap((d: any) => d.notes)
+            .find((note: any) => note.id === form.getValues().requirement);
+
+        setSelectedNote(getNote.ar)
+
     };
 
     const availableNotes =
-        requirementData?.find((data: any) => data.requirement === selectedRequirement)?.notes ||
+        requirementData?.find((data: any) => data.id === selectedRequirement)?.notes ||
         [];
+
+
 
     const thumbs = files.map(({ preview }, idx) => (
         <div
@@ -327,10 +350,11 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     const handleDialogClick = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
     };
+    console.log(inspections);
 
     return (
         <div className="flex justify-center items-center h-[calc(100vh-80px)]">
-            <div className="mb-6 border bg-white rounded-md p-6 max-w-lg w-full mx-auto shadow-lg">
+            <div className="mb-6 border bg-white rounded-md p-6 max-w-3xl w-full mx-auto shadow-lg">
                 <h1 className="text-center text-xl font-medium mb-4">
                     {t("Add inspection")}
                 </h1>
@@ -453,9 +477,9 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                                             {requirementData?.map((data: any, idx: number) => (
                                                                 <SelectItem
                                                                     key={data.requirement + idx}
-                                                                    value={data.requirement}
+                                                                    value={data.id}
                                                                 >
-                                                                    {language === "ar"
+                                                                    {language === "en"
                                                                         ? data.requirement.split("|")[0]
                                                                         : data.requirement.split("|")[1]}
                                                                 </SelectItem>
@@ -465,39 +489,56 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                                 </FormItem>
                                             )}
                                         />
+
                                         {selectedRequirement && (
-                                            <FormField
-                                                control={form.control}
-                                                name="requirement"
-                                                render={({ field }) => (
-                                                    <FormItem>
-                                                        <FormLabel>{t("Note")}</FormLabel>
-                                                        <Select
+                                            <>
+                                                <div className="flex flex-col gap-1 items-start">
+                                                    <Button type="button" variant="outline" onClick={() => setIsNoteModalOpen(true)}>
+                                                        {t("Select Note")}
+                                                    </Button>
+                                                    <p className="text-sm">الملاحظة الحالية: {selectedNote && selectedNote}</p>
+                                                </div>
+                                                <AlertDialog open={isNoteModalOpen} onOpenChange={setIsNoteModalOpen}>
+                                                    <AlertDialogTrigger asChild>
+                                                        <Button type="button" variant="outline" className="hidden">
+                                                            {t("Select Note")}
+                                                        </Button>
+                                                    </AlertDialogTrigger>
+                                                    <AlertDialogContent className="max-h-[700px] overflow-auto">
+                                                        <AlertDialogHeader>
+                                                            <AlertDialogTitle>{t("Select a Note")}</AlertDialogTitle>
+                                                        </AlertDialogHeader>
+                                                        <RadioGroup
                                                             dir={makeDIR}
+                                                            className="gap-2"
                                                             onValueChange={handleClassificationChange}
-                                                            defaultValue={field.value}
                                                         >
-                                                            <FormControl className="mb-5">
-                                                                <SelectTrigger>
-                                                                    <SelectValue placeholder={t("Select the note")} />
-                                                                </SelectTrigger>
-                                                            </FormControl>
-                                                            <SelectContent>
-                                                                {availableNotes.map((note: any, index: number) => (
-                                                                    <SelectItem key={note.ar + index} value={note.ar}>
+                                                            {availableNotes.map((note: any, index: number) => (
+                                                                <div key={note.id} className="flex items-center gap-3 border-y py-2">
+                                                                    <RadioGroupItem value={note.id} className="w-fit" id={`note-${index}`} />
+                                                                    <Label className="cursor-pointer" htmlFor={`note-${index}`}>
                                                                         {language === "ar" ? note.ar : note.en}
-                                                                    </SelectItem>
-                                                                ))}
-                                                            </SelectContent>
-                                                        </Select>
-                                                    </FormItem>
-                                                )}
-                                            />
+                                                                    </Label>
+                                                                </div>
+                                                            ))}
+                                                        </RadioGroup>
+                                                        <AlertDialogFooter>
+                                                            <AlertDialogCancel onClick={() => setIsNoteModalOpen(false)}>
+                                                                {t("Cancel")}
+                                                            </AlertDialogCancel>
+                                                            <AlertDialogAction onClick={() => setIsNoteModalOpen(false)}>
+                                                                {t("Confirm")}
+                                                            </AlertDialogAction>
+                                                        </AlertDialogFooter>
+                                                    </AlertDialogContent>
+                                                </AlertDialog>
+                                            </>
                                         )}
                                     </>
                                 )}
                             </>
                         )}
+
 
                         <aside className="flex flex-wrap mt-4">{thumbs}</aside>
 
@@ -525,27 +566,50 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                     <div className="mt-6">
                         <h2 className="text-xl mb-4">Added Inspections</h2>
                         <ul className="space-y-2">
-                            {inspections.map((inspection, index) => (
-                                <li
-                                    key={index}
-                                    className="flex justify-between items-center bg-gray-100 p-3 rounded-md shadow-sm"
-                                >
-                                    <span>
-                                        {inspection?.name} - {inspection?.idOfBus} -{" "}
-                                        {inspection?.requirement} - {inspection?.description}
-                                    </span>
-                                    <Button
-                                        onClick={() => deleteInspection(index)}
-                                        variant="destructive"
-                                        size="sm"
+                            {inspections.map((inspection, index) => {
+                                // Generate the preview URL from the file
+                                const previewUrl = inspection.files[0] ? URL.createObjectURL(inspection.files[0]) : null;
+
+                                return (
+                                    <li
+                                        key={index}
+                                        className="flex justify-between items-center bg-gray-100 p-3 rounded-md shadow-sm"
                                     >
-                                        Delete
-                                    </Button>
-                                </li>
-                            ))}
+                                        <div className="flex items-center gap-4">
+                                            {previewUrl && (
+                                                <div className="min-w-24 h-24">
+                                                    <img
+                                                        src={previewUrl}
+                                                        alt="Inspection Preview"
+                                                        className="block w-full h-full"
+                                                        onLoad={() => {
+                                                            URL.revokeObjectURL(previewUrl);
+                                                        }}
+                                                    />
+                                                </div>
+                                            )}
+                                            <div>
+                                                <span>{inspection?.name}</span> - <span>{inspection?.idOfBus}</span> -{" "}
+                                                <span>{inspection?.requirement}</span> -{" "}
+                                                <span>
+                                                    {language === 'ar' ? inspection?.noteAr : inspection?.noteEn}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <Button
+                                            onClick={() => deleteInspection(index)}
+                                            variant="destructive"
+                                            size="sm"
+                                        >
+                                            Delete
+                                        </Button>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                 )}
+
                 <div className="flex justify-end items-center gap-2 mt-4">
                     <Button onClick={handleFinishClick} disabled={isFinishSubmitting} variant="destructive">
                         {t('Finish')}

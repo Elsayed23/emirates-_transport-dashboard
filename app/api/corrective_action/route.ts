@@ -1,3 +1,5 @@
+// pages/api/corrective_action.ts
+
 import { db } from '@/lib/db';
 import { NextResponse } from 'next/server';
 
@@ -5,19 +7,18 @@ export async function PATCH(req: Request) {
     try {
         const { inspectionId, correctiveAction } = await req.json();
 
-
         await db.inspection.update({
             where: {
-                id: inspectionId
+                id: inspectionId,
             },
             data: {
-                correctiveAction
-            }
+                correctiveAction,
+            },
         });
 
-        return NextResponse.json({ message: 'Root cause added successfully' });
+        return NextResponse.json({ message: 'Corrective action updated successfully' });
     } catch (error) {
-        console.error('Error creating report:', error);
+        console.error('Error updating corrective action:', error);
         return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
     }
 }

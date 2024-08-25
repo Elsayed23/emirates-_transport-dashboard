@@ -14,14 +14,11 @@ export const POST = async (req: Request) => {
         const reportId = formData.get("reportId") as string;
         const name = formData.get("name") as string;
         const idOfBus = formData.get("idOfBus") as string;
-        const requirement = formData.get("requirement") as string;
-        const description = formData.get("description") as string;
-        const enDescription = formData.get("enDescription") as string;
-        const noteClassification = formData.get("noteClassification") as string;
-
+        const requirementId = formData.get("requirementId") as string;
+        const noteId = formData.get("noteId") as string;  //
         const file = formData.get("file") as File;
 
-        if (!reportId || !name || !idOfBus || !requirement || !description || !enDescription || !file) {
+        if (!reportId || !name || !idOfBus || !requirementId || !noteId || !file) {
             return NextResponse.json({ status: 400, message: "All fields are required" });
         }
 
@@ -50,10 +47,8 @@ export const POST = async (req: Request) => {
                 reportId,
                 name,
                 idOfBus: Number(idOfBus),
-                requirement,
-                description,
-                enDescription,
-                noteClassification,
+                requirementId,
+                noteId,  // Link the inspection to the note
                 image: filePath, // Store the single image path
             }
         });
