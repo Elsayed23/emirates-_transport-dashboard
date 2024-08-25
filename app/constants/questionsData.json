@@ -1,16 +1,18 @@
 [
     {
+        "question": "هل الحافلة مجهزة ومخصصة لنقل اصحاب الهمم",
         "orderd": 1,
-        "question": "هل الحافلة مجهزة ومخصصة لنقل اصحاب الهمم؟",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Is the bus equipped and designated for transporting people of determination?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "ألحافلة | the bus",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "عدم تجهيز المركبات بشكل مناسب لأصحاب الهمم والأطفال | Lack of Designated Areas",
-            "risk": "عدم وجود أماكن مخصصة: عدم تجهيز المركبة بمقاعد وأماكن مخصصة لأصحاب الهمم قد يؤدي إلى صعوبة في التثبيت والتنقل داخل المركبة، مما يزيد من خطر الإصابات. | Not equipping the vehicle with seats and spaces designated for people of determination can lead to difficulties in securing and moving inside the vehicle, increasing the risk of injuries.",
+            "hazardSource": "عدم تجهيز المركبات بشكل مناسب لأصحاب الهمم والأطفال | The improper preparation of vehicles for people of determination and children",
+            "risk": "عدم وجود أماكن مخصصة: عدم تجهيز المركبة بمقاعد وأماكن مخصصة لأصحاب الهمم قد يؤدي إلى صعوبة في التثبيت والتنقل داخل المركبة، مما يزيد من خطر الإصابات. | Lack of Designated Areas: Not equipping the vehicle with seats and spaces designated for people of determination can lead to difficulties in securing the vehicle and moving inside the vehicle, increasing the risk of injuries.",
             "peopleExposedToRisk": "الطلاب | Students",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "3/4/12 Y",
             "controlMeasures": {
                 "ar": [
                     "التجهيز بأدوات الأمان: التأكد من توفر أحزمة الأمان وأجهزة التثبيت المناسبة.",
@@ -27,22 +29,23 @@
                     "Provide appropriate emergency tools: Such as audio and visual alarms."
                 ]
             },
-            "riskAssessment": "3/4/12",
-            "residualRisks": "1/4/4"
+            "residualRisks": "2/4/8"
         }
     },
     {
-        "orderd": 2,
         "question": "هل تتوفر الأدوات اللازمة لتثبيت الكراسي المتحركة بشكل آمن وفعال؟",
+        "orderd": 2,
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are the necessary tools available to secure wheelchairs safely and effectively?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطلاب | the student",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود كرسي متحرك داخل الحافلة | Improper Fixing of Chairs",
-            "risk": "عدم تثبيت الكراسي بشكل صحيح: إذا لم يتم تثبيت الكراسي المتحركة بشكل صحيح، قد يتعرض الطلاب لخطر السقوط أو التحرك غير المتوقع داخل المركبة، مما يزيد من خطر الإصابة أثناء التوقف المفاجئ أو الحوادث. | If wheelchairs are not properly secured, students may be at risk of falling or unexpected movement inside the vehicle, increasing the risk of injury during sudden stops or accidents.",
+            "hazardSource": "وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus.",
+            "risk": "عدم تثبيت الكراسي بشكل صحيح: إذا لم يتم تثبيت الكراسي المتحركة بشكل صحيح، قد يتعرض الطلاب لخطر السقوط أو التحرك غير المتوقع داخل المركبة، مما يزيد من خطر الإصابة أثناء التوقف المفاجئ أو الحوادث. | Improper Fixing of Chairs: If wheelchairs are not properly secured, students may be at risk of falling or unexpected movement inside the vehicle, increasing the risk of injury during sudden stops or accidents.",
             "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "1/4/4 Y",
             "controlMeasures": {
                 "ar": [
                     "تثبيت الكراسي بشكل صحيح: استخدام أنظمة تثبيت متطورة لضمان تثبيت الكراسي المتحركة بشكل آمن ومستقر.",
@@ -50,9 +53,7 @@
                     "توفير وسائل الوصول: تجهيز المركبة بمنحدرات أو رافعات لتسهيل صعود ونزول الطلاب الذين يستخدمون الكراسي المتحركة.",
                     "ضمان أن تكون الممرات والأبواب واسعة بما يكفي لمرور الكراسي المتحركة بسهولة.",
                     "إجراءات الإخلاء في حالات الطوارئ: تدريب السائقين والمشرفين على كيفية إخلاء الطلاب الذين يستخدمون الكراسي المتحركة بسرعة وأمان.",
-                    "تجهيز المركبة بأدوات الطوارئ اللازمة، مثل أجهزة الإنذار السمعية والبصرية وأدوات الإخلاء السريع.",
-                    "الراحة والرفاهية: التأكد من وجود مساحات كافية ومقاعد مريحة لضمان راحة الطلاب أثناء الرحلة.",
-                    "توفير تجهيزات لتثبيت الكراسي المتحركة بشكل آمن لمنع الحركة غير المتوقعة أثناء التنقل."
+                    "تجهيز المركبة بأدوات الطوارئ اللازمة، مثل أجهزة الإنذار السمعية والبصرية وأدوات الإخلاء السريع."
                 ],
                 "en": [
                     "Proper Chair Fixing: Use advanced fixing systems to ensure safe and stable fixing of wheelchairs.",
@@ -60,27 +61,26 @@
                     "Providing Access Means: Equip the vehicle with ramps or lifts to facilitate the ascent and descent of students using wheelchairs.",
                     "Ensure that the aisles and doors are wide enough to allow wheelchairs to pass easily.",
                     "Emergency Evacuation Procedures: Train drivers and supervisors on how to evacuate students using wheelchairs quickly and safely.",
-                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools.",
-                    "Comfort and Well-being: Ensure the availability of enough space and comfortable seats to ensure the comfort of students during the trip.",
-                    "Provide equipment to fix wheelchairs securely to prevent unexpected movement during travel."
+                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools."
                 ]
             },
-            "riskAssessment": "1/4/4",
-            "residualRisks": "1/4/4"
+            "residualRisks": "1/3/3"
         }
     },
     {
-        "orderd": 3,
         "question": "هل المركبة مجهزة بمخارج طوارئ مناسبة لتسهيل إخلاء الطلاب بالكرسي المتحرك في حالات الطوارئ؟",
+        "orderd": 3,
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Is the vehicle equipped with appropriate emergency exits to facilitate the evacuation of students in emergencies?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطلاب | the student",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود كرسي متحرك داخل الحافلة | Difficulty in Rapid Evacuation",
-            "risk": "صعوبة الإخلاء السريع: في حالة الطوارئ، قد يكون من الصعب إخلاء الطلاب الذين يستخدمون الكراسي المتحركة بسرعة وأمان إذا لم تكن المركبة مجهزة بشكل مناسب. | In case of emergency, it may be difficult to evacuate students who use wheelchairs quickly and safely if the vehicle is not properly equipped.",
+            "hazardSource": "وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus.",
+            "risk": "صعوبة الإخلاء السريع: في حالة الطوارئ، قد يكون من الصعب إخلاء الطلاب الذين يستخدمون الكراسي المتحركة بسرعة وأمان إذا لم تكن المركبة مجهزة بشكل مناسب. | Difficulty in Rapid Evacuation: In case of emergency, it may be difficult to evacuate students who use wheelchairs quickly and safely if the vehicle is not properly equipped.",
             "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "2/4/8 Y",
             "controlMeasures": {
                 "ar": [
                     "تثبيت الكراسي بشكل صحيح: استخدام أنظمة تثبيت متطورة لضمان تثبيت الكراسي المتحركة بشكل آمن ومستقر.",
@@ -88,9 +88,7 @@
                     "توفير وسائل الوصول: تجهيز المركبة بمنحدرات أو رافعات لتسهيل صعود ونزول الطلاب الذين يستخدمون الكراسي المتحركة.",
                     "ضمان أن تكون الممرات والأبواب واسعة بما يكفي لمرور الكراسي المتحركة بسهولة.",
                     "إجراءات الإخلاء في حالات الطوارئ: تدريب السائقين والمشرفين على كيفية إخلاء الطلاب الذين يستخدمون الكراسي المتحركة بسرعة وأمان.",
-                    "تجهيز المركبة بأدوات الطوارئ اللازمة، مثل أجهزة الإنذار السمعية والبصرية وأدوات الإخلاء السريع.",
-                    "الراحة والرفاهية: التأكد من وجود مساحات كافية ومقاعد مريحة لضمان راحة الطلاب أثناء الرحلة.",
-                    "توفير تجهيزات لتثبيت الكراسي المتحركة بشكل آمن لمنع الحركة غير المتوقعة أثناء التنقل."
+                    "تجهيز المركبة بأدوات الطوارئ اللازمة، مثل أجهزة الإنذار السمعية والبصرية وأدوات الإخلاء السريع."
                 ],
                 "en": [
                     "Proper Chair Fixing: Use advanced fixing systems to ensure safe and stable fixing of wheelchairs.",
@@ -98,27 +96,26 @@
                     "Providing Access Means: Equip the vehicle with ramps or lifts to facilitate the ascent and descent of students using wheelchairs.",
                     "Ensure that the aisles and doors are wide enough to allow wheelchairs to pass easily.",
                     "Emergency Evacuation Procedures: Train drivers and supervisors on how to evacuate students using wheelchairs quickly and safely.",
-                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools.",
-                    "Comfort and Well-being: Ensure the availability of enough space and comfortable seats to ensure the comfort of students during the trip.",
-                    "Provide equipment to fix wheelchairs securely to prevent unexpected movement during travel."
+                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools."
                 ]
             },
-            "riskAssessment": "2/4/8",
             "residualRisks": "1/4/4"
         }
     },
     {
-        "orderd": 4,
         "question": "هل تتوفر وسائل ملائمة للصعود والنزول مثل الرافعات أو المنحدرات داخل المركبة؟",
-        "translatedQuestion": "Are suitable boarding and alighting aids, such as lifts or ramps, available inside the vehicle?",
+        "orderd": 4,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are suitable boarding and disembarking aids, such as lifts or ramps, available inside the vehicle?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطلاب | the student",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود كرسي متحرك داخل الحافلة | Difficulty in Access",
-            "risk": "صعوبة الوصول: عدم وجود وسائل ملائمة للصعود والنزول، مثل الرافعات أو المنحدرات، يمكن أن يجعل الدخول والخروج من المركبة صعبًا للغاية بالنسبة للطلاب الذين يستخدمون الكراسي المتحركة. | The lack of suitable boarding and alighting aids, such as lifts or ramps, can make getting in and out of the vehicle extremely difficult for students who use wheelchairs.",
+            "hazardSource": "وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus.",
+            "risk": "صعوبة الوصول: عدم وجود وسائل ملائمة للصعود والنزول، مثل الرافعات أو المنحدرات، يمكن أن يجعل الدخول والخروج من المركبة صعبًا للغاية بالنسبة للطلاب الذين يستخدمون الكراسي المتحركة. | Difficulty in Access: The lack of suitable boarding and alighting aids, such as lifts or ramps, can make the entry and the exit from the vehicle extremely difficult for students who use wheelchairs.",
             "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "3/5/15 Y",
             "controlMeasures": {
                 "ar": [
                     "تثبيت الكراسي بشكل صحيح: استخدام أنظمة تثبيت متطورة لضمان تثبيت الكراسي المتحركة بشكل آمن ومستقر.",
@@ -126,9 +123,7 @@
                     "توفير وسائل الوصول: تجهيز المركبة بمنحدرات أو رافعات لتسهيل صعود ونزول الطلاب الذين يستخدمون الكراسي المتحركة.",
                     "ضمان أن تكون الممرات والأبواب واسعة بما يكفي لمرور الكراسي المتحركة بسهولة.",
                     "إجراءات الإخلاء في حالات الطوارئ: تدريب السائقين والمشرفين على كيفية إخلاء الطلاب الذين يستخدمون الكراسي المتحركة بسرعة وأمان.",
-                    "تجهيز المركبة بأدوات الطوارئ اللازمة، مثل أجهزة الإنذار السمعية والبصرية وأدوات الإخلاء السريع.",
-                    "الراحة والرفاهية: التأكد من وجود مساحات كافية ومقاعد مريحة لضمان راحة الطلاب أثناء الرحلة.",
-                    "توفير تجهيزات لتثبيت الكراسي المتحركة بشكل آمن لمنع الحركة غير المتوقعة أثناء التنقل."
+                    "تجهيز المركبة بأدوات الطوارئ اللازمة، مثل أجهزة الإنذار السمعية والبصرية وأدوات الإخلاء السريع."
                 ],
                 "en": [
                     "Proper Chair Fixing: Use advanced fixing systems to ensure safe and stable fixing of wheelchairs.",
@@ -136,27 +131,26 @@
                     "Providing Access Means: Equip the vehicle with ramps or lifts to facilitate the ascent and descent of students using wheelchairs.",
                     "Ensure that the aisles and doors are wide enough to allow wheelchairs to pass easily.",
                     "Emergency Evacuation Procedures: Train drivers and supervisors on how to evacuate students using wheelchairs quickly and safely.",
-                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools.",
-                    "Comfort and Well-being: Ensure the availability of enough space and comfortable seats to ensure the comfort of students during the trip.",
-                    "Provide equipment to fix wheelchairs securely to prevent unexpected movement during travel."
+                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools."
                 ]
             },
-            "riskAssessment": "3/5/15",
-            "residualRisks": "1/4/4"
+            "residualRisks": "3/3/9"
         }
     },
     {
-        "orderd": 5,
         "question": "هل تم ترتيب المقاعد والأثاث داخل المركبة بشكل يسمح بمرور الكراسي المتحركة بسهولة؟",
+        "orderd": 5,
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are the seats and furniture arranged in a way that allows easy passage for wheelchairs?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطلاب | the student",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود كرسي متحرك داخل الحافلة | Lack of Wide Aisles",
-            "risk": "عدم وجود ممرات واسعة: قد تجعل الممرات الضيقة الحركة داخل المركبة صعبة وخطرة للطلاب الذين يستخدمون الكراسي المتحركة. | Narrow aisles can make movement inside the vehicle difficult and dangerous for students who use wheelchairs.",
+            "hazardSource": "وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus.",
+            "risk": "عدم وجود ممرات واسعة: قد تجعل الممرات الضيقة الحركة داخل المركبة صعبة وخطرة للطلاب الذين يستخدمون الكراسي المتحركة. | Lack of Wide Aisles: Narrow aisles can make movement inside the vehicle difficult and dangerous for students who use wheelchairs.",
             "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "3/5/15 Y",
             "controlMeasures": {
                 "ar": [
                     "تثبيت الكراسي بشكل صحيح: استخدام أنظمة تثبيت متطورة لضمان تثبيت الكراسي المتحركة بشكل آمن ومستقر.",
@@ -164,9 +158,7 @@
                     "توفير وسائل الوصول: تجهيز المركبة بمنحدرات أو رافعات لتسهيل صعود ونزول الطلاب الذين يستخدمون الكراسي المتحركة.",
                     "ضمان أن تكون الممرات والأبواب واسعة بما يكفي لمرور الكراسي المتحركة بسهولة.",
                     "إجراءات الإخلاء في حالات الطوارئ: تدريب السائقين والمشرفين على كيفية إخلاء الطلاب الذين يستخدمون الكراسي المتحركة بسرعة وأمان.",
-                    "تجهيز المركبة بأدوات الطوارئ اللازمة، مثل أجهزة الإنذار السمعية والبصرية وأدوات الإخلاء السريع.",
-                    "الراحة والرفاهية: التأكد من وجود مساحات كافية ومقاعد مريحة لضمان راحة الطلاب أثناء الرحلة.",
-                    "توفير تجهيزات لتثبيت الكراسي المتحركة بشكل آمن لمنع الحركة غير المتوقعة أثناء التنقل."
+                    "تجهيز المركبة بأدوات الطوارئ اللازمة، مثل أجهزة الإنذار السمعية والبصرية وأدوات الإخلاء السريع."
                 ],
                 "en": [
                     "Proper Chair Fixing: Use advanced fixing systems to ensure safe and stable fixing of wheelchairs.",
@@ -174,27 +166,26 @@
                     "Providing Access Means: Equip the vehicle with ramps or lifts to facilitate the ascent and descent of students using wheelchairs.",
                     "Ensure that the aisles and doors are wide enough to allow wheelchairs to pass easily.",
                     "Emergency Evacuation Procedures: Train drivers and supervisors on how to evacuate students using wheelchairs quickly and safely.",
-                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools.",
-                    "Comfort and Well-being: Ensure the availability of enough space and comfortable seats to ensure the comfort of students during the trip.",
-                    "Provide equipment to fix wheelchairs securely to prevent unexpected movement during travel."
+                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools."
                 ]
             },
-            "riskAssessment": "3/5/15",
-            "residualRisks": "1/4/4"
+            "residualRisks": "3/3/9"
         }
     },
     {
-        "orderd": 6,
         "question": "هل تتوفر أرصفة مهيئة تسهل الوصول إلى المركبة؟",
+        "orderd": 6,
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are adapted sidewalks available to facilitate access to the vehicle?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | Inaccessibility to the Vehicle",
-            "risk": "عدم إمكانية الوصول إلى المركبة: بدون أرصفة مهيئة، قد يجد أصحاب الهمم صعوبة في الوصول إلى المركبة بأمان وراحة، مما يعرضهم لخطر السقوط أو الإصابة أثناء محاولة الصعود أو النزول. | Without adapted sidewalks, people of determination may find it difficult to access the vehicle safely and comfortably, putting them at risk of falling or injury during boarding or alighting attempts.",
+            "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | The absence of dedicated sidewalks for people of determination at pick-up and drop-off points.",
+            "risk": "عدم إمكانية الوصول إلى المركبة: بدون أرصفة مهيئة، قد يجد أصحاب الهمم صعوبة في الوصول إلى المركبة بأمان وراحة، مما يعرضهم لخطر السقوط أو الإصابة أثناء محاولة الصعود أو النزول. | Inaccessibility to the Vehicle: Without adapted sidewalks, people of determination may find it difficult to access the vehicle safely and comfortably, putting them at risk of falling or injury during boarding or disembarking.",
             "peopleExposedToRisk": "الطلاب | Students",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "3/5/15 Y",
             "controlMeasures": {
                 "ar": [
                     "توفير الأرصفة المهيئة: بناء الأرصفة المائلة والمنحدرات: يجب توفير أرصفة مائلة ومنحدرات مصممة بشكل مناسب لتمكين أصحاب الهمم من الوصول بسهولة وأمان إلى المركبات.",
@@ -202,32 +193,28 @@
                     "التوعية والتدريب: تدريب السائقين والمشرفين: على كيفية مساعدة أصحاب الهمم في الوصول إلى المركبات واستخدام الأرصفة والمنحدرات المهيئة بأمان."
                 ],
                 "en": [
-                    "Proper Chair Fixing: Use advanced fixing systems to ensure safe and stable fixing of wheelchairs.",
-                    "Ensure the availability of appropriate seat belts for students using wheelchairs.",
-                    "Providing Access Means: Equip the vehicle with ramps or lifts to facilitate the ascent and descent of students using wheelchairs.",
-                    "Ensure that the aisles and doors are wide enough to allow wheelchairs to pass easily.",
-                    "Emergency Evacuation Procedures: Train drivers and supervisors on how to evacuate students using wheelchairs quickly and safely.",
-                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools.",
-                    "Comfort and Well-being: Ensure the availability of enough space and comfortable seats to ensure the comfort of students during the trip.",
-                    "Provide equipment to fix wheelchairs securely to prevent unexpected movement during travel."
+                    "Provide adapted sidewalks: Construct ramps and slopes: Ramps and slopes should be provided to allow people of determination to access vehicles easily and safely.",
+                    "Comprehensive urban planning: Provide safe pathways: Plan to provide safe and level pathways between sidewalks and vehicles to ensure the safety and comfort of people of determination during transportation.",
+                    "Awareness and training: Train drivers and supervisors: Train them on how to assist people of determination in reaching vehicles and using adapted sidewalks and ramps safely."
                 ]
             },
-            "riskAssessment": "3/5/15",
-            "residualRisks": "1/4/4"
+            "residualRisks": "2/4/8"
         }
     },
     {
+        "question": "هل هناك إجراءات للحد من الحاجة إلى التنقل في مناطق غير آمنة في حالة عدم وجود ارصفة مهيئة",
         "orderd": 7,
-        "question": "هل هناك إجراءات للحد من الحاجة إلى التنقل في مناطق غير آمنة في حالة عدم وجود ارصفة مهيئة؟",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are there measures to reduce the need to navigate unsafe areas?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | Risk of Accidents",
-            "risk": "خطر الحوادث: بدون الأرصفة المهيئة، قد يضطر أصحاب الهمم إلى التنقل في مناطق غير آمنة، مثل الشوارع أو الممرات غير المستوية، مما يزيد من خطر الحوادث والإصابات. | Without adapted sidewalks, people of determination may be forced to navigate unsafe areas, such as streets or uneven paths, increasing the risk of accidents and injuries.",
+            "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | The absence of dedicated sidewalks for people of determination at pick-up and drop-off points.",
+            "risk": "خطر الحوادث: بدون الأرصفة المهيئة، قد يضطر أصحاب الهمم إلى التنقل في مناطق غير آمنة، مثل الشوارع أو الممرات غير المستوية، مما يزيد من خطر الحوادث والإصابات. | Risk of Accidents: Without adapted sidewalks, people of determination may be forced to navigate unsafe areas, such as streets or uneven paths, increasing the risk of accidents and injuries.",
             "peopleExposedToRisk": "الطلاب | Students",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "3/5/15 Y",
             "controlMeasures": {
                 "ar": [
                     "توفير الأرصفة المهيئة: بناء الأرصفة المائلة والمنحدرات: يجب توفير أرصفة مائلة ومنحدرات مصممة بشكل مناسب لتمكين أصحاب الهمم من الوصول بسهولة وأمان إلى المركبات.",
@@ -235,32 +222,28 @@
                     "التوعية والتدريب: تدريب السائقين والمشرفين: على كيفية مساعدة أصحاب الهمم في الوصول إلى المركبات واستخدام الأرصفة والمنحدرات المهيئة بأمان."
                 ],
                 "en": [
-                    "Proper Chair Fixing: Use advanced fixing systems to ensure safe and stable fixing of wheelchairs.",
-                    "Ensure the availability of appropriate seat belts for students using wheelchairs.",
-                    "Providing Access Means: Equip the vehicle with ramps or lifts to facilitate the ascent and descent of students using wheelchairs.",
-                    "Ensure that the aisles and doors are wide enough to allow wheelchairs to pass easily.",
-                    "Emergency Evacuation Procedures: Train drivers and supervisors on how to evacuate students using wheelchairs quickly and safely.",
-                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools.",
-                    "Comfort and Well-being: Ensure the availability of enough space and comfortable seats to ensure the comfort of students during the trip.",
-                    "Provide equipment to fix wheelchairs securely to prevent unexpected movement during travel."
+                    "Provide adapted sidewalks: Construct ramps and slopes: Ramps and slopes should be provided to allow people of determination to access vehicles easily and safely.",
+                    "Comprehensive urban planning: Provide safe pathways: Plan to provide safe and level pathways between sidewalks and vehicles to ensure the safety and comfort of people of determination during transportation.",
+                    "Awareness and training: Train drivers and supervisors: Train them on how to assist people of determination in reaching vehicles and using adapted sidewalks and ramps safely."
                 ]
             },
-            "riskAssessment": "3/5/15",
-            "residualRisks": "1/4/4"
+            "residualRisks": "3/4/12"
         }
     },
     {
-        "orderd": 8,
         "question": "هل يتم أخذ ردود أفعال أصحاب الهمم في عين الاعتبار لتحسين خدمات النقل؟",
+        "orderd": 8,
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are the feedback and reactions of people of determination considered to improve transportation services?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | Psychological Impact",
-            "risk": "التأثير النفسي: عدم توفر الأرصفة المهيئة يمكن أن يؤدي إلى شعور أصحاب الهمم بعدم التقدير والإهمال، مما يؤثر سلبًا على راحتهم النفسية والشعور بالكرامة. | The lack of adapted sidewalks can lead to feelings of neglect and undervaluation among people of determination, negatively affecting their psychological comfort and sense of dignity.",
+            "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | The absence of dedicated sidewalks for people of determination at pick-up and drop-off points.",
+            "risk": "التأثير النفسي: عدم توفر الأرصفة المهيئة يمكن أن يؤدي إلى شعور أصحاب الهمم بعدم التقدير والإهمال، مما يؤثر سلبًا على راحتهم النفسية والشعور بالكرامة. | Psychological Impact: The lack of adapted sidewalks can lead to feelings of neglect and undervaluation among people of determination, negatively affecting their psychological comfort and sense of dignity.",
             "peopleExposedToRisk": "الطلاب | Students",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "4/4/16 Y",
             "controlMeasures": {
                 "ar": [
                     "توفير الأرصفة المهيئة: بناء الأرصفة المائلة والمنحدرات: يجب توفير أرصفة مائلة ومنحدرات مصممة بشكل مناسب لتمكين أصحاب الهمم من الوصول بسهولة وأمان إلى المركبات.",
@@ -268,32 +251,28 @@
                     "التوعية والتدريب: تدريب السائقين والمشرفين: على كيفية مساعدة أصحاب الهمم في الوصول إلى المركبات واستخدام الأرصفة والمنحدرات المهيئة بأمان."
                 ],
                 "en": [
-                    "Proper Chair Fixing: Use advanced fixing systems to ensure safe and stable fixing of wheelchairs.",
-                    "Ensure the availability of appropriate seat belts for students using wheelchairs.",
-                    "Providing Access Means: Equip the vehicle with ramps or lifts to facilitate the ascent and descent of students using wheelchairs.",
-                    "Ensure that the aisles and doors are wide enough to allow wheelchairs to pass easily.",
-                    "Emergency Evacuation Procedures: Train drivers and supervisors on how to evacuate students using wheelchairs quickly and safely.",
-                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools.",
-                    "Comfort and Well-being: Ensure the availability of enough space and comfortable seats to ensure the comfort of students during the trip.",
-                    "Provide equipment to fix wheelchairs securely to prevent unexpected movement during travel."
+                    "Provide adapted sidewalks: Construct ramps and slopes: Ramps and slopes should be provided to allow people of determination to access vehicles easily and safely.",
+                    "Comprehensive urban planning: Provide safe pathways: Plan to provide safe and level pathways between sidewalks and vehicles to ensure the safety and comfort of people of determination during transportation.",
+                    "Awareness and training: Train drivers and supervisors: Train them on how to assist people of determination in reaching vehicles and using adapted sidewalks and ramps safely."
                 ]
             },
-            "riskAssessment": "4/4/16",
-            "residualRisks": "1/4/4"
+            "residualRisks": "3/4/12"
         }
     },
     {
+        "question": "هل السائقون والمشرفين مدربون على التعامل مع اصحاب الهمم",
         "orderd": 9,
-        "question": "هل السائقون والمشرفين مدربون على التعامل مع اصحاب الهمم؟",
-        "translatedQuestion": "Are drivers and supervisors trained to deal with people of determination?",
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are drivers and supervisors trained to handle people of determination?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "السائق/المشرف | driver/supervisor",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "السائقون والمرافقون غير مدربين على التعامل مع احتياجاتهم الخاصة | Inability to Provide Necessary Assistance",
-            "risk": "عدم القدرة على تقديم المساعدة اللازمة: السائقون والمرافقون غير المدربين قد لا يكونون قادرين على تقديم المساعدة الصحيحة لأصحاب الهمم عند الحاجة، مما يزيد من خطر الحوادث أو الإصابات. | Untrained drivers and companions may not be able to provide the correct assistance to people of determination when needed, increasing the risk of accidents or injuries.",
+            "hazardSource": "السائقون والمرافقون غير مدربين على التعامل مع احتياجاتهم الخاصة | Drivers and attendants are not trained to handle their special needs.",
+            "risk": "عدم القدرة على تقديم المساعدة اللازمة: السائقون والمرافقون غير المدربين قد لا يكونون قادرين على تقديم المساعدة الصحيحة لأصحاب الهمم عند الحاجة، مما يزيد من خطر الحوادث أو الإصابات. | Inability to Provide Necessary Assistance: Untrained drivers and companions may not be able to provide the correct assistance to people of determination when needed, increasing the risk of accidents or injuries.",
             "peopleExposedToRisk": "الطلاب | Students",
             "expectedInjury": "إصابات متفاوتة | Varying injuries",
+            "riskAssessment": "3/5/15 Y",
             "controlMeasures": {
                 "ar": [
                     "تدريب السائقين والمرافقين: برامج تدريبية شاملة: تنظيم برامج تدريبية للسائقين والمرافقين تركز على كيفية التعامل مع احتياجات أصحاب الهمم، بما في ذلك كيفية تقديم المساعدة بأمان واحترام.",
@@ -304,32 +283,31 @@
                     "التواصل المستمر: تشجيع السائقين والمرافقين على التواصل المستمر مع أصحاب الهمم لفهم احتياجاتهم الخاصة وتقديم المساعدة اللازمة."
                 ],
                 "en": [
-                    "Proper Chair Fixing: Use advanced fixing systems to ensure safe and stable fixing of wheelchairs.",
-                    "Ensure the availability of appropriate seat belts for students using wheelchairs.",
-                    "Providing Access Means: Equip the vehicle with ramps or lifts to facilitate the ascent and descent of students using wheelchairs.",
-                    "Ensure that the aisles and doors are wide enough to allow wheelchairs to pass easily.",
-                    "Emergency Evacuation Procedures: Train drivers and supervisors on how to evacuate students using wheelchairs quickly and safely.",
-                    "Equip the vehicle with the necessary emergency tools, such as audio and visual alarms and quick evacuation tools.",
-                    "Comfort and Well-being: Ensure the availability of enough space and comfortable seats to ensure the comfort of students during the trip.",
-                    "Provide equipment to fix wheelchairs securely to prevent unexpected movement during travel."
+                    "Train drivers and attendants: Comprehensive training programs: Organize training programs for drivers and attendants focusing on how to handle the needs of people of determination, including how to provide assistance safely and respectfully.",
+                    "First aid training: Include training on first aid and how to handle emergencies that may be encountered by people of determination.",
+                    "Provide support resources: User manual: Create a vehicle user manual that includes clear instructions on how to assist people of determination.",
+                    "Assistive technology: Equip vehicles with assistive technology such as lifts and dedicated seats to facilitate mobility.",
+                    "Raise awareness and understanding: Awareness campaigns: Organize awareness campaigns to increase drivers' and attendants' understanding of the needs of people of determination and the importance of treating them with respect and compassion.",
+                    "Continuous communication: Encourage drivers and attendants to communicate continuously with people of determination to understand their special needs and provide the necessary assistance."
                 ]
             },
-            "riskAssessment": "3/5/15",
-            "residualRisks": "1/4/4"
+            "residualRisks": "3/4/12"
         }
     },
     {
+        "question": "هل يوجد منااطق مخصصة للصعود والنزول ؟",
         "orderd": 10,
-        "question": "هل يوجد مشرف نقل وسلامة بخط السير؟",
-        "translatedQuestion": "Is there a transport and safety supervisor on the route?",
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there designated areas for boarding and disembarking?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطريق | The route",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "عدم وجود مشرف للنقل والسلامة | Absence of a transport and safety supervisor",
-            "risk": "تعرض الطلاب للدهس | Run over accidents",
+            "hazardSource": "صعود ونزول الطلبة من وإلى الحافلة المدرسية في أماكن التحميل والتنزيل | Students boarding and disembarking from and to the school bus in the allocated areas",
+            "risk": "تعرض الطلاب للدهس من قبل الحافلة المدرسية أثناء الصعود أو النزول | Students may be at risk of run over accidents by the school bus while boarding or disembarking the bus",
             "peopleExposedToRisk": "الطلاب | Students",
             "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/4/12 Y",
             "controlMeasures": {
                 "ar": [
                     "تركيب كاميرات على زوايا مختلفة من الحافلة لتأمين رؤية واضحة للسائق أثناء تحميل وتنزيل الطلاب",
@@ -342,9 +320,9 @@
                     "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث"
                 ],
                 "en": [
-                    "Cameras and Student Safety: Installing cameras at different angles of the bus to provide a clear view for the driver during loading and unloading students.",
-                    "Regular maintenance of buses including cameras, side mirrors, and stop arms.",
-                    "Giving students enough time to get on or off and ensuring drivers do not move until students are seated and there are no students outside near the bus.",
+                    "Installing Cameras: Installing cameras at different angles in the bus to provide a clear view for the driver during loading and unloading students.",
+                    "Conduct Regular maintenance for buses including cameras, side mirrors, and stop arms.",
+                    "Giving students enough time to enter or exit the bus and ensure that the drivers do not move until students are seated and there are no students outside near the bus.",
                     "Continuous monitoring of buses during loading and unloading by traffic coordinators to ensure drivers follow safety procedures.",
                     "Having safety supervisors on school buses to assist students in getting on or off and to escort them to a safe place.",
                     "Educating students about the golden rule to provide them with necessary information on safe procedures when getting on or off.",
@@ -352,22 +330,62 @@
                     "Training and educating drivers and supervisors on emergency procedures during accidents."
                 ]
             },
-            "riskAssessment": "3/3/9",
+            "residualRisks": "1/4/4"
+        }
+    },
+    {
+        "question": "هل يوجد مشرف نقل وسلامة بخط السير؟",
+        "orderd": 11,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Is there a transport and safety supervisor on the route?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "عدم وجود مشرف للنقل والسلامة | Absence of a transport and safety supervisor",
+            "risk": "تعرض الطلاب للدهس | Run over accidents",
+            "peopleExposedToRisk": "الطلاب | Students",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/3/9 Y",
+            "controlMeasures": {
+                "ar": [
+                    "تركيب كاميرات على زوايا مختلفة من الحافلة لتأمين رؤية واضحة للسائق أثناء تحميل وتنزيل الطلاب",
+                    "الصيانة الدورية للحافلات شاملة الكاميرات والمرايا الجانبية وذراع التوقف",
+                    "إعطاء الوقت الكافي للطلاب أثناء الصعود أو النزول والتأكيد على السائقين بعدم السير إلا عند التأكد من جلوس الطلاب في مقاعدهم وعدم وجود أي طالب بالخارج قرب الحافلة",
+                    "المراقبة المستمرة للحافلات أثناء تحميل وتنزيل الطلاب من قبل منسقي الحركة للتأكد من اتباع السائق لإجراءات السلامة",
+                    "وجود مشرفي السلامة في الحافلات المدرسية لمساعدة الطلاب عند الصعود أو النزول وإيصالهم للمكان الآمن",
+                    "توعية الطلاب حول القاعدة الذهبية والتي من شأنها توفير المعلومات اللازمة لهم حول الإجراءات الآمنة عند الصعود أو النزول",
+                    "توفير صندوق الإسعافات الأولية لمعالجة الإصابات الطفيفة في حال حدوثها",
+                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث"
+                ],
+                "en": [
+                    "Installing Cameras: Installing cameras at different angles in the bus to provide a clear view for the driver during loading and unloading students.",
+                    "Conduct Regular maintenance for buses including cameras, side mirrors, and stop arms.",
+                    "Giving students enough time to enter or exit the bus and ensure that the drivers do not move until students are seated and there are no students outside near the bus.",
+                    "Continuous monitoring of buses during loading and unloading by traffic coordinators to ensure drivers follow safety procedures.",
+                    "Having safety supervisors on school buses to assist students in getting on or off and to escort them to a safe place.",
+                    "Educating students about the golden rule to provide them with necessary information on safe procedures when getting on or off.",
+                    "Providing a first aid kit to treat minor injuries if they occur.",
+                    "Train and educate drivers and supervisors on emergency procedures during accidents."
+                ]
+            },
             "residualRisks": "2/3/6"
         }
     },
     {
-        "orderd": 11,
         "question": "هل يحتاج الطلبة لعبور الطريق للوصول الى الحافلة؟",
+        "orderd": 12,
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Do students need to cross the road to reach the bus?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطريق | The route",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
             "hazardSource": "عبور الطلاب الطريق للوصول للحافلة | Students crossing the road to reach the bus",
             "risk": "تعرض الطلاب للدهس | Run over accidents",
             "peopleExposedToRisk": "الطلاب | Students",
             "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "1/4/4 Y",
             "controlMeasures": {
                 "ar": [
                     "زيارة المدرسة من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع إدارة المدرسة",
@@ -378,30 +396,31 @@
                     "المراجعة الدورية لخطوط السير لتفادي دخول الحافلات وتوقفها في الأماكن الخطرة على سلامة المنقولين"
                 ],
                 "en": [
-                    "School Coordination: School visits by the operations coordinator and safety officer to identify risks on-site and determine student drop-off and pick-up points in coordination with school administration.",
+                    "School Coordination: Conduct a School visits by the operations coordinator and safety officer to identify risks on-site and determine student drop-off and pick-up points in coordination with school administration.",
                     "Informing drivers and safety supervisors about student drop-off and pick-up points after identifying them and ensuring adherence.",
                     "School administration supervising student drop-off and pick-up.",
-                    "Planning parking lots and school entrances and placing student crossing signs by school administrations.",
+                    "Plan for parking lots and school entrances and placing student crossing signs by school administrators.",
                     "Educating students by school administration in cooperation with safety officers on safe crossing inside parking lots and reaching the school.",
                     "Regularly reviewing routes to avoid buses entering and stopping in dangerous places for the safety of the transported students."
                 ]
             },
-            "riskAssessment": "1/4/4",
-            "residualRisks": "1/4/4"
+            "residualRisks": "1/3/3"
         }
     },
     {
-        "orderd": 12,
-        "question": "هل يتم نقل عدد '3' أو اكثر الطلبة عند نقطة صعود أو نزول واحدة؟",
-        "translatedQuestion": "Are '3' or more students transported at a single boarding or alighting point?",
+        "question": "هل يتم نقل عدد \"3\" او اكثر الطلبة عند نقطة صعود أو نزول واحدة؟",
+        "orderd": 13,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are 3 or more students transported at a single boarding or disembarking point?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطريق | The route",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "نقل عدد كبير من الطلاب في نقطة صعود ونزول واحدة | Transporting a large number of students at a single boarding and alighting point",
+            "hazardSource": "نقل عدد كبير من الطلاب في نقطة صعود ونزول واحدة | Transporting a large number of students at a single boarding and disembarking point",
             "risk": "زيادة احتمالية الحوادث والتأخير وحدوث الاشتباكات بين المنقولين قبل وصول الحافلة | Increased likelihood of accidents, delays, and altercations among transported students before the bus arrives",
             "peopleExposedToRisk": "الطلاب | Students",
             "expectedInjury": "إصابات، تأخير | Injuries, delays",
+            "riskAssessment": "2/3/6 N",
             "controlMeasures": {
                 "ar": [
                     "تنظيم نقاط الصعود والنزول لتجنب الازدحام",
@@ -411,25 +430,26 @@
                 "en": [
                     "Organizing Drop-Off Points: Organizing drop-off and pick-up points to avoid congestion.",
                     "Informing drivers and safety supervisors about student drop-off and pick-up points after identifying them and ensuring adherence.",
-                    "Regularly reviewing routes to avoid buses entering and stopping in dangerous places for the safety of the transported students."
+                    "Regularly reviewing the routes to avoid buses entering and stopping in dangerous places for the safety of the transported students."
                 ]
             },
-            "riskAssessment": "2/3/6",
-            "residualRisks": "2/3/6"
+            "residualRisks": "2/2/4"
         }
     },
     {
-        "orderd": 13,
-        "question": "هل نقطة صعود/نزول الطالبة عن نقطة يصعب إيقاف الحافلة 'طريق عام /طريق سريع'؟",
-        "translatedQuestion": "Is the boarding/alighting point on a road where it is difficult to stop the bus 'main road / highway'?",
+        "question": "هل نقطة صعود/نزول الطالبة عن نقطة يصعب إيقاف الحافلة \"طريق عام /طريق سريع\"؟",
+        "orderd": 14,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Is the student boarding/disembarking point on a road where it's difficult to stop the bus (highway/main road)?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطريق | The route",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "صعوبة إيقاف الحافلة في الطريق السريع | Difficulty stopping the bus on the highway",
+            "hazardSource": "صعوبة إيقاف الحافلة في الطريق السريع | Difficulty in stopping the bus on the highway",
             "risk": "حوادث الطريق واصطدام | Road accidents and collisions",
             "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
             "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "1/4/4 Y",
             "controlMeasures": {
                 "ar": [
                     "تحديد نقاط آمنة للصعود والنزول بعيداً عن الطرق السريعة",
@@ -446,22 +466,23 @@
                     "Regularly reviewing routes to avoid buses entering and stopping in dangerous places for the safety of the transported students."
                 ]
             },
-            "riskAssessment": "1/4/4",
-            "residualRisks": "2/5/10"
+            "residualRisks": "1/3/3"
         }
     },
     {
-        "orderd": 14,
-        "question": "هل يحتاج مشرف النقل والسلامة للمشى مسافة اكثر من 200 متر لتوصيل الطالب لمنزلة؟",
+        "question": "هل يحتاج مشرف النقل والسلامة للمشى مسافة أكثر من 200 متر لتوصيل الطالب لمنزله؟",
+        "orderd": 15,
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Does the transport and safety supervisor need to walk more than 200 meters to deliver the student to their home?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطريق | The route",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "شي المشرف والطلاب لمسافات طويلة | Supervisor and students walking long distances",
+            "hazardSource": "مشي المشرف والطلاب لمسافات طويلة | Supervisor and students walking long distances",
             "risk": "مخاطر الطريق، تأخير زمن الرحلة، إرهاق | Road hazards, travel time delays, fatigue",
             "peopleExposedToRisk": "المشرف والطلاب | The supervisor and students",
             "expectedInjury": "إصابات، تأخير، الاجهاد الحراري | Injuries, delays, heat stress",
+            "riskAssessment": "2/3/6 Y",
             "controlMeasures": {
                 "ar": [
                     "تقليل مسافات المشي عبر تحديد نقاط قريبة وآمنة",
@@ -469,7 +490,7 @@
                     "المراجعة الدورية لخطوط السير لتفادي دخول الحافلات وتوقفها في الأماكن الخطرة على سلامة المنقولين",
                     "تحديد مسارات المشي الآمنة: اختيار مسارات مشي آمنة للطلاب والمشرفين، مع مراعاة تجنب الطرق المزدحمة أو التي تحتوي على مخاطر محتملة.",
                     "وضع علامات وإشارات واضحة على طول المسار لإرشاد الطلاب والمشرفين وتوجيههم بشكل آمن.",
-                    "استخدام وسائل الحماية الشخصية: تزويد المشرفين بوسائل الحماية الشخصية مثل القبعات والملابس العاكسة لحمايتهم أثناء المشي."
+                    "استخدام وسائل الحماية الشخصية: تزويد والمشرفين بوسائل الحماية الشخصية مثل القبعات والملابس العاكسة لحمايتهم أثناء المشي."
                 ],
                 "en": [
                     "Minimizing walking distances by identifying nearby and safe points.",
@@ -477,496 +498,16 @@
                     "Regularly reviewing routes to avoid buses entering and stopping in dangerous places for the safety of the transported students.",
                     "Identifying safe walking routes: Choosing safe walking routes for students and supervisors, avoiding busy roads or those with potential risks.",
                     "Placing clear signs along the route to guide students and supervisors safely.",
-                    "Using personal protective equipment: Providing students and supervisors with personal protective equipment such as hats and reflective clothing to protect them while walking."
+                    "Using personal protective equipment: Providing students and supervisors with personal protective equipment such as helmets and reflective clothing to protect them while walking."
                 ]
             },
-            "riskAssessment": "4/4/8",
-            "residualRisks": "2/4/8"
-        }
-    },
-    {
-        "orderd": 15,
-        "question": "هل نقطة صعود الطالب بمكان يصعب وصول الحافله لها مما يوثر على زمن الرحلة؟",
-        "translatedQuestion": "Is the boarding point difficult for the bus to reach, affecting travel time?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "صعوبة وصول الحافلة لنقاط الصعود والنزول المحددة | Difficulty reaching designated boarding points",
-            "risk": "تأخير زمن الرحلة , مخاطر الطريق | Delay, road hazards",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "تأخير، إرهاق | Delay, fatigue",
-            "controlMeasures": {
-                "ar": [
-                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                    "استخدام حافلات مخصصة اصغر ان امكن لتمكن من الوصول بسلاسة وبأمان",
-                    "التأكيد على السائقين بضرورة التأكد من وصول الطلاب لمكان آمن قبل سير الحافلة"
-                ],
-                "en": [
-                    "Using Smaller Buses: Studying routes and changing them if possible in cooperation with schools.",
-                    "Using smaller dedicated buses if possible to ensure smooth and safe access.",
-                    "Emphasizing to drivers the necessity of ensuring students reach a safe place before the bus moves."
-                ]
-            },
-            "riskAssessment": "4/4/16",
-            "residualRisks": "2/3/6"
+            "residualRisks": "2/2/4"
         }
     },
     {
         "orderd": 16,
-        "question": "هل توجد مناطق معرضة للانهيارات الأرضية أو الصخور المتساقطة على الطريق؟",
-        "translatedQuestion": "Are there areas prone to landslides or falling rocks on the road?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "الانهيارات الأرضية أو الصخور المتساقطة | Landslides or falling rocks",
-            "risk": "حوادث خطيرة | Serious accidents",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "وضع إشارات تحذيرية في هذه المناطق",
-                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                    "تدريب السائقين على قواعد القيادة الآمنة في مختلف حالات الطريق",
-                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث",
-                    "رفع وعي السائقين والمشرفين بمخاطر الطريق المخصصة لخط السير الذي يمر منه"
-                ],
-                "en": [
-                    "Warning Signs: Placing warning signs in these areas.",
-                    "Studying routes and changing them if possible in cooperation with schools.",
-                    "Training drivers on safe driving rules in various road conditions.",
-                    "Training and educating drivers and supervisors on emergency procedures during accidents.",
-                    "Raising driver and supervisor awareness of road hazards specific to their routes."
-                ]
-            },
-            "riskAssessment": "4/3/12",
-            "residualRisks": "2/4/8"
-        }
-    },
-    {
-        "orderd": 17,
-        "question": "هل توجد مركبات مصطفة على جانبي المسار؟",
-        "translatedQuestion": "Are there parked vehicles on both sides of the lane?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود مركبات مركونة على جانبي المسار | Presence of parked vehicles on both sides of the lane",
-            "risk": "اصطدام الحافلة بالسيارات المركونة، تأخر في زمن الرحلة، صعوبة الحركة للحافلات الكبيرة | Collision of the bus with parked cars, delay in travel time, difficulty in movement for large buses",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
-                    "تدريب السائقين على القيادة الآمنة في حالات الطرق المغلقة",
-                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                    "وضع خطط دقيقة للمسارات التي تناسب الحافلات الأصغر حجماً، بما في ذلك الطرق الجانبية والأحياء السكنية الضيقة"
-                ],
-                "en": [
-                    "Smaller Buses: Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
-                    "Training drivers on safe driving in closed roads.",
-                    "Studying routes and changing them if possible in cooperation with schools.",
-                    "Creating precise plans for routes that are suitable for smaller buses, including side roads and narrow residential areas."
-                ]
-            },
-            "riskAssessment": "3/3/9",
-            "residualRisks": "2/4/8"
-        }
-    },
-    {
-        "orderd": 18,
-        "question": "هل يوجد بروز بالمباني او ملحقاتها ويجب عليك المناورة والالتفاف كي لا تصطدم الحافلة؟",
-        "translatedQuestion": "Are there protrusions in buildings or their extensions, requiring maneuvering to avoid collisions?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "بروز المباني وملحقاتها | Protrusion of buildings and their extensions",
-            "risk": "اصطدام الحافلة بالبروزات | Collision of the bus with protrusions",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                    "تدريب السائقين على قواعد القيادة الآمنة في مختلف حالات الطريق",
-                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث",
-                    "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
-                    "رفع وعي السائقين والمشرفين بمخاطر الطريق المخصصة لخط السير الذي يمر منه",
-                    "وضع خطط دقيقة للمسارات التي تناسب الحافلات الأصغر حجماً، بما في ذلك الطرق الجانبية والأحياء السكنية الضيقة"
-                ],
-                "en": [
-                    "Comprehensive Safety Measures: Studying routes and changing them if possible in cooperation with schools.",
-                    "Training drivers on safe driving rules in various road conditions.",
-                    "Training and educating drivers and supervisors on emergency procedures during accidents.",
-                    "Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
-                    "Raising driver and supervisor awareness of road hazards specific to their routes.",
-                    "Creating precise plans for routes that are suitable for smaller buses, including side roads and narrow residential areas."
-                ]
-            },
-            "riskAssessment": "2/4/8",
-            "residualRisks": "2/4/8"
-        }
-    },
-    {
-        "orderd": 19,
-        "question": "هل توجد أشجار او اجسام صلبة تؤثر على مسار الحافلة في خط السير؟",
-        "translatedQuestion": "Are there trees or solid objects affecting the bus route?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "قيادة الحافلة في الطرق كثيفة بالأشجار | Driving the bus on tree-dense roads",
-            "risk": "عدم وضوح الرؤية وخطر الاصطدام بمركبات أخرى قادمة بالاتجاه المعاكس | Poor visibility and risk of collision with oncoming vehicles",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "التخطيط المسبق لمسارات الرحلات: اختيار مسارات آمنة تراعي كثافة الأشجار وتجنب الطرق التي تكون فيها الفروع المتدلية منخفضة أو تعيق الحركة",
-                    "وضع خطط بديلة للمسارات لاستخدامها في حالات الطوارئ أو عند حدوث عوائق غير متوقعة بسبب الأشجار",
-                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في الطرق التي تكون كثيفة بالأشجار، بما في ذلك تقنيات تجنب الفروع المتدلية والمخاطر الأخرى",
-                    "توعية المشرفين بكيفية الحفاظ على سلامة الطلاب أثناء القيادة في هذه المناطق وإدارة حالات الطوارئ",
-                    "صيانة الحافلات: التأكد من أن الحافلات في حالة جيدة، مع التركيز على فحص الزجاج الأمامي والمرايا الجانبية بانتظام لضمان وضوح الرؤية",
-                    "تركيب واقيات للفروع على الحافلات لحمايتها من الأضرار التي قد تسببها الفروع المتدلية",
-                    "تحديد السرعة المنخفضة والقيادة الحذرة: تحديد سرعة منخفضة إلزامية للحافلات عند القيادة في الطرق كثيفة بالأشجار لضمان التحكم الكامل في الحافلة",
-                    "التأكد من التزام السائقين بالقيادة الحذرة وتجنب التوقفات المفاجئة",
-                    "التنسيق مع الجهات المحلية: التنسيق مع الجهات المحلية والسلطات المعنية للحصول على معلومات محدثة حول حالة الطرق وكثافة الأشجار",
-                    "العمل مع الجهات المحلية لتقليم الفروع المتدلية التي تشكل خطرًا على الطرق التي تستخدمها الحافلات المدرسية",
-                    "إجراءات الطوارئ: وضع خطط طوارئ محددة للتعامل مع الحوادث في الطرق كثيفة بالأشجار، بما في ذلك إجراءات الإخلاء والتجمع الآمن",
-                    "تدريب السائقين والمشرفين على كيفية تنفيذ خطط الطوارئ بكفاءة وسرعة"
-                ],
-                "en": [
-                    "Tree-Dense Roads: Pre-planning routes: Choosing safe routes that consider tree density and avoiding roads where low-hanging branches obstruct movement",
-                    "Creating alternative route plans for emergencies or unexpected obstacles due to trees",
-                    "Training drivers and supervisors: Organizing training sessions for drivers on how to drive safely on tree-dense roads, including techniques to avoid low-hanging branches and other hazards",
-                    "Educating supervisors on how to maintain student safety while driving in these areas and manage emergencies",
-                    "Bus Maintenance: Ensuring buses are in good condition, focusing on regularly checking windshields and side mirrors for clear visibility",
-                    "Installing branch guards on buses to protect them from damage caused by low-hanging branches",
-                    "Low-Speed and Cautious Driving: Setting a mandatory low speed for buses when driving on tree-dense roads to ensure full control of the bus",
-                    "Ensuring drivers adhere to cautious driving and avoid sudden stops",
-                    "Coordinating with Local Authorities: Coordinating with local authorities for updated information on road conditions and tree density",
-                    "Working with local authorities to trim low-hanging branches that pose a threat to roads used by school buses",
-                    "Emergency Procedures: Setting specific emergency plans for dealing with accidents on tree-dense roads, including evacuation procedures and safe gathering points",
-                    "Training drivers and supervisors on how to efficiently and quickly execute emergency plans"
-                ]
-            },
-            "riskAssessment": "4/4/8",
-            "residualRisks": "1/4/4"
-        }
-    },
-    {
-        "orderd": 20,
-        "question": "هل يوجد في خط السير إشارات مرورية مزدحمة؟",
-        "translatedQuestion": "Are there busy traffic signals on the route?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "الإشارات المرورية المزدحمة | Busy traffic signals",
-            "risk": "تأخير الرحلة وارهاق الطلبة | Trip delay and student fatigue",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "تأخير، ازدحام | Delay, congestion",
-            "controlMeasures": {
-                "ar": [
-                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                    "تدريب السائقين على القيادة الآمنة في مختلف حالات الطريق",
-                    "تنبيه السائقين بضرورة القيادة بسرعة منخفضة في الطرق المزدحمة"
-                ],
-                "en": [
-                    "Dense Pedestrian Areas: Studying routes and changing them if possible in cooperation with schools",
-                    "Training drivers on safe driving rules in various road conditions",
-                    "Alerting drivers to drive at low speed in crowded areas"
-                ]
-            },
-            "riskAssessment": "2/3/6",
-            "residualRisks": "1/4/4"
-        }
-    },
-    {
-        "orderd": 21,
-        "question": "هل يمر خط السير بطرق دولية او طرق تزيد سرعة المركبات بها عن 110 كم/الساعة؟",
-        "translatedQuestion": "Does the route pass through international roads or roads where vehicle speed exceeds 110 km/h?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "المرور بطرق دولية ذات سرعة عالية | Passing through high-speed international roads",
-            "risk": "حوادث بسبب السرعة | Accidents due to speed",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "جميع المركبات مزودة بجهاز التتبع لتمكين المحطات من مراقبة سرعة المركبات بشكل منتظم",
-                    "تزويد الحافلات بمثبت السرعة بحيث لا تزيد عن 80 كم للساعة",
-                    "توفير أحزمة أمان على المقاعد ومقعد السائق في الحافلات المدرسية لتقليل أثر الحوادث المرورية على المنقولين",
-                    "التدريب الدوري للسائقين على الالتزام بقواعد المرور",
-                    "مراقبة المركبات في الطرق بواسطة منسقي الحركة",
-                    "تطبيق إجراءات عقابية وأخرى تشجيعية لالتزام السائقين بالسرعة وقواعد المرور",
-                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ حسب خطة الطوارئ"
-                ],
-                "en": [
-                    "Monitoring and Speed Control: All vehicles are equipped with tracking devices to allow stations to regularly monitor vehicle speed.",
-                    "Equipping buses with speed limiters so that they do not exceed 80 km/h.",
-                    "Providing seat belts on seats and the driver's seat in school buses to reduce the impact of traffic accidents on transported students.",
-                    "Regular training for drivers on traffic rules compliance.",
-                    "Monitoring vehicles on the roads by traffic coordinators.",
-                    "Applying disciplinary and encouraging measures to ensure drivers adhere to speed limits and traffic rules.",
-                    "Training and educating drivers and supervisors on emergency procedures according to the emergency plan."
-                ]
-            },
-            "riskAssessment": "4/5/20",
-            "residualRisks": "2/4/8"
-        }
-    },
-    {
-        "orderd": 22,
-        "question": "هل يغطي خط السير مناطق غير سكنية مثل \"المزارع أو العزب\"؟",
-        "translatedQuestion": "Does the route cover non-residential areas such as 'farms or estates'?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "المرور بمناطق غير سكنية | Passing through non-residential areas",
-            "risk": "تأخير الرحلة، مخاطر الطريق | Trip delay, road hazards",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات طفيفة، تأخير | Minor injuries, delay",
-            "controlMeasures": {
-                "ar": [
-                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
-                    "تدريب السائقين على القيادة الآمنة في مختلف حالات الطريق",
-                    "زيارة الأحياء غير السكنية من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع أولياء الأمور وإدارة المدرسة",
-                    "إجراءات الطوارئ: وضع خطط طوارئ محددة للتعامل مع الحوادث في المناطق غير السكنية، بما في ذلك إجراءات الإخلاء والتجمع الآمن",
-                    "تدريب السائقين والمشرفين على كيفية تنفيذ خطط الطوارئ بكفاءة وسرعة"
-                ],
-                "en": [
-                    "Non-Residential Areas: Studying routes and changing them if possible in cooperation with schools",
-                    "Training drivers on safe driving rules in various road conditions",
-                    "Visiting non-residential areas by the operations coordinator and safety officer to identify risks on-site and determine student drop-off and pick-up points in coordination with parents and school administration",
-                    "Emergency Procedures: Setting specific emergency plans for dealing with accidents in non-residential areas, including evacuation procedures and safe gathering points",
-                    "Training drivers and supervisors on how to efficiently and quickly execute emergency plans"
-                ]
-            },
-            "riskAssessment": "4/5/20",
-            "residualRisks": "2/5/10"
-        }
-    },
-    {
-        "orderd": 23,
-        "question": "هل يمر خط السير بمجرى أودية أو مياه أمطار؟",
-        "translatedQuestion": "Does the route pass through valley streams or rainwater?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "المرور بمجاري أودية أو مياه الأمطار | Passing through valley streams or rainwater",
-            "risk": "الانزلاق في المياه | Slipping in water",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في المناطق المعرضة للفيضانات وكيفية التعامل مع المواقف الطارئة",
-                    "توعية المشرفين بكيفية الحفاظ على سلامة الطلاب وإدارة حالات الطوارئ",
-                    "استخدام أنظمة الملاحة الذكية ومعلومات الطقس: تزويد الحافلات بأنظمة ملاحة محدثة لتقديم معلومات في الوقت الحقيقي حول حالة الطرق وظروف الفيضانات",
-                    "استخدام تطبيقات الهواتف الذكية للحصول على تنبيهات فورية حول تحذيرات الفيضانات ومجاري الأودية",
-                    "التواصل المستمر مع الجهات المحلية: التنسيق مع الجهات المحلية والسلطات المعنية للحصول على معلومات محدثة حول حالة الأودية والفيضانات",
-                    "التعاون مع فرق الإنقاذ والطوارئ المحلية لضمان الاستجابة السريعة في حالات الطوارئ",
-                    "إشارات تحذيرية داخل الحافلات: وضع إشارات تحذيرية داخل الحافلات تُذكر السائقين والمشرفين بضرورة الحذر والانتباه عند القيادة بالقرب من مجاري الأودية والمياه",
-                    "تعزيز صيانة الحافلات: التأكد من إجراء صيانة دورية للحافلات، خاصة نظام الفرامل والإطارات، لضمان الأداء الجيد في الظروف المبتلة",
-                    "فحص الحافلات بانتظام للتأكد من جاهزيتها للعمل في الظروف الجوية السيئة",
-                    "إجراءات الطوارئ: وضع خطط طوارئ محددة للتعامل مع حالات الفيضانات، بما في ذلك إجراءات الإخلاء ومراكز التجمع الآمنة",
-                    "تدريب السائقين والمشرفين على كيفية تنفيذ خطط الطوارئ بكفاءة وسرعة",
-                    "تعليق الرحلات (إن لزم) في حالات الأجواء المماثلة بالتنسيق مع المدرسة"
-                ],
-                "en": [
-                    "Flood Management: Training drivers and supervisors: Organizing training sessions for drivers on how to drive safely in flood-prone areas and how to handle emergencies",
-                    "Educating supervisors on how to maintain student safety and manage emergencies",
-                    "Using smart navigation systems and weather information: Equipping buses with updated navigation systems to provide real-time information on road conditions and flood situations",
-                    "Using smartphone apps to receive instant alerts about flood warnings and valley streams",
-                    "Continuous communication with local authorities: Coordinating with local authorities and relevant parties for updated information on valley conditions and flood situations",
-                    "Collaborating with local rescue and emergency teams to ensure quick response in emergencies",
-                    "Warning signs inside buses: Placing warning signs inside buses reminding drivers and supervisors to be cautious and alert when driving near valley streams and water",
-                    "Enhancing bus maintenance: Ensuring regular maintenance of buses, especially the braking system and tires, to guarantee good performance in wet conditions",
-                    "Regularly inspecting buses to ensure their readiness to operate in bad weather conditions",
-                    "Emergency Procedures: Setting specific emergency plans for dealing with flood situations, including evacuation procedures and safe gathering points",
-                    "Training drivers and supervisors on how to efficiently and quickly execute emergency plans",
-                    "Suspending trips (if necessary) in similar weather conditions in coordination with the school"
-                ]
-            },
-            "riskAssessment": "4/5/20",
-            "residualRisks": "2/5/10"
-        }
-    },
-    {
-        "orderd": 24,
-        "question": "هل الأمطار والمياه تؤثر في إطالة زمن الرحلة؟",
-        "translatedQuestion": "Does rain and water affect travel time prolongation?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "تأثير الأمطار على زمن الرحلة | Effect of rain on travel time",
-            "risk": "إطالة زمن الرحلة | Prolonged travel time",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات طفيفة، تأخير | Minor injuries, delay",
-            "controlMeasures": {
-                "ar": [
-                    "التخطيط المسبق وإدارة الوقت: مراجعة الجداول الزمنية ومسارات الرحلات بشكل دوري مع الأخذ في الاعتبار التأخيرات المحتملة بسبب الأمطار",
-                    "تخصيص وقت إضافي في الجداول الزمنية للسائقين للتعامل مع التأخيرات الناتجة عن الظروف الجوية السيئة",
-                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في ظروف الأمطار، بما في ذلك تقنيات التحكم في المركبة على الطرق المبتلة",
-                    "تدريب المشرفين على التعامل مع الطلاب في حالات التأخير والتواصل الفعّال مع أولياء الأمور",
-                    "استخدام أنظمة الملاحة الذكية ومعلومات الطقس: تزويد الحافلات بأنظمة ملاحة محدثة لتقديم معلومات في الوقت الحقيقي حول حالة الطرق والظروف الجوية",
-                    "استخدام تطبيقات الهواتف الذكية للحصول على تنبيهات فورية عن التغيرات في الطقس والتأخيرات المحتملة",
-                    "تعزيز التواصل مع أولياء الأمور والطلاب: توفير وسائل فعالة للتواصل مع أولياء الأمور لإبلاغهم بأي تأخيرات محتملة بسبب الأمطار",
-                    "تقديم توجيهات للطلاب حول الإجراءات التي يجب اتباعها في حالة التأخير، مثل الانتظار في مناطق آمنة",
-                    "صيانة دورية للحافلات: التأكد من إجراء صيانة دورية للحافلات، خاصة نظام الفرامل والإطارات، لضمان الأداء الجيد في الظروف الممطرة",
-                    "فحص الحافلات بانتظام للتأكد من جاهزيتها للعمل في الظروف الجوية السيئة",
-                    "تحديد السرعة المنخفضة والقيادة الحذرة: تحديد سرعة منخفضة إلزامية للحافلات أثناء القيادة في الظروف الممطرة",
-                    "التأكد من التزام السائقين بالقيادة الحذرة وتجنب التوقفات المفاجئة",
-                    "تعليق الرحلات (إن لزم) في حالات الأجواء المماثلة بالتنسيق مع المدرسة",
-                    "الصيانة الدورية للحافلات لتأهيلها على السير في الحالات الجوية المختلفة"
-                ],
-                "en": [
-                    "Rain Management: Pre-planning and time management: Reviewing schedules and routes regularly considering potential delays due to rain",
-                    "Allocating extra time in schedules for drivers to deal with delays caused by bad weather conditions",
-                    "Training drivers and supervisors: Organizing training sessions for drivers on how to drive safely in rainy conditions, including techniques for vehicle control on wet roads",
-                    "Training supervisors on handling students during delays and effective communication with parents",
-                    "Using smart navigation systems and weather information: Equipping buses with updated navigation systems to provide real-time information on road conditions and weather",
-                    "Using smartphone apps to receive instant alerts about weather changes and potential delays",
-                    "Enhancing communication with parents and students: Providing effective communication means with parents to inform them of any potential delays due to rain",
-                    "Providing guidance to students on procedures to follow in case of delay, such as waiting in safe areas",
-                    "Regular bus maintenance: Ensuring regular maintenance of buses, especially the braking system and tires, to guarantee good performance in rainy conditions",
-                    "Regularly inspecting buses to ensure their readiness to operate in bad weather conditions",
-                    "Low-speed and cautious driving: Setting a mandatory low speed for buses when driving in rainy conditions",
-                    "Ensuring drivers adhere to cautious driving and avoid sudden stops",
-                    "Suspending trips (if necessary) in similar weather conditions in coordination with the school",
-                    "Regular maintenance of buses to ensure they are fit for driving in different weather conditions"
-                ]
-            },
-            "riskAssessment": "2/5/10",
-            "residualRisks": "1/4/4"
-        }
-    },
-    {
-        "orderd": 25,
-        "question": "هل توجد منحدرات حادة على الطريق؟",
-        "translatedQuestion": "Are there steep slopes on the road?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود تحويلات في الطرق وحواجز على الطريق | Presence of detours and barriers on the road",
-            "risk": "حوادث مرورية نتيجة عدم معرفة السائقين بوجود التحويلات والحواجز، والاصطدام بالحواجز | Traffic accidents due to drivers not knowing about detours and barriers, and colliding with barriers",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "التخطيط المسبق لمسارات الرحلات: مراجعة وتحديث مسارات الحافلات بانتظام لتجنب التحويلات والحواجز المعروفة. وضع خطط بديلة للمسارات لضمان وصول الحافلات في الوقت المحدد وبأمان",
-                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين والمشرفين لتوعيتهم بكيفية التعامل مع التحويلات والحواجز على الطريق. تعليم السائقين كيفية قراءة الإشارات المؤقتة والتصرف بسرعة وكفاءة",
-                    "استخدام أنظمة الملاحة الذكية: تزويد الحافلات بأنظمة ملاحة محدثة لتقديم معلومات فورية عن التحويلات والحواجز على الطريق. استخدام تطبيقات الهواتف الذكية التي تنبه السائقين لأي تغييرات في الطريق في الوقت الحقيقي",
-                    "التواصل المستمر مع الجهات المعنية: التنسيق مع الجهات المحلية والسلطات المعنية للحصول على معلومات محدثة حول التحويلات والحواجز الجديدة. المشاركة في الاجتماعات المجتمعية للتخطيط للطريق والتعاون مع السلطات لضمان سلامة النقل المدرسي",
-                    "إشارات تحذيرية داخل الحافلات: وضع إشارات تحذيرية داخل الحافلات تُذكر السائقين بضرورة الحذر والانتباه عند القيادة في مناطق التحويلات والحواجز",
-                    "تقليل السرعة في المناطق الحرجة: تحديد سرعة منخفضة إلزامية للحافلات عند المرور في مناطق التحويلات والحواجز. التأكد من التزام السائقين بالسرعة المحددة وتطبيق إجراءات صارمة للمخالفين"
-                ],
-                "en": [
-                    "Route Adjustment for Detours: Pre-planning routes: Reviewing and updating bus routes regularly to avoid known detours and barriers. Creating alternative route plans to ensure buses arrive on time and safely",
-                    "Training drivers and supervisors: Organizing training sessions for drivers and supervisors to educate them on how to handle detours and barriers on the road. Teaching drivers how to read temporary signs and act quickly and efficiently",
-                    "Using smart navigation systems: Equipping buses with updated navigation systems to provide instant information on detours and barriers on the road. Using smartphone apps that alert drivers to any road changes in real-time",
-                    "Continuous communication with relevant authorities: Coordinating with local authorities and relevant parties for updated information on new detours and barriers. Participating in community planning meetings and collaborating with authorities to ensure safe school transportation",
-                    "Warning signs inside buses: Placing warning signs inside buses reminding drivers to be cautious and alert when driving in detour and barrier areas",
-                    "Reducing speed in critical areas: Setting a mandatory low speed for buses when passing through detour and barrier areas. Ensuring drivers adhere to the set speed limit and applying strict measures for violations"
-                ]
-            },
-            "riskAssessment": "4/5/20",
-            "residualRisks": "2/5/10"
-        }
-    },
-    {
-        "orderd": 26,
-        "question": "هل تمر الحافلة عبر مناطق معروفة بوجود حيوانات سائبة؟",
-        "translatedQuestion": "Does the bus pass through areas known for the presence of stray animals?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "مناطق معروفة بوجود حيوانات سائبة | Areas known for the presence of stray animals",
-            "risk": "اصطدام بالحيوانات السائبة | Collision with stray animals",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "توعية السائقين والمشرفين: تنظيم دورات تدريبية للسائقين والمشرفين لتوعيتهم بالمخاطر الخاصة بوجود حيوانات سائبة على الطريق وكيفية التعامل معها. ضرورة توعية المشرفين بالمخاطر الخاصة بخطوط سيرهم عن طريق التعرف عليها من سجلات تقييمات المخاطر",
-                    "التحقق الدوري من خطوط السير: إجراء جولات تفقدية دورية على خطوط السير التي تمر بمناطق معروفة بوجود حيوانات سائبة للتأكد من سلامتها ولتحديث المعلومات حول تلك المناطق. تنسيق مع الجهات المحلية للحصول على معلومات محدثة حول أماكن وجود الحيوانات السائبة وتحديد أفضل طرق لتجنبها",
-                    "تركيب كاميرات مراقبة في الحافلات: تركيب كاميرات مراقبة على الحافلات لمراقبة الطريق وتوثيق أي حوادث محتملة تتعلق بوجود حيوانات سائبة، مما يساعد في تحسين الإجراءات الوقائية مستقبلاً"
-                ],
-                "en": [
-                    "Stray Animals: Educating drivers and supervisors: Organizing training sessions for drivers and supervisors to raise their awareness of the risks posed by stray animals on the road and how to handle them. Raising supervisors' awareness of the specific risks on their routes through risk assessment records",
-                    "Regularly checking routes: Conducting regular inspections on routes known to have stray animals to ensure their safety and update information on those areas. Coordinating with local authorities to obtain updated information on the presence of stray animals and determining the best ways to avoid them",
-                    "Installing surveillance cameras on buses: Installing surveillance cameras on buses to monitor the road and document any potential incidents related to stray animals, helping to improve preventive measures in the future"
-                ]
-            },
-            "riskAssessment": "4/5/20",
-            "residualRisks": "1/4/4"
-        }
-    },
-    {
-        "orderd": 27,
-        "question": "هل توجد تقاطعات بدون إشارات مرورية أو علامات؟",
-        "translatedQuestion": "Are there intersections without traffic signals or signs?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "غياب العلامات المرورية | Absence of traffic signs",
-            "risk": "حوادث بسبب غياب العلامات | Accidents due to missing signs",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "توعية السائقين والمشرفين: تنظيم ورش عمل ودورات تدريبية للسائقين والمشرفين لتوعيتهم بأهمية التعرف على الطرق والتعامل مع غياب العلامات المرورية. ضرورة توعية المشرفين بالمخاطر الخاصة بخطوط سيرهم عن طريق التعرف عليها من سجلات تقييمات المخاطر",
-                    "التواصل مع الجهات المحلية: التنسيق مع الجهات المعنية مثل إدارات الطرق والمرور للإبلاغ عن غياب العلامات المرورية وطلب تركيبها. التعاون مع المجتمعات المحلية للحصول على معلومات حول أي تغييرات في الطرق أو غياب العلامات المرورية"
-                ],
-                "en": [
-                    "Missing Traffic Signs: Educating drivers and supervisors: Organizing workshops and training sessions for drivers and supervisors to educate them on the importance of recognizing roads and dealing with missing traffic signs. Raising supervisors' awareness of the specific risks on their routes through risk assessment records",
-                    "Communicating with local authorities: Coordinating with relevant authorities such as road and traffic departments to report missing traffic signs and request their installation. Collaborating with local communities to obtain information about any changes in roads or missing traffic signs"
-                ]
-            },
-            "riskAssessment": "3/5/15",
-            "residualRisks": "1/4/4"
-        }
-    },
-    {
-        "orderd": 28,
-        "question": "هل توجد مناطق عالية الكثافة بالمشاة أو راكبي الدراجات على الطريق؟",
-        "translatedQuestion": "Are there areas with high density of pedestrians or cyclists on the road?",
-        "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
-            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "الكثافة العالية بالمشاة أو راكبي الدراجات | High density of pedestrians or cyclists",
-            "risk": "حوادث بسبب الكثافة العالية | Accidents due to high density",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "controlMeasures": {
-                "ar": [
-                    "تدريب مكثف للسائقين والمشرفين: تنظيم دورات تدريبية مكثفة للسائقين والمشرفين تركز على كيفية التعامل مع كثافة المشاة وراكبي الدراجات. استخدام السيناريوهات الحية والمحاكاة لتدريب السائقين على كيفية التصرف في مواقف الطوارئ والازدحام",
-                    "تحديد مسارات آمنة: التخطيط المسبق لمسارات الحافلات لتجنب المناطق ذات الكثافة العالية بالمشاة وراكبي الدراجات قدر الإمكان. اختيار الطرق الأقل ازدحاماً والأكثر أماناً لضمان سلامة الجميع",
-                    "استخدام أنظمة الإنذار المبكر: تزويد الحافلات بأنظمة إنذار مبكر للكشف عن المشاة وراكبي الدراجات القريبين وتنبيه السائقين بذلك. تركيب أجهزة استشعار في الحافلات للكشف عن الحركات القريبة وتحذير السائقين",
-                    "سرعة منخفضة محددة في المناطق الحرجة: تحديد سرعة منخفضة إلزامية للحافلات عند المرور في المناطق ذات الكثافة العالية بالمشاة أو راكبي الدراجات. التأكد من التزام السائقين بالسرعة المحددة وتطبيق إجراءات صارمة للمخالفين"
-                ],
-                "en": [
-                    "High Pedestrian or Cyclist Density: Intensive training for drivers and supervisors: Organizing intensive training sessions for drivers and supervisors focusing on how to handle high pedestrian and cyclist density. Using live scenarios and simulations to train drivers on how to act in emergencies and crowded situations",
-                    "Identifying safe routes: Pre-planning bus routes to avoid areas with high pedestrian and cyclist density as much as possible. Choosing less crowded and safer roads to ensure everyone's safety",
-                    "Using early warning systems: Equipping buses with early warning systems to detect nearby pedestrians and cyclists and alert drivers. Installing sensors on buses to detect nearby movements and warn drivers",
-                    "Low-speed limit in critical areas: Setting a mandatory low speed for buses when passing through areas with high pedestrian or cyclist density. Ensuring drivers adhere to the set speed limit and applying strict measures for violations"
-                ]
-            },
-            "riskAssessment": "3/3/9",
-            "residualRisks": "1/4/4"
-        }
-    },
-    {
-        "orderd": 29,
         "question": "هل نقطة صعود الطالب في طريق غير معبد",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Is the student's boarding point on an unpaved road?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
@@ -992,13 +533,14 @@
                     "Alerting drivers to drive at low speed on rough or unpaved roads"
                 ]
             },
-            "riskAssessment": "3/5/15",
+            "riskAssessment": "3/5/15 N",
             "residualRisks": "2/5/10"
         }
     },
     {
-        "orderd": 30,
+        "orderd": 17,
         "question": "هل يوجد حفر عميقة في الطرق غير المعبدة يمكن ان تمر عليها الحافلة ؟؟",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are there deep excavations on unpaved roads that the bus may pass over?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
@@ -1026,13 +568,14 @@
                     "Alerting drivers to drive at low speed on rough or unpaved roads"
                 ]
             },
-            "riskAssessment": "3/5/15",
+            "riskAssessment": "3/5/15 N",
             "residualRisks": "2/5/10"
         }
     },
     {
-        "orderd": 31,
+        "orderd": 18,
         "question": "هل الطريق غير المعبد به الكثير من العوائق مما ينتج عنها اهتزازات ؟؟",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Is the unpaved road filled with obstacles that cause vibrations?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
@@ -1060,13 +603,14 @@
                     "Providing first aid kits for use when needed"
                 ]
             },
-            "riskAssessment": "4/3/12",
+            "riskAssessment": "4/3/12 N",
             "residualRisks": "2/3/6"
         }
     },
     {
-        "orderd": 32,
+        "orderd": 19,
         "question": "هل تمر الحافلة بطرق رملية نتيجة عدم وجود طريق غير معبد ؟؟",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Does the bus pass through sandy roads due to the absence of paved roads?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
@@ -1086,43 +630,103 @@
                     "Regular maintenance of school buses including window insulation to keep out dust"
                 ]
             },
-            "riskAssessment": "4/3/12",
+            "riskAssessment": "4/3/12 N",
             "residualRisks": "2/3/6"
         }
     },
     {
-        "orderd": 33,
-        "question": "هل يوجد نهايات وشوارع مغلقة ؟",
-        "translatedQuestion": "Are there dead-end streets?",
+        "question": "هل نقطة صعود الطالب بمكان يصعب وصول الحافله لها مما يوثر على زمن الرحلة؟",
+        "orderd": 20,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Is the student's boarding point difficult for the bus to access, affecting travel time?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "causeOfRisk": "الطريق | The route",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
             "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "دخول الحافلة لشوارع مغلقة | Driving the bus into a dead-end road",
-            "risk": "تعرض الطلاب والمشاة لخطر حوادث الدهس أثناء محاولة السائق الالتفاف للخروج من الطريق المغلق | Students and pedestrians are exposed to run over accidents while driver attempts to exit the dead-end road",
-            "peopleExposedToRisk": "الطلاب، مستخدمي الطريق | Students, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "hazardSource": "صعوبة وصول الحافلة لنقاط الصعود والنزول المحددة | Difficulty reaching designated pick-up and drop-off points",
+            "risk": "تأخير زمن الرحلة , مخاطر الطريق | Delay in travel time, road hazards",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "تأخير، إرهاق | Delay, fatigue",
+            "riskAssessment": "4/4/16 N",
             "controlMeasures": {
                 "ar": [
-                    "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
-                    "تدريب السائقين على القيادة الآمنة في حالات الطرق المغلقة",
-                    "التأكيد على السائقين بضرورة التأكد من وصول الطلاب لمكان آمن قبل سير الحافلة",
-                    "وجود مشرفي السلامة في الحافلات المدرسية لمساعدة الطلاب على النزول منها بطريقة آمنة"
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "استخدام حافلات مخصصة اصغر ان امكن لتمكن من الوصول بسلاسة وبأمان",
+                    "التأكيد على السائقين بضرورة التأكد من وصول الطلاب لمكان آمن قبل سير الحافلة"
                 ],
                 "en": [
-                    "Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
-                    "Training drivers on safe driving in closed roads.",
-                    "Emphasizing to drivers the necessity of ensuring students reach a safe place before the bus moves.",
-                    "Having safety supervisors on school buses to help students get off safely."
+                    "Studying routes and changing them if possible in cooperation with schools.",
+                    "Using smaller dedicated buses if possible to ensure smooth and safe access.",
+                    "Emphasizing to drivers the necessity of ensuring students reach a safe place before the bus moves."
                 ]
             },
-            "riskAssessment": "4/4/16",
+            "residualRisks": "2/3/6"
+        }
+    },
+    {
+        "question": "هل توجد مناطق معرضة للانهيارات الأرضية أو الصخور المتساقطة على الطريق؟",
+        "orderd": 21,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there areas exposed to landslides or falling rocks on the road?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "الانهيارات الأرضية أو الصخور المتساقطة | Landslides or falling rocks",
+            "risk": "حوادث خطيرة | Serious accidents",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "4/3/12 N",
+            "controlMeasures": {
+                "ar": [
+                    "وضع إشارات تحذيرية في هذه المناطق",
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "تدريب السائقين على قواعد القيادة الآمنة في مختلف حالات الطريق",
+                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث",
+                    "رفع وعي السائقين والمشرفين بمخاطر الطريق المخصصة لخط السير الذي يمر منه"
+                ],
+                "en": [
+                    "Placing warning signs in these areas.",
+                    "Studying routes and changing them if possible in cooperation with schools.",
+                    "Training drivers on safe driving rules in various road conditions.",
+                    "Training and educating drivers and supervisors on emergency procedures during accidents.",
+                    "Raising driver and supervisor awareness of road hazards specific to their routes."
+                ]
+            },
             "residualRisks": "2/4/8"
         }
     },
     {
-        "orderd": 34,
+        "orderd": 22,
+        "question": "هل تمر الحافلة بطرق رملية نتيجة عدم وجود طريق غير معبد ؟؟",
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Does the bus pass through sandy roads due to the absence of paved roads?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The road",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
+            "risk": "تعرض الركاب للأغبرة الناتجة من حركة المركبات على الطرق غير المعبدة | Passengers are exposed to dust due to movement of vehicles on unpaved roads",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "اختناق، مشاكل في التنفس | Suffocations, breathing problems",
+            "controlMeasures": {
+                "ar": [
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "الصيانة الدورية للحافلات المدرسية شاملة عزل النوافذ للأغبرة خارج الحافلة المدرسية"
+                ],
+                "en": [
+                    "Studying routes and changing them if possible in cooperation with schools",
+                    "Regular maintenance of school buses including window insulation to keep out dust"
+                ]
+            },
+            "riskAssessment": "4/3/12 N",
+            "residualRisks": "2/3/6"
+        }
+    },
+    {
+        "orderd": 23,
         "question": "هل توجد صعوبة في حركة الحافلة",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are there difficulties in bus movement?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
@@ -1142,13 +746,14 @@
                     "Training drivers on safe driving in closed roads."
                 ]
             },
-            "riskAssessment": "4/4/16",
+            "riskAssessment": "4/4/16 N",
             "residualRisks": "2/4/8"
         }
     },
     {
-        "orderd": 35,
+        "orderd": 24,
         "question": "هل الطريق والمسارات ضيقة ؟؟",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are the roads and lanes narrow?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
@@ -1168,13 +773,193 @@
                     "Training drivers on safe driving rules in various road conditions."
                 ]
             },
-            "riskAssessment": "4/4/16",
+            "riskAssessment": "4/4/16 N",
             "residualRisks": "2/4/8"
         }
     },
     {
-        "orderd": 36,
+        "question": "هل توجد مركبات مصطفة على جانبي المسار؟",
+        "orderd": 25,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there parked vehicles on both sides of the lane?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "وجود مركبات مركونة على جانبي المسار | Presence of parked vehicles on both sides of the lane",
+            "risk": "اصطدام الحافلة بالسيارات المركونة، تأخر في زمن الرحلة، صعوبة الحركة للحافلات الكبيرة | Collision of the bus with parked cars, delay in travel time, difficulty in movement for large buses",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/3/9 n",
+            "controlMeasures": {
+                "ar": [
+                    "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
+                    "تدريب السائقين على القيادة الآمنة في حالات الطرق المغلقة",
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "وضع خطط دقيقة للمسارات التي تناسب الحافلات الأصغر حجماً، بما في ذلك الطرق الجانبية والأحياء السكنية الضيقة"
+                ],
+                "en": [
+                    "Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
+                    "Provide Training for drivers on safe driving in closed roads.",
+                    "Studying routes and changing them if possible in cooperation with schools.",
+                    "Creating precise plans for routes that are suitable for smaller buses, including side roads and narrow residential areas."
+                ]
+            },
+            "residualRisks": "2/4/8"
+        }
+    },
+    {
+        "question": "هل يوجد بروز بالمباني او ملحقاتها ويجب عليك المناورة والالتفاف كي لا تصطدم الحافلة؟",
+        "orderd": 26,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there building protrusions or extensions requiring maneuvering to avoid bus collisions?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "بروز المباني وملحقاتها | Protrusion of buildings and their extensions",
+            "risk": "اصطدام الحافلة بالبروزات | Collision of the bus with protrusions",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "2/4/8 n",
+            "controlMeasures": {
+                "ar": [
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "تدريب السائقين على قواعد القيادة الآمنة في مختلف حالات الطريق",
+                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ أثناء الحوادث",
+                    "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
+                    "رفع وعي السائقين والمشرفين بمخاطر الطريق المخصصة لخط السير الذي يمر منه",
+                    "وضع خطط دقيقة للمسارات التي تناسب الحافلات الأصغر حجماً، بما في ذلك الطرق الجانبية والأحياء السكنية الضيقة"
+                ],
+                "en": [
+                    "Studying routes and changing them if possible in cooperation with schools.",
+                    "Provide Training for drivers on safe driving rules in various road conditions.",
+                    "Train and educate drivers and supervisors on emergency procedures during accidents.",
+                    "Having cameras distributed at bus corners to help the driver monitor any hazards around the bus.",
+                    "Raising driver and supervisor awareness of road hazards specific to their routes.",
+                    "Creating precise plans for routes that are suitable for smaller buses, including side roads and narrow residential areas."
+                ]
+            },
+            "residualRisks": "2/3/6"
+        }
+    },
+    {
+        "question": "هل توجد أشجار او اجسام صلبة تؤثر على مسار الحافلة في خط السير؟",
+        "orderd": 27,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there trees or solid objects affecting the bus route on the road?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "قيادة الحافلة في الطرق كثيفة بالأشجار | Driving the bus on tree-dense roads",
+            "risk": "عدم وضوح الرؤية وخطر الاصطدام بمركبات أخرى قادمة بالاتجاه المعاكس | Poor visibility and risk of collision with oncoming vehicles",
+            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, Road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "2/4/8 n",
+            "controlMeasures": {
+                "ar": [
+                    "التخطيط المسبق لمسارات الرحلات: اختيار مسارات آمنة تراعي كثافة الأشجار وتجنب الطرق التي تكون فيها الفروع المتدلية منخفضة أو تعيق الحركة.",
+                    "وضع خطط بديلة للمسارات لاستخدامها في حالات الطوارئ أو عند حدوث عوائق غير متوقعة بسبب الأشجار.",
+                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في الطرق التي تكون كثيفة بالأشجار، بما في ذلك تقنيات تجنب الفروع المتدلية والمخاطر الأخرى.",
+                    "توعية المشرفين بكيفية الحفاظ على سلامة الطلاب أثناء القيادة في هذه المناطق وإدارة حالات الطوارئ.",
+                    "صيانة الحافلات: التأكد من أن الحافلات في حالة جيدة، مع التركيز على فحص الزجاج الأمامي والمرايا الجانبية بانتظام لضمان وضوح الرؤية.",
+                    "تركيب واقيات للفروع على الحافلات لحمايتها من الأضرار التي قد تسببها الفروع المتدلية.",
+                    "تحديد السرعة المنخفضة والقيادة الحذرة: تحديد سرعة منخفضة إلزامية للحافلات عند القيادة في الطرق كثيفة بالأشجار لضمان التحكم الكامل في الحافلة.",
+                    "التأكد من التزام السائقين بالقيادة الحذرة وتجنب التوقفات المفاجئة.",
+                    "التنسيق مع الجهات المحلية: التنسيق مع الجهات المحلية والسلطات المعنية للحصول على معلومات محدثة حول حالة الطرق وكثافة الأشجار.",
+                    "العمل مع الجهات المحلية لتقليم الفروع المتدلية التي تشكل خطرًا على الطرق التي تستخدمها الحافلات المدرسية.",
+                    "إجراءات الطوارئ: وضع خطط طوارئ محددة للتعامل مع الحوادث في الطرق كثيفة بالأشجار، بما في ذلك إجراءات الإخلاء والتجمع الآمن.",
+                    "تدريب السائقين والمشرفين على كيفية تنفيذ خطط الطوارئ بكفاءة وسرعة."
+                ],
+                "en": [
+                    "Pre-planning routes: Choosing safe routes that consider tree density and avoiding roads where low-hanging branches obstruct movement.",
+                    "Creating alternative route plans for emergencies or unexpected obstacles due to trees.",
+                    "Training drivers and supervisors: Organizing training sessions for drivers on how to drive safely on tree-dense roads, including techniques to avoid low-hanging branches and other hazards.",
+                    "Educating supervisors on how to maintain student safety while driving in these areas and manage emergencies.",
+                    "Bus Maintenance: Ensuring buses are in good condition, focusing on regularly checking windshields and side mirrors for clear visibility.",
+                    "Installing branch guards on buses to protect them from damage caused by low-hanging branches.",
+                    "Low-Speed and Cautious Driving: Setting a mandatory low speed for buses when driving on tree-dense roads to ensure full control of the bus.",
+                    "Ensuring drivers adhere to cautious driving and avoid sudden stops.",
+                    "Coordinating with Local Authorities: Coordinating with local authorities for updated information on road conditions and tree density.",
+                    "Working with local authorities to trim low-hanging branches that pose a threat to roads used by school buses.",
+                    "Emergency Procedures: Setting specific emergency plans for dealing with accidents on tree-dense roads, including evacuation procedures and safe gathering points.",
+                    "Training drivers and supervisors on how to efficiently and quickly execute emergency plans."
+                ]
+            },
+            "residualRisks": "1/4/4"
+        }
+    },
+    {
+        "question": "هل يوجد في خط السير إشارات مرورية مزدحمة؟",
+        "orderd": 28,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there busy traffic signals on the route?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "الإشارات المرورية المزدحمة | Busy traffic signals",
+            "risk": "تأخير الرحلة وارهاق الطلبة | Trip delay and student fatigue",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "تأخير، ازدحام | Delay, congestion",
+            "riskAssessment": "2/3/6 n",
+            "controlMeasures": {
+                "ar": [
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "تدريب السائقين على القيادة الآمنة في مختلف حالات الطريق",
+                    "تنبيه السائقين بضرورة القيادة بسرعة منخفضة في الطرق المزدحمة"
+                ],
+                "en": [
+                    "Studying routes and changing them if possible in cooperation with schools.",
+                    "Train drivers on safe driving rules in various road conditions.",
+                    "Alerting drivers to drive at low speed in crowded areas."
+                ]
+            },
+            "residualRisks": "1/4/4"
+        }
+    },
+    {
+        "question": "هل يمر خط السير بطرق دولية او طرق تزيد سرعة المركبات بها عن 110 كم/الساعة؟",
+        "orderd": 29,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Does the route pass through international roads or roads with vehicle speeds exceeding 110 km/h?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "المرور بطرق دولية ذات سرعة عالية | Passing through high-speed international roads",
+            "risk": "حوادث بسبب السرعة | Accidents due to speed",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "4/5/20 n",
+            "controlMeasures": {
+                "ar": [
+                    "جميع المركبات مزودة بجهاز التتبع لتمكين المحطات من مراقبة سرعة المركبات بشكل منتظم",
+                    "تزويد الحافلات بمثبت السرعة بحيث لا تزيد عن 80 كم للساعة",
+                    "توفير أحزمة أمان على المقاعد ومقعد السائق في الحافلات المدرسية لتقليل أثر الحوادث المرورية على المنقولين",
+                    "التدريب الدوري للسائقين على الالتزام بقواعد المرور",
+                    "مراقبة المركبات في الطرق بواسطة منسقي الحركة",
+                    "تطبيق إجراءات عقابية وأخرى تشجيعية لالتزام السائقين بالسرعة وقواعد المرور",
+                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ حسب خطة الطوارئ"
+                ],
+                "en": [
+                    "All vehicles are equipped with tracking devices to allow stations to regularly monitor vehicle speed.",
+                    "Equipping buses with speed limiters so that they do not exceed 80 km/h.",
+                    "Providing seat belts on seats and the driver's seat in school buses to reduce the impact of traffic accidents on transported students.",
+                    "Regular training for drivers on traffic rules compliance.",
+                    "Monitoring vehicles on the roads by traffic coordinators.",
+                    "Applying disciplinary and encouraging measures to ensure drivers adhere to speed limits and traffic rules.",
+                    "Train and educate drivers and supervisors on emergency procedures according to the emergency plan."
+                ]
+            },
+            "residualRisks": "2/4/8"
+        }
+    },
+    {
+        "orderd": 30,
         "question": "هل يوجد اعمال انشاء وتعديل بالقرب من نقاط الصعود والنزول",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are there construction works near the boarding and alighting points?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
@@ -1198,13 +983,14 @@
                     "Ensuring drivers do not move the bus until students are handed over to parents or have entered their homes."
                 ]
             },
-            "riskAssessment": "3/5/15",
+            "riskAssessment": "3/5/15 n",
             "residualRisks": "1/5/5"
         }
     },
     {
-        "orderd": 37,
+        "orderd": 31,
         "question": "هل يوجد في خط السير اعمال انشاء وتعديل فى الطرق او المدن",
+        "appliesTo": "trafficLine",
         "translatedQuestion": "Are there construction works on the route?",
         "answerDetails": {
             "causeOfRisk": "الطريق | The road",
@@ -1230,8 +1016,629 @@
                     "Supervisors' awareness: Raising awareness among supervisors about the specific risks on their routes through risk assessment records."
                 ]
             },
-            "riskAssessment": "5/4/20",
+            "riskAssessment": "5/4/20 n",
             "residualRisks": "2/5/10"
+        }
+    },
+    {
+        "question": "هل يغطي خط السير مناطق غير سكنية مثل \"المزارع أو العزب\"؟",
+        "orderd": 32,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Does the route cover non-residential areas such as \"farms or settlements\"?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "المرور بمناطق غير سكنية | Passing through non-residential areas",
+            "risk": "تأخير الرحلة، مخاطر الطريق | Trip delay, road hazards",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات طفيفة، تأخير | Minor injuries, delay",
+            "riskAssessment": "4/5/20 n",
+            "controlMeasures": {
+                "ar": [
+                    "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
+                    "تدريب السائقين على القيادة الآمنة في مختلف حالات الطريق",
+                    "زيارة الأحياء الغير من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع أولياء الأمور وإدارة المدرسة",
+                    "إجراءات الطوارئ: وضع خطط طوارئ محددة للتعامل مع الحوادث في المناطق غير السكنية، بما في ذلك إجراءات الإخلاء والتجمع الآمن.",
+                    "تدريب السائقين والمشرفين على كيفية تنفيذ خطط الطوارئ بكفاءة وسرعة."
+                ],
+                "en": [
+                    "Studying routes and changing them if possible in cooperation with schools.",
+                    "Train the drivers on safe driving rules in various road conditions.",
+                    "Visiting non-residential areas by the operations coordinator and safety officer to identify risks on-site and determine student drop-off and pick-up points in coordination with parents and school administration.",
+                    "Emergency Procedures: Setting specific emergency plans for dealing with accidents in non-residential areas, including evacuation procedures and safe gathering points.",
+                    "Train the drivers and supervisors on how to efficiently and quickly execute emergency plans."
+                ]
+            },
+            "residualRisks": "2/5/10"
+        }
+    },
+    {
+        "question": "هل يمر خط السير بمجرى أودية أو مياه أمطار؟",
+        "orderd": 33,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Does the route pass through valley streams or rainwater?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "المرور بمجاري أودية أو مياه الأمطار | Passing through valley streams or rainwater",
+            "risk": "الانزلاق في المياه | Slipping in water",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "4/5/20 n",
+            "controlMeasures": {
+                "ar": [
+                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في المناطق المعرضة للفيضانات وكيفية التعامل مع المواقف الطارئة.",
+                    "توعية المشرفين بكيفية الحفاظ على سلامة الطلاب وإدارة حالات الطوارئ.",
+                    "استخدام أنظمة الملاحة الذكية ومعلومات الطقس: تزويد الحافلات بأنظمة ملاحة محدثة لتقديم معلومات في الوقت الحقيقي حول حالة الطرق وظروف الفيضانات.",
+                    "استخدام تطبيقات الهواتف الذكية للحصول على تنبيهات فورية حول تحذيرات الفيضانات ومجاري الأودية.",
+                    "التواصل المستمر مع الجهات المحلية: التنسيق مع الجهات المحلية والسلطات المعنية للحصول على معلومات محدثة حول حالة الأودية والفيضانات.",
+                    "التعاون مع فرق الإنقاذ والطوارئ المحلية لضمان الاستجابة السريعة في حالات الطوارئ.",
+                    "إشارات تحذيرية داخل الحافلات: وضع إشارات تحذيرية داخل الحافلات تُذكر السائقين والمشرفين بضرورة الحذر والانتباه عند القيادة بالقرب من مجاري الأودية والمياه.",
+                    "تعزيز صيانة الحافلات: التأكد من إجراء صيانة دورية للحافلات، خاصة نظام الفرامل والإطارات، لضمان الأداء الجيد في الظروف المبتلة.",
+                    "فحص الحافلات بانتظام للتأكد من جاهزيتها للعمل في الظروف الجوية السيئة.",
+                    "إجراءات الطوارئ: وضع خطط طوارئ محددة للتعامل مع حالات الفيضانات، بما في ذلك إجراءات الإخلاء ومراكز التجمع الآمنة.",
+                    "تدريب السائقين والمشرفين على كيفية تنفيذ خطط الطوارئ بكفاءة وسرعة.",
+                    "تعليق الرحلات (إن لزم) في حالات الاجواء المماثلة بالتنسيق مع المدرسة."
+                ],
+                "en": [
+                    "Training drivers and supervisors: Organize a training sessions for drivers on how to drive safely in flood-prone areas and how to handle emergencies.",
+                    "Educating the supervisors on how to maintain student safety and manage emergencies.",
+                    "Using smart navigation systems and weather information: Equipping buses with updated navigation systems to provide real-time information on road conditions and flood situations.",
+                    "Using smartphone apps to receive instant alerts about flood warnings and valley streams.",
+                    "Continuous communication with local authorities: Coordinating with local authorities and relevant parties for updated information on valley conditions and flood situations.",
+                    "Collaborating with local rescue and emergency teams to ensure quick response in emergencies.",
+                    "Warning signs inside buses: Place warning signs inside buses reminding drivers and supervisors to be cautious and alert when driving near valley streams and water.",
+                    "Enhancing bus maintenance: Ensuring regular maintenance of buses, especially the braking system and tires, to guarantee good performance in wet conditions.",
+                    "Regularly inspecting buses to ensure their readiness to operate in bad weather conditions.",
+                    "Emergency Procedures: Setting specific emergency plans for dealing with flood situations, including evacuation procedures and safe gathering points.",
+                    "Training drivers and supervisors on how to efficiently and quickly execute emergency plans.",
+                    "Suspending trips (if necessary) in similar weather conditions in coordination with the school."
+                ]
+            },
+            "residualRisks": "2/5/10"
+        }
+    },
+    {
+        "question": "هل الامطار والمياه توثر في اطالة زمن الرحلة؟",
+        "orderd": 34,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Do rain and water affect the prolongation of travel time?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "تأثير الأمطار على زمن الرحلة | Effect of rain on travel time",
+            "risk": "إطالة زمن الرحلة | Prolonged travel time",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات طفيفة، تأخير | Minor injuries, delay",
+            "riskAssessment": "2/5/10 n",
+            "controlMeasures": {
+                "ar": [
+                    "التخطيط المسبق وإدارة الوقت: مراجعة الجداول الزمنية ومسارات الرحلات بشكل دوري مع الأخذ في الاعتبار التأخيرات المحتملة بسبب الأمطار.",
+                    "تخصيص وقت إضافي في الجداول الزمنية للسائقين للتعامل مع التأخيرات الناتجة عن الظروف الجوية السيئة.",
+                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في ظروف الأمطار، بما في ذلك تقنيات التحكم في المركبة على الطرق المبتلة.",
+                    "تدريب المشرفين على التعامل مع الطلاب في حالات التأخير والتواصل الفعّال مع أولياء الأمور.",
+                    "استخدام أنظمة الملاحة الذكية ومعلومات الطقس: تزويد الحافلات بأنظمة ملاحة محدثة لتقديم معلومات في الوقت الحقيقي حول حالة الطرق والظروف الجوية.",
+                    "استخدام تطبيقات الهواتف الذكية للحصول على تنبيهات فورية عن التغيرات في الطقس والتأخيرات المحتملة.",
+                    "تعزيز التواصل مع أولياء الأمور والطلاب: توفير وسائل فعالة للتواصل مع أولياء الأمور لإبلاغهم بأي تأخيرات محتملة بسبب الأمطار.",
+                    "تقديم توجيهات للطلاب حول الإجراءات التي يجب اتباعها في حالة التأخير، مثل الانتظار في مناطق آمنة.",
+                    "صيانة دورية للحافلات: التأكد من إجراء صيانة دورية للحافلات، خاصة نظام الفرامل والإطارات، لضمان الأداء الجيد في الظروف الممطرة.",
+                    "فحص الحافلات بانتظام للتأكد من جاهزيتها للعمل في الظروف الجوية السيئة.",
+                    "تحديد السرعة المنخفضة والقيادة الحذرة: تحديد سرعة منخفضة إلزامية للحافلات أثناء القيادة في الظروف الممطرة.",
+                    "التأكد من التزام السائقين بالقيادة الحذرة وتجنب التوقفات المفاجئة.",
+                    "تعليق الرحلات (إن لزم) في حالات الاجواء المماثلة بالتنسيق مع المدرسة.",
+                    "الصيانة الدورية للحافلات لتأهيلها على السير في الحالات الجوية المختلفة."
+                ],
+                "en": [
+                    "Pre-planning and time management: Reviewing schedules and routes regularly considering potential delays due to rain.",
+                    "Allocating extra time in schedules for drivers to deal with delays caused by bad weather conditions.",
+                    "Train drivers and supervisors: Organize training sessions for drivers on how to drive safely in rainy conditions, including techniques for vehicle control on wet roads.",
+                    "Train supervisors on handling students during delays and effective communication with parents.",
+                    "Using smart navigation systems and weather information: Equipping buses with updated navigation systems to provide real-time information on road conditions and weather.",
+                    "Using smartphone apps to receive instant alerts about weather changes and potential delays.",
+                    "Enhancing communication with parents and students: Providing effective communication means with parents to inform them of any potential delays due to rain.",
+                    "Providing guidance to students on procedures to follow in case of delay, such as waiting in safe areas.",
+                    "Regular bus maintenance: Ensuring regular maintenance of buses, especially the braking system and tires, to guarantee good performance in rainy conditions.",
+                    "Regularly inspecting buses to ensure their readiness to operate in bad weather conditions.",
+                    "Low-speed and cautious driving: Setting a mandatory low speed for buses when driving in rainy conditions.",
+                    "Ensuring drivers adhere to cautious driving and avoid sudden stops.",
+                    "Suspending trips (if necessary) in similar weather conditions in coordination with the school.",
+                    "Regular maintenance of buses to ensure they are fit for driving in different weather conditions."
+                ]
+            },
+            "residualRisks": "2/4/8"
+        }
+    },
+    {
+        "question": "هل توجد منحدرات حادة على الطريق؟",
+        "orderd": 35,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there steep slopes on the road?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "وجود تحويلات في الطرق وحواجز على الطريق | Presence of detours and barriers on the road",
+            "risk": "حوادث مرورية نتيجة عدم معرفة السائقين بوجود التحويلات والحواجز، والاصطدام بالحواجز | Traffic accidents as a result of drivers not being aware of the existence of diversions and barriers, collisions with barriers",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "4/5/20 n",
+            "controlMeasures": {
+                "ar": [
+                    "التخطيط المسبق لمسارات الرحلات: مراجعة وتحديث مسارات الحافلات بانتظام لتجنب التحويلات والحواجز المعروفة.",
+                    "وضع خطط بديلة للمسارات لضمان وصول الحافلات في الوقت المحدد وبأمان.",
+                    "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين والمشرفين لتوعيتهم بكيفية التعامل مع التحويلات والحواجز على الطريق.",
+                    "تعليم السائقين كيفية قراءة الإشارات المؤقتة والتصرف بسرعة وكفاءة.",
+                    "استخدام أنظمة الملاحة الذكية: تزويد الحافلات بأنظمة ملاحة محدثة لتقديم معلومات فورية عن التحويلات والحواجز على الطريق.",
+                    "استخدام تطبيقات الهواتف الذكية التي تنبه السائقين لأي تغييرات في الطريق في الوقت الحقيقي.",
+                    "التواصل المستمر مع الجهات المعنية: التنسيق مع الجهات المحلية والسلطات المعنية للحصول على معلومات محدثة حول التحويلات والحواجز الجديدة.",
+                    "المشاركة في الاجتماعات المجتمعية للتخطيط للطريق والتعاون مع السلطات لضمان سلامة النقل المدرسي.",
+                    "إشارات تحذيرية داخل الحافلات: وضع إشارات تحذيرية داخل الحافلات تُذكر السائقين بضرورة الحذر والانتباه عند القيادة في مناطق التحويلات والحواجز.",
+                    "تقليل السرعة في المناطق الحرجة: تحديد سرعة منخفضة إلزامية للحافلات عند المرور في مناطق التحويلات والحواجز.",
+                    "التأكد من التزام السائقين بالسرعة المحددة وتطبيق إجراءات صارمة للمخالفين."
+                ],
+                "en": [
+                    "Pre-planning routes: Reviewing and updating bus routes regularly to avoid known detours and barriers.",
+                    "Creating alternative route plans to ensure buses arrive on time and safely.",
+                    "Train drivers and supervisors: Organize training sessions for drivers and supervisors to educate them on how to handle detours and barriers on the road.",
+                    "Educating the drivers on how to read temporary signs and act quickly and efficiently.",
+                    "Using smart navigation systems: Equipping buses with updated navigation systems to provide instant information on detours and barriers on the road.",
+                    "Using smartphone apps that alert drivers to any road changes in real-time.",
+                    "Continuous communication with relevant authorities: Coordinating with local authorities and relevant parties for updated information on new detours and barriers.",
+                    "Participating in community planning meetings and collaborating with authorities to ensure safe school transportation.",
+                    "Warning signs inside buses: Placing warning signs inside buses reminding drivers to be cautious and alert when driving in detour and barrier areas.",
+                    "Reducing speed in critical areas: Setting a mandatory low speed for buses when passing through detour and barrier areas.",
+                    "Ensuring drivers adhere to the set speed limit and applying strict measures for violations."
+                ]
+            },
+            "residualRisks": "2/5/10"
+        }
+    },
+    {
+        "question": "هل تمر الحافلة عبر مناطق معروفة بوجود حيوانات سائبة؟",
+        "orderd": 36,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Does the bus pass through areas known for the presence of stray animals?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "مناطق معروفة بوجود حيوانات سائبة | Areas known for the presence of stray animals",
+            "risk": "الاصطدام بالحيوانات السائبة | Collision with stray animals",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "4/5/20 n",
+            "controlMeasures": {
+                "ar": [
+                    "توعية السائقين والمشرفين: تنظيم دورات تدريبية للسائقين والمشرفين لتوعيتهم بالمخاطر الخاصة بوجود حيوانات سائبة على الطريق وكيفية التعامل معها.",
+                    "ضرورة توعية المشرفين بالمخاطر الخاصة بخطوط سيرهم عن طريق التعرف عليها من سجلات تقييمات المخاطر.",
+                    "التحقق الدوري من خطوط السير: إجراء جولات تفقدية دورية على خطوط السير التي تمر بمناطق معروفة بوجود حيوانات سائبة للتأكد من سلامتها ولتحديث المعلومات حول تلك المناطق.",
+                    "تنسيق مع الجهات المحلية للحصول على معلومات محدثة حول أماكن وجود الحيوانات السائبة وتحديد أفضل طرق لتجنبها.",
+                    "تركيب كاميرات مراقبة في الحافلات: تركيب كاميرات مراقبة على الحافلات لمراقبة الطريق وتوثيق أي حوادث محتملة تتعلق بوجود حيوانات سائبة، مما يساعد في تحسين الإجراءات الوقائية مستقبلاً."
+                ],
+                "en": [
+                    "Educate the drivers and supervisors: Organize training sessions for drivers and supervisors to raise their awareness of the risks posed by stray animals on the road and how to handle them.",
+                    "Raising supervisors' awareness of the specific risks on their routes through risk assessment records.",
+                    "Regularly checking routes: Conducting regular inspections on routes known to have stray animals to ensure their safety and update information on those areas.",
+                    "Coordinating with local authorities to obtain updated information on the presence of stray animals and determining the best ways to avoid them.",
+                    "Installing surveillance cameras on buses: Installing surveillance cameras on buses to monitor the road and document any potential incidents related to stray animals, helping to improve preventive measures in the future."
+                ]
+            },
+            "residualRisks": "4/4/16"
+        }
+    },
+    {
+        "question": "هل توجد تقاطعات بدون إشارات مرورية أو علامات؟",
+        "orderd": 37,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there intersections without traffic signals or signs?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "غياب العلامات المرورية | Absence of traffic signs",
+            "risk": "حوادث بسبب غياب العلامات | Accidents due to missing signs",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/5/15 y",
+            "controlMeasures": {
+                "ar": [
+                    "توعية السائقين والمشرفين: تنظيم ورش عمل ودورات تدريبية للسائقين والمشرفين لتوعيتهم بأهمية التعرف على الطرق والتعامل مع غياب العلامات المرورية.",
+                    "ضرورة توعية المشرفين بالمخاطر الخاصة بخطوط سيرهم عن طريق التعرف عليها من سجلات تقييمات المخاطر",
+                    "التواصل مع الجهات المحلية: التنسيق مع الجهات المعنية مثل إدارات الطرق والمرور للإبلاغ عن غياب العلامات المرورية وطلب تركيبها.",
+                    "التعاون مع المجتمعات المحلية للحصول على معلومات حول أي تغييرات في الطرق أو غياب العلامات المرورية."
+                ],
+                "en": [
+                    "Educate the drivers and supervisors: Organize workshops and training sessions for drivers and supervisors to educate them on the importance of recognizing roads and dealing with missing traffic signs.",
+                    "Raising supervisors' awareness of the specific risks on their routes through risk assessment records.",
+                    "Communicating with local authorities: Coordinating with relevant authorities such as road and traffic departments to report missing traffic signs and request their installation.",
+                    "Collaborating with local communities to obtain information about any changes in roads or missing traffic signs."
+                ]
+            },
+            "residualRisks": "3/4/12"
+        }
+    },
+    {
+        "question": "هل توجد مناطق عالية الكثافة بالمشاة أو راكبي الدراجات على الطريق؟",
+        "orderd": 38,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "Are there high-density pedestrian or cyclist areas on the road?",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "الكثافة العالية بالمشاة أو راكبي الدراجات | High density of pedestrians or cyclists",
+            "risk": "حوادث بسبب الكثافة العالية | Accidents due to high density",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/3/9 n",
+            "controlMeasures": {
+                "ar": [
+                    "تدريب مكثف للسائقين والمشرفين: تنظيم دورات تدريبية مكثفة للسائقين والمشرفين تركز على كيفية التعامل مع كثافة المشاة وراكبي الدراجات.",
+                    "استخدام السيناريوهات الحية والمحاكاة لتدريب السائقين على كيفية التصرف في مواقف الطوارئ والازدحام.",
+                    "تحديد مسارات آمنة: التخطيط المسبق لمسارات الحافلات لتجنب المناطق ذات الكثافة العالية بالمشاة وراكبي الدراجات قدر الإمكان.",
+                    "اختيار الطرق الأقل ازدحاماً والأكثر أماناً لضمان سلامة الجميع.",
+                    "استخدام أنظمة الإنذار المبكر: تزويد الحافلات بأنظمة إنذار مبكر للكشف عن المشاة وراكبي الدراجات القريبين وتنبيه السائقين بذلك.",
+                    "تركيب أجهزة استشعار في الحافلات للكشف عن الحركات القريبة وتحذير السائقين.",
+                    "سرعة منخفضة محددة في المناطق الحرجة: تحديد سرعة منخفضة إلزامية للحافلات عند المرور في المناطق ذات الكثافة العالية بالمشاة أو راكبي الدراجات.",
+                    "التأكد من التزام السائقين بالسرعة المحددة وتطبيق إجراءات صارمة للمخالفين."
+                ],
+                "en": [
+                    "Intensive training for drivers and supervisors: Organize intensive training sessions for drivers and supervisors focusing on how to handle high pedestrian and cyclist density.",
+                    "Using live scenarios and simulations to train drivers on how to act in emergencies and crowded situations.",
+                    "Identifying safe routes: Pre-planning bus routes to avoid areas with high pedestrian and cyclist density as much as possible.",
+                    "Choosing less crowded and safer roads to ensure everyone's safety.",
+                    "Using early warning systems: Equipping buses with early warning systems to detect nearby pedestrians and cyclists and alert drivers.",
+                    "Installing sensors on buses to detect nearby movements and warn drivers.",
+                    "Low-speed limit in critical areas: Setting a mandatory low speed for buses when passing through areas with high pedestrian or cyclist density.",
+                    "Ensuring drivers adhere to the set speed limit and applying strict measures for violations."
+                ]
+            },
+            "residualRisks": "2/2/4"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 200,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "التوقف المفاجئ للحافلة | Harsh brakes",
+            "risk": "تعرض الركاب في الحافلة للارتطام بالمقاعد أو الوقوع من المقاعد داخل الحافلة | Students, driver, and safety supervisors may be injured from hitting seats in front of them or falling from seats in the bus",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "4/3/12 y",
+            "controlMeasures": {
+                "ar": [
+                    "تزويد الحافلات بمثبت السرعة بحيث لا تزيد عن 80 كم للساعة",
+                    "تركيب أحزمة الامان على المقاعد في جميع الحافلات",
+                    "توفير صناديق الإسعافات الأولية لاستخدامها عند الحاجة",
+                    "التدريب الدوري للسائقين على الالتزام بقواعد المرور",
+                    "تأكد مشرفي السلامة بالحافلات من جلوس الطلبة بمقاعدهم واستخدام أحزمة الأمان في المقاعد",
+                    "مراقبة المركبات في الطرق بواسطة منسقي الحركة",
+                    "تطبيق إجراءات عقابية وأخرى تشجيعية لالتزام السائقين بالسرعة وقواعد المرور",
+                    "تطبيق إجراءات انضباطية لسلوكيات الطلاب داخل الحافلات"
+                ],
+                "en": [
+                    "Speed Control: Equipping buses with speed limiters so that they do not exceed 80 km/h.",
+                    "Installing seat belts on seats in all buses.",
+                    "Providing first aid kits for use when needed.",
+                    "Regular training for drivers on traffic rules compliance.",
+                    "Safety supervisors in buses ensuring students are seated and using seat belts.",
+                    "Monitoring vehicles on the roads by traffic coordinators.",
+                    "Applying disciplinary and encouraging measures to ensure drivers adhere to speed limits and traffic rules.",
+                    "Implementing disciplinary procedures for student behavior inside buses."
+                ]
+            },
+            "residualRisks": "2/3/6"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 201,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "الحوادث المرورية | Traffic accidents",
+            "risk": "تعرض ركاب الحافلة أو مستخدمي الطريق لإصابات مختلفة | Passengers or road users may suffer injuries",
+            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/5/15 n",
+            "controlMeasures": {
+                "ar": [
+                    "تركيب أحزمة الأمان على المقاعد في جميع الحافلات",
+                    "تزويد الحافلات بمثبت السرعة بحيث لا تزيد عن 80 كم للساعة",
+                    "جميع الحافلات مزودة بأجهزة تتبع يمكن من خلالها مراقبة سرعة الحافلات من قبل المحطات",
+                    "جميع الحافلات تخضع لصيانة دورية للتأكد من أنها آمنة للسير على الطرق",
+                    "تدريب جميع السائقين وبشكل دوري على القواعد المرورية (الالتزام بالسرعات المحددة، الإشارات الضوئية، وعدم التجاوز إطلاقاً، عدم القيادة تحت تأثير المشروبات الكحولية، عدم عرقلة حركة السير أثناء التوقف لتحميل وتنزيل الطلبة وعدم الوقوف في الأماكن الممنوعة، إعطاء أولوية السير لمستحقيها قانونياً، استخدام إشارات التنبيه، إعطاء الأولوية للمشاة بالعبور، الخ..)",
+                    "قيام منسقي الحركة من مراقبة الحافلات (أثناء الحركة والسكون) بشكل دوري للتأكد من اتباع السائق لقواعد المرور بدقة",
+                    "التأكيد على السائقين بعدم الرجوع للخلف لأي سبب إلا بالحالات الطارئة",
+                    "تطبيق إجراءات عقابية وأخرى تشجيعية لالتزام السائقين بالسرعة وقواعد المرور",
+                    "تدريب وتوعية السائقين والمشرفات بإجراءات الطوارئ حسب خطة الطوارئ"
+                ],
+                "en": [
+                    "Seat Belts and Speed Control: Installing seat belts on seats in all buses.",
+                    "Equipping buses with speed limiters so that they do not exceed 80 km/h.",
+                    "All buses are equipped with tracking devices to monitor bus speed from stations.",
+                    "All buses undergo regular maintenance to ensure they are safe to drive.",
+                    "Regular training for all drivers on traffic rules (adherence to speed limits, traffic signals, no overtaking, no driving under the influence of alcohol, no obstructing traffic when stopping to load or unload students, no parking in prohibited areas, giving priority to pedestrians, using warning signals, giving way to pedestrians, etc.).",
+                    "Traffic coordinators regularly monitor buses (during movement and stationary) to ensure drivers follow traffic rules accurately.",
+                    "Emphasizing to drivers not to reverse for any reason except in emergencies.",
+                    "Applying disciplinary and encouraging measures to ensure drivers adhere to speed limits and traffic rules.",
+                    "Training and educating drivers and supervisors on emergency procedures according to the emergency plan."
+                ]
+            },
+            "residualRisks": "1/5/5"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 202,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "القيادة في المطر | Driving in rain",
+            "risk": "خطر انزلاق الحافلات بسبب حالة الطريق الزلقة إضافة إلى تدني مستوى الرؤية ما قد يسبب الحوادث المرورية | Risk of slipping due to road slippery condition, in addition to low visibility which may cause accidents",
+            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/5/15 n",
+            "controlMeasures": {
+                "ar": [
+                    "الصيانة الدورية للحافلات لتأهيلها على السير في الحالات الجوية المختلفة",
+                    "تركيب أحزمة الامان على المقاعد في جميع الحافلات",
+                    "يتم تدريب السائقين بشكل دوري في خطة الطوارئ على القيادة في المطر",
+                    "تعليق الرحلات (إن لزم) في حالات الاجواء العاصفة بالتنسيق مع المدرسة",
+                    "الصيانة الدورية للحافلات لتأهيلها على السير في الحالات الجوية المختلفة",
+                    "تعليق الرحلات (إن لزم) في الضباب بالتنسيق مع المدارس",
+                    "تدريب السائقين على التعامل مع الضباب في خطة الطوارئ (السير ببطء وحذر أكبر، عدم استعمال الأضواء الرباعية في حالة السير، التوقف جانباً في حال الضباب الكثيف مع تشغيل الأضواء الرباعية وإعلام منسقي الحركة عند التوقف)"
+                ],
+                "en": [
+                    "Weather Adaptation: Regular maintenance of buses to ensure they are fit for driving in different weather conditions.",
+                    "Installing seat belts on seats in all buses.",
+                    "Drivers are regularly trained in the emergency plan on driving in the rain.",
+                    "Suspending trips (if necessary) during stormy weather in coordination with the school.",
+                    "Regular maintenance of buses to ensure they are fit for driving in different weather conditions.",
+                    "Suspending trips (if necessary) in foggy weather in coordination with schools.",
+                    "Training drivers on dealing with fog in the emergency plan (driving slowly and more cautiously, not using hazard lights while driving, stopping on the side in dense fog with hazard lights on, and informing traffic coordinators when stopping)."
+                ]
+            },
+            "residualRisks": "1/5/5"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 203,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "القيادة في الضباب | Driving in fog",
+            "risk": "خطر تدني مستوى الرؤية ما قد يسبب الحوادث المرورية | Risk of low visibility which may cause accidents",
+            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/5/15 y",
+            "controlMeasures": {
+                "ar": [
+                    "الصيانة الدورية للحافلات لتأهيلها على السير في الحالات الجوية المختلفة",
+                    "تعليق الرحلات (إن لزم) في الضباب بالتنسيق مع المدارس",
+                    "تدريب السائقين على التعامل مع الضباب في خطة الطوارئ (السير ببطء وحذر أكبر، عدم استعمال الأضواء الرباعية في حالة السير، التوقف جانباً في حال الضباب الكثيف مع تشغيل الأضواء الرباعية وإعلام منسقي الحركة عند التوقف)"
+                ],
+                "en": [
+                    "Fog Management: Regular maintenance for buses to ensure they are fit for driving in different weather conditions.",
+                    "Suspending trips (if necessary) in foggy weather in coordination with schools.",
+                    "Training drivers on dealing with fog in the emergency plan (driving slowly and more cautiously, not using hazard lights while driving, stopping on the side in dense fog with hazard lights on, and informing traffic coordinators when stopping)."
+                ]
+            },
+            "residualRisks": "1/5/5"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 204,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "القيادة الليلية المتأخرة أو المبكرة جداً | Late night/ Early morning Driving",
+            "risk": "عدم وضوح الرؤية أثناء الظلام قد تتسبب بالحوادث المرورية | Inadequate vision in the dark may cause traffic accidents",
+            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/5/15 n",
+            "controlMeasures": {
+                "ar": [
+                    "الصيانة الدورية الوقائية لجميع الحافلات لتأهيلها للسير بشكل آمن أثناء الظلام",
+                    "وجود شريط عاكس على الهيكل الخارجي للحافلات المدرسية لتنبيه مستخدمي الطريق",
+                    "تركيب أحزمة أمان للمقاعد في جميع الحافلات المدرسية",
+                    "تدريب السائقين على القواعد المرورية للقيادة الآمنة أثناء الظلام",
+                    "التفقد اليومي للحافلات من قبل السائقين للتأكد من عمل الأضواء وإشارات التنبيه"
+                ],
+                "en": [
+                    "Driving at Night: conduct Preventive regular maintenance for all buses to ensure safe driving at night.",
+                    "Providing Reflective strips on the exterior body of school buses to alert road users.",
+                    "Installing seat belts on seats in all school buses.",
+                    "Training drivers on traffic rules for safe driving at night.",
+                    "Daily inspection of buses by drivers to ensure lights and warning signals are working."
+                ]
+            },
+            "residualRisks": "1/5/5"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 205,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "عبور مستخدمي الطريق بغير الأماكن المخصصة | Crossing of road users in undesignated areas",
+            "risk": "تعرض مستخدمي الطريق لحالات الدهس | Road users are exposed to run over accidents",
+            "peopleExposedToRisk": "مستخدمي الطريق | Road users",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "4/4/16 Y",
+            "controlMeasures": {
+                "ar": [
+                    "تزويد الحافلات بمثبت السرعة بحيث لا تزيد عن 80 كم للساعة",
+                    "تدريب السائقين على قواعد السلامة المرورية"
+                ],
+                "en": [
+                    "Speed Control: Equipping buses with speed limiters so that they do not exceed 80 km/h.",
+                    "Provide Training for all  drivers on road safety rules."
+                ]
+            },
+            "residualRisks": "1/4/4"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 206,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "القيادة اثناء العواصف والامطار الشديدة وجريان الأودية والفيضانات | Driving during storms, heavy rain, valleys, and floods",
+            "risk": "تعرض الحافلة للغرق، الانحراف، التدهور، الانجراف، او الحوادث نتيجة الفيضانات | The bus has been drowned, swerved, deteriorated, drifting, or had an accident because of flooding",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "غرق، إصابات متفاوتة،  وفيات | Drowning, various injuries, fatalities",
+            "riskAssessment": "1/5/5 y",
+            "controlMeasures": {
+                "ar": [
+                    "توجيه السائقين بضرورة إيقاف الحافلة في مكان آمن وعدم تعريض المنقولين لأي خطر ممكن في حال مواجهة سيناريو مشابه",
+                    "مراجعة خطوط السير لتفادي دخول الحافلات للأماكن الخطرة كالأودية ومجاري السيول",
+                    "اتباع الارشادات الصادرة عن الجهات المختصة",
+                    "تدريب وتوعية السائقين ومشرفي النقل والسلامة والموظفين على اجراءات الطوارئ"
+                ],
+                "en": [
+                    "Flood Management: Guiding drivers to stop the bus in a safe place and not expose transported students to any potential danger in the event of a similar scenario.",
+                    "Reviewing routes to avoid buses entering dangerous areas such as valleys and floodways.",
+                    "Following instructions issued by the authorized authorities.",
+                    "Training and educating drivers, transport and safety supervisors, and employees on emergency procedures."
+                ]
+            },
+            "residualRisks": "1/4/4"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 207,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "تقليل السرعة بشكل مفاجئ او التوقف المفاجئ | Suddenly reduce the speed or harsh brake",
+            "risk": "صدم الحافلة من الخلف من قبل المركبات الأخرى | Hitting the bus from rear by other vehicles",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة | Various injuries",
+            "riskAssessment": "3/3/9 y",
+            "controlMeasures": {
+                "ar": [
+                    "تركيب أحزمة الامان على المقاعد في جميع الحافلات",
+                    "تدريب السائقين على القيادة الدفاعية",
+                    "مراقبة المركبات في الطرق بواسطة منسقي الحركة",
+                    "تأكد السائقين والمشرفات من جلوس الطلاب في مقاعدهم",
+                    "توفير صندوق الإسعافات الأولية لاستخدامها عند الحاجة"
+                ],
+                "en": [
+                    "Seat Belts and Defensive Driving: Installing seat belts on seats in all buses.",
+                    "Provide training for drivers on defensive driving.",
+                    "Monitoring vehicles on the roads by traffic coordinators.",
+                    "Drivers and supervisors ensuring students are seated in their seats.",
+                    "Providing a first aid kit for use when needed."
+                ]
+            },
+            "residualRisks": "2/3/6"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 208,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "صعود ونزول مشرفي النقل والسلامة في مناطق التحميل والتنزيل (أمام المدارس والمنازل) | Boarding and Disembarking safety supervisors (loading and unloading zone, in front of the schools & houses)",
+            "risk": "تعرض مشرفي النقل والسلامة للدهس من قبل الحافلة المدرسية أو المركبات الأخرى على الطريق | Safety supervisors may be at risk of run over accidents by school bus or other vehicles while boarding or disembarking",
+            "peopleExposedToRisk": "مشرفي النقل والسلامة | Safety supervisors",
+            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
+            "riskAssessment": "3/4/12 y",
+            "controlMeasures": {
+                "ar": [
+                    "ارتداء السترة العاكسة من قبل مشرفي النقل والسلامة أثناء العمل",
+                    "استخدام ذراع التوقف لتحذير السائقين الآخرين على الطريق أثناء تحميل وتنزيل الطلبة",
+                    "تركيب كاميرات على زوايا مختلفة من الحافلة لتأمين رؤية واضحة للسائق لحركة السير أثناء التنزيل والتحميل",
+                    "المراجعة الدورية لخطوط السير لتفادي دخول الحافلات وتوقفها في الأماكن الخطرة على سلامة المنقولين",
+                    "الصيانة الدورية للحافلات شاملة الكاميرات والمرايا الجانبية وذراع التوقف",
+                    "وقوف الحافلة على نفس جهة المدرسة/البيت لتفادي قطع الشارع (داخل الأحياء السكنية) أثناء التحميل والتنزيل إن أمكن",
+                    "توفير صندوق الإسعافات الأولية لاستخدامها عند الحاجة",
+                    "المراقبة المستمرة للحافلات أثناء تنزيل وتحميل الطلاب من قبل منسقي الحركة للتأكد من اتباع السائق والمشرفين لإجراءات السلامة"
+                ],
+                "en": [
+                    "Reflective Vests and Stop Arm Use: Safety and transport supervisors wearing reflective vests while working.",
+                    "Using stop arms to warn other drivers on the road during loading and unloading of students.",
+                    "Installing cameras at different angles of the bus to ensure a clear view for the driver of the traffic during loading and unloading.",
+                    "Regularly reviewing routes to avoid buses entering and stopping in dangerous places for the safety of the transported students.",
+                    "Regular maintenance of buses including cameras, side mirrors, and stop arms.",
+                    "Stopping the bus on the same side as the school/home to avoid crossing the street (within residential areas) during loading and unloading, if possible.",
+                    "Providing a first aid kit for use when needed.",
+                    "Continuous monitoring of buses during loading and unloading of students by traffic coordinators to ensure drivers and supervisors follow safety procedures."
+                ]
+            },
+            "residualRisks": "1/4/4"
+        }
+    },
+    {
+        "question": "اساسي",
+        "orderd": 209,
+        "appliesTo": "trafficLine",
+        "translatedQuestion": "BASIC",
+        "answerDetails": {
+            "causeOfRisk": "الطريق | The route",
+            "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
+            "typeOfActivity": "روتيني | Routine",
+            "hazardSource": "تقليل السرعة بشكل مفاجئ او التوقف المفاجئ | Suddenly reduce the speed or harsh brake",
+            "risk": "صدم الحافلة من الخلف من قبل المركبات الأخرى | Hitting the bus from rear by other vehicles",
+            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
+            "expectedInjury": "إصابات متفاوتة | Various injuries",
+            "riskAssessment": "3/3/9 y",
+            "controlMeasures": {
+                "ar": [
+                    "تركيب أحزمة الامان على المقاعد في جميع الحافلات",
+                    "تدريب السائقين على القيادة الدفاعية",
+                    "مراقبة المركبات في الطرق بواسطة منسقي الحركة",
+                    "تأكد السائقين والمشرفات من جلوس الطلاب في مقاعدهم",
+                    "توفير صندوق الإسعافات الأولية لاستخدامها عند الحاجة"
+                ],
+                "en": [
+                    "Seat Belts and Defensive Driving: Installing seat belts on seats in all buses.",
+                    "Provide Training for drivers on defensive driving.",
+                    "Monitoring vehicles on the roads by traffic coordinators.",
+                    "Drivers and supervisors ensuring students are seated in their seats.",
+                    "Providing a first aid kit for use when needed."
+                ]
+            },
+            "residualRisks": "2/3/6"
         }
     }
 ]

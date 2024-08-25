@@ -145,11 +145,19 @@ export const POST = async (req: Request) => {
                     throw new Error('Missing required fields');
                 }
 
+                if (answerDetails.controlMeasures.ar.length !== answerDetails.controlMeasures.en.length) {
+                    console.log(answerDetails.controlMeasures.en);
+
+                }
+
                 // Handle control measures
-                const controlMeasures = answerDetails.controlMeasures.ar.map((measureAr: any, index: number) => ({
-                    ar: measureAr,
-                    en: answerDetails.controlMeasures.en[index],
-                }));
+                const controlMeasures = answerDetails.controlMeasures.ar.map((measureAr: any, index: number) => {
+
+                    return {
+                        ar: measureAr,
+                        en: answerDetails.controlMeasures.en[index],
+                    }
+                });
 
                 return db.question.create({
                     data: {

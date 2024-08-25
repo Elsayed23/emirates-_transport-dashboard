@@ -5,7 +5,7 @@ import { IoMdDocument, IoMdHome } from "react-icons/io";
 import { FaBuilding, FaListUl, FaMapMarkedAlt } from "react-icons/fa";
 import useTranslation from '@/app/hooks/useTranslation';
 import { MdDocumentScanner, MdImageSearch, MdModelTraining } from 'react-icons/md';
-import { FaCodePullRequest, FaUsers } from 'react-icons/fa6';
+import { FaBook, FaCodePullRequest, FaUsers } from 'react-icons/fa6';
 import { BsFillQuestionSquareFill } from "react-icons/bs";
 import { useAuth } from '@/app/context/AuthContext';
 import {
@@ -72,6 +72,11 @@ const SidebarRoutes = () => {
     }
 
     const typesOfRiskRegistersData = [
+        {
+            icon: FaBook,
+            label: 'سجل المخاطر العام',
+            href: '/general_risk_profile'
+        },
         {
             icon: FaMapMarkedAlt,
             label: 'المدارس وخطوط السير',

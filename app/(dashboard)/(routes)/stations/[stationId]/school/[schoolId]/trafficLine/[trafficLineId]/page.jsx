@@ -203,8 +203,6 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
     if (loading) return <Loading />
 
-    console.log(main?.user);
-
 
     return (
         <div className="p-6 min-h-[calc(100vh-80px)]">
