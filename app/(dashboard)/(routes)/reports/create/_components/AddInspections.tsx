@@ -257,8 +257,6 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
         } catch (error) {
             console.error("Error saving all inspections:", error);
             toast.error("Failed to save inspections.");
-        } finally {
-            setIsFinishSubmitting(false);
         }
     };
 

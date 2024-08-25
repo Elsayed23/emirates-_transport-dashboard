@@ -75,8 +75,6 @@ const page = ({ params: { stationId, schoolId } }) => {
         } catch (error) {
             console.error('Failed to save data:', error);
             toast.error(t('Failed to save data'));
-        } finally {
-            setIsSubmitting(false);
         }
     }, [allTheAnswersFromQuestions, questions, t, router, stationId, schoolId]);
 
