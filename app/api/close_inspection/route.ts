@@ -15,7 +15,7 @@ export const PATCH = async (req: Request) => {
             }
         });
 
-        return NextResponse.json({ message: 'Root cause added successfully' });
+        return NextResponse.json({ message: 'Done' });
     } catch (error) {
         console.error('Error creating report:', error);
         return NextResponse.json({ message: 'Internal server error' }, { status: 500 });

@@ -7,6 +7,7 @@ import useTranslation from '@/app/hooks/useTranslation';
 import LanguageContext from '@/app/context/LanguageContext';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/app/context/AuthContext';
+import Loading from '@/app/(dashboard)/_components/Loading';
 
 const AddRisksForm = ({ trafficLineData, params: { stationId, schoolId }, files }) => {
     const [questions, setQuestions] = useState([]);
@@ -107,6 +108,8 @@ const AddRisksForm = ({ trafficLineData, params: { stationId, schoolId }, files 
             </div>
         ))
     ), [questions, handleAnswerChange, language, t]);
+
+    if (!questions.length) return <Loading />
 
     return (
         <div className="min-h-[calc(100vh-148px)] flex flex-col justify-center items-center">

@@ -99,7 +99,7 @@ const StationCard = ({
                     </div>
             }
             <p className='text-opacity-75 text-center text-sm'>{t('Date created')}: {new Date(createdAt).toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', })}</p>
-            <p>خط السير بإسم: <span className='font-semibold'>{userName}</span></p>
+            <p>{t('Inspector')}: <span className='font-semibold'>{userName}</span></p>
             {
                 main?.user?.id === userId || main?.user?.role?.name === 'ADMIN'
                     ?

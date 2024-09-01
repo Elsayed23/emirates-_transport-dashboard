@@ -77,7 +77,13 @@ const page = () => {
         <div className="p-6 min-h-[calc(100vh-80px)]">
             <div className="flex flex-col gap-9">
                 <DynamicBreadcrumb routes={breadcrumbData} />
-                <Button className='w-fit' onClick={() => router.push('/reports/create')}>{t('Create a report')}</Button>
+                {
+                    user?.role?.name === 'SAFETY_OFFICER'
+                        ?
+                        <Button className='w-fit' onClick={() => router.push('/reports/create')}>{t('Create a report')}</Button>
+                        :
+                        null
+                }
                 <div className="grid grid-cols-2 gap-6">
                     {reportsCard}
                 </div>

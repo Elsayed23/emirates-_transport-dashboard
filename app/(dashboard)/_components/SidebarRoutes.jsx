@@ -2,9 +2,9 @@
 import React, { useContext } from 'react';
 import SideItems from './SideItems';
 import { IoMdDocument, IoMdHome } from "react-icons/io";
-import { FaBuilding, FaListUl, FaMapMarkedAlt } from "react-icons/fa";
+import { FaBuilding, FaListUl, FaMapMarkedAlt, FaTasks } from "react-icons/fa";
 import useTranslation from '@/app/hooks/useTranslation';
-import { MdDocumentScanner, MdImageSearch, MdModelTraining } from 'react-icons/md';
+import { MdDocumentScanner, MdImageSearch, MdModelTraining, MdPlaylistAdd, MdPlaylistAddCircle } from 'react-icons/md';
 import { FaBook, FaCodePullRequest, FaUsers } from 'react-icons/fa6';
 import { BsFillQuestionSquareFill } from "react-icons/bs";
 import { useAuth } from '@/app/context/AuthContext';
@@ -24,6 +24,8 @@ import { GrDocumentConfig } from "react-icons/gr";
 const SidebarRoutes = () => {
     const { t } = useTranslation();
     const { user } = useAuth();
+    console.log(user);
+
     const pathname = usePathname();
     const router = useRouter();
 
@@ -33,11 +35,6 @@ const SidebarRoutes = () => {
         //     label: t('stations'),
         //     href: '/stations'
         // },
-        {
-            icon: MdModelTraining,
-            label: 'المهمات',
-            href: '/tasks'
-        },
     ];
 
     const isAdmin = user?.role?.name === 'ADMIN';
@@ -52,39 +49,23 @@ const SidebarRoutes = () => {
             label: t('Users'),
             href: '/users'
         },
-            {
-                icon: BsFillQuestionSquareFill,
-                label: 'الاسئلة',
-                href: '/questions'
-            },
-            {
-                icon: FaListUl,
-                label: 'التطلبات',
-                href: '/requirements'
-            },
-            {
-                icon: FaCodePullRequest,
-                label: 'مهمات ضباط السلامة',
-                href: '/safety_officer'
-            }
-
         );
     }
 
     const typesOfRiskRegistersData = [
         {
             icon: FaBook,
-            label: 'سجل المخاطر العام',
+            label: t('General Risk Register'),
             href: '/general_risk_profile'
         },
         {
             icon: FaMapMarkedAlt,
-            label: 'المدارس وخطوط السير',
+            label: t('Schools and itineraries'),
             href: '/stations'
         },
         {
             icon: FaBuilding,
-            label: 'المباني والموظفين',
+            label: t('Buildings and staff'),
             href: '/buildings'
         },
     ]
@@ -111,9 +92,33 @@ const SidebarRoutes = () => {
             },
 
         )
-
     }
 
+    const tasks = [
+        {
+            icon: MdPlaylistAdd,
+            label: t('Add mission'),
+            href: '/safety_officer'
+        },
+        {
+            icon: FaCodePullRequest,
+            label: t('Follow up missions'),
+            href: '/safety_officer'
+        },
+    ]
+
+    const AddsInfo = [
+        {
+            icon: BsFillQuestionSquareFill,
+            label: t('Questions'),
+            href: '/questions'
+        },
+        {
+            icon: FaListUl,
+            label: t('Requirements'),
+            href: '/requirements'
+        },
+    ]
 
     const isReportsActive = pathname.includes('report') || pathname.includes('requests');
 
@@ -124,24 +129,22 @@ const SidebarRoutes = () => {
     const typesOfInspections = inspectionsData.map((types, idx) => (
         <SingleRoute key={idx} {...types} />
     ));
+
     const typesOfRiskRegisters = typesOfRiskRegistersData.map((types, idx) => (
         <SingleRoute key={idx} {...types} />
     ));
-    // const isActive = (href) => {
-    //     console.log(pathname, href);
-
-    //     (pathname === '/' && href === '/')
-    //         ||
-    //         pathname === href
-    //         ||
-    //         pathname?.startsWith(`${href}/`)
-    // }
+    const tasksss = tasks.map((types, idx) => (
+        <SingleRoute key={idx} {...types} />
+    ));
+    const Adds = AddsInfo.map((types, idx) => (
+        <SingleRoute key={idx} {...types} />
+    ));
 
     const isActive = (href) => pathname === href
 
     return (
         <div className='flex flex-col w-full'>
-            <button onClick={() => router.push('/')} className={cn(`flex items-center gap-x-2 overflow-x-hidden text-slate-500 ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'}  hover:text-slate-600 hover:bg-red-300/20 duration-300`, isActive('/') && 'text-red-700 bg-red-200/20 hover:bg-red-200/20 hover:text-red-700')}>
+            <button onClick={() => router.push('/')} className={cn(`flex items-center text-sm gap-x-2 overflow-x-hidden text-slate-500 ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'}  hover:text-slate-600 hover:bg-red-300/20 duration-300`, isActive('/') && 'text-red-700 bg-red-200/20 hover:bg-red-200/20 hover:text-red-700')}>
                 <div className="flex items-center gap-2 py-4 duration-200 justify-center">
 
                     <IoMdHome size={23} className={cn('text-slate-500', isActive('/') && 'text-red-700')} />
@@ -151,19 +154,16 @@ const SidebarRoutes = () => {
                 <div className={cn(`${language === 'ar' ? 'ml-auto md:ml-0 md:mr-auto' : 'mr-auto md:mr-0 md:ml-auto'}  h-full opacity-0 border-2 border-red-700 transition-all`, isActive('/') && 'opacity-100 ')}></div>
             </button>
 
-            <Accordion type="single" collapsible defaultValue={isReportsActive ? 'item-1' : ''}>
+            <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
                     <AccordionTrigger className={cn(
                         `py-0 relative text-slate-500 hover:no-underline ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'} hover:text-slate-600 hover:bg-red-300/20 duration-300`,
-                        isReportsActive && 'text-red-700 bg-red-200/20'
                     )}>
                         <div className={cn(
                             'flex items-center gap-2 py-4',
-                            isReportsActive && 'text-red-700'
                         )}>
-                            <GrDocumentConfig size={23} className={cn(
+                            <FaTasks size={23} className={cn(
                                 'text-slate-500',
-                                isReportsActive && 'text-red-700'
                             )} />
 
                             <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>{t('stations')}</span>
@@ -176,10 +176,9 @@ const SidebarRoutes = () => {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
-            {routes.map((route, idx) => (
-                <SideItems key={idx} {...route} />
-            ))}
-            <Accordion type="single" collapsible defaultValue={isReportsActive ? 'item-1' : ''}>
+
+
+            <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
                     <AccordionTrigger className={cn(
                         `py-0 relative text-slate-500 hover:no-underline ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'} hover:text-slate-600 hover:bg-red-300/20 duration-300`,
@@ -205,21 +204,70 @@ const SidebarRoutes = () => {
                 </AccordionItem>
             </Accordion>
             {
-                isAdmin
+                isSafetyManager || isAdmin
                     ?
-                    <button onClick={() => router.push('/tasks')} className={cn(`flex items-center gap-x-2 overflow-x-hidden text-slate-500 ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'}  hover:text-slate-600 hover:bg-red-300/20 duration-300`, isActive('/tasks') && 'text-red-700 bg-red-200/20 hover:bg-red-200/20 hover:text-red-700')}>
-                        <div className="flex items-center gap-2 py-4 duration-200 justify-center">
 
-                            <MdModelTraining size={23} className={cn('text-slate-500', isActive('/tasks') && 'text-red-700')} />
+                    <Accordion type="single" collapsible>
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger className={cn(
+                                `py-0 relative text-slate-500 hover:no-underline ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'} hover:text-slate-600 hover:bg-red-300/20 duration-300`,
+                            )}>
+                                <div className={cn(
+                                    'flex items-center gap-2 py-4',
+                                )}>
+                                    <MdModelTraining size={23} className={cn(
+                                        'text-slate-500',
+                                    )} />
 
-                            <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>المهمات</span>
-                        </div>
-                        <div className={cn(`${language === 'ar' ? 'ml-auto md:ml-0 md:mr-auto' : 'mr-auto md:mr-0 md:ml-auto'}  h-full opacity-0 border-2 border-red-700 transition-all`, isActive('/tasks') && 'opacity-100 ')}></div>
-                    </button>
+                                    <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>{t('Tasks')}</span>
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent className="w-full">
+                                <div className="flex flex-col gap-2">
+                                    {tasksss}
+                                </div>
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
                     :
                     null
             }
+
+            {
+                isAdmin
+                    ?
+
+                    <Accordion type="single" collapsible>
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger className={cn(
+                                `py-0 relative text-slate-500 hover:no-underline ${language === 'ar' ? 'pl-6 md:pl-0 md:pr-6' : 'pr-6 md:pr-0 md:pl-6'} hover:text-slate-600 hover:bg-red-300/20 duration-300`,
+                            )}>
+                                <div className={cn(
+                                    'flex items-center gap-2 py-4',
+                                )}>
+                                    <MdPlaylistAddCircle size={23} className={cn(
+                                        'text-slate-500',
+                                    )} />
+
+                                    <span className={`${isOpen ? 'duration-200' : 'opacity-0 hidden'} duration-200 break-words`}>{t('Additions')}</span>
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent className="w-full">
+                                <div className="flex flex-col gap-2">
+                                    {Adds}
+                                </div>
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                    :
+                    null
+            }
+
+            {routes.map((route, idx) => (
+                <SideItems key={idx} {...route} />
+            ))}
         </div>
+
     );
 };
 

@@ -55,7 +55,6 @@ const Register = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             console.log(values);
-            // handle form submission
         } catch (error) {
             console.error(error);
         }

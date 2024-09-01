@@ -12,13 +12,12 @@ export const POST = async (req: Request) => {
     try {
         const formData = await req.formData();
         const reportId = formData.get("reportId") as string;
-        const name = formData.get("name") as string;
         const idOfBus = formData.get("idOfBus") as string;
         const requirementId = formData.get("requirementId") as string;
-        const noteId = formData.get("noteId") as string;  //
+        const noteId = formData.get("noteId") as string;
         const file = formData.get("file") as File;
 
-        if (!reportId || !name || !idOfBus || !requirementId || !noteId || !file) {
+        if (!reportId || !idOfBus || !requirementId || !noteId || !file) {
             return NextResponse.json({ status: 400, message: "All fields are required" });
         }
 
@@ -45,7 +44,6 @@ export const POST = async (req: Request) => {
         const newInspection = await db.inspection.create({
             data: {
                 reportId,
-                name,
                 idOfBus: Number(idOfBus),
                 requirementId,
                 noteId,  // Link the inspection to the note

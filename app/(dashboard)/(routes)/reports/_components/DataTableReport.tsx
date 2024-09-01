@@ -230,7 +230,7 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
         },
         {
             accessorKey: "requirement",
-            header: () => <div className="text-center">المتطلب <br />requirement</div>,
+            header: () => <div className="text-center">المتطلب <br />Refer to</div>,
             cell: ({ row }) => {
                 const requirement: any = row.original.requirement.requirement;
                 return (
@@ -254,6 +254,13 @@ export function DataTableReport({ report, setIsRootCauseAdded, setIsCorrectiveAc
             header: () => <div className="text-center">تصنيف الملاحظة <br />Note classification</div>,
             cell: ({ row }) => (
                 <div className="capitalize">{row.original.note.noteClassification}</div>
+            ),
+        },
+        {
+            accessorKey: "note.severity",
+            header: () => <div className="text-center">الشدة <br />Severity</div>,
+            cell: ({ row }) => (
+                <div className="capitalize">{row.original.note.severity}</div>
             ),
         },
         {

@@ -210,12 +210,12 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                 <DynamicBreadcrumb routes={breadcrumbData} />
                 <div className="flex flex-col gap-4">
                     <div className="flex gap-2">
-                        <h4>المفتش: <span className='font-semibold'>{trafficLineData?.userName}</span> | الرقم المالي: <span className='font-semibold'>{trafficLineData?.userFinancialNumber}</span></h4>
+                        <h4>{t('Inspector')}: <span className='font-semibold'>{trafficLineData?.userName}</span> | {t('Financial number')}: <span className='font-semibold'>{trafficLineData?.userFinancialNumber}</span></h4>
                     </div>
                     <div className="flex items-center gap-3">
                         <Button className='w-fit justify-start' disabled={!isEnabled} onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/trafficLine/${trafficLineId}/update?station=${trafficLineData?.station?.translationName}&ar_school=${trafficLineData?.school?.name}&en_school=${trafficLineData?.school?.translationName}`)}>{t('Update risks')}</Button>
                         <Button variant='outline' onClick={handleDownload}>{t('Download Risks')}</Button>
-                        <Button variant='outline' onClick={handleDownloadQuestions}>تحميل الاسئلة</Button>
+                        <Button variant='outline' onClick={handleDownloadQuestions}>{t('Download questions')}</Button>
                         <Dialog open={isShowQuestionsDialogOpen} onOpenChange={setIsShowQuestionsDialogOpen}>
                             <DialogTrigger asChild>
                                 <Button variant="outline">{t('View question answers')}</Button>
@@ -243,7 +243,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
 
                         <Dialog open={isMapDialogOpen} onOpenChange={setIsMapDialogOpen}>
                             <DialogTrigger asChild>
-                                <Button variant='outline' onClick={handleMapButtonClick}>{t('Show Map')}</Button>
+                                <Button variant='outline' onClick={handleMapButtonClick}>{t('Location on map')}</Button>
                             </DialogTrigger>
                             <DialogContent dir={makeDIR} className="sm:max-w-[425px] max-h-[520px] overflow-y-scroll">
                                 <DialogHeader className='sm:text-center'>
@@ -296,7 +296,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                     }
                 </div>
                 <div className="space-y-2">
-                    <h2 className='font-semibold'>صور خط السير</h2>
+                    <h2 className='font-semibold'>{t('Photos of the itinerary')}</h2>
                     <div className='flex items-center gap-3'>
                         {trafficLineData?.images?.map(({ imageUrl }, idx) => (
                             <img src={imageUrl} key={idx} alt="Traffic Line" className='w-20 h-20 rounded-sm cursor-pointer' onClick={() => {

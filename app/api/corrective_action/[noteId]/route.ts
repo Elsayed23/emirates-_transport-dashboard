@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 
 export const GET = async (req: Request, { params }: { params: { noteId: string } }) => {
     const { noteId } = params;
-
     try {
         const correctiveActions = await db.correctiveAction.findMany({
             where: {

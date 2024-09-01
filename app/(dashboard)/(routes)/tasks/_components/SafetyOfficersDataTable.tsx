@@ -102,7 +102,7 @@ const SafetyOfficersDataTable = () => {
             cell: ({ row }) => {
                 const user = row.original;
                 return (
-                    <Button onClick={() => { handleAddTask(user.id) }}>إضافة مهمة</Button>
+                    <Button onClick={() => { handleAddTask(user.id) }}>{t('Add mission')}</Button>
                 );
             },
         },

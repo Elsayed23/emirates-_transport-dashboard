@@ -261,7 +261,7 @@ model Report {
 model Inspection {
   id               String                 @id @default(uuid())
   reportId         String
-  name             String
+  name             String?
   image            String                 @db.LongText
   idOfBus          Int
   rootCause        String?                @db.LongText

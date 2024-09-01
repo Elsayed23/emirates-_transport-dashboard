@@ -27,7 +27,7 @@ const StationCard = ({
             {count && <h1 className='font-bold text-2xl'>{count}</h1>}
             <h2 className='text-lg font-semibold'>{language === 'ar' ? name : translationName}</h2>
             <span className='text-opacity-75 text-sm'>{t('count of existing schools')} ({_count?.schools || 0})</span>
-            <span className='text-opacity-75 text-sm'>عدد خطوط السير ({_count?.TrafficLine || 0})</span>
+            <span className='text-opacity-75 text-sm'>{t('Count of itineraries')} ({_count?.TrafficLine || 0})</span>
         </div>
     )
 }

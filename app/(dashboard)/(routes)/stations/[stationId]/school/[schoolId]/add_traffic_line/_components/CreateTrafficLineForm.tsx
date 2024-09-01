@@ -286,7 +286,7 @@ const TrafficLineManagement: React.FC<TrafficLineManagementProps> = ({ params: {
                                 </div>
                                 <aside className="flex flex-wrap mt-4">{thumbs}</aside>
                                 <Button type="button" onClick={handleButtonClick} disabled={isFetchingLocation}>
-                                    تأكيد الموقع
+                                    {t('Confirm location')}
                                 </Button>
                                 <div className="flex justify-between items-center">
                                     <Button type="submit" disabled={!isValid || isSubmitting || !isFetchingLocation}>

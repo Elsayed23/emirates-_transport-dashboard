@@ -113,7 +113,10 @@ const page = ({ params: { stationId, schoolId } }) => {
             ?
             <div className="p-6 min-h-[calc(100vh-80px)]">
                 <div className="flex flex-col gap-9">
-                    <DynamicBreadcrumb routes={breadcrumbData} />
+                    <div className="flex justify-between">
+                        <DynamicBreadcrumb routes={breadcrumbData} />
+                        <Button variant='outline' className='w-fit flex flex-wrap items-center gap-2' dir='ltr' onClick={() => setIsOpenHowToUse(true)}>How to use? <BsQuestionCircle size={18} /></Button>
+                    </div>
                     <div className='flex flex-col gap-5'>
                         {
                             user?.role?.name === 'ADMIN' || user?.role?.name === 'OPERATIONS_MANAGER'
@@ -139,10 +142,7 @@ const page = ({ params: { stationId, schoolId } }) => {
 
                         }
                         <h2 className='text-xl font-semibold'>{t('results')}: {schoolData?.trafficLine?.length}</h2>
-                        <div className="flex items-center gap-4">
-                            <Button className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_traffic_line?${search_params}`)}>{t('Add an itinerary')} <FaCirclePlus size={18} /></Button>
-                            <Button variant='outline' className='w-fit flex flex-wrap items-center gap-2' onClick={() => setIsOpenHowToUse(true)}>كيف أضيف خط سير؟ <BsQuestionCircle size={18} /></Button>
-                        </div>
+                        <Button className='w-fit flex flex-wrap items-center gap-2' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_traffic_line?${search_params}`)}>{t('Add an itinerary')} <FaCirclePlus size={18} /></Button>
                         {
                             schoolData?.trafficLine?.length
                                 ?

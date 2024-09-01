@@ -17,7 +17,6 @@ import axios from 'axios';
 import useTranslation from '@/app/hooks/useTranslation';
 import LanguageContext from '@/app/context/LanguageContext';
 import { exportRisksToExcel } from '@/utils/exportRisksToExcel';
-import { exportQuestionsToExcel } from '@/utils/exportQuestionsToExcel'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const page = ({ params: { id } }) => {
@@ -70,10 +69,6 @@ const page = ({ params: { id } }) => {
         exportRisksToExcel(risks, `${builtName} built risks`);
     };
 
-    const handleDownloadQuestions = () => {
-        exportQuestionsToExcel(allQuestionAnswers, `${builtName} built questions`);
-    }
-
     const makeDIR = language === 'ar' ? 'rtl' : 'ltr';
 
     const splitAndRender = (text) => {
@@ -94,7 +89,7 @@ const page = ({ params: { id } }) => {
                     <div className="flex items-center gap-3">
                         <Button className='w-fit justify-start' onClick={() => router.push(`/stations/${stationId}/school/${schoolId}/add_risks`)}>{isHaveRisks ? t('Update risks') : t('Add risks')}</Button>
                         <Button variant='outline' onClick={handleDownloadRisks}>{t('Download Risks')}</Button>
-                        <Button variant='outline' onClick={handleDownloadQuestions}>تحميل الاسئلة</Button>
+                        <Button variant='outline'>تحميل الاسئلة</Button>
                         <Dialog open={isShowQuestionsDialogOpen} onOpenChange={setIsShowQuestionsDialogOpen}>
                             <DialogTrigger asChild>
                                 <Button variant="outline">{t('View question answers')}</Button>

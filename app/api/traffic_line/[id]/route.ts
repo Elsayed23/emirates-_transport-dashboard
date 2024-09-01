@@ -19,6 +19,7 @@ export async function GET(
                 latitude: true,
                 longitude: true,
                 userName: true,
+                user: true,
                 userFinancialNumber: true,
                 station: {
                     select: {

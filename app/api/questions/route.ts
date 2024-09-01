@@ -147,7 +147,6 @@ export const POST = async (req: Request) => {
 
                 if (answerDetails.controlMeasures.ar.length !== answerDetails.controlMeasures.en.length) {
                     console.log(answerDetails.controlMeasures.en);
-
                 }
 
                 // Handle control measures

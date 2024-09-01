@@ -11,6 +11,7 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import LanguageContext from '@/app/context/LanguageContext';
+import useTranslation from '@/app/hooks/useTranslation';
 
 const Page = () => {
     const [data, setData] = useState([]);
@@ -29,6 +30,8 @@ const Page = () => {
         fetchData();
     }, []);
 
+    const { t } = useTranslation()
+
     const splitAndRender = (text) => {
         const parts = text?.split('|');
         return (
@@ -41,11 +44,11 @@ const Page = () => {
 
     return (
         <div className='flex flex-col p-6'>
-            <h1 className='font-medium text-center text-3xl'>سجل المخاطر العام</h1>
+            <h1 className='font-medium text-center text-3xl'>{t('General Risk Register')}</h1>
 
             {data.map((categoryData, categoryIdx) => (
                 <div key={categoryIdx} className="flex flex-col mt-4">
-                    <h1 className="font-medium text-xl mb-2 capitalize">{categoryData.header}</h1>
+                    <h1 className="font-medium text-xl mb-2 capitalize">{t(categoryData.header)}</h1>
                     <Table dir={language === 'ar' ? 'rtl' : 'ltr'}>
                         <TableHeader>
                             <TableRow>
@@ -77,11 +80,11 @@ const Page = () => {
                                     <TableCell className='border text-xs text-center p-0 border-black min-w-[380px]'>
                                         {risk.controlMeasures.map(({ ar, en }, idx) => (
                                             <div className='w-full grid grid-cols-2' key={idx}>
-                                                <div className='border-l border-black p-1 border-y text-center break-words text-wrap'>
-                                                    <h3>{ar}</h3>
+                                                <div className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 border-y text-center break-words text-wrap`}>
+                                                    <h3>{language === 'ar' ? ar : en}</h3>
                                                 </div>
                                                 <div className='p-1 text-center break-words border-y border-black text-wrap'>
-                                                    <h3>{en}</h3>
+                                                    <h3>{language === 'ar' ? en : ar}</h3>
                                                 </div>
                                             </div>
                                         ))}

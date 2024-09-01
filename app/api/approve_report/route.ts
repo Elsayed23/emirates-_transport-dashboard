@@ -29,14 +29,14 @@ export async function PATCH(req: Request) {
         // Retrieve the report and related user
         const report = await db.report.findUnique({
             where: { id: reportId },
-            include: { user: true, inspections: { select: { name: true } } },
+            include: { user: true, inspections: { select: { name: true } }, school: {select: {name: true}} },
         });
 
         if (!report) {
             throw new Error('Report not found');
         }
 
-        const { user, stationId, nameOfStation, nameOfSchool, inspections } = report;
+        const { user, stationId, nameOfStation,  inspections } = report;
 
         // Retrieve all necessary users
         const admin = await db.user.findFirst({
@@ -82,9 +82,9 @@ export async function PATCH(req: Request) {
             // Send email to the officer
             await transporter.sendMail({
                 from: process.env.EMAIL,
-                to: user.email,
+                to: user?.email,
                 subject: 'Your report has been approved',
-                text: `Hello ${user.name},\n\nYour report has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}`,
+                text: `Hello ${user?.name},\n\nYour report has been approved.\n\nStation: ${nameOfStation} - School: ${report.school.name} - Type of report: ${inspections[0].name}`,
             });
 
             // Send email to the admin
@@ -92,7 +92,7 @@ export async function PATCH(req: Request) {
                 from: process.env.EMAIL,
                 to: admin?.email,
                 subject: 'A new report has been approved',
-                text: `Hello ${admin?.name},\n\nA new report from ${user.name} has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
+                text: `Hello ${admin?.name},\n\nA new report from ${user?.name} has been approved.\n\nStation: ${nameOfStation} - School: ${report.school.name} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
             });
 
             // Send emails to safety directors
@@ -101,7 +101,7 @@ export async function PATCH(req: Request) {
                     from: process.env.EMAIL,
                     to: safetyDirector.email,
                     subject: 'A new report has been approved',
-                    text: `Hello ${safetyDirector.name},\n\nA new report from ${user.name} has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
+                    text: `Hello ${safetyDirector.name},\n\nA new report from ${user?.name} has been approved.\n\nStation: ${nameOfStation} - School: ${report.school.name} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
                 });
             }
 
@@ -111,16 +111,16 @@ export async function PATCH(req: Request) {
                     from: process.env.EMAIL,
                     to: operationsManager.email,
                     subject: 'A new report has been approved',
-                    text: `Hello ${operationsManager.name},\n\nA new report from ${user.name} has been approved.\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
+                    text: `Hello ${operationsManager.name},\n\nA new report from ${user?.name} has been approved.\n\nStation: ${nameOfStation} - School: ${report.school.name} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
                 });
             }
         } else {
             // Send email to the officer with the rejection reason
             await transporter.sendMail({
                 from: process.env.EMAIL,
-                to: user.email,
+                to: user?.email,
                 subject: 'Your report has been rejected',
-                text: `Hello ${user.name},\n\nYour report has been rejected for the following reason:\n\n${rejectionReason}\n\nStation: ${nameOfStation} - School: ${nameOfSchool} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
+                text: `Hello ${user?.name},\n\nYour report has been rejected for the following reason:\n\n${rejectionReason}\n\nStation: ${nameOfStation} - School: ${report.school.name} - Type of report: ${inspections[0].name}.\n\n<a href="http://localhost:3000/reports/${report.id}">See report</a>`,
             });
         }
 

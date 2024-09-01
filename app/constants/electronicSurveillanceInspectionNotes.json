@@ -1,6 +1,6 @@
 [
     {
-        "requirement": "سائق النقل المدرسي | School_bus_drivers",
+        "requirement": "School_bus_drivers | سائق النقل المدرسي",
         "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
         "notes": [
             {
@@ -878,7 +878,7 @@
         ]
     },
     {
-        "requirement": "تشغلية إدارية | Administrative operations",
+        "requirement": "Administrative operations | تشغلية إدارية",
         "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
         "notes": [
             {
@@ -952,7 +952,7 @@
         ]
     },
     {
-        "requirement": "سلوك المنقولين | Student behavior",
+        "requirement": "Student behavior | سلوك المنقولين",
         "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
         "notes": [
             {
@@ -1334,7 +1334,7 @@
         ]
     },
     {
-        "requirement": "مشرف النقل والسلامة | School bus supervisor",
+        "requirement": "School bus supervisor | مشرف النقل والسلامة",
         "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
         "notes": [
             {
@@ -1680,7 +1680,7 @@
         ]
     },
     {
-        "requirement": "ملاحظات على سلوك ولي الامر او من ينوب عنه | Notes to the guardian or his representativ",
+        "requirement": "Notes to the guardian or his representativ | ملاحظات على سلوك ولي الامر او من ينوب عنه",
         "inspectionTypeId": "a79753d3-58ed-4dcf-9711-28796d3cd284",
         "notes": [
             {

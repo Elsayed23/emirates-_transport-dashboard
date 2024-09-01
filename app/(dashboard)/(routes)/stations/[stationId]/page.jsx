@@ -110,7 +110,7 @@ const page = ({ params: { stationId } }) => {
                     user?.role?.name === 'ADMIN'
                     &&
                     <Link href={`/stations/${stationId}/school/add`}>
-                        <Button className='self-start'>إضافة مدرسة</Button>
+                        <Button className='self-start w-fit'>{t('Add school')}</Button>
                     </Link>
                 }
                 <div className='flex flex-col gap-4'>

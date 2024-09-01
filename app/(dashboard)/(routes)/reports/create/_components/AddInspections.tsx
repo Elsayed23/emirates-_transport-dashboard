@@ -351,7 +351,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
     console.log(inspections);
 
     return (
-        <div className="flex justify-center items-center h-[calc(100vh-80px)]">
+        <div className="flex justify-center items-center py-8 min-h-[calc(100vh-80px)]">
             <div className="mb-6 border bg-white rounded-md p-6 max-w-3xl w-full mx-auto shadow-lg">
                 <h1 className="text-center text-xl font-medium mb-4">
                     {t("Add inspection")}
@@ -492,19 +492,18 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                             <>
                                                 <div className="flex flex-col gap-1 items-start">
                                                     <Button type="button" variant="outline" onClick={() => setIsNoteModalOpen(true)}>
-                                                        {t("Select Note")}
+                                                        {t("Select the note")}
                                                     </Button>
-                                                    <p className="text-sm">الملاحظة الحالية: {selectedNote && selectedNote}</p>
                                                 </div>
                                                 <AlertDialog open={isNoteModalOpen} onOpenChange={setIsNoteModalOpen}>
                                                     <AlertDialogTrigger asChild>
                                                         <Button type="button" variant="outline" className="hidden">
-                                                            {t("Select Note")}
+                                                            {t("Select the note")}
                                                         </Button>
                                                     </AlertDialogTrigger>
                                                     <AlertDialogContent className="max-h-[700px] overflow-auto">
                                                         <AlertDialogHeader>
-                                                            <AlertDialogTitle>{t("Select a Note")}</AlertDialogTitle>
+                                                            <AlertDialogTitle>{t("Select the note")}</AlertDialogTitle>
                                                         </AlertDialogHeader>
                                                         <RadioGroup
                                                             dir={makeDIR}
@@ -520,12 +519,12 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                                                 </div>
                                                             ))}
                                                         </RadioGroup>
-                                                        <AlertDialogFooter>
+                                                        <AlertDialogFooter className="flex sm:justify-between">
                                                             <AlertDialogCancel onClick={() => setIsNoteModalOpen(false)}>
                                                                 {t("Cancel")}
                                                             </AlertDialogCancel>
                                                             <AlertDialogAction onClick={() => setIsNoteModalOpen(false)}>
-                                                                {t("Confirm")}
+                                                                {t("Save")}
                                                             </AlertDialogAction>
                                                         </AlertDialogFooter>
                                                     </AlertDialogContent>
@@ -545,7 +544,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                 type="submit"
                                 disabled={isSubmitting || !isValid || !busIdSaved || !photoCaptured}
                             >
-                                Add Another Inspection
+                                {t('Add Another Inspection')}
                             </Button>
                             {inspections.length > 0 && (
                                 <Button
@@ -553,7 +552,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                     variant="secondary"
                                     type="button"
                                 >
-                                    Cancel
+                                    {t('Cancel')}
                                 </Button>
                             )}
                         </div>
@@ -562,7 +561,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
 
                 {inspections.length > 0 && (
                     <div className="mt-6">
-                        <h2 className="text-xl mb-4">Added Inspections</h2>
+                        <h2 className="text-xl mb-4">{t('Added Inspections')}</h2>
                         <ul className="space-y-2">
                             {inspections.map((inspection, index) => {
                                 // Generate the preview URL from the file
@@ -587,7 +586,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                                 </div>
                                             )}
                                             <div>
-                                                <span>{inspection?.name}</span> - <span>{inspection?.idOfBus}</span> -{" "}
+                                                <span>{inspection?.idOfBus}</span> -{" "}
                                                 <span>{inspection?.requirement}</span> -{" "}
                                                 <span>
                                                     {language === 'ar' ? inspection?.noteAr : inspection?.noteEn}
@@ -599,7 +598,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                                             variant="destructive"
                                             size="sm"
                                         >
-                                            Delete
+                                            {t('Delete')}
                                         </Button>
                                     </li>
                                 );
@@ -608,7 +607,7 @@ const CreateInspectionPage = ({ reportData }: { reportData: any }) => {
                     </div>
                 )}
 
-                <div className="flex justify-end items-center gap-2 mt-4">
+                <div className="flex justify-end items-center gap-2 mt-7">
                     <Button onClick={handleFinishClick} disabled={isFinishSubmitting} variant="destructive">
                         {t('Finish')}
                     </Button>

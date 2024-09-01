@@ -1,13 +1,18 @@
 'use client';
+
 import { Input } from "@/components/ui/input";
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import useTranslation from "@/app/hooks/useTranslation";
+import { useContext } from "react";
+import LanguageContext from "@/app/context/LanguageContext";
 
 const formSchema = z.object({
     name: z.string().min(1, { message: "Invalid field." }),
@@ -20,7 +25,6 @@ const page = ({
 }: { params: { stationId: string } }) => {
 
     const router = useRouter();
-
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -35,16 +39,15 @@ const page = ({
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-
             await axios.post('/api/school', { ...values, stationId });
-
-            router.push(`/stations/${stationId}`)
-
-
+            router.push(`/stations/${stationId}`);
         } catch (error) {
             console.error(error);
         }
     };
+
+    const { t } = useTranslation()
+    const { language } = useContext(LanguageContext)
 
     return (
         <div className="p-4">
@@ -56,9 +59,9 @@ const page = ({
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>School name</FormLabel>
+                                    <FormLabel>{t('School name')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} placeholder="Station name..." {...field} />
+                                        <Input disabled={isSubmitting} placeholder={t('the name')} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -69,9 +72,9 @@ const page = ({
                             name="translationName"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Translation name</FormLabel>
+                                    <FormLabel>{t('Translation name')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} placeholder="Translation name..." {...field} />
+                                        <Input disabled={isSubmitting} placeholder={t('the name')} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -82,19 +85,33 @@ const page = ({
                             name="contract"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Contract</FormLabel>
+                                    <FormLabel>{t('Contract')}</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isSubmitting} placeholder="Contract..." {...field} />
+                                        <Select
+                                            onValueChange={field.onChange}
+                                            value={field.value}
+                                            disabled={isSubmitting}
+                                        >
+                                            <SelectTrigger dir={language === 'ar' ? 'rtl' : 'ltr'}>
+                                                <SelectValue placeholder={t('Select a contract')} />
+                                            </SelectTrigger>
+                                            <SelectContent dir={language === 'ar' ? 'rtl' : 'ltr'}>
+                                                <SelectGroup>
+                                                    <SelectLabel>{t('Contracts')}</SelectLabel>
+                                                    <SelectItem value="مؤسسة الامارات للتعليم">{t('Contracts')}</SelectItem>
+                                                    <SelectItem value="اخري">{t('Other')}</SelectItem>
+                                                </SelectGroup>
+                                            </SelectContent>
+                                        </Select>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit" disabled={isSubmitting || !isValid}>Save</Button>
+                        <Button type="submit" disabled={isSubmitting || !isValid}>{t('Save')}</Button>
                     </form>
                 </Form>
             </div>
-
         </div>
     );
 };
