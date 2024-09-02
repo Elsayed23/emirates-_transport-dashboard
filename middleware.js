@@ -57,11 +57,7 @@ export async function middleware(req) {
                 return NextResponse.redirect(`${origin}/stations`);
             }
         }
-        if (pathname.includes('/school/add')) {
-            if (decoded.role.name !== 'ADMIN') {
-                return NextResponse.redirect(`${origin}/`);
-            }
-        }
+        console.log(decoded.role.name);
 
 
         if (pathname.startsWith('/stations/')) {

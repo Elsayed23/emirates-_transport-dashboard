@@ -5,14 +5,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Is the bus equipped and designated for transporting people of determination?",
         "answerDetails": {
-            "causeOfRisk": "ألحافلة | the bus",
+            "initialRiskLevel": "عالي (High)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "عدم تجهيز المركبات بشكل مناسب لأصحاب الهمم والأطفال | The improper preparation of vehicles for people of determination and children",
-            "risk": "عدم وجود أماكن مخصصة: عدم تجهيز المركبة بمقاعد وأماكن مخصصة لأصحاب الهمم قد يؤدي إلى صعوبة في التثبيت والتنقل داخل المركبة، مما يزيد من خطر الإصابات. | Lack of Designated Areas: Not equipping the vehicle with seats and spaces designated for people of determination can lead to difficulties in securing the vehicle and moving inside the vehicle, increasing the risk of injuries.",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "3/4/12 Y",
+            "hazardSource": "عدم تجهيز المركبات بشكل مناسب لأصحاب الهمم | The improper preparation of vehicles for people of determination and children",
+            "riskAssessment": "3/4/12",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "التجهيز بأدوات الأمان: التأكد من توفر أحزمة الأمان وأجهزة التثبيت المناسبة.",
@@ -38,14 +35,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are the necessary tools available to secure wheelchairs safely and effectively?",
         "answerDetails": {
-            "causeOfRisk": "الطلاب | the student",
+            "initialRiskLevel": "منخفض (Low)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus.",
-            "risk": "عدم تثبيت الكراسي بشكل صحيح: إذا لم يتم تثبيت الكراسي المتحركة بشكل صحيح، قد يتعرض الطلاب لخطر السقوط أو التحرك غير المتوقع داخل المركبة، مما يزيد من خطر الإصابة أثناء التوقف المفاجئ أو الحوادث. | Improper Fixing of Chairs: If wheelchairs are not properly secured, students may be at risk of falling or unexpected movement inside the vehicle, increasing the risk of injury during sudden stops or accidents.",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "1/4/4 Y",
+            "hazardSource": "عدم تثبيت الكراسي بشكل صحيح - وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus - Improperly secured seats",
+            "riskAssessment": "1/4/4",
+            "residualRiskLevel": "غير مؤثر (Insignificant)",
             "controlMeasures": {
                 "ar": [
                     "تثبيت الكراسي بشكل صحيح: استخدام أنظمة تثبيت متطورة لضمان تثبيت الكراسي المتحركة بشكل آمن ومستقر.",
@@ -73,14 +67,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Is the vehicle equipped with appropriate emergency exits to facilitate the evacuation of students in emergencies?",
         "answerDetails": {
-            "causeOfRisk": "الطلاب | the student",
+            "initialRiskLevel": "متوسط (Moderate)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus.",
-            "risk": "صعوبة الإخلاء السريع: في حالة الطوارئ، قد يكون من الصعب إخلاء الطلاب الذين يستخدمون الكراسي المتحركة بسرعة وأمان إذا لم تكن المركبة مجهزة بشكل مناسب. | Difficulty in Rapid Evacuation: In case of emergency, it may be difficult to evacuate students who use wheelchairs quickly and safely if the vehicle is not properly equipped.",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "2/4/8 Y",
+            "hazardSource": "صعوبة الإخلاء السريع - وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus - Difficulty in Rapid Evacuation",
+            "riskAssessment": "2/4/8",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تثبيت الكراسي بشكل صحيح: استخدام أنظمة تثبيت متطورة لضمان تثبيت الكراسي المتحركة بشكل آمن ومستقر.",
@@ -103,19 +94,16 @@
         }
     },
     {
-        "question": "هل تتوفر وسائل ملائمة للصعود والنزول مثل الرافعات أو المنحدرات داخل المركبة؟",
+        "question": "هل تتوفر وسائل ملائمة للصعود والنزول مثل الرافعات داخل المركبة؟",
         "orderd": 4,
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are suitable boarding and disembarking aids, such as lifts or ramps, available inside the vehicle?",
         "answerDetails": {
-            "causeOfRisk": "الطلاب | the student",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus.",
-            "risk": "صعوبة الوصول: عدم وجود وسائل ملائمة للصعود والنزول، مثل الرافعات أو المنحدرات، يمكن أن يجعل الدخول والخروج من المركبة صعبًا للغاية بالنسبة للطلاب الذين يستخدمون الكراسي المتحركة. | Difficulty in Access: The lack of suitable boarding and alighting aids, such as lifts or ramps, can make the entry and the exit from the vehicle extremely difficult for students who use wheelchairs.",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "3/5/15 Y",
+            "hazardSource": "عدم وجود وسائل ملائمة للصعود والنزول، مثل الرافعات ، يمكن أن يجعل الدخول والخروج من المركبة صعبًا للغاية بالنسبة للطلاب الذين يستخدمون الكراسي المتحركة -وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus - The lack of suitable boarding and alighting aids, such as lifts or ramps, can make the entry and the exit ftom the vehicle extremely difficult for students who use wheelchairs.",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "تثبيت الكراسي بشكل صحيح: استخدام أنظمة تثبيت متطورة لضمان تثبيت الكراسي المتحركة بشكل آمن ومستقر.",
@@ -143,14 +131,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are the seats and furniture arranged in a way that allows easy passage for wheelchairs?",
         "answerDetails": {
-            "causeOfRisk": "الطلاب | the student",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus.",
-            "risk": "عدم وجود ممرات واسعة: قد تجعل الممرات الضيقة الحركة داخل المركبة صعبة وخطرة للطلاب الذين يستخدمون الكراسي المتحركة. | Lack of Wide Aisles: Narrow aisles can make movement inside the vehicle difficult and dangerous for students who use wheelchairs.",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "3/5/15 Y",
+            "hazardSource": "عدم وجود ممرات واسعة -وجود كرسي متحرك داخل الحافلة | A wheelchair is available inside the bus - Lack of Wide Aisles",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "تثبيت الكراسي بشكل صحيح: استخدام أنظمة تثبيت متطورة لضمان تثبيت الكراسي المتحركة بشكل آمن ومستقر.",
@@ -178,14 +163,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are adapted sidewalks available to facilitate access to the vehicle?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | The absence of dedicated sidewalks for people of determination at pick-up and drop-off points.",
-            "risk": "عدم إمكانية الوصول إلى المركبة: بدون أرصفة مهيئة، قد يجد أصحاب الهمم صعوبة في الوصول إلى المركبة بأمان وراحة، مما يعرضهم لخطر السقوط أو الإصابة أثناء محاولة الصعود أو النزول. | Inaccessibility to the Vehicle: Without adapted sidewalks, people of determination may find it difficult to access the vehicle safely and comfortably, putting them at risk of falling or injury during boarding or disembarking.",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "3/5/15 Y",
+            "hazardSource": "عدم إمكانية الوصول إلى المركبة -عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | The absence of dedicated sidewalks for people of determination at pick-up and drop-off points - Inaccessibility to the Vehicle",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "توفير الأرصفة المهيئة: بناء الأرصفة المائلة والمنحدرات: يجب توفير أرصفة مائلة ومنحدرات مصممة بشكل مناسب لتمكين أصحاب الهمم من الوصول بسهولة وأمان إلى المركبات.",
@@ -207,14 +189,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there measures to reduce the need to navigate unsafe areas?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | The absence of dedicated sidewalks for people of determination at pick-up and drop-off points.",
-            "risk": "خطر الحوادث: بدون الأرصفة المهيئة، قد يضطر أصحاب الهمم إلى التنقل في مناطق غير آمنة، مثل الشوارع أو الممرات غير المستوية، مما يزيد من خطر الحوادث والإصابات. | Risk of Accidents: Without adapted sidewalks, people of determination may be forced to navigate unsafe areas, such as streets or uneven paths, increasing the risk of accidents and injuries.",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "3/5/15 Y",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "",
             "controlMeasures": {
                 "ar": [
                     "توفير الأرصفة المهيئة: بناء الأرصفة المائلة والمنحدرات: يجب توفير أرصفة مائلة ومنحدرات مصممة بشكل مناسب لتمكين أصحاب الهمم من الوصول بسهولة وأمان إلى المركبات.",
@@ -236,14 +215,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are the feedback and reactions of people of determination considered to improve transportation services?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "عدم وجود في نقاط الصعود والنزول ارصفة مخصصة لاصحاب الهمم | The absence of dedicated sidewalks for people of determination at pick-up and drop-off points.",
-            "risk": "التأثير النفسي: عدم توفر الأرصفة المهيئة يمكن أن يؤدي إلى شعور أصحاب الهمم بعدم التقدير والإهمال، مما يؤثر سلبًا على راحتهم النفسية والشعور بالكرامة. | Psychological Impact: The lack of adapted sidewalks can lead to feelings of neglect and undervaluation among people of determination, negatively affecting their psychological comfort and sense of dignity.",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "4/4/16 Y",
+            "riskAssessment": "4/4/16",
+            "residualRiskLevel": "",
             "controlMeasures": {
                 "ar": [
                     "توفير الأرصفة المهيئة: بناء الأرصفة المائلة والمنحدرات: يجب توفير أرصفة مائلة ومنحدرات مصممة بشكل مناسب لتمكين أصحاب الهمم من الوصول بسهولة وأمان إلى المركبات.",
@@ -265,14 +241,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are drivers and supervisors trained to handle people of determination?",
         "answerDetails": {
-            "causeOfRisk": "السائق/المشرف | driver/supervisor",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "السائقون والمرافقون غير مدربين على التعامل مع احتياجاتهم الخاصة | Drivers and attendants are not trained to handle their special needs.",
-            "risk": "عدم القدرة على تقديم المساعدة اللازمة: السائقون والمرافقون غير المدربين قد لا يكونون قادرين على تقديم المساعدة الصحيحة لأصحاب الهمم عند الحاجة، مما يزيد من خطر الحوادث أو الإصابات. | Inability to Provide Necessary Assistance: Untrained drivers and companions may not be able to provide the correct assistance to people of determination when needed, increasing the risk of accidents or injuries.",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة | Varying injuries",
-            "riskAssessment": "3/5/15 Y",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "عالي (High)",
             "controlMeasures": {
                 "ar": [
                     "تدريب السائقين والمرافقين: برامج تدريبية شاملة: تنظيم برامج تدريبية للسائقين والمرافقين تركز على كيفية التعامل مع احتياجات أصحاب الهمم، بما في ذلك كيفية تقديم المساعدة بأمان واحترام.",
@@ -300,14 +273,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there designated areas for boarding and disembarking?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "عالي (High)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "صعود ونزول الطلبة من وإلى الحافلة المدرسية في أماكن التحميل والتنزيل | Students boarding and disembarking from and to the school bus in the allocated areas",
-            "risk": "تعرض الطلاب للدهس من قبل الحافلة المدرسية أثناء الصعود أو النزول | Students may be at risk of run over accidents by the school bus while boarding or disembarking the bus",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/4/12 Y",
+            "riskAssessment": "3/4/12",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "تركيب كاميرات على زوايا مختلفة من الحافلة لتأمين رؤية واضحة للسائق أثناء تحميل وتنزيل الطلاب",
@@ -339,14 +309,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Is there a transport and safety supervisor on the route?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "متوسط (Moderate)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "عدم وجود مشرف للنقل والسلامة | Absence of a transport and safety supervisor",
-            "risk": "تعرض الطلاب للدهس | Run over accidents",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/3/9 Y",
+            "riskAssessment": "3/3/9",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تركيب كاميرات على زوايا مختلفة من الحافلة لتأمين رؤية واضحة للسائق أثناء تحميل وتنزيل الطلاب",
@@ -378,14 +345,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Do students need to cross the road to reach the bus?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "عبور الطلاب الطريق للوصول للحافلة | Students crossing the road to reach the bus",
-            "risk": "تعرض الطلاب للدهس | Run over accidents",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "1/4/4 Y",
+            "riskAssessment": "2/5/20",
+            "residualRiskLevel": "عالي (High)",
             "controlMeasures": {
                 "ar": [
                     "زيارة المدرسة من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع إدارة المدرسة",
@@ -404,7 +368,7 @@
                     "Regularly reviewing routes to avoid buses entering and stopping in dangerous places for the safety of the transported students."
                 ]
             },
-            "residualRisks": "1/3/3"
+            "residualRisks": "2/5/10"
         }
     },
     {
@@ -413,14 +377,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are 3 or more students transported at a single boarding or disembarking point?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "منخفض (Low)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "نقل عدد كبير من الطلاب في نقطة صعود ونزول واحدة | Transporting a large number of students at a single boarding and disembarking point",
-            "risk": "زيادة احتمالية الحوادث والتأخير وحدوث الاشتباكات بين المنقولين قبل وصول الحافلة | Increased likelihood of accidents, delays, and altercations among transported students before the bus arrives",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات، تأخير | Injuries, delays",
-            "riskAssessment": "2/3/6 N",
+            "riskAssessment": "2/3/6",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تنظيم نقاط الصعود والنزول لتجنب الازدحام",
@@ -442,14 +403,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Is the student boarding/disembarking point on a road where it's difficult to stop the bus (highway/main road)?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "منخفض (Low)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "صعوبة إيقاف الحافلة في الطريق السريع | Difficulty in stopping the bus on the highway",
-            "risk": "حوادث الطريق واصطدام | Road accidents and collisions",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "1/4/4 Y",
+            "riskAssessment": "1/4/4",
+            "residualRiskLevel": "غير مؤثر (Insignificant)",
             "controlMeasures": {
                 "ar": [
                     "تحديد نقاط آمنة للصعود والنزول بعيداً عن الطرق السريعة",
@@ -475,14 +433,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Does the transport and safety supervisor need to walk more than 200 meters to deliver the student to their home?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "منخفض (Low)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "مشي المشرف والطلاب لمسافات طويلة | Supervisor and students walking long distances",
-            "risk": "مخاطر الطريق، تأخير زمن الرحلة، إرهاق | Road hazards, travel time delays, fatigue",
-            "peopleExposedToRisk": "المشرف والطلاب | The supervisor and students",
-            "expectedInjury": "إصابات، تأخير، الاجهاد الحراري | Injuries, delays, heat stress",
-            "riskAssessment": "2/3/6 Y",
+            "riskAssessment": "2/3/6",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تقليل مسافات المشي عبر تحديد نقاط قريبة وآمنة",
@@ -510,13 +465,9 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Is the student's boarding point on an unpaved road?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
-            "risk": "التعرض لحوادث اصطدام بمركبات أخرى نتيجة عدم وضوح معالم الطريق ومسارب السير | Crash into other vehicles due to unclear road markings and lanes",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -533,7 +484,8 @@
                     "Alerting drivers to drive at low speed on rough or unpaved roads"
                 ]
             },
-            "riskAssessment": "3/5/15 N",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "عالي (High)",
             "residualRisks": "2/5/10"
         }
     },
@@ -543,13 +495,9 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there deep excavations on unpaved roads that the bus may pass over?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "تعرض الحافلة لحفر عميقة في الطريق اثناء سيرها على الطرق غير المعبدة | Bus running over deep excavations in unpaved roads",
-            "risk": "تعرض الركاب لهزة قوية واصطدامهم بأجزاء داخلية من الحافلة | Sudden shock, Passengers might hit the bus parts",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة | Various injuries",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -568,7 +516,8 @@
                     "Alerting drivers to drive at low speed on rough or unpaved roads"
                 ]
             },
-            "riskAssessment": "3/5/15 N",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "عالي (High)",
             "residualRisks": "2/5/10"
         }
     },
@@ -578,13 +527,9 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Is the unpaved road filled with obstacles that cause vibrations?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "عالي (High)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
-            "risk": "تعرض الطلاب لخطر السقوط داخل الحافلة المدرسية خصوصاً في حال عدم التزامهم الجلوس بالمقاعد | Risk of falling inside the school bus especially when not seated",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة، كسور | Various injuries, fractures",
+            "hazardSource": "سير الحافلات على الطرق غير المعبدة تعرض الطلاب لخطر السقوط داخل الحافلة المدرسية خصوصاً في حال عدم التزامهم الجلوس بالمقاعد| busses on unpaved roads Risk of falling inside the school bus especially when not seated ",
             "controlMeasures": {
                 "ar": [
                     "تواجد مشرفي السلامة داخل الحافلات المدرسية لضبط سلوكيات الطلاب",
@@ -603,7 +548,8 @@
                     "Providing first aid kits for use when needed"
                 ]
             },
-            "riskAssessment": "4/3/12 N",
+            "riskAssessment": "4/3/12",
+            "residualRiskLevel": "منخفض (Low)",
             "residualRisks": "2/3/6"
         }
     },
@@ -613,13 +559,9 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Does the bus pass through sandy roads due to the absence of paved roads?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "عالي (High)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
-            "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
-            "risk": "تعرض الركاب للأغبرة الناتجة من حركة المركبات على الطرق غير المعبدة | Passengers are exposed to dust due to movement of vehicles on unpaved roads",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "اختناق، مشاكل في التنفس | Suffocations, breathing problems",
+            "hazardSource": "تعرض الركاب للأغبرة الناتجة من حركة المركبات على الطرق غير المعبدة| Passengers are exposed to dust due to movement of vehicles on unpaved roads",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -630,7 +572,8 @@
                     "Regular maintenance of school buses including window insulation to keep out dust"
                 ]
             },
-            "riskAssessment": "4/3/12 N",
+            "riskAssessment": "4/3/12",
+            "residualRiskLevel": "منخفض (Low)",
             "residualRisks": "2/3/6"
         }
     },
@@ -640,14 +583,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Is the student's boarding point difficult for the bus to access, affecting travel time?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "صعوبة وصول الحافلة لنقاط الصعود والنزول المحددة | Difficulty reaching designated pick-up and drop-off points",
-            "risk": "تأخير زمن الرحلة , مخاطر الطريق | Delay in travel time, road hazards",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "تأخير، إرهاق | Delay, fatigue",
-            "riskAssessment": "4/4/16 N",
+            "riskAssessment": "4/4/16",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -669,14 +609,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there areas exposed to landslides or falling rocks on the road?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "عالي (High)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "الانهيارات الأرضية أو الصخور المتساقطة | Landslides or falling rocks",
-            "risk": "حوادث خطيرة | Serious accidents",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "4/3/12 N",
+            "riskAssessment": "4/3/12",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "وضع إشارات تحذيرية في هذه المناطق",
@@ -702,13 +639,9 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Does the bus pass through sandy roads due to the absence of paved roads?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "سير الحافلات على الطرق غير المعبدة | Busses on unpaved roads",
-            "risk": "تعرض الركاب للأغبرة الناتجة من حركة المركبات على الطرق غير المعبدة | Passengers are exposed to dust due to movement of vehicles on unpaved roads",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "اختناق، مشاكل في التنفس | Suffocations, breathing problems",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -719,23 +652,20 @@
                     "Regular maintenance of school buses including window insulation to keep out dust"
                 ]
             },
-            "riskAssessment": "4/3/12 N",
+            "riskAssessment": "4/3/12",
+            "residualRiskLevel": "",
             "residualRisks": "2/3/6"
         }
     },
     {
         "orderd": 23,
-        "question": "هل توجد صعوبة في حركة الحافلة",
+        "question": "هل المسارات ضيقة وتوجد صعوبة في حركة الحافلة؟ ",
         "appliesTo": "trafficLine",
-        "translatedQuestion": "Are there difficulties in bus movement?",
+        "translatedQuestion": "Are the lanes narrow, making it difficult for the bus to maneuver?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "دخول الحافلة لشوارع مغلقة | Driving the bus into a dead-end road",
-            "risk": "اصطدام المركبة بأجسام أو مركبات أخرى على الطريق | Striking objects or other vehicles on the road",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
             "controlMeasures": {
                 "ar": [
                     "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
@@ -746,7 +676,8 @@
                     "Training drivers on safe driving in closed roads."
                 ]
             },
-            "riskAssessment": "4/4/16 N",
+            "riskAssessment": "4/4/16",
+            "residualRiskLevel": "متوسط (Moderate)",
             "residualRisks": "2/4/8"
         }
     },
@@ -756,13 +687,9 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are the roads and lanes narrow?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "قيادة الحافلة في الطرق الضيقة | Driving the bus on narrow roads",
-            "risk": "عدم وضوح الرؤيا وخطر الاصطدام بمركبات أخرى قادمة بالاتجاه المعاكس | Limited vision of the whole road, and risk of striking other vehicles coming from the opposite lane",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -773,7 +700,8 @@
                     "Training drivers on safe driving rules in various road conditions."
                 ]
             },
-            "riskAssessment": "4/4/16 N",
+            "riskAssessment": "4/4/16",
+            "residualRiskLevel": "متوسط (Moderate)",
             "residualRisks": "2/4/8"
         }
     },
@@ -783,14 +711,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there parked vehicles on both sides of the lane?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "متوسط (Moderate)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "وجود مركبات مركونة على جانبي المسار | Presence of parked vehicles on both sides of the lane",
-            "risk": "اصطدام الحافلة بالسيارات المركونة، تأخر في زمن الرحلة، صعوبة الحركة للحافلات الكبيرة | Collision of the bus with parked cars, delay in travel time, difficulty in movement for large buses",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/3/9 n",
+            "riskAssessment": "3/3/9",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "وجود كاميرات موزعة على زوايا الحافلة تساعد السائق على مراقبة أية مخاطر حول الحافلة",
@@ -814,14 +739,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there building protrusions or extensions requiring maneuvering to avoid bus collisions?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "متوسط (Moderate)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "بروز المباني وملحقاتها | Protrusion of buildings and their extensions",
-            "risk": "اصطدام الحافلة بالبروزات | Collision of the bus with protrusions",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "2/4/8 n",
+            "riskAssessment": "2/4/8",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -849,14 +771,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there trees or solid objects affecting the bus route on the road?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "متوسط (Moderate)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "قيادة الحافلة في الطرق كثيفة بالأشجار | Driving the bus on tree-dense roads",
-            "risk": "عدم وضوح الرؤية وخطر الاصطدام بمركبات أخرى قادمة بالاتجاه المعاكس | Poor visibility and risk of collision with oncoming vehicles",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, Road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "2/4/8 n",
+            "riskAssessment": "2/4/8",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "التخطيط المسبق لمسارات الرحلات: اختيار مسارات آمنة تراعي كثافة الأشجار وتجنب الطرق التي تكون فيها الفروع المتدلية منخفضة أو تعيق الحركة.",
@@ -896,14 +815,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there busy traffic signals on the route?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "منخفض (Low)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "الإشارات المرورية المزدحمة | Busy traffic signals",
-            "risk": "تأخير الرحلة وارهاق الطلبة | Trip delay and student fatigue",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "تأخير، ازدحام | Delay, congestion",
-            "riskAssessment": "2/3/6 n",
+            "riskAssessment": "2/3/6",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -925,14 +841,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Does the route pass through international roads or roads with vehicle speeds exceeding 110 km/h?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "المرور بطرق دولية ذات سرعة عالية | Passing through high-speed international roads",
-            "risk": "حوادث بسبب السرعة | Accidents due to speed",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "4/5/20 n",
+            "riskAssessment": "4/5/20",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "جميع المركبات مزودة بجهاز التتبع لتمكين المحطات من مراقبة سرعة المركبات بشكل منتظم",
@@ -962,13 +875,9 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there construction works near the boarding and alighting points?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "وجود أعمال إنشائية في الأحياء السكنية التي يتم صعود ونزول الطلبة منها | Presence of construction work in residential neighborhoods where students board and alight",
-            "risk": "تعرض الطلاب للدهس أثناء الدخول والخروج | Risk of students being run over during boarding and alighting",
-            "peopleExposedToRisk": "الطلاب | Students",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
             "controlMeasures": {
                 "ar": [
                     "زيارة الأحياء السكنية من قبل منسق العمليات وضابط السلامة من أجل تحديد المخاطر في المكان وتحديد أماكن نزول وصعود الطلبة بالتنسيق مع أولياء الأمور وإدارة المدرسة",
@@ -983,8 +892,9 @@
                     "Ensuring drivers do not move the bus until students are handed over to parents or have entered their homes."
                 ]
             },
-            "riskAssessment": "3/5/15 n",
-            "residualRisks": "1/5/5"
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "متوسط (Moderate)",
+            "residualRisks": "3/3/9"
         }
     },
     {
@@ -993,13 +903,9 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there construction works on the route?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The road",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport students from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "تواجد عمال الإنشاءات على الطرق | Presence of construction workers on the roads",
-            "risk": "مخاطر دهس العمال من قبل الحافلة المدرسية | Risk of workers being run over by the school bus",
-            "peopleExposedToRisk": "مستخدمي الطرق | Road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
             "controlMeasures": {
                 "ar": [
                     "التخطيط المسبق لمسارات الرحلات: مراجعة وتحديث مسارات الحافلات بانتظام لتجنب الطرق التي تشهد أعمال إنشاءات كثيفة. وضع خطط بديلة للمسارات لاستخدامها في حالة وجود أعمال إنشاءات غير متوقعة.",
@@ -1016,7 +922,8 @@
                     "Supervisors' awareness: Raising awareness among supervisors about the specific risks on their routes through risk assessment records."
                 ]
             },
-            "riskAssessment": "5/4/20 n",
+            "riskAssessment": "5/4/20",
+            "residualRiskLevel": "عالي (High)",
             "residualRisks": "2/5/10"
         }
     },
@@ -1026,14 +933,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Does the route cover non-residential areas such as \"farms or settlements\"?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "المرور بمناطق غير سكنية | Passing through non-residential areas",
-            "risk": "تأخير الرحلة، مخاطر الطريق | Trip delay, road hazards",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات طفيفة، تأخير | Minor injuries, delay",
-            "riskAssessment": "4/5/20 n",
+            "riskAssessment": "4/5/20",
+            "residualRiskLevel": "عالي (High)",
             "controlMeasures": {
                 "ar": [
                     "دراسة خطوط السير وتغييرها إن أمكن بالتعاون مع المدارس",
@@ -1059,14 +963,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Does the route pass through valley streams or rainwater?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "المرور بمجاري أودية أو مياه الأمطار | Passing through valley streams or rainwater",
-            "risk": "الانزلاق في المياه | Slipping in water",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "4/5/20 n",
+            "riskAssessment": "4/5/20",
+            "residualRiskLevel": "عالي (High)",
             "controlMeasures": {
                 "ar": [
                     "تدريب السائقين والمشرفين: تنظيم دورات تدريبية للسائقين حول كيفية القيادة بأمان في المناطق المعرضة للفيضانات وكيفية التعامل مع المواقف الطارئة.",
@@ -1106,14 +1007,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Do rain and water affect the prolongation of travel time?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "عالي (High)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "تأثير الأمطار على زمن الرحلة | Effect of rain on travel time",
-            "risk": "إطالة زمن الرحلة | Prolonged travel time",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات طفيفة، تأخير | Minor injuries, delay",
-            "riskAssessment": "2/5/10 n",
+            "riskAssessment": "2/5/10",
+            "residualRiskLevel": "متوسط (Moderate)",
             "controlMeasures": {
                 "ar": [
                     "التخطيط المسبق وإدارة الوقت: مراجعة الجداول الزمنية ومسارات الرحلات بشكل دوري مع الأخذ في الاعتبار التأخيرات المحتملة بسبب الأمطار.",
@@ -1157,14 +1055,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there steep slopes on the road?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "وجود تحويلات في الطرق وحواجز على الطريق | Presence of detours and barriers on the road",
-            "risk": "حوادث مرورية نتيجة عدم معرفة السائقين بوجود التحويلات والحواجز، والاصطدام بالحواجز | Traffic accidents as a result of drivers not being aware of the existence of diversions and barriers, collisions with barriers",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "4/5/20 n",
+            "riskAssessment": "4/5/20",
+            "residualRiskLevel": "عالي (High)",
             "controlMeasures": {
                 "ar": [
                     "التخطيط المسبق لمسارات الرحلات: مراجعة وتحديث مسارات الحافلات بانتظام لتجنب التحويلات والحواجز المعروفة.",
@@ -1202,14 +1097,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Does the bus pass through areas known for the presence of stray animals?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "مناطق معروفة بوجود حيوانات سائبة | Areas known for the presence of stray animals",
-            "risk": "الاصطدام بالحيوانات السائبة | Collision with stray animals",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "4/5/20 n",
+            "riskAssessment": "4/5/20",
+            "residualRiskLevel": "شديد (Extreme)",
             "controlMeasures": {
                 "ar": [
                     "توعية السائقين والمشرفين: تنظيم دورات تدريبية للسائقين والمشرفين لتوعيتهم بالمخاطر الخاصة بوجود حيوانات سائبة على الطريق وكيفية التعامل معها.",
@@ -1235,14 +1127,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there intersections without traffic signals or signs?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "غياب العلامات المرورية | Absence of traffic signs",
-            "risk": "حوادث بسبب غياب العلامات | Accidents due to missing signs",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/5/15 y",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "عالي (High)",
             "controlMeasures": {
                 "ar": [
                     "توعية السائقين والمشرفين: تنظيم ورش عمل ودورات تدريبية للسائقين والمشرفين لتوعيتهم بأهمية التعرف على الطرق والتعامل مع غياب العلامات المرورية.",
@@ -1266,14 +1155,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "Are there high-density pedestrian or cyclist areas on the road?",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "متوسط (Moderate)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "الكثافة العالية بالمشاة أو راكبي الدراجات | High density of pedestrians or cyclists",
-            "risk": "حوادث بسبب الكثافة العالية | Accidents due to high density",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/3/9 n",
+            "riskAssessment": "3/3/9",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تدريب مكثف للسائقين والمشرفين: تنظيم دورات تدريبية مكثفة للسائقين والمشرفين تركز على كيفية التعامل مع كثافة المشاة وراكبي الدراجات.",
@@ -1305,14 +1191,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "عالي (High)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "التوقف المفاجئ للحافلة | Harsh brakes",
-            "risk": "تعرض الركاب في الحافلة للارتطام بالمقاعد أو الوقوع من المقاعد داخل الحافلة | Students, driver, and safety supervisors may be injured from hitting seats in front of them or falling from seats in the bus",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All passengers",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "4/3/12 y",
+            "riskAssessment": "4/3/12",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تزويد الحافلات بمثبت السرعة بحيث لا تزيد عن 80 كم للساعة",
@@ -1344,14 +1227,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "الحوادث المرورية | Traffic accidents",
-            "risk": "تعرض ركاب الحافلة أو مستخدمي الطريق لإصابات مختلفة | Passengers or road users may suffer injuries",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/5/15 n",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تركيب أحزمة الأمان على المقاعد في جميع الحافلات",
@@ -1385,14 +1265,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "القيادة في المطر | Driving in rain",
-            "risk": "خطر انزلاق الحافلات بسبب حالة الطريق الزلقة إضافة إلى تدني مستوى الرؤية ما قد يسبب الحوادث المرورية | Risk of slipping due to road slippery condition, in addition to low visibility which may cause accidents",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/5/15 n",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "الصيانة الدورية للحافلات لتأهيلها على السير في الحالات الجوية المختلفة",
@@ -1422,14 +1299,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "القيادة في الضباب | Driving in fog",
-            "risk": "خطر تدني مستوى الرؤية ما قد يسبب الحوادث المرورية | Risk of low visibility which may cause accidents",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/5/15 y",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "الصيانة الدورية للحافلات لتأهيلها على السير في الحالات الجوية المختلفة",
@@ -1451,14 +1325,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "القيادة الليلية المتأخرة أو المبكرة جداً | Late night/ Early morning Driving",
-            "risk": "عدم وضوح الرؤية أثناء الظلام قد تتسبب بالحوادث المرورية | Inadequate vision in the dark may cause traffic accidents",
-            "peopleExposedToRisk": "جميع ركاب الحافلة، مستخدمي الطريق | All bus passengers, road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/5/15 n",
+            "riskAssessment": "3/5/15",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "الصيانة الدورية الوقائية لجميع الحافلات لتأهيلها للسير بشكل آمن أثناء الظلام",
@@ -1484,14 +1355,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "شديد (Extreme)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "عبور مستخدمي الطريق بغير الأماكن المخصصة | Crossing of road users in undesignated areas",
-            "risk": "تعرض مستخدمي الطريق لحالات الدهس | Road users are exposed to run over accidents",
-            "peopleExposedToRisk": "مستخدمي الطريق | Road users",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "4/4/16 Y",
+            "riskAssessment": "4/4/16",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تزويد الحافلات بمثبت السرعة بحيث لا تزيد عن 80 كم للساعة",
@@ -1511,14 +1379,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "منخفض (Low)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "القيادة اثناء العواصف والامطار الشديدة وجريان الأودية والفيضانات | Driving during storms, heavy rain, valleys, and floods",
-            "risk": "تعرض الحافلة للغرق، الانحراف، التدهور، الانجراف، او الحوادث نتيجة الفيضانات | The bus has been drowned, swerved, deteriorated, drifting, or had an accident because of flooding",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "غرق، إصابات متفاوتة،  وفيات | Drowning, various injuries, fatalities",
-            "riskAssessment": "1/5/5 y",
+            "riskAssessment": "1/5/5",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "توجيه السائقين بضرورة إيقاف الحافلة في مكان آمن وعدم تعريض المنقولين لأي خطر ممكن في حال مواجهة سيناريو مشابه",
@@ -1542,14 +1407,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "متوسط (Moderate)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "تقليل السرعة بشكل مفاجئ او التوقف المفاجئ | Suddenly reduce the speed or harsh brake",
-            "risk": "صدم الحافلة من الخلف من قبل المركبات الأخرى | Hitting the bus from rear by other vehicles",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة | Various injuries",
-            "riskAssessment": "3/3/9 y",
+            "riskAssessment": "3/3/9",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تركيب أحزمة الامان على المقاعد في جميع الحافلات",
@@ -1575,14 +1437,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "عالي (High)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "صعود ونزول مشرفي النقل والسلامة في مناطق التحميل والتنزيل (أمام المدارس والمنازل) | Boarding and Disembarking safety supervisors (loading and unloading zone, in front of the schools & houses)",
-            "risk": "تعرض مشرفي النقل والسلامة للدهس من قبل الحافلة المدرسية أو المركبات الأخرى على الطريق | Safety supervisors may be at risk of run over accidents by school bus or other vehicles while boarding or disembarking",
-            "peopleExposedToRisk": "مشرفي النقل والسلامة | Safety supervisors",
-            "expectedInjury": "إصابات متفاوتة، وفيات | Various injuries, fatalities",
-            "riskAssessment": "3/4/12 y",
+            "riskAssessment": "3/4/12",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "ارتداء السترة العاكسة من قبل مشرفي النقل والسلامة أثناء العمل",
@@ -1614,14 +1473,11 @@
         "appliesTo": "trafficLine",
         "translatedQuestion": "BASIC",
         "answerDetails": {
-            "causeOfRisk": "الطريق | The route",
+            "initialRiskLevel": "متوسط (Moderate)",
             "activity": "نقل الطلاب من البيت إلى المدرسة وبالعكس | Transport student from home to school and vice versa",
-            "typeOfActivity": "روتيني | Routine",
             "hazardSource": "تقليل السرعة بشكل مفاجئ او التوقف المفاجئ | Suddenly reduce the speed or harsh brake",
-            "risk": "صدم الحافلة من الخلف من قبل المركبات الأخرى | Hitting the bus from rear by other vehicles",
-            "peopleExposedToRisk": "جميع ركاب الحافلة | All bus passengers",
-            "expectedInjury": "إصابات متفاوتة | Various injuries",
-            "riskAssessment": "3/3/9 y",
+            "riskAssessment": "3/3/9",
+            "residualRiskLevel": "منخفض (Low)",
             "controlMeasures": {
                 "ar": [
                     "تركيب أحزمة الامان على المقاعد في جميع الحافلات",

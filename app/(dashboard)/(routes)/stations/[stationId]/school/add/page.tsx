@@ -98,7 +98,7 @@ const page = ({
                                             <SelectContent dir={language === 'ar' ? 'rtl' : 'ltr'}>
                                                 <SelectGroup>
                                                     <SelectLabel>{t('Contracts')}</SelectLabel>
-                                                    <SelectItem value="مؤسسة الامارات للتعليم">{t('Contracts')}</SelectItem>
+                                                    <SelectItem value="مؤسسة الامارات للتعليم">{t('Emirates Education Foundation')}</SelectItem>
                                                     <SelectItem value="اخري">{t('Other')}</SelectItem>
                                                 </SelectGroup>
                                             </SelectContent>

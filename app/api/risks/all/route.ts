@@ -11,6 +11,11 @@ export async function GET(req: NextRequest) {
             select: {
                 appliesTo: true,
                 answers: {
+                    orderBy: {
+                        question: {
+                            orderd: 'asc'
+                        }
+                    },
                     include: {
                         controlMeasures: {
                             select: {

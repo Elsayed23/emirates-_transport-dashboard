@@ -107,7 +107,7 @@ const page = ({ params: { stationId } }) => {
             <div className="flex flex-col gap-9">
                 <DynamicBreadcrumb routes={breadcrumbData} />
                 {
-                    user?.role?.name === 'ADMIN'
+                    user?.role?.name === 'ADMIN' || user?.role?.name === 'OPERATIONS_MANAGER'
                     &&
                     <Link href={`/stations/${stationId}/school/add`}>
                         <Button className='self-start w-fit'>{t('Add school')}</Button>

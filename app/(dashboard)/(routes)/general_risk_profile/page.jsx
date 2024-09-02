@@ -12,16 +12,20 @@ import {
 } from "@/components/ui/table";
 import LanguageContext from '@/app/context/LanguageContext';
 import useTranslation from '@/app/hooks/useTranslation';
+import Loading from '../../_components/Loading';
 
 const Page = () => {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const { data } = await axios.get('/api/risks/all'); // Replace with your actual API endpoint
-
                 setData(data);
+                console.log(data);
+
+                setLoading(false)
             } catch (error) {
                 console.error('Error fetching the risks data:', error);
             }
@@ -42,6 +46,9 @@ const Page = () => {
     };
     const { language } = useContext(LanguageContext);
 
+    if (loading) return <Loading />
+
+
     return (
         <div className='flex flex-col p-6'>
             <h1 className='font-medium text-center text-3xl'>{t('General Risk Register')}</h1>
@@ -53,46 +60,83 @@ const Page = () => {
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[50px] text-center bg-blue-950 text-xs px-0 text-white border border-black">م <br /> NO</TableHead>
-                                <TableHead className="w-[100px] text-center bg-blue-950 text-xs px-0 text-white border border-black">سبب الخطر <br /> Cause of risk</TableHead>
                                 <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[200px]'>النشاط <br /> Activity</TableHead>
-                                <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[80px]'>نوع النشاط <br /> Type of Activity</TableHead>
-                                <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[200px]'>مصدر الخطر <br /> Hazard</TableHead>
-                                <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[250px]'>الخطر <br /> Risk</TableHead>
-                                <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[130px]'>الأشخاص المعرضين للخطر <br /> People Exposed to Risk</TableHead>
-                                <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>الإصابة المحتملة <br /> Expected Injury</TableHead>
+                                <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[200px]'>المخاطر المحتملة <br /> Significant Potential Hazards</TableHead>
                                 <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>تقييم الخطر <br /> Risk assessment</TableHead>
+                                <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>
+                                    <span className='font-semibold'>مستوى الخطر</span> منخفض/متوسط/مرتفع /شديد <br /> <span className='font-semibold'> Initial Risk Level </span>  Low/ Moderate/ High/ Extreme
+                                </TableHead>
                                 <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black min-w-[380px]'>تدابير الرقابة الحالية <br /> Existing Control Measures</TableHead>
                                 <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>المخاطر المتبقية <br /> Residual Risk ALARP</TableHead>
+                                <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>
+                                    <span className='font-semibold'>مستوى الخطر المتبقي</span> منخفض/متوسط/مرتفع /شديد <br /> <span className='font-semibold'> Residual Risk Level </span>  Low/ Moderate/ High/ Extreme
+                                </TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             {categoryData.risks.map((risk, riskIdx) => (
-                                <TableRow key={riskIdx} className={`${riskIdx % 2 === 0 ? 'bg-blue-400 bg-opacity-50 hover:bg-blue-100' : ''}`}>
-                                    <TableCell className="font-medium border border-black text-center break-words text-wrap p-2 text-xs">{riskIdx + 1}</TableCell>
-                                    <TableCell className="font-medium border border-black text-center break-words text-wrap p-2 max-w-[100px] text-xs">{splitAndRender(risk.causeOfRisk)}</TableCell>
-                                    <TableCell className="text-center break-words text-wrap p-2 text-xs border border-black max-w-[200px]">{splitAndRender(risk.activity)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[80px]'>{splitAndRender(risk.typeOfActivity)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[200px]'>{splitAndRender(risk.hazardSource)}</TableCell>
-                                    <TableCell className='w-44 text-center break-words text-wrap p-2 text-xs border border-black'>{splitAndRender(risk.risk)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[130px]'>{splitAndRender(risk.peopleExposedToRisk)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{splitAndRender(risk.expectedInjury)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]' dir='ltr'>{risk.riskAssessment}</TableCell>
-                                    <TableCell className='border text-xs text-center p-0 border-black min-w-[380px]'>
-                                        {risk.controlMeasures.map(({ ar, en }, idx) => (
-                                            <div className='w-full grid grid-cols-2' key={idx}>
-                                                <div className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 border-y text-center break-words text-wrap`}>
-                                                    <h3>{language === 'ar' ? ar : en}</h3>
+                                <React.Fragment key={riskIdx}>
+                                    <TableRow className={`${riskIdx % 2 === 0 ? 'bg-blue-400 bg-opacity-50 hover:bg-blue-100' : ''}`}>
+                                        <TableCell className="font-medium border border-black text-center break-words text-wrap p-2 text-xs">{riskIdx + 1}</TableCell>
+                                        <TableCell className="text-center break-words text-wrap p-2 text-xs border border-black max-w-[200px]">{splitAndRender(risk.activity)}</TableCell>
+                                        <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[200px]'>{splitAndRender(risk.hazardSource)}</TableCell>
+                                        <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]' dir='ltr'>
+                                            {risk.riskAssessment.split('/').join(' | ')}
+                                        </TableCell>
+
+                                        <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{risk.initialRiskLevel}</TableCell>
+                                        <TableCell className='border text-xs text-center p-0 border-black min-w-[380px]'>
+                                            {risk.controlMeasures.map(({ ar, en }, idx) => (
+                                                <div className='w-full grid grid-cols-2' key={idx}>
+                                                    <div className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 border-y text-center break-words text-wrap`}>
+                                                        <h3>{language === 'ar' ? ar : en}</h3>
+                                                    </div>
+                                                    <div className='p-1 text-center break-words border-y border-black text-wrap'>
+                                                        <h3>{language === 'ar' ? en : ar}</h3>
+                                                    </div>
                                                 </div>
-                                                <div className='p-1 text-center break-words border-y border-black text-wrap'>
-                                                    <h3>{language === 'ar' ? en : ar}</h3>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </TableCell>
-                                    <TableCell className='text-center break-words text-wrap text-xs border border-black max-w-[100px]'>{risk.residualRisks}</TableCell>
-                                </TableRow>
+                                            ))}
+                                        </TableCell>
+                                        <TableCell className='text-center break-words text-wrap text-xs border border-black max-w-[100px]'>{risk.residualRisks}</TableCell>
+                                        <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{risk.residualRiskLevel}</TableCell>
+                                    </TableRow>
+                                    {risk.id === 'bcdee2a1-7b09-4a4c-9e6f-52de51ccc6ec' && (
+                                        <tr>
+                                            <td colSpan={8} className="text-center text-2xl font-bold py-2">
+                                                {/* Replace 'Test' with your desired header text */}
+                                                السائق/The driver
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {risk.id === '057e9101-231f-4220-ab20-9b89b2c2eee3' && (
+                                        <tr>
+                                            <td colSpan={8} className="text-center text-2xl font-bold py-2">
+                                                {/* Replace 'Test' with your desired header text */}
+                                                المشرف/the supervisor
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {risk.id === 'b7a97fa2-d779-495a-8a8c-0fdb5bc9413e' && (
+                                        <tr>
+                                            <td colSpan={8} className="text-center text-2xl font-bold py-2">
+                                                {/* Replace 'Test' with your desired header text */}
+                                                الطلاب/the students
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {risk.id === 'e3b9be2d-c916-4665-a5fe-e2040ac4c980' && (
+                                        <tr>
+                                            <td colSpan={8} className="text-center text-2xl font-bold py-2">
+                                                {/* Replace 'Test' with your desired header text */}
+                                                المنزل/home
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {/*  */}
+                                </React.Fragment>
                             ))}
                         </TableBody>
+                        {/*  */}
                     </Table>
                 </div>
             ))}

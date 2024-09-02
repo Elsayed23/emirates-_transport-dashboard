@@ -169,9 +169,7 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
     const splitAndRender = (text) => {
         const parts = text?.split('|');
         return (
-            <>
-                {parts[0]}<br />{parts[1]}
-            </>
+            text
         );
     };
 
@@ -310,57 +308,56 @@ const Page = ({ params: { stationId, schoolId, trafficLineId } }) => {
                     <TableHeader>
                         <TableRow>
                             <TableHead className="w-[50px] text-center bg-blue-950 text-xs px-0 text-white border border-black">م <br /> NO</TableHead>
-                            <TableHead className="w-[100px] text-center bg-blue-950 text-xs px-0 text-white border border-black">سبب الخطر <br /> Cause of risk</TableHead>
                             <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[200px]'>النشاط <br /> Activity</TableHead>
-                            <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[80px]'>نوع النشاط <br /> Type of Activity</TableHead>
-                            <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[200px]'>مصدر الخطر <br /> Hazard</TableHead>
-                            <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[250px]'>الخطر <br /> Risk</TableHead>
-                            <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[130px]'>الأشخاص المعرضين للخطر <br /> People Exposed to Risk</TableHead>
-                            <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>الإصابة المحتملة <br /> Expected Injury</TableHead>
+                            <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black max-w-[200px]'>المخاطر المحتملة <br /> Significant Potential Hazards</TableHead>
                             <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>تقييم الخطر <br /> Risk assessment</TableHead>
+                            <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>
+                                <span className='font-semibold'>مستوى الخطر</span> منخفض/متوسط/مرتفع /شديد <br /> <span className='font-semibold'> Initial Risk Level </span>  Low/ Moderate/ High/ Extreme
+                            </TableHead>
                             <TableHead className='text-center bg-blue-950 text-xs px-0 text-white border border-black min-w-[380px]'>تدابير الرقابة الحالية <br /> Existing Control Measures</TableHead>
                             <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>المخاطر المتبقية <br /> Residual Risk ALARP</TableHead>
+                            <TableHead className='text-center bg-blue-950 text-xs p-1 text-white border border-black max-w-[100px]'>
+                                <span className='font-semibold'>مستوى الخطر المتبقي</span> منخفض/متوسط/مرتفع /شديد <br /> <span className='font-semibold'> Residual Risk Level </span>  Low/ Moderate/ High/ Extreme
+                            </TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {risks.map((risk, idx) => {
                             const {
-                                causeOfRisk,
                                 activity,
-                                typeOfActivity,
                                 hazardSource,
                                 risk: riskDescription,
-                                peopleExposedToRisk,
-                                expectedInjury,
                                 riskAssessment,
+                                initialRiskLevel,
+                                residualRiskLevel,
                                 controlMeasures,
                                 residualRisks
                             } = risk.answers[0];
 
                             return (
-                                <TableRow key={idx} className={`${idx % 2 === 0 ? 'bg-blue-400 bg-opacity-50 hover:bg-blue-100' : ''}`}>
+                                <TableRow className={`${idx % 2 === 0 ? 'bg-blue-400 bg-opacity-50 hover:bg-blue-100' : ''}`}>
                                     <TableCell className="font-medium border border-black text-center break-words text-wrap p-2 text-xs">{idx + 1}</TableCell>
-                                    <TableCell className="font-medium border border-black text-center break-words text-wrap p-2 max-w-[100px] text-xs">{splitAndRender(causeOfRisk)}</TableCell>
                                     <TableCell className="text-center break-words text-wrap p-2 text-xs border border-black max-w-[200px]">{splitAndRender(activity)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[80px]'>{splitAndRender(typeOfActivity)}</TableCell>
                                     <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[200px]'>{splitAndRender(hazardSource)}</TableCell>
-                                    <TableCell className='w-44 text-center break-words text-wrap p-2 text-xs border border-black'>{splitAndRender(riskDescription)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[130px]'>{splitAndRender(peopleExposedToRisk)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{splitAndRender(expectedInjury)}</TableCell>
-                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{riskAssessment}</TableCell>
+                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]' dir='ltr'>
+                                        {riskAssessment.split('/').join(' | ')}
+                                    </TableCell>
+
+                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{initialRiskLevel}</TableCell>
                                     <TableCell className='border text-xs text-center p-0 border-black min-w-[380px]'>
                                         {controlMeasures.map(({ ar, en }, idx) => (
                                             <div className='w-full grid grid-cols-2' key={idx}>
-                                                <div key={idx} className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 border-y text-center break-words text-wrap`}>
-                                                    <h3>{ar}</h3>
+                                                <div className={`${language === 'ar' ? 'border-l' : 'border-r'} border-black p-1 border-y text-center break-words text-wrap`}>
+                                                    <h3>{language === 'ar' ? ar : en}</h3>
                                                 </div>
                                                 <div className='p-1 text-center break-words border-y border-black text-wrap'>
-                                                    <h3>{en}</h3>
+                                                    <h3>{language === 'ar' ? en : ar}</h3>
                                                 </div>
                                             </div>
                                         ))}
                                     </TableCell>
                                     <TableCell className='text-center break-words text-wrap text-xs border border-black max-w-[100px]'>{residualRisks}</TableCell>
+                                    <TableCell className='text-center break-words text-wrap p-2 text-xs border border-black max-w-[100px]'>{residualRiskLevel}</TableCell>
                                 </TableRow>
                             );
                         })}

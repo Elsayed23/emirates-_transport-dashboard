@@ -166,15 +166,12 @@ export const POST = async (req: Request) => {
                         appliesTo,
                         answers: {
                             create: {
-                                causeOfRisk: answerDetails.causeOfRisk,
                                 activity: answerDetails.activity,
-                                typeOfActivity: answerDetails.typeOfActivity,
                                 hazardSource: answerDetails.hazardSource,
-                                risk: answerDetails.risk,
-                                peopleExposedToRisk: answerDetails.peopleExposedToRisk,
                                 riskAssessment: answerDetails.riskAssessment,
                                 residualRisks: answerDetails.residualRisks,
-                                expectedInjury: answerDetails.expectedInjury,
+                                initialRiskLevel: answerDetails.initialRiskLevel,
+                                residualRiskLevel: answerDetails.residualRiskLevel,
                                 controlMeasures: {
                                     create: controlMeasures,
                                 },

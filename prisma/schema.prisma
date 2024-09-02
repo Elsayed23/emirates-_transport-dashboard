@@ -196,6 +196,8 @@ model Answer {
   id                  String           @id @default(uuid())
   questionId          String           @unique
   causeOfRisk         String?          @db.LongText
+  initialRiskLevel    String?
+  residualRiskLevel   String?
   activity            String?          @db.LongText
   typeOfActivity      String?          @db.LongText
   hazardSource        String?          @db.LongText
