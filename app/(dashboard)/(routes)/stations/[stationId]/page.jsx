@@ -108,10 +108,12 @@ const page = ({ params: { stationId } }) => {
                 <DynamicBreadcrumb routes={breadcrumbData} />
                 {
                     user?.role?.name === 'ADMIN' || user?.role?.name === 'OPERATIONS_MANAGER'
-                    &&
-                    <Link href={`/stations/${stationId}/school/add`}>
-                        <Button className='self-start w-fit'>{t('Add school')}</Button>
-                    </Link>
+                        ?
+                        <Link href={`/stations/${stationId}/school/add`}>
+                            <Button className='self-start w-fit'>{t('Add school')}</Button>
+                        </Link>
+                        :
+                        null
                 }
                 <div className='flex flex-col gap-4'>
                     <h2 className='text-xl font-medium'>{language === 'ar' ? `${t('station')}  ${t(`stationsData.${stationData?.translationName}`)}` : `${t(`stationsData.${stationData?.translationName}`)} ${t('station')}`} : <span className='font-semibold'>{t('Emirates Education Foundation contract')}</span></h2>
